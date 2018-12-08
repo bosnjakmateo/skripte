@@ -6,22 +6,22 @@ const chai = require('chai')
 const expect = require('chai').expect
 
 // Load model
-const City = require("../models/City")
+const University = require("../models/University")
 
 chai.use(require('chai-http'))
 
 const app = require('../server.js')
 
-describe('API endpoint /cities', function () {
+describe('API endpoint /universities', function () {
     this.timeout(5000)
 
-    // POST - Add new city
-    it('should add new city', function () {
+    // POST - Add new university
+    it('should add new university', function () {
         return chai.request(app)
-            .post('/cities')
+            .post('/universities')
             .send(
                 {
-                    "name": "Rovinj"
+                    "name": "Sveuciliste Juraj Dobrila u Puli"
                 }
             )
             .then(function (res) {
@@ -30,10 +30,10 @@ describe('API endpoint /cities', function () {
             })
     })
 
-    // GET - Get all cities
-    it('should return all cities', function () {
+    // GET - Get all universities
+    it('should return all universities', function () {
         return chai.request(app)
-            .get('/cities')
+            .get('/universities')
             .then(function (res) {
                 expect(res).to.have.status(200)
                 expect(res).to.be.json
@@ -41,12 +41,12 @@ describe('API endpoint /cities', function () {
             })
     })
 
-    // GET - Get one city
-    it('should return one city', async function () {
-        let id = await City.findOne()
-                    .then(city => {return city._id})
+    // GET - Get one university
+    it('should return one university', async function () {
+        let id = await University.findOne()
+                    .then(university => {return university._id})
         return chai.request(app)
-            .get(`/cities/${id}`)
+            .get(`/universities/${id}`)
             .then(function (res) {
                 expect(res).to.have.status(200)
                 expect(res).to.be.json
@@ -54,12 +54,12 @@ describe('API endpoint /cities', function () {
             })
     })
 
-    // PATCH - Patch one city
-    it('should patch one city', async function () {
-        let id = await City.findOne()
-                    .then(city => {return city._id})
+    // PATCH - Patch one university
+    it('should patch one university', async function () {
+        let id = await University.findOne()
+                    .then(university => {return university._id})
         return chai.request(app)
-            .patch(`/cities/${id}`)
+            .patch(`/universities/${id}`)
             .send({
                 "name": "Porec"
             })
@@ -70,21 +70,21 @@ describe('API endpoint /cities', function () {
             })
     })
 
-    // DELETE - Delete one city
-    it('should return one city', async function () {
-        let id = await City.findOne()
-                    .then(city => {return city._id})
+    // DELETE - Delete one university
+    it('should return one university', async function () {
+        let id = await University.findOne()
+                    .then(university => {return university._id})
         return chai.request(app)
-            .delete(`/cities/${id}`)
+            .delete(`/universities/${id}`)
             .then(function (res) {
                 expect(res).to.have.status(200)
             })
     })
 
-    // DELETE - Delete all cities
-    it('should delete all cities', function () {
+    // DELETE - Delete all universities
+    it('should delete all universities', function () {
         return chai.request(app)
-            .delete('/cities')
+            .delete('/universities')
             .then(function (res) {
                 expect(res).to.have.status(200)
             })
