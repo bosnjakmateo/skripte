@@ -90,7 +90,7 @@ router.delete("/:id", (req, res) => {
 // @access  Public
 router.delete("/", (req, res) => {
     Script.deleteMany({})
-        .then(script => res.json( {message: "Cities removed"} ))
+        .then(script => res.json( {message: "Scripts removed"} ))
         .catch(err => res.status(404).json({ message: "No scripts to delete" }))
 })
 

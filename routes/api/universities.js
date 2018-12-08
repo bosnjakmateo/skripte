@@ -90,7 +90,7 @@ router.delete("/:id", (req, res) => {
 // @access  Public
 router.delete("/", (req, res) => {
     University.deleteMany({})
-        .then(university => res.json( {message: "Cities removed"} ))
+        .then(university => res.json( {message: "Universities removed"} ))
         .catch(err => res.status(404).json({ message: "No universities to delete" }))
 })
 
