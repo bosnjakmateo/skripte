@@ -68,6 +68,11 @@
 ### Response 200 (application/json)
         returns all scripts
 
+### Response 404 (application/json)
+```json
+    message: "No scripts where found"
+```
+
 
 # Colleges
 
@@ -89,6 +94,11 @@
 ### Response 200 (application/json)
         returns all colleges
 
+### Response 404 (application/json)
+```json
+    message: "No colleges where found"
+```
+
 
 # Universities
 
@@ -100,13 +110,18 @@
 ```
 
 ### Response 200 (application/json)
-        returns created college
+        returns created universities
 
 ## GET api/universities
 ### Get all universities
 
 ### Response 200 (application/json)
-        returns all colleges
+        returns all universities
+
+### Response 404 (application/json)
+```json
+    message: "No universities where found"
+```
 
 
 # Cities
@@ -126,3 +141,20 @@
 
 ### Response 200 (application/json)
         returns all cities
+
+### Response 404 (application/json)
+```json
+    message: "No cities where found"
+```
+
+## DELETE api/cities
+### Delete all cities
+
+### Response 200 (application/json)
+```json
+    message: "Cities removed"
+```
+### Response 404 (application/json)
+```json
+    message: "No cities to delete"
+```

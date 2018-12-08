@@ -42,4 +42,58 @@ router.get("/", (req, res) => {
         .catch(err => res.status(404).json({ message: "No cities where found" }))
 })
 
+// @route   GET api/cities/:id
+// @desc    Get city by id
+// @access  Public
+router.get("/:id", (req, res) => {
+    City.findById(req.params.id)
+        .then(city => res.json(city))
+        .catch(err => res.status(404).json({ message: "No city was found" }))
+})
+
+// @route   PATCH api/cities/:id
+// @desc    Update a city
+// @access  Public
+router.patch("/:id", (req, res) => {
+  const { errors, isValid } = validateCityInput(req.body)
+  if(!isValid) {
+      return res.status(400).json(errors)
+  }
+
+  City.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
+      .then(city => {
+        if(!city){
+          return res.status(404).json({message: "City to update not found"});
+        } else {
+          return res.json(city)
+        }
+      })
+      .catch(err => console.log(err));
+
+})
+
+// @route   DELETE api/cities/:id
+// @desc    Remove a city by id
+// @access  Public
+router.delete("/:id", (req, res) => {
+    City.findOneAndDelete({ _id: req.params.id})
+        .then(city => {
+          if(!city){
+            return res.status(404).json({ message: "City to delete not found"});
+          } else{
+            return res.json( {message: "City deleted"} )
+          }
+        })
+        .catch(err => console.log(err));
+})
+
+// @route   DELETE api/cities
+// @desc    Get all cities
+// @access  Public
+router.delete("/", (req, res) => {
+    City.deleteMany({})
+        .then(city => res.json( {message: "Cities removed"} ))
+        .catch(err => res.status(404).json({ message: "No cities to delete" }))
+})
+
 module.exports = router
