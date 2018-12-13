@@ -7,9 +7,19 @@ const validateCityInput = require("../../validation/city")
 // Load models
 const City = require("../../models/City")
 
-// @route   POST api/cities
-// @desc    Add a city
-// @access  Public
+
+/**
+ * @api {post} cities/ Add a city
+ * @apiName PostCity
+ * @apiGroup City
+ *
+ * @apiParam {String} name City name 3-50 chars
+ *
+ * @apiSuccess {Number} id City id
+ * @apiSuccess {String} name City name
+ * 
+ * @apiError {String} message="City already exists"
+ */
 router.post("/", (req, res) => {
     const { errors, isValid } = validateCityInput(req.body)
 
@@ -33,27 +43,52 @@ router.post("/", (req, res) => {
         .catch(err => req.json(err))
 })
 
-// @route   GET api/cities
-// @desc    Get all cities
-// @access  Public
+/**
+ * @api {get} cities/ Get all cities
+ * @apiName GetCities
+ * @apiGroup City
+ *
+ * @apiSuccess {Number} id City id
+ * @apiSuccess {String} name City name 
+ * 
+ * @apiError {String} message="No cities were found"
+ */
 router.get("/", (req, res) => {
     City.find()
         .then(city => res.json(city))
         .catch(err => res.status(404).json({ message: "No cities where found" }))
 })
 
-// @route   GET api/cities/:id
-// @desc    Get city by id
-// @access  Public
+/**
+ * @api {get} cities/:id Get city by id
+ * @apiName GetCity
+ * @apiGroup City
+ *
+ * @apiParam {Number} id City id
+ *
+ * @apiSuccess {Number} id City id
+ * @apiSuccess {String} name City name 
+ * 
+ * @apiError {String} message="No city was found"
+ */
 router.get("/:id", (req, res) => {
     City.findById(req.params.id)
         .then(city => res.json(city))
         .catch(err => res.status(404).json({ message: "No city was found" }))
 })
 
-// @route   PATCH api/cities/:id
-// @desc    Update a city
-// @access  Public
+/**
+ * @api {patch} cities/:id Edit a city
+ * @apiName PatchCity
+ * @apiGroup City
+ *
+ * @apiParam {Number} id City id
+ *
+ * @apiSuccess {Number} id City id
+ * @apiSuccess {String} name City name
+ * 
+ * @apiError {String} message="City to update not found"
+ */
 router.patch("/:id", (req, res) => {
   const { errors, isValid } = validateCityInput(req.body)
   if(!isValid) {
@@ -72,9 +107,17 @@ router.patch("/:id", (req, res) => {
 
 })
 
-// @route   DELETE api/cities/:id
-// @desc    Remove a city by id
-// @access  Public
+/**
+ * @api {delete} cities/:id Delete a city
+ * @apiName DeleteCity
+ * @apiGroup City
+ *
+ * @apiParam {Number} id City id
+ *
+ * @apiSuccess {String} message="City deleted"
+ * 
+ * @apiError {String} message="City to delete not found"
+ */
 router.delete("/:id", (req, res) => {
     City.findOneAndDelete({ _id: req.params.id})
         .then(city => {
@@ -87,12 +130,18 @@ router.delete("/:id", (req, res) => {
         .catch(err => console.log(err));
 })
 
-// @route   DELETE api/cities
-// @desc    Get all cities
-// @access  Public
+/**
+ * @api {delete} cities/:id Delete all cities
+ * @apiName DeleteCities
+ * @apiGroup City
+ *
+ * @apiSuccess {String} message="Cities deleted"
+ * 
+ * @apiError {String} message="No cities to delete"
+ */
 router.delete("/", (req, res) => {
     City.deleteMany({})
-        .then(city => res.json( {message: "Cities removed"} ))
+        .then(city => res.json( {message: "Cities deleted"} ))
         .catch(err => res.status(404).json({ message: "No cities to delete" }))
 })
 
