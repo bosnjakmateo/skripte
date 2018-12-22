@@ -1,32 +1,72 @@
-.App {
-  text-align: center;
+.login-page{
+    height:100%;
+    width:100%;
+    background: url('Images/bg.svg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.login-container-content{
+    position:relative;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-container{
+    padding-left:5%;
+    padding-right:5%;
+    width:40%;
+    height:100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login-header{
+    margin:0;
+    padding:0;
+    font-size:103px;
+    color:white;
 }
 
-.App-link {
-  color: #61dafb;
+.login-paragraph{
+    font-size:22px;
+    color:white;
+    padding-bottom:10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-forms input{
+    width:70%;
+    margin-top:15px;
+    margin-bottom:15px;
+    height:35px;
+    transform: skewX(-25deg);
+    text-indent: 20px;
+    margin-left:8px;
+    border:0;
+    background-color:#9CC4FF;
+}
+
+input:focus{
+    outline: none;
+}
+
+.buttons-login{
+    width:32%;
+    height:50px;
+    transform: skewX(-25deg);
+    margin-top:30px;
+}
+
+.button-prijava{
+    margin-right:15px;
+}
+
+.button-registracija{
+    margin-left:15px;
+}
+
+.button-seperator{
+    color:#DBDBDB;
+    font-size:21px;
 }
