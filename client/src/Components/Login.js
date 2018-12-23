@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-
+import Papers from "../Images/papers.svg"
 
 class Login extends Component {
     render() {
@@ -21,11 +21,16 @@ class Login extends Component {
                                     <input type="text" name="name" placeholder="Lozinka" />
                                 </label>
                             </form>
-                            <button className="buttons-login button-prijava">Prijava</button>
+                        </div>
+                        <div className="login-buttons-container">
+                            <button className="buttons-login button-prijava">PRIJAVA</button>
                             <span className="button-seperator">ili</span>
-                            <button className="buttons-login button-registracija">Registracija</button>
+                            <button className="buttons-login button-registracija">REGISTRACIJA</button>
                         </div>
                     </div>
+                </div>
+                <div className="paper-container">
+                    <img className="paper-image" src={Papers}/>
                 </div>
             </div>
         );

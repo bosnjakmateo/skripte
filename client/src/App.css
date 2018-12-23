@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Josefin+Sans');
+
 .login-page{
     height:100%;
     width:100%;
@@ -6,6 +8,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: Averia Libre, sans-serif !important;
+    position: fixed;
 }
 
 .login-container-content{
@@ -27,12 +31,22 @@
     padding:0;
     font-size:103px;
     color:white;
+    font-style:italic;
+    font-family: Josefin Sans, sans-serif !important;
+}
+
+.login-header h1{
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
 }
 
 .login-paragraph{
     font-size:22px;
     color:white;
     padding-bottom:10px;
+}
+
+.login-paragraph p{
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
 }
 
 .login-forms input{
@@ -45,17 +59,23 @@
     margin-left:8px;
     border:0;
     background-color:#9CC4FF;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    font-family: Averia Libre, sans-serif !important;
 }
 
 input:focus{
     outline: none;
 }
+button:focus{
+    outline: none;
+}
 
 .buttons-login{
-    width:32%;
+    width:200px;
     height:50px;
     transform: skewX(-25deg);
     margin-top:30px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
 }
 
 .button-prijava{
@@ -69,4 +89,226 @@ input:focus{
 .button-seperator{
     color:#DBDBDB;
     font-size:21px;
+}
+
+.buttons-login{
+    font-weight: bold;
+    font-size:17px;
+    letter-spacing: 1px;
+    font-family: Averia Libre, sans-serif !important;
+}
+
+.button-prijava{
+    color:#3384FF;
+    border:0;
+    transition:0.2s ease;
+}
+
+.button-prijava:hover{
+    transition:0.2s ease;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0.8);
+
+}
+
+.button-registracija{
+    color:white;
+    border-color:white;
+    border-style: solid;
+    border-width: 5px;
+    background:transparent;
+    transition:0.2s ease;
+}
+
+.button-registracija:hover{
+    background:white;
+    color:#3384FF;
+    transition:0.2s ease;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+}
+
+.button-seperator{
+    font-style:italic;
+}
+
+.paper-container{
+    width: 47%;
+    position: absolute;
+    top:10%;
+    right: 0;
+    transform: rotate(20deg);
+}
+
+.paper-image{
+    max-width:45vmax;
+    height:auto;
+}
+@media screen and (max-width: 1350px) {
+    .paper-image{
+        max-width:50vmax;
+        height:auto;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .login-forms input{
+        width:85%;
+        margin-left:8px;
+    }
+    .buttons-login{
+        width:170px;
+        height:45px;
+        margin-top:25px;
+    }
+    .login-header{
+        font-size:90px;
+    }
+    .login-paragraph{
+        font-size:20px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .paper-image{
+        max-width:80vmax;
+        height:auto;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .paper-container{
+        width: 53%;
+        top:10%;
+        right:-5%;
+    }
+    .buttons-login{
+        width:150px;
+        height:40px;
+        margin-top:20px;
+    }
+    .login-header{
+        font-size:60px;
+    }
+    .login-paragraph{
+        font-size:16px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .paper-container{
+        width: 45%;
+    }
+    .buttons-login{
+        width:130px;
+        height:37px;
+        margin-top:18px;
+        font-size:14px;
+    }
+    .login-header{
+        font-size:40px;
+    }
+    .login-paragraph{
+        font-size:14px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .paper-container{
+        display:none;
+    }
+    .buttons-login{
+        width:130px;
+        height:40px;
+        margin-top:25px;
+        font-size:14px;
+        margin-bottom:35px;
+    }
+    .login-header{
+        font-size:50px;
+        margin-bottom:25px;
+    }
+    .login-paragraph{
+        font-size:16px;
+        margin-bottom:20px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 95%;
+    }
+}
+
+@media (min-height: 1020px) and (max-width: 800px) {
+    .paper-image{
+        display:none;
+    }
+    .buttons-login{
+        width:180px;
+        height:50px;
+        margin-top:35px;
+        font-size:20px;
+        margin-bottom:35px;
+    }
+    .login-header{
+        font-size:90px;
+        margin-bottom:35px;
+    }
+    .login-paragraph{
+        font-size:20px;
+        margin-bottom:40px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 93%;
+    }
+    .login-forms input{
+        height:45px;
+    }
+}
+
+@media (min-height: 1100px) and (max-width: 1100px) {
+    .paper-image{
+        display:none;
+    }
+    .buttons-login{
+        width:210px;
+        height:55px;
+        margin-top:40px;
+        font-size:24px;
+        margin-bottom:45px;
+    }
+    .login-header{
+        font-size:110px;
+        margin-bottom:45px;
+    }
+    .login-paragraph{
+        font-size:24px;
+        margin-bottom:50px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 93%;
+    }
+    .login-forms input{
+        height:50px;
+    }
 }
