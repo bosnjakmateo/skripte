@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { registerUser } from "../Actions/authActions";
+import classnames from 'classnames';
 
 class Registration extends Component {
     constructor(props){
@@ -20,11 +21,9 @@ class Registration extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    componentWIllReceiveProps(nextProps){
-        if(nextProps.errors){
-            this.setState({
-                errors: nextProps.errors
-            });
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
         }
     }
 
@@ -44,11 +43,11 @@ class Registration extends Component {
 
         };
         console.log(newUser);
-
-        this.props.registerUser(newUser);
+        this.props.registerUser(newUser, this.props.history);
     }
 
     render() {
+        const {errors} = this.state;
 
         return (
             <div className="registration-page">
@@ -62,19 +61,36 @@ class Registration extends Component {
                                 <label>
 
                                     <div className="label">
-                                        <h3>Korisničko ime:</h3>
+                                        <h3
+                                            className={classnames('',{
+                                                'shake make-red' : errors.username
+                                            })}
+                                        >
+                                            Korisničko ime:
+                                        </h3>
                                         <input
+                                            className={classnames('registration-inputs',{
+                                                'is-invalid shake' : errors.username
+                                            })}
                                             type="text"
                                             name="username"
                                             value={this.state.username}
                                             onChange={this.onChange}
-
                                         />
                                     </div>
 
                                     <div className="label">
-                                        <h3>Email:</h3>
+                                        <h3
+                                            className={classnames('',{
+                                                'shake make-red' : errors.email
+                                            })}
+                                        >
+                                            Email:
+                                        </h3>
                                         <input
+                                            className={classnames('registration-inputs',{
+                                                'is-invalid shake' : errors.email
+                                            })}
                                             type="email"
                                             name="email"
                                             value={this.state.email}
@@ -83,8 +99,17 @@ class Registration extends Component {
                                     </div>
 
                                     <div className="label">
-                                        <h3>Lozinka:</h3>
+                                        <h3
+                                            className={classnames('',{
+                                                'shake make-red' : errors.password
+                                            })}
+                                        >
+                                            Lozinka:
+                                        </h3>
                                         <input
+                                            className={classnames('registration-inputs',{
+                                                'is-invalid shake' : errors.password
+                                            })}
                                             type="password"
                                             name="password"
                                             value={this.state.password}
@@ -93,8 +118,17 @@ class Registration extends Component {
                                     </div>
 
                                     <div className="label">
-                                        <h3>Ponovi lozinku:</h3>
+                                        <h3
+                                            className={classnames('',{
+                                                'shake make-red' : errors.password2
+                                            })}
+                                        >
+                                            Ponovi lozinku:
+                                        </h3>
                                         <input
+                                            className={classnames('registration-inputs',{
+                                                'is-invalid shake' : errors.password2
+                                            })}
                                             type="password"
                                             name="password2"
                                             value={this.state.password2}

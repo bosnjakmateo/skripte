@@ -2,17 +2,32 @@ import React, { Component } from 'react';
 import '../App.css';
 import Papers from "../Images/papers.svg"
 import { Link } from 'react-router-dom';
+import {connect} from "react-redux";
+import { loginUser } from "../Actions/authActions";
+import PropTypes from 'prop-types';
+import classnames from "classnames";
 
 class Login extends Component {
     constructor(props){
         super(props);
         this.state = {
             email:"",
-            lozinka:""
+            password:"",
+            errors: {}
         };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/home');
+        }
+
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
     }
 
     onChange(event){
@@ -24,16 +39,17 @@ class Login extends Component {
     onSubmit(event){
         event.preventDefault();
 
-        const user = {
+        const userData = {
             email: this.state.email,
-            lozinka: this.state.lozinka
+            password: this.state.password
         };
 
-        console.log(user)
+        this.props.loginUser(userData);
     }
 
-
     render() {
+        const {errors} = this.state;
+
         return (
             <div className="login-page">
                 <div className="login-container">
@@ -47,6 +63,9 @@ class Login extends Component {
                             <form onSubmit={this.onSubmit}>
                                 <label>
                                     <input
+                                        className={classnames('empty',{
+                                            'make-red shake' : errors.email
+                                        })}
                                         type="email"
                                         name="email"
                                         placeholder="Email"
@@ -54,10 +73,14 @@ class Login extends Component {
                                         onChange={this.onChange}
                                     />
                                     <br />
-                                    <input type="password"
-                                           name="lozinka"
-                                           placeholder="Lozinka"
-                                           value={this.state.lozinka}
+                                    <input
+                                        className={classnames('empty',{
+                                            'make-red shake' : errors.password
+                                        })}
+                                        type="password"
+                                           name="password"
+                                           placeholder="lozinka"
+                                           value={this.state.password}
                                            onChange={this.onChange}
                                     />
                                 </label>
@@ -78,4 +101,16 @@ class Login extends Component {
     }
 }
 
-export default Login;
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, { loginUser })(Login);
+
