@@ -94,7 +94,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <div className="paper-container">
-                    <img className="paper-image" src={Papers}/>
+                    <img alt="login-image" className="paper-image" src={Papers}/>
                 </div>
             </div>
         );

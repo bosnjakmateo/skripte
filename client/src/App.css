@@ -636,3 +636,176 @@ button:focus{
 }
 
 /*####################################################      END OF Register.js COMPONENT       ####################################################*/
+
+
+.navbar{
+    width:100%;
+    background-color:#3384FF;
+    margin:0;
+    padding:0;
+    height:40px;
+    position:relative;
+
+}
+
+.logo{
+    font-size:24px;
+    padding:0;
+    margin:0;
+    color:white;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:5%;
+}
+
+.navbar-menu{
+    padding:0;
+    margin:0;
+    color:white;
+    display: flex;
+    align-items: center;
+    position:absolute;
+    right:5%;
+}
+
+.navbar-link{
+    font-weight: bold;
+    vertical-align:middle;
+    margin-right:15px;
+}
+
+.navbar-logout-icon{
+    height:37px;
+    margin-left:15px;
+    margin-top: 1px;
+}
+
+.second-navbar{
+    height:45px;
+    position:relative;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+}
+.second-navbar-title{
+    margin:0;
+    font-size:19px;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:5%;
+    color:#3384FF;
+}
+
+.second-navbar-search{
+    padding:0;
+    margin:0;
+    position:absolute;
+    right:5%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width:28%;
+}
+
+.second-navbar-search-input{
+    width:100%;
+    border:0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    padding:4px 0px;
+}
+
+.kolegij-card-container{
+    margin-left: 5%;
+    width:60%;
+    position:absolute;
+    top:0;
+}
+
+.kolegij-card{
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    height:60px;
+    position:relative;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+}
+
+.kolegij-card-title{
+    margin: 0 20px;
+    font-size:20px;
+    color:#3384FF;
+    position:absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.favorite-kolegiji-container{
+    width:28%;
+    top:0;
+    position:absolute;
+    right:5%;
+}
+
+.main-container{
+    position:relative;
+}
+
+.favorite-kolegiji{
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    margin-top: 20px;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.favorite-kolegiji-name-container{
+    height:50px;
+    background-color:#3384FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:20px;
+}
+
+.favorite-kolegiji-name{
+    font-size:20px;
+    color:white;
+    align-self: center;
+}
+
+.favorite-kolegiji-card{
+    width:90%;
+    align-self: center;
+    margin-top:10px;
+    margin-bottom:20px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+}
+
+.favorite-kolegij-card-content{
+    margin-left:10px;
+}
+
+.favorite-kolegij-card-title{
+    font-size:20px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:5px;
+    color:#3384FF;
+}
+
+.favorite-kolegij-card-type{
+    font-size:17px;
+    margin:5px;
+}
+
+.favorite-kolegij-card-date{
+    font-size:16px;
+    margin:5px;
+}
+
+.favorite-kolegij-card-description{
+    font-size:14px;
+    margin:10px 5px;
+}
