@@ -667,18 +667,31 @@ button:focus{
     align-items: center;
     position:absolute;
     right:5%;
+    text-decoration: none;
 }
 
 .navbar-link{
     font-weight: bold;
     vertical-align:middle;
     margin-right:15px;
+    margin-left:15px;
+    color:white;
+    background: transparent;
+    border:0;
+}
+
+.navbar-link:hover{
+    cursor:pointer;
 }
 
 .navbar-logout-icon{
     height:37px;
     margin-left:15px;
     margin-top: 1px;
+}
+
+.navbar-logout-icon{
+    cursor:pointer;
 }
 
 .second-navbar{
@@ -728,6 +741,13 @@ button:focus{
     height:60px;
     position:relative;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+.kolegij-card:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    transition:0.2s ease;
 }
 
 .kolegij-card-title{
@@ -781,6 +801,14 @@ button:focus{
     margin-top:10px;
     margin-bottom:20px;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    transition:0.2s ease;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.favorite-kolegiji-card:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    transition:0.2s ease;
 }
 
 .favorite-kolegij-card-content{
@@ -808,4 +836,31 @@ button:focus{
 .favorite-kolegij-card-description{
     font-size:14px;
     margin:10px 5px;
+}
+
+.institution-type{
+    width:100%;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    height:60px;
+    display:flex;
+    flex-direction: column;
+    margin:20px 0;
+    cursor:pointer;
+}
+
+.institution-type-title{
+    font-size:22px;
+    color:#3384FF;
+    margin-left:20px;
+
+}
+
+.institution-container{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.institution-count{
+    color:#3384FF;
+    font-size: 15px;
 }

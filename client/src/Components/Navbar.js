@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import logout_icon from "../Images/logout.svg";
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     constructor(props){
@@ -13,11 +14,20 @@ class Navbar extends Component {
         return (
             <div className="navbar">
                 <div className="navbar-logo">
-                    <h1 className="logo">SKRIPTE</h1>
+                    <Link to="/home">
+                        <h1 className="logo">SKRIPTE</h1>
+                    </Link>
                 </div>
                 <div className="navbar-menu">
-                    <a className="navbar-link">Moji Kolegiji</a>
-                    <img className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
+                    <Link to="/svikolegiji">
+                        <button className="navbar-link">SVI KOLEGIJI</button>
+                    </Link>
+                    <Link to="/home">
+                        <button className="navbar-link">MOJI KOLEGIJI</button>
+                    </Link>
+                    <Link to="/login">
+                        <img className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
+                    </Link>
                 </div>
             </div>
         );
