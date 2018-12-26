@@ -32,8 +32,6 @@ class Home extends Component {
                         <KolegijCard/>
                         <KolegijCard/>
                         <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
                     </div>
                     <div className="favorite-kolegiji-container">
                         <FavoriteKolegiji/>

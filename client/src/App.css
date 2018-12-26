@@ -618,7 +618,7 @@ button:focus{
         height:60px;
         margin-top:35px;
         font-size:17px;
-        letter-spacing: 1;
+        letter-spacing: 1px;
     }
 
     .button-prijavi-se{
@@ -685,9 +685,9 @@ button:focus{
 }
 
 .navbar-logout-icon{
-    height:37px;
+    height:34px;
     margin-left:15px;
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 .navbar-logout-icon{
@@ -743,6 +743,7 @@ button:focus{
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     cursor:pointer;
     transition:0.2s ease;
+    border-radius:5px;
 }
 
 .kolegij-card:hover{
@@ -778,6 +779,7 @@ button:focus{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 5px;
 }
 
 .favorite-kolegiji-name-container{
@@ -787,6 +789,7 @@ button:focus{
     flex-direction: column;
     justify-content: center;
     margin-bottom:20px;
+    border-radius: 5px 5px 0 0;
 }
 
 .favorite-kolegiji-name{
@@ -864,3 +867,185 @@ button:focus{
     color:#3384FF;
     font-size: 15px;
 }
+
+
+
+.kolegij-second-navbar{
+    position:relative;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+.kolegij-second-navbar-title{
+    font-size: 19px;
+    color: #3384FF;
+    margin: 0;
+    padding-top: 7px;
+    margin-left: 5%;
+    padding-bottom: 15px;
+
+}
+
+.kolegij-second-navbar-search{
+    margin-left:5%;
+    padding-bottom: 15px;
+}
+
+.kolegij-second-navbar-search-input::placeholder {
+    opacity: 0.5;
+}
+
+.kolegij-second-navbar-search-input{
+    width:25%;
+    border:0;
+    border-bottom: 1px solid rgba(51, 132, 255, 0.62);
+    padding:4px 0px;
+}
+
+.resours-type-select{
+    width:15%;
+    padding: 3px 10px;
+    margin-left:5%;
+    transition: 0.2s ease-in-out;
+    outline:none;
+    font-size:16px;
+    color: #797979;
+    border-color: rgba(51, 132, 255, 0.62);
+    border-radius:5px;
+}
+
+.skripte-container{
+    margin-left:4%;
+    margin-right:4%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.skripta-card{
+    margin-left:0.6%;
+    height:300px;
+    margin-right:0.6%;
+    width:18%;
+    max-width:19%;
+    margin-top:25px;
+    flex-grow: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    border-radius: 5px;
+    transition:0.2s ease;
+    cursor:pointer;
+}
+
+.skripta-card:hover{
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.50);
+    transition:0.2s ease;
+}
+
+.skripta-card-content{
+    margin:10px;
+}
+
+.skripta-card-title{
+    font-size:16px;
+}
+
+@media screen and (max-width: 1600px) {
+    .skripta-card{
+        width:18%;
+        max-width:18%;
+        margin-left:1%;
+        margin-right:1%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .skripta-card{
+        width:23%;
+        max-width:23%;
+    }
+    .kolegij-second-navbar-search-input{
+        width:35%;
+    }
+    .resours-type-select{
+        width:25%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .skripta-card{
+        width:31%;
+        max-width:32%;
+        height:270px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .skripta-card{
+        width:31%;
+        max-width:32%;
+        height:260px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .skripta-card{
+        width:48%;
+        max-width:48%;
+    }
+    .kolegij-second-navbar-search-input{
+        width:35%;
+        border:0;
+        border-bottom: 1px solid rgba(51, 132, 255, 0.62);
+        padding:4px 0px;
+    }
+    .resours-type-select{
+        width:27%;
+        padding: 3px 10px;
+        margin-left:3%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .navbar-link{
+        margin-right:0;
+        margin-left:0;
+        font-size:12px;
+    }
+}
+
+
+
+
+
+
+.sidebar {
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    position: fixed;
+    transform: translateX(90%);
+    z-index: 1;
+}
+
+.example-enter {
+    opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+    opacity: 1;
+}
+
+.example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 class KolegijCard extends Component {
     constructor(props){
@@ -10,9 +11,11 @@ class KolegijCard extends Component {
 
     render() {
         return (
-            <div className="kolegij-card">
-                <h1 className="kolegij-card-title">Ime Kolegija Hard Coded</h1>
-            </div>
+            <Link to="/kolegij">
+                <div className="kolegij-card">
+                    <h1 className="kolegij-card-title">Ime Kolegija Hard Coded</h1>
+                </div>
+            </Link>
         );
     }
 }
