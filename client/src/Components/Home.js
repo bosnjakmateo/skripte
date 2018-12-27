@@ -3,6 +3,7 @@ import '../App.css';
 import Navbar from "./Navbar";
 import KolegijCard from "./KolegijCard";
 import FavoriteKolegiji from "./FavoriteKolegiji";
+import Headroom from 'react-headroom';
 
 class Home extends Component {
     constructor(props){
@@ -14,13 +15,15 @@ class Home extends Component {
     render() {
         return (
             <div className="home-page">
-                <Navbar/>
+                <Headroom disableInlineStyles={true}>
+                    <Navbar/>
                 <div className="second-navbar">
                     <h1 className="second-navbar-title">Moji Kolegiji</h1>
                     <div className="second-navbar-search">
                         <input className="second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
                     </div>
                 </div>
+                </Headroom>
                 <div className="main-container">
                     <div className="kolegij-card-container">
                         <KolegijCard/>

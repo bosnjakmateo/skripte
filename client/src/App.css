@@ -697,7 +697,9 @@ button:focus{
 .second-navbar{
     height:45px;
     position:relative;
+    width:100%;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    background-color:white;
 }
 .second-navbar-title{
     margin:0;
@@ -723,7 +725,7 @@ button:focus{
 .second-navbar-search-input{
     width:100%;
     border:0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    border-bottom: 1px solid rgba(51, 132, 255, 0.62);
     padding:4px 0px;
 }
 
@@ -927,7 +929,7 @@ button:focus{
     margin-right:0.6%;
     width:18%;
     max-width:19%;
-    margin-top:25px;
+    margin-top:2%;
     flex-grow: 1;
     display:flex;
     flex-direction: column;
@@ -951,19 +953,31 @@ button:focus{
     font-size:16px;
 }
 
+@media screen and (max-width: 1920px) {
+    .skripta-card{
+        width:16%;
+        max-width:16%;
+        margin-left:2%;
+        margin-right:2%;
+    }
+}
+
 @media screen and (max-width: 1600px) {
     .skripta-card{
-        width:18%;
-        max-width:18%;
-        margin-left:1%;
-        margin-right:1%;
+        width:16%;
+        max-width:16%;
+        margin-left:2%;
+        margin-right:2%;
+        margin-top:2%;
     }
 }
 
 @media screen and (max-width: 1300px) {
     .skripta-card{
-        width:23%;
-        max-width:23%;
+        width:21%;
+        max-width:21%;
+        margin-top:3%;
+
     }
     .kolegij-second-navbar-search-input{
         width:35%;
@@ -975,35 +989,78 @@ button:focus{
 
 @media screen and (max-width: 1050px) {
     .skripta-card{
-        width:31%;
-        max-width:32%;
+        width:29%;
+        max-width:29%;
         height:270px;
+    }
+    .second-navbar-search{
+        width:70%;
+    }
+    .kolegij-card-title{
+        font-size:18px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .favorite-kolegiji-container{
+        width: 90%;
+        margin-left: 5%;
+        position: initial;
+    }
+    .kolegij-card-container{
+        width:90%;
+        margin-left: 5%;
+        position:initial;
+
+    }
+    .hamburger-container{
+        visibility: visible !important;
+    }
+    .navbar-menu{
+        visibility:hidden;
     }
 }
 
 @media screen and (max-width: 840px) {
     .skripta-card{
-        width:31%;
+        width:25%;
         max-width:32%;
         height:260px;
+    }
+}
+@media screen and (max-width: 730px) {
+    .skripta-card{
+        width:44%;
+        max-width:44%;
+        height:270px;
+        margin-left:3%;
+        margin-right:3%;
+        margin-top:4%;
     }
 }
 
 @media screen and (max-width: 630px) {
     .skripta-card{
-        width:48%;
-        max-width:48%;
+        width:46%;
+        max-width:46%;
+        margin-left:2%;
+        margin-right:2%;
+        margin-top:3%;
     }
     .kolegij-second-navbar-search-input{
         width:35%;
         border:0;
         border-bottom: 1px solid rgba(51, 132, 255, 0.62);
-        padding:4px 0px;
+        padding:4px 0;
     }
     .resours-type-select{
         width:27%;
         padding: 3px 10px;
         margin-left:3%;
+    }
+    .second-navbar-search{
+        width:63%;
     }
 }
 
@@ -1013,38 +1070,124 @@ button:focus{
         margin-left:0;
         font-size:12px;
     }
+    .second-navbar-search{
+        width:55%;
+    }
 }
 
 
-
-
+.toggler{
+    position:absolute;
+    top: 5%;
+    left:0;
+    z-index: 10000;
+}
 
 
 .sidebar {
     width: 100vw;
     height: 100vh;
-    background-color: red;
     position: fixed;
-    transform: translateX(90%);
+    transform: translateX(0%);
     z-index: 1;
 }
 
-.example-enter {
-    opacity: 0.01;
+.sidebar-right {
+    width: 80%;
+    height: 100%;
+    background-color: #3384FF;
+    position: fixed;
+    z-index: 0;
+    right:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y:hidden;
 }
 
-.example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
+.sidebar-left {
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 0;
+    left:0;
 }
 
-.example-leave {
-    opacity: 1;
+.sidebar-enter {
+    transform: translateX(100%);
 }
 
-.example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
+.sidebar-enter.sidebar-enter-active {
+    transform: translateX(0%);
+    transition: 0.8s ease;
+}
+
+.sidebar-leave {
+    transform: translateX(0%);
+}
+
+.sidebar-leave.sidebar-leave-active {
+    transform: translateX(100%);
+    transition: 0.5s ease-out;
+}
+
+
+.hamburger-line {
+    fill: #fff;
+}
+
+.hamburger-container{
+    position:absolute;
+    z-index:1000;
+    right:0;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+
+.sidebar-right-links{
+    font-size:30px;
+    align-self: center;
+    color:white;
+    font-weight: bold;
+    cursor:pointer;
+    margin:25px;
+    text-decoration:none;
+}
+
+
+
+
+html, body{
+    height:100%;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+
+
+.headroom {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index:100;
+}
+.headroom--unfixed {
+    position: relative;
+    transform: translateY(0);
+}
+
+.headroom--unpinned {
+    position: fixed;
+    transform: translateY(-100%);
+}
+.headroom--pinned {
+    position: fixed;
+    transition:0.1s ease;
+    transform: translateY(0);
 }
 
 
