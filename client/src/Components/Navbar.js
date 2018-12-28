@@ -11,13 +11,10 @@ class Navbar extends Component {
         this.state = { isOpen: false };
 
         this.toggleMenu = this.toggleMenu.bind(this);
-        this.enableScroll = this.enableScroll.bind(this);
-        this.disableScroll = this.disableScroll.bind(this);
     }
 
     toggleMenu() {
         this.setState({ isOpen: !this.state.isOpen });
-
     }
 
 

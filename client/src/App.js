@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Home from "./Components/Home";
+import Skripta from "./Components/Skripta";
 import KolegijContent from "./Components/KolegijContent";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -20,6 +21,7 @@ class App extends Component {
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/svikolegiji" component={AllKolegiji}/>
                   <Route exact path="/kolegij" component={KolegijContent}/>
+                  <Route exact path="/skripta" component={Skripta}/>
               </div>
             </Router>
         </Provider>

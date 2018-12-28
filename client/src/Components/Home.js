@@ -8,11 +8,14 @@ import Headroom from 'react-headroom';
 class Home extends Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+
+        };
     }
 
 
     render() {
+
         return (
             <div className="home-page">
                 <Headroom disableInlineStyles={true}>
