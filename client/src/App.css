@@ -86,7 +86,7 @@ button:focus{
     margin-right:15px;
     color:#3384FF;
     border:0;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 
@@ -97,7 +97,7 @@ button:focus{
 
 
 .button-prijava:hover{
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
     background: rgba(255, 255, 255, 0.8);
@@ -111,13 +111,13 @@ button:focus{
     border-style: solid;
     border-width: 5px;
     background:transparent;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .button-registracija:hover{
     background:white;
     color:#3384FF;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
 }
@@ -365,11 +365,11 @@ button:focus{
     border:0;
     height:25px;
     border-bottom: 2px solid black;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .is-invalid{
     border-bottom: 2px solid red;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .shake {
     animation: shake-keyframes 0.5s cubic-bezier(.36,.07,.19,.97) both;
@@ -380,7 +380,7 @@ button:focus{
 
 .make-red{
     color:red !important;
-    transition:0.4s ease;
+    transition:0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 @keyframes shake-keyframes {
@@ -426,7 +426,7 @@ button:focus{
 .button-prijavi-se{
     margin-left:80px;
     color:#3384FF;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     border-color:#3384FF;
     border-style: solid;
     border-width: 5px;
@@ -434,7 +434,7 @@ button:focus{
 }
 
 .button-prijavi-se:hover{
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
     background: #3384FF;
@@ -445,14 +445,14 @@ button:focus{
     margin-right:80px;
     color:white;
     background:#3384FF;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     border:0;
 }
 
 .button-registriraj-se:hover{
     background: rgba(49, 134, 255, 0.15);
     color:#3384FF;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
 }
@@ -745,13 +745,13 @@ button:focus{
     position:relative;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     cursor:pointer;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     border-radius:5px;
 }
 
 .kolegij-card:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .kolegij-card-title{
@@ -807,14 +807,14 @@ button:focus{
     margin-top:10px;
     margin-bottom:20px;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor:pointer;
     border-radius: 5px;
 }
 
 .favorite-kolegiji-card:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .favorite-kolegij-card-content{
@@ -908,7 +908,7 @@ button:focus{
     width:15%;
     padding: 3px 10px;
     margin-left:5%;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000)-in-out;
     outline:none;
     font-size:16px;
     color: #797979;
@@ -938,13 +938,13 @@ button:focus{
     align-items: center;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     border-radius: 5px;
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor:pointer;
 }
 
 .skripta-card:hover{
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.50);
-    transition:0.2s ease;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .skripta-card-content{
@@ -974,6 +974,9 @@ button:focus{
         max-width:16%;
         margin-left:2%;
         margin-right:2%;
+    }
+    .skripta-comments{
+        bottom:0 !important;
     }
 }
 
@@ -1136,7 +1139,7 @@ button:focus{
 
 .sidebar-enter.sidebar-enter-active {
     transform: translateX(0%);
-    transition: 0.8s ease;
+    transition: 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .sidebar-leave {
@@ -1145,7 +1148,7 @@ button:focus{
 
 .sidebar-leave.sidebar-leave-active {
     transform: translateX(100%);
-    transition: 0.5s ease-out;
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 
@@ -1202,7 +1205,7 @@ html, body{
 }
 .headroom--pinned {
     position: fixed;
-    transition:0.1s ease;
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     transform: translateY(0);
 }
 
@@ -1215,7 +1218,7 @@ html, body{
     color: #3384FF;
     padding-top:5px;
     margin-left: 5%;
-    margin-top:2px;
+    margin-top:0;
     margin-bottom:0;
     margin-right:5%;
 }
@@ -1236,27 +1239,27 @@ html, body{
     position:absolute;
 }
 
-.skripta-page-content{
-    width: 93vw;
+.skripta-page-content {
+    width: 95%;
     margin-left: 5%;
     margin-right: 5%;
     height: 85vh;
     position: relative;
-
+    top: 20px;
 }
 
 .pdf-container{
     width: 70%;
-    height: 96%;
+    height:100%;
     position: absolute;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     bottom:0;
-    top: 25px;
+    top: 0;
 }
 
 .skripta-content-right{
     width: 22%;
-    height: 98%;
+    height: 100%;
     margin-top: 25px;
     float: right;
     margin-right: 4%;
@@ -1340,33 +1343,32 @@ html, body{
     height: 100px;
 }
 
-.skripta-information{
+.skripta-information {
     position: absolute;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    width: 22%;
-    right: 4%;
+    width: 23%;
+    right: 5%;
     height: 40%;
-    top:25px;
+    top: 0;
     background: white;
     overflow-x: hidden;
-    -webkit-transition: 0.5s;
-    transition: 0.5s ease;
-    cursor:pointer;
+    -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
 }
-
-.skripta-comments{
+.skripta-comments {
     position: absolute;
     overflow-Y: scroll;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    width: 22%;
-    right: 4%;
-    height: 54%;
-    bottom: -5px;
+    width: 23%;
+    right: 5%;
+    height: 57%;
+    bottom: -1%;
     background: white;
-    -webkit-transition: 0.5s;
-    transition: 0.5s ease;
+    -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     overflow-x: hidden;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .detalji-mobile{
@@ -1379,7 +1381,7 @@ html, body{
     letter-spacing:2px;
     display:none;
     -webkit-transition: 0.5s;
-    transition: 0.5s ease;
+    transition: 0.5s linear;
     cursor:pointer;
 }
 .detalji-toggle-button{
@@ -1393,9 +1395,9 @@ html, body{
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 20px;
+    padding-top: 20px;
     letter-spacing:2px;
-    display:none
+    display:none;
 }
 .comments-toggle-button{
     transform: rotate(-90deg);
@@ -1403,56 +1405,27 @@ html, body{
 }
 
 @media screen and (max-width: 1800px) {
-    .skripta-information{
-        width: 24%;
-        height: 40%;
-    }
+
     .skripta-information-content p{
         margin: 10px 0px
     }
-    .skripta-comments{
-        width: 24%;
-        height: 54%;
-    }
+
 }
 
 @media screen and (max-width: 1550px) {
-    .skripta-information{
-        width: 24%;
-        height: 40%;
-    }
     .skripta-information-content p{
         margin: 5px 0;
-        font-size:18px;
+        font-size:15px;
     }
     .skripta-comments{
-        width: 24%;
-        height: 54%;
-    }
-    .skripta-comments{
-        font-size:18px;
+        font-size:15px;
     }
     .skripta-page-content{
         height:82vh;
     }
 }
 
-@media screen and (max-width: 1550px) {
-    .skripta-information-content p{
-        font-size:15px;
-    }
-    .skripta-comments{
-        font-size:15px;
-    }
-    .skripta-information {
-        width: 24%;
-        height: 40%;
-    }
-    .skripta-comments{
-        width: 24%;
-        height: 54%;
-    }
-}
+
 
 @media screen and (max-width: 1360px) {
     .skripta-information-content p{
@@ -1461,26 +1434,18 @@ html, body{
     }
     .skripta-comments{
         font-size:13px;
-        height: 53%;
     }
-    .skripta-information {
-        width: 24%;
-        height: 39%;
+    .skripta-page-content{
+        height:80vh;
     }
 }
 
 @media screen and (max-width: 1100px) {
     .skripta-information-content p{
         font-size:13px;
-        margin:8px 0;
     }
     .skripta-comments{
         font-size:13px;
-        height: 53%;
-    }
-    .skripta-information {
-        width: 24%;
-        height: 39%;
     }
 }
 
@@ -1489,6 +1454,9 @@ html, body{
         width:6%;
         right:0;
         overflow-y: hidden;
+    }
+    .post-comment{
+        width:100% !important;
     }
     .skripta-comments{
         width:6%;
@@ -1509,7 +1477,6 @@ html, body{
     }
     .skripta-comments-content{
         display:none;
-
     }
     .pdf-container{
         width:91%;
@@ -1523,11 +1490,26 @@ html, body{
     .toggle-comments-button{
         display:none;
     }
+    .mobile-close-information-button{
+        display:initial !important;
+    }
+    .mobile-close-comments-button{
+        display:initial !important;
+    }
+}
+
+@keyframes fade-in{
+    from{
+        opacity:0 ;
+    }
+    to{
+        opacity:1 !important;
+    }
 }
 
 .skripta-comments-mobile-toggled{
     width: 100%;
-    height: 98%;
+    height: 100%;
     right: 0;
     display:block !important;
     font-size:14px;
@@ -1550,6 +1532,9 @@ html, body{
 
 .make-visible{
     display:block !important;
+    opacity: 1;
+    transition: 1s;
+    transition-delay: 1s;
 }
 
 .mobile-close-comments-button{
@@ -1557,6 +1542,7 @@ html, body{
      right: 10px;
      top: 10px;
      width: 28px;
+    display:none;
  }
 
 .mobile-close-information-button{
@@ -1564,4 +1550,23 @@ html, body{
     right: 10px;
     top: 10px;
     width: 28px;
+    display:none;
+}
+
+.post-comment{
+    border:0;
+    background:#3384FF;
+    color:white;
+    font-weight:600;
+    font-size:15px;
+    padding:8px 12px;
+    border-radius:3px;
+    margin-top:10px;
+    margin-bottom:10px;
+    cursor:pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
 }

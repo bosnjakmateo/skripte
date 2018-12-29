@@ -7,7 +7,7 @@ class SkriptaComments extends Component {
     constructor(props){
         super(props);
         this.state = { commentsToggled: false };
-        this.state = { commentsToggledMobile: false}
+        this.state = { commentsToggledMobile: false};
 
         this.toggleComments = this.toggleComments.bind(this);
         this.toggleCommentsMobile = this.toggleCommentsMobile.bind(this);
@@ -78,7 +78,7 @@ class SkriptaComments extends Component {
                             <textarea placeholder="Komentiraj..." className="comment-form" />
                         </label>
                         < br/>
-                        <input type="submit" value="Submit" />
+                        <input className="post-comment" type="submit" value="Komentiraj" />
                     </form>
                 </div>
             </div>

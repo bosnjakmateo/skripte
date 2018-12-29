@@ -5,6 +5,7 @@ import SkriptaInfo from "./SkriptaInfo";
 import SkriptaComments from "./SkriptaComments";
 import SkriptaPdf from "./SkriptaPdf";
 
+
 class Skripta extends Component {
     constructor(props){
         super(props);
