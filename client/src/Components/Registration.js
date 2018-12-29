@@ -59,7 +59,6 @@ class Registration extends Component {
                         <div className="registration-form">
                             <form onSubmit={this.onSubmit}>
                                 <label>
-
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
@@ -78,7 +77,6 @@ class Registration extends Component {
                                             onChange={this.onChange}
                                         />
                                     </div>
-
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
@@ -97,7 +95,6 @@ class Registration extends Component {
                                             onChange={this.onChange}
                                         />
                                     </div>
-
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
@@ -116,7 +113,6 @@ class Registration extends Component {
                                             onChange={this.onChange}
                                         />
                                     </div>
-
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
@@ -135,7 +131,6 @@ class Registration extends Component {
                                             onChange={this.onChange}
                                         />
                                     </div>
-
                                 </label>
                                 <div className="register-buttons-container">
                                     <button type="submit" className="buttons-register button-registriraj-se">REGISTRACIJA</button>

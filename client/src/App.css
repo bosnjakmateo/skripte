@@ -1217,6 +1217,7 @@ html, body{
     margin-left: 5%;
     margin-top:2px;
     margin-bottom:0;
+    margin-right:5%;
 }
 
 .skripta-second-navbar-description {
@@ -1226,6 +1227,7 @@ html, body{
     padding-bottom:5px;
     margin-top:2px;
     margin-bottom:0;
+    margin-right:5%;
 }
 
 .skripta-page{
@@ -1245,40 +1247,30 @@ html, body{
 
 .pdf-container{
     width: 70%;
-    height: 98%;
+    height: 96%;
     position: absolute;
-    margin-top: 25px;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    bottom:0;
+    top: 25px;
 }
 
 .skripta-content-right{
     width: 22%;
-    position: relative;
     height: 98%;
     margin-top: 25px;
     float: right;
-    margin-right: 5%;
+    margin-right: 4%;
 }
 
-.skripta-information{
-    width: 100%;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-}
-
-.skripta-comments{
-    width: 100%;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
 
 .skripta-information-content{
-    padding:5px 15px;
-
+        padding:10px;
 }
 .skripta-comments-content{
-    padding:5px 15px;
+    padding-left:10px;
+    padding-right:10px;
 }
+
 
 .bolded{
     font-weight:500;
@@ -1288,8 +1280,15 @@ html, body{
 .skripta-comments-content-title{
     font-size:18px;
     color: #3384FF;
+    display:inline-block;
 }
 
+
+.skripta-information-content-title{
+    font-size:18px;
+    color: #3384FF;
+    display:inline-block;
+}
 
 #asd{
     width:100%;
@@ -1312,4 +1311,257 @@ html, body{
 .home-page{
     position:absolute;
     width:100%;
+}
+
+.toggle-comments-button{
+    display: inline-block;
+    float: right;
+    margin-top: 12px;
+    border:2px solid #3384FF;
+    border-radius:3px;
+    background:white;
+    color:#3384FF;
+    padding:5px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.toggled-comments{
+    width: 96% !important;
+    height: 100% !important;
+    bottom:-25px;
+    right:4%;
+    background: white;
+    position: absolute;
+}
+
+.comment-form{
+    width:99%;
+    height: 100px;
+}
+
+.skripta-information{
+    position: absolute;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    width: 22%;
+    right: 4%;
+    height: 40%;
+    top:25px;
+    background: white;
+    overflow-x: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s ease;
+    cursor:pointer;
+}
+
+.skripta-comments{
+    position: absolute;
+    overflow-Y: scroll;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    width: 22%;
+    right: 4%;
+    height: 54%;
+    bottom: -5px;
+    background: white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s ease;
+    overflow-x: hidden;
+    cursor:pointer;
+}
+
+.detalji-mobile{
+    position: absolute;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    letter-spacing:2px;
+    display:none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s ease;
+    cursor:pointer;
+}
+.detalji-toggle-button{
+    transform: rotate(-90deg);
+    font-size: 13px;
+}
+
+.comments-mobile{
+    position: absolute;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    letter-spacing:2px;
+    display:none
+}
+.comments-toggle-button{
+    transform: rotate(-90deg);
+    font-size: 13px;
+}
+
+@media screen and (max-width: 1800px) {
+    .skripta-information{
+        width: 24%;
+        height: 40%;
+    }
+    .skripta-information-content p{
+        margin: 10px 0px
+    }
+    .skripta-comments{
+        width: 24%;
+        height: 54%;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .skripta-information{
+        width: 24%;
+        height: 40%;
+    }
+    .skripta-information-content p{
+        margin: 5px 0;
+        font-size:18px;
+    }
+    .skripta-comments{
+        width: 24%;
+        height: 54%;
+    }
+    .skripta-comments{
+        font-size:18px;
+    }
+    .skripta-page-content{
+        height:82vh;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .skripta-information-content p{
+        font-size:15px;
+    }
+    .skripta-comments{
+        font-size:15px;
+    }
+    .skripta-information {
+        width: 24%;
+        height: 40%;
+    }
+    .skripta-comments{
+        width: 24%;
+        height: 54%;
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .skripta-information-content p{
+        font-size:13px;
+        margin:8px 0;
+    }
+    .skripta-comments{
+        font-size:13px;
+        height: 53%;
+    }
+    .skripta-information {
+        width: 24%;
+        height: 39%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .skripta-information-content p{
+        font-size:13px;
+        margin:8px 0;
+    }
+    .skripta-comments{
+        font-size:13px;
+        height: 53%;
+    }
+    .skripta-information {
+        width: 24%;
+        height: 39%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .skripta-information{
+        width:6%;
+        right:0;
+        overflow-y: hidden;
+    }
+    .skripta-comments{
+        width:6%;
+        right:0;
+        overflow-y: hidden;
+    }
+    .skripta-information-content{
+        display:none;
+
+    }
+    .skripta-information-content p{
+        font-size:16px;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+    .skripta-comments-content p{
+        font-size:16px;
+    }
+    .skripta-comments-content{
+        display:none;
+
+    }
+    .pdf-container{
+        width:91%;
+    }
+    .comments-mobile{
+        display:flex;
+    }
+    .detalji-mobile{
+        display:flex;
+    }
+    .toggle-comments-button{
+        display:none;
+    }
+}
+
+.skripta-comments-mobile-toggled{
+    width: 100%;
+    height: 98%;
+    right: 0;
+    display:block !important;
+    font-size:14px;
+    overflow-y: scroll;
+}
+
+.skripta-information-mobile-toggled{
+    width: 100%;
+    height: 100%;
+    right: 0;
+    display:block !important;
+    font-size:14px ;
+    overflow-y: scroll;
+    z-index: 100;
+}
+
+.make-invisible{
+    display:none !important;
+}
+
+.make-visible{
+    display:block !important;
+}
+
+.mobile-close-comments-button{
+     position: absolute;
+     right: 10px;
+     top: 10px;
+     width: 28px;
+ }
+
+.mobile-close-information-button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 28px;
 }
