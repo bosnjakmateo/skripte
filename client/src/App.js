@@ -9,6 +9,7 @@ import KolegijContent from "./Components/KolegijContent";
 import { Provider } from 'react-redux';
 import store from './store';
 import AllKolegiji from"./Components/AllKolegiji";
+import LandingPage from"./Components/LandingPage";
 
 class App extends Component {
   render() {
@@ -18,10 +19,12 @@ class App extends Component {
               <div className="App">
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Registration} />
-                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/" component={LandingPage}/>
+                  <Route exact path="/home" component={Home}/>
                   <Route exact path="/svikolegiji" component={AllKolegiji}/>
                   <Route exact path="/kolegij" component={KolegijContent}/>
                   <Route exact path="/skripta" component={Skripta}/>
+                  <Route exact path="/landing" component={LandingPage}/>
               </div>
             </Router>
         </Provider>

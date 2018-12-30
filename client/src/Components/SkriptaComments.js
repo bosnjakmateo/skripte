@@ -37,7 +37,7 @@ class SkriptaComments extends Component {
                     'make-visible' : this.state.commentsToggledMobile,
                 })}>
                     <div>
-                    <h1 className="skripta-comments-content-title">Komentari<span>(12)</span></h1>
+                    <h1 className="skripta-comments-content-title">Komentari<span>(6)</span></h1>
                         <button className="toggle-comments-button" onClick={this.toggleComments}>Komentiraj</button>
                         <img src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>

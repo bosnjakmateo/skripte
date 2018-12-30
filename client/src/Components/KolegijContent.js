@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import Navbar from "./Navbar";
 import SkriptaCard from "./SkriptaCard";
-
+import Headroom from 'react-headroom';
 
 
 class KolegijContent extends Component {
@@ -14,6 +14,7 @@ class KolegijContent extends Component {
     render() {
         return (
             <div className="kolegij-page">
+                <Headroom disableInlineStyles={true}>
                 <Navbar/>
                 <div className="kolegij-second-navbar">
                     <h1 className="kolegij-second-navbar-title">Strukture podataka i algoritmi</h1>
@@ -39,6 +40,7 @@ class KolegijContent extends Component {
                         </select>
                     </div>
                 </div>
+                </Headroom>
                 <div className="skripte-container">
                     <SkriptaCard/>
                     <SkriptaCard/>
