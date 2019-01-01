@@ -773,6 +773,7 @@ button:focus{
 
 .main-container{
     position:relative;
+
 }
 
 .favorite-kolegiji{
@@ -846,19 +847,28 @@ button:focus{
 
 .institution-type{
     width:100%;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    height:60px;
     display:flex;
     flex-direction: column;
-    margin:20px 0;
+    margin:10px 0;
     cursor:pointer;
 }
+.institution-type-container{
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    margin:10px 5%;
+    transition:0.2s;
+    border-radius:5px;
+}
+
+.institution-type-content{
+    margin-left: 20px;
+}
+
 
 .institution-type-title{
     font-size:22px;
     color:#3384FF;
-    margin-left:20px;
-
+    padding:20px;
+    margin:0;
 }
 
 .institution-container{
@@ -870,8 +880,6 @@ button:focus{
     color:#3384FF;
     font-size: 15px;
 }
-
-
 
 .kolegij-second-navbar{
     position:relative;
@@ -1140,7 +1148,7 @@ button:focus{
 
 .sidebar-enter.sidebar-enter-active {
     transform: translateX(0%);
-    transition: 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .sidebar-leave {
@@ -1149,7 +1157,7 @@ button:focus{
 
 .sidebar-leave.sidebar-leave-active {
     transform: translateX(100%);
-    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 
@@ -1299,6 +1307,10 @@ html, body{
     height:100%;
 }
 
+.non-scrollable{
+    overflow:hidden !important;
+
+}
 
 .route-wrapper {
     position: relative;
@@ -1308,7 +1320,7 @@ html, body{
 }
 
 .all-kolegiji{
-    position:absolute;
+    position:relative;
     width:100%;
 }
 
@@ -1499,14 +1511,6 @@ html, body{
     }
 }
 
-@keyframes fade-in{
-    from{
-        opacity:0 ;
-    }
-    to{
-        opacity:1 !important;
-    }
-}
 
 .skripta-comments-mobile-toggled{
     width: 100%;
@@ -1603,12 +1607,11 @@ html, body{
 }
 
 .landing-page-navbar-login-button{
-    margin-right:20px;
-    width:130px;
-    height:35px;
-    background:#FF802C;
-    border:0;
-    color:white;
+    margin-right: 20px;
+    width: 130px;
+    display: inline-block;
+    border: 0;
+    color: white;
     font-weight: bold;
     letter-spacing: 1px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -1618,9 +1621,8 @@ html, body{
 .landing-page-navbar-register-button{
     margin-left:30px;
     width:130px;
-    height:35px;
+    display: inline-block;
     background:transparent;
-    border:3px solid white;
     color:white;
     font-weight: bold;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -1631,7 +1633,8 @@ html, body{
     color:white;
     font-weight:bold;
     font-size:90px;
-    margin-right:5%
+    margin-right:5%;
+
 }
 
 .landing-page-top-container{
@@ -1654,9 +1657,9 @@ html, body{
 
 .landing-page-top-right-content{
     position: absolute;
-    width: 70%;
-    right: -15%;
-    top: -15%;
+    width: 50%;
+    right: 0;
+    top: 9%;
 }
 
 .landing-page-top-right-content-image{
@@ -1673,10 +1676,7 @@ html, body{
     .landing-page-intro-paragraph{
         font-size:21px;
     }
-    .landing-page-top-right-content{
 
-        top: -10%;
-    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -1687,9 +1687,8 @@ html, body{
         font-size:19px;
     }
     .landing-page-top-right-content{
-        width: 70%;
-        right: -15%;
-        top: -10%;
+        width:55%;
+        right:0;
     }
 }
 
@@ -1699,10 +1698,6 @@ html, body{
     }
     .landing-page-intro-paragraph{
         font-size:18px;
-    }
-    .landing-page-top-right-content{
-        width: 70%;
-        top: -5%;
     }
 }
 
@@ -1714,11 +1709,6 @@ html, body{
     .landing-page-intro-paragraph{
         font-size:16px;
     }
-    .landing-page-top-right-content{
-        width: 80%;
-        right: -15%;
-        top: -10%;
-    }
 }
 
 @media screen and (max-width: 950px) {
@@ -1728,10 +1718,6 @@ html, body{
     }
     .landing-page-intro-paragraph{
         font-size:14px;
-    }
-    .landing-page-top-right-content{
-        width: 70%;
-        right: -15%;
     }
 }
 
@@ -1749,10 +1735,9 @@ html, body{
         width:75%;
     }
     .landing-page-top-right-content{
-        position: absolute;
         width: 100%;
-        top: 53%;
-        right: -5%;
+        top: 67%;
+        right: 0;
         z-index: 100;
     }
     .landing-page-navbar-buttons-container{
@@ -1767,37 +1752,9 @@ html, body{
     .landing-page{
         background-size: initial;
     }
-    .landing-page-navbar-login-button{
-        margin-right:20px;
-        width:135px;
-        height:48px;
-        font-size:16px;
-    }
 
-    .landing-page-navbar-register-button{
-        margin-left:30px;
-        width:135px;
-        height:48px;
-        font-size:16px;
-    }
 }
 
-
-@media screen and (max-width: 600px) {
-    .landing-page-top-right-content{
-        width: 145%;
-        top: 53%;
-        right: -30%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .landing-page-top-right-content{
-        width: 170%;
-        top: 53%;
-        right: -45%;
-    }
-}
 
 .landing-page-first-section{
     position:relative;
@@ -1806,4 +1763,178 @@ html, body{
 
 .landing-page-second-section{
     margin-top:300px;
+}
+
+.landing-page-second-section-content{
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+}
+
+.first-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.first-container-paragraph{
+    align-self: center;
+    color:white;
+    padding-right:15%;
+    font-size:19px;
+}
+.first-container-img{
+    width:35%;
+    height:50%;
+}
+
+
+.landing-page-button p {
+    text-decoration: none;
+    transition:0.2s ease;
+    margin:0;
+}
+
+.landing-page-button {
+    position: relative;
+    padding: 7px 5px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size:1.01em;
+}
+.login{
+    background: #ffa920;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.register{
+    background:transparent;
+    border:3px solid white;
+}
+
+.landing-page-button .mask {
+    background: white;
+}
+
+.landing-page-button .mask2 {
+    background: white;
+}
+
+.landing-page-button .mask {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+}
+
+.landing-page-button .mask2 {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+}
+
+.login:hover p {
+    color:#3384FF;
+    transition:0.2s ease;
+    position:relative;
+    z-index: 101 !important;
+}
+.register:hover{
+    border:3px solid #ffa920;
+    transition:0.2s;
+    transition-delay:0.1s;
+}
+
+.register p{
+    color:white;
+}
+
+
+.landing-page-button:hover .mask {
+    background: white;
+    width:100%;
+    transition:0.2s ease;
+    z-index: 100;
+}
+
+.landing-page-button:hover .mask2 {
+    background: #ffa920;
+    width:100%;
+    transition:0.2s ease;
+}
+
+.institution-type-content-container{
+    transition: all 0.5s;
+}
+
+.fadeIn {
+    opacity: 1 ;
+    transition: 0.5s;
+}
+
+.fade-in-keyframes{
+    animation:fade-in 0.5s;
+}
+
+.intro-fade{
+    animation:fade-in 1s;
+}
+
+.animate-intro-text{
+    animation:fade-in 1s;
+}
+.animate-intro-paragraph{
+    animation:fade-in 1s;
+}
+.animate-phone-img{
+    animation:intro-img 1s;
+}
+.move-up-animation{
+    animation:top-left-content 1s;
+}
+.button-fade-in{
+    animation: fade-in 1s;
+}
+
+
+@keyframes fade-in{
+    from{
+        opacity:0 ;
+    }
+    to{
+        opacity:1 !important;
+    }
+}
+
+@keyframes intro-img{
+    from{
+        opacity:0;
+        transform:translateX(10%);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+@keyframes top-left-content{
+    from{
+        transform:translateY(10%);
+    }
+    to{
+        transform:translateY(0);
+    }
 }

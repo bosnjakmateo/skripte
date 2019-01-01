@@ -4,18 +4,25 @@ import Navbar from "./Navbar";
 import KolegijCard from "./KolegijCard";
 import FavoriteKolegiji from "./FavoriteKolegiji";
 import Headroom from 'react-headroom';
+import classnames from 'classnames';
+
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+            mounted: false
         };
+    }
+
+    componentDidMount() {
+        this.setState({
+            mounted: true
+        })
     }
 
 
     render() {
-
         return (
             <div className="home-page">
                 <Headroom disableInlineStyles={true}>
@@ -27,7 +34,9 @@ class Home extends Component {
                     </div>
                 </div>
                 </Headroom>
-                <div className="main-container">
+                <div className={classnames('main-container',{
+                    'fade-in-keyframes' : this.state.mounted
+                })}>
                     <div className="kolegij-card-container">
                         <KolegijCard/>
                         <KolegijCard/>

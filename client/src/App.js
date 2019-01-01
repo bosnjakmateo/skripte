@@ -5,6 +5,7 @@ import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Home from "./Components/Home";
 import Skripta from "./Components/Skripta";
+import InstitutionLocation from "./Components/InstitutionLocation";
 import KolegijContent from "./Components/KolegijContent";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -25,6 +26,7 @@ class App extends Component {
                   <Route exact path="/kolegij" component={KolegijContent}/>
                   <Route exact path="/skripta" component={Skripta}/>
                   <Route exact path="/landing" component={LandingPage}/>
+                  <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
               </div>
             </Router>
         </Provider>

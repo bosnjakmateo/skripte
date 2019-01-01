@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import '../App.css';
 import Navbar from "./Navbar";
 import InstitutionType from "./InstitutionType";
+import classnames from "classnames";
 
 class AllKolegiji extends Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            mounted: false
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            mounted: true
+        })
     }
 
 
     render() {
         return (
-            <div className="all-kolegiji">
+            <div className='all-kolegiji'>
                 <Navbar/>
-                <div className="institution-container">
-                    <InstitutionType/>
-                    <InstitutionType/>
-                </div>
+                <InstitutionType/>
             </div>
         );
     }
