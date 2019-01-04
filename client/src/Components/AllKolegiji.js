@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Navbar from "./Navbar";
 import InstitutionType from "./InstitutionType";
-import classnames from "classnames";
 
 class AllKolegiji extends Component {
     constructor(props){

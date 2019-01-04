@@ -12,8 +12,9 @@ class Sidebar extends Component {
         return (
             <div className="sidebar">
                 <div className="sidebar-right">
-                    <Link to="/" className="sidebar-right-links">Moji Kolegiji</Link>
+                    <Link to="/home" className="sidebar-right-links">Moji Kolegiji</Link>
                     <Link to="/svikolegiji" className="sidebar-right-links">Svi Kolegiji</Link>
+                    <Link to="/upload" className="sidebar-right-links">Upload</Link>
                     <p className="sidebar-right-links">Odjavi se</p>
                 </div>
                 <div onClick={this.props.clicker.bind(this)} className="sidebar-left">

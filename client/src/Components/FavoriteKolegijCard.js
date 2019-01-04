@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
+import removeIcon from "../Images/remove.svg"
 
 class FavoriteKolegijiCard extends Component {
     constructor(props){
@@ -20,6 +21,7 @@ class FavoriteKolegijiCard extends Component {
                         <p className="favorite-kolegij-card-description">pitanja i odgovori na pitanja, moguće su griješke,pitanja i odgovori na pitanja, moguće su griješke</p>
                     </div>
                 </Link>
+                <img src={removeIcon} className="remove-favorite-skripta-card"/>
             </div>
         );
     }

@@ -22,7 +22,7 @@ class KolegijContent extends Component {
                         <input className="kolegij-second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
                         <select
                             className="resours-type-select">
-                            <option disabled value>Vrsta</option>
+                            <option className="hidden"> Vrsta </option>
                             <option value="Ispit">Ispit</option>
                             <option value="Kolokvij">Kolokvij</option>
                             <option value="Zadaća">Zadaća</option>
@@ -30,7 +30,7 @@ class KolegijContent extends Component {
                         </select>
                         <select
                             className="resours-type-select">
-                            <option disabled value>Godina</option>
+                            <option className="hidden"> Godina </option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>

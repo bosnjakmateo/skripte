@@ -5,18 +5,23 @@ import { Link } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import { CSSTransitionGroup } from 'react-transition-group'
 import { HamburgerSpin } from 'react-animated-burgers'
+import {withRouter} from 'react-router-dom';
+import classnames from "classnames";
 
 class Navbar extends Component {
     constructor(props){
         super(props);
         this.state = {
             isOpen: false,
-            isActive: false
+            isActive: false,
+            currentRoute: this.props.location.pathname
         };
 
         this.toggleMenu = this.toggleMenu.bind(this);
         this.toggleButton = this.toggleButton.bind(this);
     }
+
+
 
     toggleMenu() {
         this.setState({ isOpen: !this.state.isOpen });
@@ -35,8 +40,9 @@ class Navbar extends Component {
 
 
 
-    render() {
 
+    render() {
+        console.log(this.state.currentRoute);
         return (
             <div className="navbar">
                 <CSSTransitionGroup
@@ -51,15 +57,26 @@ class Navbar extends Component {
                     </Link>
                 </div>
                 <div className="navbar-menu">
-                    <Link to="/svikolegiji">
-                        <button className="navbar-link">SVI KOLEGIJI</button>
+
+                    <Link className="home-button" to="/upload">
+                        <button className={"navbar-link" + (this.state.currentRoute === "/upload" ? " color-blue" : "")}>UPLOAD</button>
+                        <div className={"mask-home" + (this.state.currentRoute === "/upload" ? " mask-stay" : "")}/>
                     </Link>
-                    <Link to="/home">
-                        <button className="navbar-link">MOJI KOLEGIJI</button>
+
+                    <Link className="svikolegiji-button" to="/svikolegiji">
+                        <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>SVI KOLEGIJI</button>
+                        <div className={"mask-home" + (this.state.currentRoute === "/svikolegiji" ? " mask-stay" : "")}/>
                     </Link>
+
+                    <Link className="home-button" to="/home">
+                        <button  className={"navbar-link" + (this.state.currentRoute === "/home" ? " color-blue" : "")}>MOJI KOLEGIJI</button>
+                        <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
+                    </Link>
+
                     <Link to="/login">
                         <img className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
                     </Link>
+
                     <div className="hamburger-container">
                         <HamburgerSpin buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
                     </div>
@@ -69,4 +86,5 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar)
+

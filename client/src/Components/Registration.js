@@ -35,15 +35,12 @@ class Registration extends Component {
 
     onSubmit(event){
         event.preventDefault();
-
-        const newUser = {
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
-
-        };
-        console.log(newUser);
-        this.props.registerUser(newUser, this.props.history);
+            const newUser = {
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+            };
+            this.props.registerUser(newUser, this.props.history);
     }
 
     render() {
@@ -53,7 +50,7 @@ class Registration extends Component {
             <div className="registration-page">
                 <div className="registration-container">
                     <div className="registration-content-left">
-                        <h1>PUT YOUR CREATIVE THINKING TO WORK, WITH SKRIPTE</h1>
+                        <h1>IZRADI SVOJ JEDINSTVENI RAČUN ZA SKRIPTE</h1>
                     </div>
                     <div className="registration-paper">
                         <div className="registration-form">
@@ -116,14 +113,14 @@ class Registration extends Component {
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
-                                                'shake make-red' : errors.password2
+                                                'shake make-red' : errors.password2 !== errors.password
                                             })}
                                         >
                                             Ponovi lozinku:
                                         </h3>
                                         <input
                                             className={classnames('registration-inputs',{
-                                                'is-invalid shake' : errors.password2
+                                                'is-invalid shake' : errors.password2 !== errors.password
                                             })}
                                             type="password"
                                             name="password2"

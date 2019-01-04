@@ -23,6 +23,7 @@ class Home extends Component {
 
 
     render() {
+
         return (
             <div className="home-page">
                 <Headroom disableInlineStyles={true}>
@@ -38,15 +39,15 @@ class Home extends Component {
                     'fade-in-keyframes' : this.state.mounted
                 })}>
                     <div className="kolegij-card-container">
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
-                        <KolegijCard/>
+                        <KolegijCard title="Strukture Podataka i Algoritmi"/>
+                        <KolegijCard title="Programiranje II"/>
+                        <KolegijCard title="Baze Podataka"/>
+                        <KolegijCard title="Napredne Tehnike Programiranja"/>
+                        <KolegijCard title="Modeliranje i Simulacija"/>
+                        <KolegijCard title="Poslovni informacijski Sustavi"/>
+                        <KolegijCard title="Engleski II"/>
+                        <KolegijCard title="Matematika II"/>
+                        <KolegijCard title="Metodologija"/>
                     </div>
                     <div className="favorite-kolegiji-container">
                         <FavoriteKolegiji/>

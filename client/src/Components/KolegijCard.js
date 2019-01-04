@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import { AnimatedRoute } from 'react-router-transition';
-import KolegijContent from "./KolegijContent";
+import removeIcon from "../Images/remove.svg"
 
 class KolegijCard extends Component {
     constructor(props){
@@ -15,7 +14,8 @@ class KolegijCard extends Component {
         return (
             <Link to="/kolegij">
                 <div className="kolegij-card">
-                    <h1 className="kolegij-card-title">Ime Kolegija Hard Coded</h1>
+                    <h1 className="kolegij-card-title">{this.props.title}</h1>
+                    <img src={removeIcon} className="remove-kolegij-card"/>
                 </div>
             </Link>
         );
