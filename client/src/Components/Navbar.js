@@ -64,7 +64,7 @@ class Navbar extends Component {
                     </Link>
 
                     <Link className="svikolegiji-button" to="/svikolegiji">
-                        <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>SVI KOLEGIJI</button>
+                        <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/svikolegiji" ? " mask-stay" : "")}/>
                     </Link>
 

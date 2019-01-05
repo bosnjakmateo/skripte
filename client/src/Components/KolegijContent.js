@@ -19,7 +19,7 @@ class KolegijContent extends Component {
                 <div className="kolegij-second-navbar">
                     <h1 className="kolegij-second-navbar-title">Strukture podataka i algoritmi</h1>
                     <div className="kolegij-second-navbar-search">
-                        <input className="kolegij-second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
+                        <input className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..." />
                         <select
                             className="resours-type-select">
                             <option className="hidden"> Vrsta </option>
