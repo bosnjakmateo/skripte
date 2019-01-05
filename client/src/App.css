@@ -1,0 +1,2083 @@
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Josefin+Sans');
+
+.login-page{
+    height:100%;
+    width:100%;
+    background: url('Images/bg.svg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Averia Libre, sans-serif !important;
+    position: fixed;
+}
+
+.login-container-content{
+    position:relative;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-container{
+    padding-left:5%;
+    padding-right:5%;
+    width:40%;
+    height:100vh;
+}
+
+.login-header{
+    margin:0;
+    padding:0;
+    font-size:103px;
+    color:white;
+    font-style:italic;
+    font-family: Josefin Sans, sans-serif !important;
+}
+
+.login-header h1{
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+.login-paragraph{
+    font-size:22px;
+    color:white;
+    padding-bottom:10px;
+}
+
+.login-paragraph p{
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+.login-forms input{
+    width:70%;
+    margin-top:15px;
+    margin-bottom:15px;
+    height:35px;
+    transform: skewX(-25deg);
+    text-indent: 20px;
+    margin-left:8px;
+    border:0;
+    background-color:#9CC4FF;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    font-family: Averia Libre, sans-serif !important;
+}
+
+input:focus{
+    outline: none;
+}
+button:focus{
+    outline: none;
+}
+
+.buttons-login{
+    width:200px;
+    height:50px;
+    transform: skewX(-25deg);
+    margin-top:30px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    font-weight: bold;
+    font-size:17px;
+    letter-spacing: 1px;
+    font-family: Averia Libre, sans-serif !important;
+}
+
+.button-prijava{
+    margin-right:15px;
+    color:#3384FF;
+    border:0;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+
+.button-seperator{
+    color:#DBDBDB;
+    font-size:21px;
+}
+
+
+.button-prijava:hover{
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0.8);
+
+}
+
+.button-registracija{
+    margin-left:15px;
+    color:white;
+    border-color:white;
+    border-style: solid;
+    border-width: 5px;
+    background:transparent;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.button-registracija:hover{
+    background:white;
+    color:#3384FF;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+}
+
+.button-seperator{
+    font-style:italic;
+}
+
+.paper-container{
+    width: 47%;
+    position: absolute;
+    top:10%;
+    right: 0;
+    transform: rotate(20deg);
+}
+
+.paper-image{
+    max-width:45vmax;
+    height:auto;
+}
+@media screen and (max-width: 1350px) {
+    .paper-image{
+        max-width:50vmax;
+        height:auto;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .login-forms input{
+        width:85%;
+        margin-left:8px;
+    }
+    .buttons-login{
+        width:170px;
+        height:45px;
+        margin-top:25px;
+    }
+    .login-header{
+        font-size:90px;
+    }
+    .login-paragraph{
+        font-size:20px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .paper-image{
+        max-width:80vmax;
+        height:auto;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .paper-container{
+        width: 53%;
+        top:10%;
+        right:-5%;
+    }
+    .buttons-login{
+        width:150px;
+        height:40px;
+        margin-top:20px;
+    }
+    .login-header{
+        font-size:60px;
+    }
+    .login-paragraph{
+        font-size:16px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .paper-container{
+        width: 45%;
+    }
+    .buttons-login{
+        width:130px;
+        height:37px;
+        margin-top:18px;
+        font-size:14px;
+    }
+    .login-header{
+        font-size:40px;
+    }
+    .login-paragraph{
+        font-size:14px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .paper-container{
+        display:none;
+    }
+    .buttons-login{
+        width:130px;
+        height:40px;
+        margin-top:25px;
+        font-size:14px;
+        margin-bottom:35px;
+    }
+    .login-header{
+        font-size:50px;
+        margin-bottom:25px;
+    }
+    .login-paragraph{
+        font-size:16px;
+        margin-bottom:20px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 95%;
+    }
+}
+
+@media (min-height: 1020px) and (max-width: 800px) {
+    .paper-image{
+        display:none;
+    }
+    .buttons-login{
+        width:180px;
+        height:50px;
+        margin-top:35px;
+        font-size:20px;
+        margin-bottom:35px;
+    }
+    .login-header{
+        font-size:90px;
+        margin-bottom:35px;
+    }
+    .login-paragraph{
+        font-size:20px;
+        margin-bottom:40px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 93%;
+    }
+    .login-forms input{
+        height:45px;
+    }
+}
+
+@media (min-height: 1100px) and (max-width: 1100px) {
+    .paper-image{
+        display:none;
+    }
+    .buttons-login{
+        width:210px;
+        height:55px;
+        margin-top:40px;
+        font-size:24px;
+        margin-bottom:45px;
+    }
+    .login-header{
+        font-size:110px;
+        margin-bottom:45px;
+    }
+    .login-paragraph{
+        font-size:24px;
+        margin-bottom:50px;
+    }
+    .login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 93%;
+    }
+    .login-forms input{
+        height:50px;
+    }
+}
+
+/*####################################################      END OF Login.js COMPONENT       ####################################################*/
+
+.registration-page{
+    height:100%;
+    width:100%;
+    background: url('Images/bg.svg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+}
+
+.registration-container{
+    position:relative;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-content-left{
+    width:40%;
+    color:white;
+}
+
+.registration-content-left h1{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 80px;
+}
+
+.registration-paper{
+    height: 85vh;
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 50%;
+    background-color: white;
+    box-shadow: -6px -5px 13px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-form{
+    width:87%;
+    height:auto;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-inputs{
+    width:100%;
+    border:0;
+    height:25px;
+    border-bottom: 2px solid black;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+.is-invalid{
+    border-bottom: 2px solid red;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+.shake {
+    animation: shake-keyframes 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.make-red{
+    color:red !important;
+    transition:0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+@keyframes shake-keyframes {
+    10%, 90% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(6px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-8px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(8px, 0, 0);
+    }
+}
+
+
+
+.label{
+    margin-bottom:60px;
+}
+
+.register-buttons-container{
+    text-align: center;
+}
+
+.buttons-register{
+    width:200px;
+    height:50px;
+    margin-top:30px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    font-weight: bold;
+    font-size:17px;
+    letter-spacing: 1px;
+    font-family: Averia Libre, sans-serif !important;
+
+}
+
+.button-prijavi-se{
+    margin-left:80px;
+    color:#3384FF;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    border-color:#3384FF;
+    border-style: solid;
+    border-width: 5px;
+    background-color:transparent;
+}
+
+.button-prijavi-se:hover{
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    background: #3384FF;
+    color:white;
+}
+
+.button-registriraj-se{
+    margin-right:80px;
+    color:white;
+    background:#3384FF;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    border:0;
+}
+
+.button-registriraj-se:hover{
+    background: rgba(49, 134, 255, 0.15);
+    color:#3384FF;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+}
+
+
+@media screen and (max-width: 1500px) {
+    .registration-content-left h1{
+        padding-left: 10%;
+        padding-right: 10%;
+        font-size: 70px;
+    }
+
+    .label{
+        margin-bottom:45px;
+    }
+
+    .buttons-register{
+        width:180px;
+        height:45px;
+        margin-top:20px;
+        font-size:16px;
+    }
+
+    .button-prijavi-se{
+        margin-left:60px;
+    }
+
+    .button-registriraj-se{
+        margin-right:60px;
+    }
+}
+
+
+
+@media screen and (max-width: 1150px) {
+    .registration-content-left h1{
+        padding-left: 10%;
+        padding-right: 10%;
+        font-size: 50px;
+    }
+
+    .label{
+        margin-bottom:25px;
+    }
+
+    .label h3{
+        font-size:18px;
+    }
+
+    .buttons-register{
+        width:140px;
+        height:35px;
+        margin-top:15px;
+        font-size:14px;
+    }
+
+    .button-prijavi-se{
+        margin-left:40px;
+    }
+
+    .button-registriraj-se{
+        margin-right:40px;
+    }
+}
+
+
+@media screen and (max-width: 870px) {
+
+    .registration-paper{
+        height: 100vh;
+        top: 5%;
+        display:block;
+    }
+
+    .registration-content-left{
+        display:none;
+    }
+    .registration-form{
+        padding-left: 5%;
+        position: absolute;
+        top: 10%;
+    }
+    .registration-paper{
+        width:80%;
+    }
+}
+
+
+@media screen and (max-width: 545px) {
+    .label{
+        margin-bottom:15px;
+    }
+
+    .buttons-register{
+        width:120px;
+        height:35px;
+        margin-top:10px;
+        font-size:13px;
+    }
+    .registration-paper {
+        right: 5%;
+        width:90%;
+    }
+
+    .button-prijavi-se{
+        margin-left:15px;
+    }
+
+    .button-registriraj-se{
+        margin-right:15px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .label{
+        margin-bottom:10px;
+    }
+
+    .button-seperator{
+        font-size:10px;
+        margin-left:5px;
+        margin-right:5px;
+        color:grey;
+    }
+    .buttons-register{
+        width:125px;
+        height:40px;
+        margin-top:25px;
+        font-size:13px;
+        letter-spacing: 0;
+    }
+
+    .button-prijavi-se{
+        margin-left:0;
+    }
+
+    .button-registriraj-se{
+        margin-right:0;
+    }
+
+    .registration-paper{
+        width:90%;
+    }
+}
+
+
+@media (min-height: 1100px) and (max-width: 1100px) {
+    .label{
+        margin-bottom:40px;
+    }
+
+    .registration-content-left{
+        display:none;
+    }
+
+    .button-seperator{
+        font-size:14px;
+        margin-left:20px;
+        margin-right:20px;
+    }
+    .buttons-register{
+        width:200px;
+        height:60px;
+        margin-top:35px;
+        font-size:17px;
+        letter-spacing: 1px;
+    }
+
+    .button-prijavi-se{
+        margin-left:30px;
+    }
+
+    .button-registriraj-se{
+        margin-right:30px;
+    }
+
+    .registration-paper{
+        width:90%;
+        left:5%;
+    }
+}
+
+/*####################################################      END OF Register.js COMPONENT       ####################################################*/
+
+
+.navbar{
+    width:100%;
+    background-color:#3384FF;
+    margin:0;
+    padding:0;
+    height:40px;
+    position:relative;
+    opacity:1 !important;
+    z-index:2000;
+}
+
+.logo{
+    font-size:24px;
+    padding:0;
+    margin:0;
+    color:white;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:5%;
+}
+
+.navbar-menu{
+    padding:0;
+    margin:0;
+    color:white;
+    display: flex;
+    align-items: center;
+    position:absolute;
+    right:5%;
+    text-decoration: none;
+}
+
+.navbar-link{
+    font-weight: bold;
+    vertical-align:middle;
+    margin-right:15px;
+    margin-left:15px;
+    color:white;
+    background: transparent;
+    border:0;
+}
+
+.navbar-link:hover{
+    cursor:pointer;
+}
+
+.navbar-logout-icon{
+    height:34px;
+    margin-left:15px;
+    margin-top: 3px;
+}
+
+.navbar-logout-icon{
+    cursor:pointer;
+}
+
+.second-navbar{
+    height:45px;
+    position:relative;
+    width:100%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    background-color:white;
+}
+.second-navbar-title{
+    margin:0;
+    font-size:19px;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:5%;
+    color:#3384FF;
+}
+
+.second-navbar-search{
+    padding:0;
+    margin:0;
+    position:absolute;
+    right:5%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width:28%;
+}
+
+.second-navbar-search-input{
+    width:100%;
+    border:0;
+    border-bottom: 1px solid rgba(51, 132, 255, 0.62);
+    padding:4px 0px;
+}
+
+.kolegij-card-container{
+    margin-left: 5%;
+    width:60%;
+    position:absolute;
+    top:0;
+}
+
+.kolegij-card{
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    height:60px;
+    position:relative;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    cursor:pointer;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    border-radius:5px;
+}
+
+.kolegij-card:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.kolegij-card-title{
+    margin: 0 20px;
+    font-size:20px;
+    color:#3384FF;
+    position:absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.favorite-kolegiji-container{
+    width:28%;
+    top:0;
+    position:absolute;
+    right:5%;
+}
+
+.main-container{
+    position:relative;
+
+}
+
+.favorite-kolegiji{
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    margin-top: 20px;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.favorite-kolegiji-name-container{
+    height:50px;
+    background-color:#3384FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:20px;
+    border-radius: 5px 5px 0 0;
+}
+
+.favorite-kolegiji-name{
+    font-size:20px;
+    color:white;
+    align-self: center;
+}
+
+.favorite-kolegiji-card{
+    width:90%;
+    align-self: center;
+    margin-top:10px;
+    margin-bottom:20px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.favorite-kolegiji-card:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.favorite-kolegiji-card{
+    position:relative;
+}
+
+.favorite-kolegij-card-content{
+    margin-left:10px;
+}
+
+.favorite-kolegij-card-title{
+    font-size:20px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:5px;
+    color:#3384FF;
+}
+
+.favorite-kolegij-card-type{
+    font-size:17px;
+    margin:5px;
+}
+
+.favorite-kolegij-card-date{
+    font-size:16px;
+    margin:5px;
+}
+
+.favorite-kolegij-card-description{
+    font-size:14px;
+    margin:10px 5px;
+}
+
+.institution-type{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    margin:10px 0;
+    cursor:pointer;
+}
+.institution-type-container{
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    margin:10px 5%;
+    transition:0.2s;
+    border-radius:5px;
+}
+
+.institution-type-content{
+    margin-left: 20px;
+}
+
+
+.institution-type-title{
+    font-size:22px;
+    color:#3384FF;
+    padding:20px;
+    margin:0;
+}
+
+.institution-container{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.institution-count{
+    color:#3384FF;
+    font-size: 15px;
+}
+
+.kolegij-second-navbar{
+    position:relative;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    background:white;
+}
+
+.kolegij-second-navbar-title{
+    font-size: 19px;
+    color: #3384FF;
+    margin: 0;
+    padding-top: 7px;
+    margin-left: 5%;
+    padding-bottom: 15px;
+
+}
+
+.kolegij-second-navbar-search{
+    margin-left:5%;
+    padding-bottom: 15px;
+}
+
+.kolegij-second-navbar-search-input::placeholder {
+    opacity: 0.5;
+}
+
+.kolegij-second-navbar-search-input{
+    width:25%;
+    border:0;
+    border-bottom: 1px solid rgba(51, 132, 255, 0.62);
+    padding:4px 0px;
+}
+
+.resours-type-select{
+    width:15%;
+    padding: 3px 10px;
+    margin-left:5%;
+    transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000)-in-out;
+    outline:none;
+    font-size:16px;
+    color: #797979;
+    border-color: rgba(51, 132, 255, 0.62);
+    border-radius:5px;
+}
+
+.skripte-container{
+    margin-left:4%;
+    margin-right:4%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+
+.skripta-card{
+    margin-left:0.6%;
+    height:300px;
+    margin-right:0.6%;
+    width:18%;
+    max-width:19%;
+    margin-top:2%;
+    flex-grow: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    border-radius: 5px;
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor:pointer;
+}
+
+.skripta-card:hover{
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.50);
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.skripta-card-content{
+    margin:10px;
+    color:black;
+}
+
+.skripta-card a{
+ text-decoration: none;
+}
+
+.favorite-kolegiji-card a{
+    text-decoration: none;
+}
+.favorite-kolegiji-card p{
+    color:black;
+}
+
+.skripta-card-title{
+    font-size:16px;
+    color:#3384FF;
+}
+
+@media screen and (max-width: 1920px) {
+    .skripta-card{
+        width:16%;
+        max-width:16%;
+        margin-left:2%;
+        margin-right:2%;
+    }
+    .skripta-comments{
+        bottom:0 !important;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .skripta-card{
+        width:16%;
+        max-width:16%;
+        margin-left:2%;
+        margin-right:2%;
+        margin-top:2%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .skripta-card{
+        width:21%;
+        max-width:21%;
+        margin-top:3%;
+
+    }
+    .kolegij-second-navbar-search-input{
+        width:35%;
+    }
+    .resours-type-select{
+        width:25%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .skripta-card{
+        width:29%;
+        max-width:29%;
+        height:270px;
+    }
+    .second-navbar-search{
+        width:70%;
+    }
+    .kolegij-card-title{
+        font-size:18px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .favorite-kolegiji-container{
+        width: 90%;
+        margin-left: 5%;
+        position: initial;
+    }
+    .kolegij-card-container{
+        width:90%;
+        margin-left: 5%;
+        position:initial;
+
+    }
+    .hamburger-container{
+        visibility: visible !important;
+    }
+    .navbar-menu{
+        visibility:hidden;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .skripta-card{
+        width:25%;
+        max-width:32%;
+        height:260px;
+    }
+}
+@media screen and (max-width: 730px) {
+    .skripta-card{
+        width:44%;
+        max-width:44%;
+        height:270px;
+        margin-left:3%;
+        margin-right:3%;
+        margin-top:4%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .skripta-card{
+        width:46%;
+        max-width:46%;
+        margin-left:2%;
+        margin-right:2%;
+        margin-top:3%;
+    }
+    .kolegij-second-navbar-search-input{
+        width:35%;
+        border:0;
+        border-bottom: 1px solid rgba(51, 132, 255, 0.62);
+        padding:4px 0;
+    }
+    .resours-type-select{
+        width:27%;
+        padding: 3px 10px;
+        margin-left:3%;
+    }
+    .second-navbar-search{
+        width:63%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .navbar-link{
+        margin-right:0;
+        margin-left:0;
+        font-size:12px;
+    }
+    .second-navbar-search{
+        width:55%;
+    }
+}
+
+
+.toggler{
+    position:absolute;
+    top: 5%;
+    left:0;
+    z-index: 10000;
+}
+
+
+.sidebar {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    transform: translateX(0%);
+    z-index: 1;
+}
+
+.sidebar-right {
+    width: 80%;
+    height: 100%;
+    background-color: #3384FF;
+    position: fixed;
+    z-index: 0;
+    padding-bottom: 85px;
+    right:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y:hidden;
+}
+
+.sidebar-left {
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 0;
+    left:0;
+}
+
+.sidebar-enter {
+    transform: translateX(100%);
+}
+
+.sidebar-enter.sidebar-enter-active {
+    transform: translateX(0%);
+    transition: 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.sidebar-leave {
+    transform: translateX(0%);
+}
+
+.sidebar-leave.sidebar-leave-active {
+    transform: translateX(100%);
+    transition: 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+
+.hamburger-line {
+    fill: #fff;
+}
+
+.hamburger-container{
+    position:absolute;
+    z-index:1000;
+    right:0;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+
+.sidebar-right-links{
+    font-size:30px;
+    align-self: center;
+    color:white;
+    font-weight: bold;
+    cursor:pointer;
+    margin:25px;
+    text-decoration:none;
+}
+
+
+
+
+html, body{
+    height:100%;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+
+
+.headroom {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index:100;
+}
+.headroom--unfixed {
+    position: relative;
+    transform: translateY(0);
+}
+
+.headroom--unpinned {
+    position: fixed;
+    transform: translateY(-100%);
+}
+.headroom--pinned {
+    position: fixed;
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translateY(0);
+}
+
+.skripta-second-navbar{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+.skripta-second-navbar-title{
+    font-size: 19px;
+    color: #3384FF;
+    padding-top:5px;
+    margin-left: 5%;
+    margin-top:0;
+    margin-bottom:0;
+    margin-right:5%;
+}
+
+.skripta-second-navbar-description {
+    font-size: 15px;
+    color: #3384FF;
+    margin-left: 5%;
+    padding-bottom:5px;
+    margin-top:2px;
+    margin-bottom:0;
+    margin-right:5%;
+}
+
+.skripta-page{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+.skripta-page-content {
+    width: 95%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 85vh;
+    position: relative;
+    top: 20px;
+}
+
+.pdf-container{
+    width: 70%;
+    height:100%;
+    position: absolute;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    bottom:0;
+    top: 0;
+}
+
+.skripta-content-right{
+    width: 22%;
+    height: 100%;
+    margin-top: 25px;
+    float: right;
+    margin-right: 4%;
+}
+
+
+.skripta-information-content{
+        padding:10px;
+}
+.skripta-comments-content{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+
+.bolded{
+    font-weight:500;
+    color:#3384FF;
+}
+
+.skripta-comments-content-title{
+    font-size:18px;
+    color: #3384FF;
+    display:inline-block;
+}
+
+
+.skripta-information-content-title{
+    font-size:18px;
+    color: #3384FF;
+    display:inline-block;
+}
+
+#asd{
+    width:100%;
+    height:100%;
+}
+
+.non-scrollable{
+    overflow:hidden !important;
+
+}
+
+.route-wrapper {
+    position: relative;
+    top:0;
+    width:100%;
+    left:0;
+}
+
+.all-kolegiji{
+    position:relative;
+    width:100%;
+}
+
+.home-page{
+    position:absolute;
+    width:100%;
+}
+
+.toggle-comments-button{
+    display: inline-block;
+    float: right;
+    margin-top: 12px;
+    border:2px solid #3384FF;
+    border-radius:3px;
+    background:white;
+    color:#3384FF;
+    padding:5px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.toggled-comments{
+    width: 96% !important;
+    height: 100% !important;
+    bottom:-25px;
+    right:4%;
+    background: white;
+    position: absolute;
+}
+
+.comment-form{
+    width:99%;
+    height: 100px;
+}
+
+.skripta-information {
+    position: absolute;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    width: 23%;
+    right: 5%;
+    height: 40%;
+    top: 0;
+    background: white;
+    overflow-x: hidden;
+    -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    cursor: pointer;
+}
+.skripta-comments {
+    position: absolute;
+    overflow-Y: scroll;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    width: 23%;
+    right: 5%;
+    height: 57%;
+    bottom: -1%;
+    background: white;
+    -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.detalji-mobile{
+    position: absolute;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    letter-spacing:2px;
+    display:none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s linear;
+    cursor:pointer;
+}
+.detalji-toggle-button{
+    transform: rotate(-90deg);
+    font-size: 13px;
+}
+
+.comments-mobile{
+    position: absolute;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    letter-spacing:2px;
+    display:none;
+}
+.comments-toggle-button{
+    transform: rotate(-90deg);
+    font-size: 13px;
+}
+
+@media screen and (max-width: 1800px) {
+
+    .skripta-information-content p{
+        margin: 10px 0px
+    }
+
+}
+
+@media screen and (max-width: 1550px) {
+    .skripta-information-content p{
+        margin: 5px 0;
+        font-size:15px;
+    }
+    .skripta-comments{
+        font-size:15px;
+    }
+    .skripta-page-content{
+        height:82vh;
+    }
+}
+
+
+
+@media screen and (max-width: 1360px) {
+    .skripta-information-content p{
+        font-size:13px;
+        margin:8px 0;
+    }
+    .skripta-comments{
+        font-size:13px;
+    }
+    .skripta-page-content{
+        height:80vh;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .skripta-information-content p{
+        font-size:13px;
+    }
+    .skripta-comments{
+        font-size:13px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .skripta-information{
+        width:6%;
+        right:0;
+        overflow-y: hidden;
+    }
+    .post-comment{
+        width:100% !important;
+    }
+    .skripta-comments{
+        width:6%;
+        right:0;
+        overflow-y: hidden;
+    }
+    .skripta-information-content{
+        display:none;
+
+    }
+    .skripta-information-content p{
+        font-size:16px;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+    .skripta-comments-content p{
+        font-size:16px;
+    }
+    .skripta-comments-content{
+        display:none;
+    }
+    .pdf-container{
+        width:91%;
+    }
+    .comments-mobile{
+        display:flex;
+    }
+    .detalji-mobile{
+        display:flex;
+    }
+    .toggle-comments-button{
+        display:none;
+    }
+    .mobile-close-information-button{
+        display:initial !important;
+    }
+    .mobile-close-comments-button{
+        display:initial !important;
+    }
+}
+
+
+.skripta-comments-mobile-toggled{
+    width: 100%;
+    height: 100%;
+    right: 0;
+    display:block !important;
+    font-size:14px;
+    overflow-y: scroll;
+}
+
+.skripta-information-mobile-toggled{
+    width: 100%;
+    height: 100%;
+    right: 0;
+    display:block !important;
+    font-size:14px ;
+    overflow-y: scroll;
+    z-index: 100;
+}
+
+.make-invisible{
+    display:none !important;
+}
+
+.make-visible{
+    display:block !important;
+    opacity: 1;
+    transition: 1s;
+    transition-delay: 1s;
+}
+
+.mobile-close-comments-button{
+     position: absolute;
+     right: 10px;
+     top: 10px;
+     width: 28px;
+    display:none;
+ }
+
+.mobile-close-information-button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 28px;
+    display:none;
+}
+
+.post-comment{
+    border:0;
+    background:#3384FF;
+    color:white;
+    font-weight:600;
+    font-size:15px;
+    padding:8px 12px;
+    border-radius:3px;
+    margin-top:10px;
+    margin-bottom:10px;
+    cursor:pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+
+.landing-page{
+    height:100%;
+    width:100%;
+    background: url('Images/landingPageBg.svg') no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+.landing-page-navbar{
+    padding-top:40px;
+    margin-left:5%;
+    margin-right:5%;
+    padding-bottom: 40px;
+}
+
+.landing-page-navbar-title{
+    float:left;
+    display:inline-block;
+    margin:0;
+    color:white;
+}
+
+.landing-page-navbar-buttons-container{
+    float:right;
+    display:inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.landing-page-navbar-login-button{
+    margin-right: 20px;
+    width: 130px;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+}
+
+.landing-page-navbar-register-button{
+    margin-left:30px;
+    width:130px;
+    display: inline-block;
+    background:transparent;
+    color:white;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+}
+
+.landing-page-intro-text{
+    color:white;
+    font-weight:bold;
+    font-size:90px;
+    margin-right:5%;
+
+}
+
+.landing-page-top-container{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+.landing-page-top-left-content{
+    position: absolute;
+    width: 55%;
+    margin-left: 5%;
+}
+
+.landing-page-intro-paragraph{
+    color:white;
+    font-size:23px;
+    width:65%;
+}
+
+.landing-page-top-right-content{
+    position: absolute;
+    width: 50%;
+    right: 0;
+    top: 9%;
+}
+
+.landing-page-top-right-content-image{
+    width:100%;
+}
+
+
+
+@media screen and (max-width: 1500px) {
+    .landing-page-intro-text{
+        font-size:70px;
+        margin-top:10%;
+    }
+    .landing-page-intro-paragraph{
+        font-size:21px;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .landing-page-intro-text{
+        font-size:60px;
+    }
+    .landing-page-intro-paragraph{
+        font-size:19px;
+    }
+    .landing-page-top-right-content{
+        width:55%;
+        right:0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .landing-page-intro-text{
+        font-size:68px;
+    }
+    .landing-page-intro-paragraph{
+        font-size:18px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .landing-page-intro-text{
+        font-size:60px;
+
+    }
+    .landing-page-intro-paragraph{
+        font-size:16px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .landing-page-intro-text{
+        font-size:50px;
+
+    }
+    .landing-page-intro-paragraph{
+        font-size:14px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .landing-page-top-left-content{
+        position: absolute;
+        width: 100%;
+        margin-left: 5%;
+    }
+    .landing-page-intro-text{
+        font-size:40px;
+    }
+    .landing-page-intro-paragraph{
+        font-size:16px;
+        width:75%;
+    }
+    .landing-page-top-right-content{
+        width: 100%;
+        top: 67%;
+        right: 0;
+        z-index: 100;
+    }
+    .landing-page-navbar-buttons-container{
+        position: absolute;
+        width: 90%;
+        top:58%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        z-index: 101;
+    }
+    .landing-page{
+        background-size: initial;
+    }
+
+}
+
+
+.landing-page-first-section{
+    position:relative;
+    height:100%;
+}
+
+.landing-page-second-section{
+    margin-top:300px;
+}
+
+.landing-page-second-section-content{
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+}
+
+.first-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.first-container-paragraph{
+    align-self: center;
+    color:white;
+    padding-right:15%;
+    font-size:19px;
+}
+.first-container-img{
+    width:35%;
+    height:50%;
+}
+
+
+.landing-page-button p {
+    text-decoration: none;
+    transition:0.2s ease;
+    margin:0;
+}
+
+.landing-page-button {
+    position: relative;
+    padding: 7px 5px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size:1.01em;
+}
+.login{
+    background: #ffa920;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.register{
+    background:transparent;
+    border:3px solid white;
+}
+
+.landing-page-button .mask {
+    background: white;
+}
+
+.landing-page-button .mask2 {
+    background: white;
+}
+
+.landing-page-button .mask {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+}
+
+.landing-page-button .mask2 {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+}
+
+.login:hover p {
+    color:#3384FF;
+    transition:0.2s ease;
+    position:relative;
+    z-index: 101 !important;
+}
+.register:hover{
+    border:3px solid #ffa920;
+    transition:0.2s;
+    transition-delay:0.1s;
+}
+
+.register p{
+    color:white;
+}
+
+
+.landing-page-button:hover .mask {
+    background: white;
+    width:100%;
+    transition:0.2s ease;
+    z-index: 100;
+}
+
+.landing-page-button:hover .mask2 {
+    background: #ffa920;
+    width:100%;
+    transition:0.2s ease;
+}
+
+.institution-type-content-container{
+    transition: all 0.5s;
+}
+
+.fadeIn {
+    opacity: 1 ;
+    transition: 0.5s;
+}
+
+.fade-in-keyframes{
+    animation:fade-in 0.5s;
+}
+
+.intro-fade{
+    animation:fade-in 1s;
+}
+
+.animate-intro-text{
+    animation:fade-in 1s;
+}
+.animate-intro-paragraph{
+    animation:fade-in 1s;
+}
+.animate-phone-img{
+    animation:intro-img 1s;
+}
+.move-up-animation{
+    animation:top-left-content 1s;
+}
+.button-fade-in{
+    animation: fade-in 1s;
+}
+
+
+@keyframes fade-in{
+    from{
+        opacity:0 ;
+    }
+    to{
+        opacity:1 !important;
+    }
+}
+
+@keyframes intro-img{
+    from{
+        opacity:0;
+        transform:translateX(10%);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+@keyframes top-left-content{
+    from{
+        transform:translateY(10%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+
+.svikolegiji-button{
+    padding:9px 0;
+    position:relative;
+    transition:0.2s ease;
+}
+.svikolegiji-button:hover .navbar-link{
+    color:#3384FF;
+    transition:0.2s;
+}
+
+.svikolegiji-button .mask-home {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+.svikolegiji-button:hover .mask-home {
+    background: white;
+    height:101%;
+    transition: 0.2s;
+}
+
+
+
+.home-button{
+    padding:9px 0;
+    position:relative;
+    transition:0.2s ease;
+}
+.home-button:hover .navbar-link{
+    color:#3384FF;
+    transition:0.2s;
+}
+
+.home-button .mask-home {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+.home-button:hover .mask-home {
+    background: white;
+    height:101%;
+    transition: 0.2s;
+}
+
+.mask-stay{
+    background: white !important;
+    height:101% !important;
+    transition: none !important;
+}
+.color-blue{
+    color:#3384FF;
+}
+
+.remove-kolegij-card{
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 2%;
+    width: 24px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 100;
+    padding:10px;
+}
+
+.kolegij-card:hover .remove-kolegij-card{
+    opacity:0.7;
+    transition:opacity 0.8s;
+    transition-delay: 0.6s;
+}
+
+.remove-favorite-skripta-card{
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    width: 24px;
+    opacity: 0;
+    transition:opacity 0.3s;
+    padding:10px;
+    z-index: 100;
+}
+
+.favorite-kolegiji-card:hover .remove-favorite-skripta-card{
+    opacity:0.7;
+    transition:opacity 0.8s;
+    transition-delay:0.6s ;
+}
+
+
+
+.upload-skripta-container{
+    width:90%;
+    position:relative;
+    height:100%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:40px;
+}
+
+.upload-skripta-content{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.upload-skripta-title{
+    font-size:20px;
+    color:#3384FF;
+}
+
+.hidden{
+    display:none;
+}
+
+.upload-select{
+    width:25%;
+    padding: 5px;
+}
+
+.upload-form-text{
+    font-weight:600;
+}
+
+.upload-skripta-component{
+    margin:45px 0;
+}
