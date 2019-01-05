@@ -6,7 +6,8 @@ import Sidebar from "./Sidebar";
 import { CSSTransitionGroup } from 'react-transition-group'
 import { HamburgerSpin } from 'react-animated-burgers'
 import {withRouter} from 'react-router-dom';
-import classnames from "classnames";
+import { connect } from 'react-redux';
+import { logoutUser } from "../Actions/authActions";
 
 class Navbar extends Component {
     constructor(props){
@@ -14,11 +15,12 @@ class Navbar extends Component {
         this.state = {
             isOpen: false,
             isActive: false,
-            currentRoute: this.props.location.pathname
+            currentRoute: this.props.location.pathname,
         };
 
         this.toggleMenu = this.toggleMenu.bind(this);
         this.toggleButton = this.toggleButton.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
 
@@ -38,11 +40,15 @@ class Navbar extends Component {
         })
     }
 
-
+    handleLogoutClick(e){
+        e.preventDefault();
+        this.props.logoutUser();
+        this.props.history.push("/login")
+    }
 
 
     render() {
-        console.log(this.state.currentRoute);
+        console.log(this.props.auth);
         return (
             <div className="navbar">
                 <CSSTransitionGroup
@@ -74,7 +80,7 @@ class Navbar extends Component {
                     </Link>
 
                     <Link to="/login">
-                        <img className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
+                        <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
                     </Link>
 
                     <div className="hamburger-container">
@@ -86,5 +92,9 @@ class Navbar extends Component {
     }
 }
 
-export default withRouter(Navbar)
+const mapStateToProps = (state) => ({
+    auth: state.auth
+});
+
+export default withRouter(connect(mapStateToProps, { logoutUser })(Navbar))
 

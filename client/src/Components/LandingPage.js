@@ -4,6 +4,8 @@ import Phone from "../Images/phone.png"
 import Phone4 from "../Images/phone4.png"
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
+import { connect } from "react-redux";
+import {registerUser} from "../Actions/authActions";
 
 class LandingPage extends Component {
     constructor(props){
@@ -16,7 +18,10 @@ class LandingPage extends Component {
     componentDidMount() {
         this.setState({
             mounted: true
-        })
+        });
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/home")
+        }
     }
 
     render() {
@@ -101,4 +106,8 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+const mapStateToProps = (state) => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, { registerUser })(LandingPage);

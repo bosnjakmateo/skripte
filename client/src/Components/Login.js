@@ -22,11 +22,17 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
-            this.props.history.push('/');
+            this.props.history.push('/home');
         }
 
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
+        }
+    }
+
+    componentDidMount(){
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/home")
         }
     }
 
@@ -113,4 +119,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);
-
