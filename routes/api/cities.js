@@ -7,6 +7,12 @@ const validateCityInput = require("../../validation/city")
 // Load models
 const City = require("../../models/City")
 
+/**
+ * @apiDefine CitySuccess
+ *
+ * @apiSuccess {Id} id City id
+ * @apiSuccess {String} name City name
+ */
 
 /**
  * @api {post} cities/ Add a city
@@ -15,8 +21,7 @@ const City = require("../../models/City")
  *
  * @apiParam {String} name City name 3-50 chars
  *
- * @apiSuccess {Number} id City id
- * @apiSuccess {String} name City name
+ * @apiUse CitySuccess
  * 
  * @apiError {String} message="City already exists"
  */
@@ -48,8 +53,7 @@ router.post("/", (req, res) => {
  * @apiName GetCities
  * @apiGroup City
  *
- * @apiSuccess {Number} id City id
- * @apiSuccess {String} name City name 
+ * @apiUse CitySuccess
  * 
  * @apiError {String} message="No cities were found"
  */
@@ -66,8 +70,7 @@ router.get("/", (req, res) => {
  *
  * @apiParam {Number} id City id
  *
- * @apiSuccess {Number} id City id
- * @apiSuccess {String} name City name 
+ * @apiUse CitySuccess
  * 
  * @apiError {String} message="No city was found"
  */
@@ -84,8 +87,7 @@ router.get("/:id", (req, res) => {
  *
  * @apiParam {Number} id City id
  *
- * @apiSuccess {Number} id City id
- * @apiSuccess {String} name City name
+ * @apiUse CitySuccess
  * 
  * @apiError {String} message="City to update not found"
  */
@@ -131,7 +133,7 @@ router.delete("/:id", (req, res) => {
 })
 
 /**
- * @api {delete} cities/:id Delete all cities
+ * @api {delete} cities/ Delete all cities
  * @apiName DeleteCities
  * @apiGroup City
  *

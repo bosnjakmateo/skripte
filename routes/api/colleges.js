@@ -7,9 +7,33 @@ const validateCollegeInput = require("../../validation/college")
 // Load models
 const College = require("../../models/College")
 
-// @route   POST api/colleges
-// @desc    Add a college
-// @access  Public
+/**
+ * @apiDefine CollegeSuccess
+ *
+ * @apiSuccess {Id} id College id
+ * @apiSuccess {Id} _city City id
+ * @apiSuccess {Id} _university University id
+ */
+
+ /**
+ * @apiDefine CollegeParam
+ *
+ * @apiParam {String{5-50}} name College name
+ * @apiParam {Id} _city City id
+ * @apiParam {Id} _university University id
+ */
+
+/**
+ * @api {post} colleges/ Add a college
+ * @apiName PostCollege
+ * @apiGroup College
+ *
+ * @apiUse CollegeParam
+ *
+ * @apiUse CitySuccess
+ * 
+ * @apiError {String} message="College already exists"
+ */
 router.post("/", (req, res) => {
     const { errors, isValid } = validateCollegeInput(req.body)
 
@@ -31,27 +55,53 @@ router.post("/", (req, res) => {
         .catch(err => req.json(err))
 })
 
-// @route   GET api/colleges
-// @desc    Get all colleges
-// @access  Public
+
+/**
+ * @api {get} colleges/ Get all colleges
+ * @apiName GetColleges
+ * @apiGroup College
+ *
+ * @apiUse CitySuccess
+ * 
+ * @apiError {String} message="No colleges where found"
+ */
 router.get("/", (req, res) => {
     College.find()
         .then(college => res.json(college))
         .catch(err => res.status(404).json({ message: "No colleges where found" }))
 })
 
-// @route   GET api/colleges/:id
-// @desc    Get college by id
-// @access  Public
+
+/**
+ * @api {get} colleges/:id Get a college
+ * @apiName GetCollege
+ * @apiGroup College
+ * 
+ * @apiParam {Id} id College id
+ *
+ * @apiUse CitySuccess
+ * 
+ * @apiError {String} message="No college was found"
+ */
 router.get("/:id", (req, res) => {
     College.findById(req.params.id)
         .then(college => res.json(college))
         .catch(err => res.status(404).json({ message: "No college was found" }))
 })
 
-// @route   PATCH api/colleges/:id
-// @desc    Update a college
-// @access  Public
+
+/**
+ * @api {patch} colleges/:id Patch a college
+ * @apiName PatchCollege
+ * @apiGroup College
+ * 
+ * @apiParam {Id} id College id
+ * @apiUse CollegeParam
+ *
+ * @apiUse CitySuccess
+ * 
+ * @apiError {String} message="College to update not found"
+ */
 router.patch("/:id", (req, res) => {
   const { errors, isValid } = validateCollegeInput(req.body)
   if(!isValid) {
@@ -70,9 +120,18 @@ router.patch("/:id", (req, res) => {
 
 })
 
-// @route   DELETE api/colleges/:id
-// @desc    Remove a college by id
-// @access  Public
+
+/**
+ * @api {delete} colleges/:id Delete a college
+ * @apiName DeleteCollege
+ * @apiGroup College
+ * 
+ * @apiParam {Id} id College id
+ *
+ * @apiSuccess {String} message="College deleted"
+ * 
+ * @apiError {String} message="College to delete not found"
+ */
 router.delete("/:id", (req, res) => {
     College.findOneAndDelete({ _id: req.params.id})
         .then(college => {
@@ -88,9 +147,18 @@ router.delete("/:id", (req, res) => {
 // @route   DELETE api/colleges
 // @desc    Get all colleges
 // @access  Public
+/**
+ * @api {delete} colleges/ Delete all colleges
+ * @apiName DeleteColleges
+ * @apiGroup College
+ *
+ * @apiSuccess {String} message="Colleges deleted"
+ * 
+ * @apiError {String} message="No colleges to delete"
+ */
 router.delete("/", (req, res) => {
     College.deleteMany({})
-        .then(college => res.json( {message: "Colleges removed"} ))
+        .then(college => res.json( {message: "Colleges deleted"} ))
         .catch(err => res.status(404).json({ message: "No colleges to delete" }))
 })
 

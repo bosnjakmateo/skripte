@@ -7,9 +7,34 @@ const validateScriptInput = require("../../validation/script")
 // Load models
 const Script = require("../../models/Script")
 
-// @route   POST api/scripts
-// @desc    Add a script
-// @access  Public
+/**
+ * @apiDefine ScriptSuccess
+ *
+ * @apiSuccess {String{5-50}="small"} title Script title
+ * @apiSuccess {String{5-200}} description Script description 
+ * @apiSuccess {Array[]} likes Script likes
+ * @apiSuccess {Number} likes._user User id
+ * @apiSuccess {Array[]} dislikes Script dislikes
+ * @apiSuccess {Number} dislikes._user User id
+ * @apiSuccess {Array[]} comments Script comments
+ * @apiSuccess {String} comments.text Comment text 
+ * @apiSuccess {String} comments.user Comment user 
+ * @apiSuccess {Number} _subject Subject id
+ */
+
+/**
+ * @api {post} scripts/ Add a script
+ * @apiName PostScript
+ * @apiGroup Script
+ *
+ * @apiParam {String{5-50}} title Script title
+ * @apiParam {String{5-200}} description Script description
+ * @apiParam {Number} _subject Subject id
+ *
+ * @apiUse ScriptSuccess
+ * 
+ * @apiError {String} message="Script already exists"
+ */
 router.post("/", (req, res) => {
     const { errors, isValid } = validateScriptInput(req.body)
 
@@ -31,27 +56,49 @@ router.post("/", (req, res) => {
         .catch(err => req.json(err))
 })
 
-// @route   GET api/scripts
-// @desc    Get all scripts
-// @access  Public
+/**
+ * @api {get} scripts/ Get scripts
+ * @apiName GetScripts
+ * @apiGroup Script
+ *
+ * @apiUse ScriptSuccess
+ * 
+ * @apiError {String} message="No scripts where found"
+ */
 router.get("/", (req, res) => {
     Script.find()
         .then(script => res.json(script))
         .catch(err => res.status(404).json({ message: "No scripts where found" }))
 })
 
-// @route   GET api/scripts/:id
-// @desc    Get script by id
-// @access  Public
+/**
+ * @api {get} scripts/:id Get a script
+ * @apiName GetScript
+ * @apiGroup Script
+ * 
+ * @apiParam {Number} id Script id
+ *
+ * @apiUse ScriptSuccess
+ * 
+ * @apiError {String} message="No script was found"
+ */
 router.get("/:id", (req, res) => {
     Script.findById(req.params.id)
         .then(script => res.json(script))
         .catch(err => res.status(404).json({ message: "No script was found" }))
 })
 
-// @route   PATCH api/scripts/:id
-// @desc    Update a script
-// @access  Public
+/**
+ * @api {patch} scripts/:id Edit a script
+ * @apiName PatchScript
+ * @apiGroup Script
+ *
+ * @apiParam {Number} id Script id
+ *
+ * @apiUse ScriptSuccess
+ * 
+ * @apiError {String} message="Script to update not found"
+ */
 router.patch("/:id", (req, res) => {
   const { errors, isValid } = validateScriptInput(req.body)
   if(!isValid) {
@@ -70,9 +117,17 @@ router.patch("/:id", (req, res) => {
 
 })
 
-// @route   DELETE api/scripts/:id
-// @desc    Remove a script by id
-// @access  Public
+/**
+ * @api {delete} scripts/:id Delete a script
+ * @apiName DeleteScript
+ * @apiGroup Script
+ *
+ * @apiParam {Number} id Script id
+ *
+ * @apiSuccess {String} message="Script deleted"
+ * 
+ * @apiError {String} message="Script to delete not found"
+ */
 router.delete("/:id", (req, res) => {
     Script.findOneAndDelete({ _id: req.params.id})
         .then(script => {
@@ -85,9 +140,15 @@ router.delete("/:id", (req, res) => {
         .catch(err => console.log(err));
 })
 
-// @route   DELETE api/scripts
-// @desc    Get all scripts
-// @access  Public
+/**
+ * @api {delete} scripts/ Delete all scripts
+ * @apiName DeleteScripts
+ * @apiGroup Script
+ *
+ * @apiSuccess {String} message="Scripts deleted"
+ * 
+ * @apiError {String} message="No scripts to delete"
+ */
 router.delete("/", (req, res) => {
     Script.deleteMany({})
         .then(script => res.json( {message: "Scripts removed"} ))

@@ -14,7 +14,12 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    favorites: [{
+        _subject: {
+            type: Schema.Types.ObjectId, ref: 'Subject'
+        }
+    }]
 })
 
 module.exports = User = mongoose.model("users", UserSchema)

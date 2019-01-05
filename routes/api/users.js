@@ -11,9 +11,27 @@ const validateUserInput = require("../../validation/user")
 // Load models
 const User = require("../../models/User")
 
-// @route   POST api/users
-// @desc    Registers a user
-// @access  Public
+/**
+ * @apiDefine UserSuccess
+ *
+ * @apiSuccess {Id} id User id
+ * @apiSuccess {String} username User username
+ * @apiSuccess {Email} email User email
+ */
+
+/**
+ * @api {post} users/ Regsiter a user
+ * @apiName PostUser
+ * @apiGroup User
+ *
+ * @apiParam {String{6-30}} username User username
+ * @apiParam {String{6-30}} password User password
+ * @apiParam {Email} email User email
+ *
+ * @apiUse UserSuccess
+ * 
+ * @apiError {String} message="Email already exists"
+ */
 router.post("/", (req, res) => {
 	const { errors, isValid } = validateUserInput(req.body)
 
@@ -50,9 +68,19 @@ router.post("/", (req, res) => {
 	})
 })
 
-// @route   POST api/users/login
-// @desc    Login a user
-// @access  Public
+/**
+ * @api {post} users/login Login a user
+ * @apiName LoginUser
+ * @apiGroup User
+ *
+ * @apiParam {String{6-30}} password User password
+ * @apiParam {Email} email User email
+ *
+ * @apiSuccess {Boolean} success="true" Login success
+ * @apiSuccess {String} token="'Bearer' + token" Login token
+ * 
+ * @apiError {String} message="User not found || Password incorrect"
+ */
 router.post("/login", (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
@@ -89,6 +117,16 @@ router.post("/login", (req, res) => {
 // @route   GET api/users/current
 // @desc    Returns current user
 // @access  Private
+/**
+ * @api {get} users/current Returns current user
+ * @apiName CurrentUser
+ * @apiGroup User
+ *
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} username User username
+ * @apiSuccess {Email} email User email
+ */
 router.get("/current", passport.authenticate("jwt", { session: false }),
 	(req, res) => {
 		res.json({

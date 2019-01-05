@@ -11,8 +11,26 @@ const ScriptSchema = new Schema({
         type: String,
         required: true
     },
-    _college: {
-        type: Schema.Types.ObjectId, ref: 'College',
+    likes: [{
+        _user: {
+            type: Schema.Types.ObjectId, ref: 'User'
+        }
+    }],
+    dislikes: [{
+        _user: {
+            type: Schema.Types.ObjectId, ref: 'User'
+        }
+    }],
+    comments: [{
+        text: {
+            type: String
+        },
+        user: {
+            type: String
+        }
+    }],
+    _subject: {
+        type: Schema.Types.ObjectId, ref: 'Subject',
         required: true
     }
 })
