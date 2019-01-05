@@ -28,5 +28,10 @@ benchmarks/graphs
 
 /.vscode
 package-lock.json
+<<<<<<< HEAD
 docs.sh
 TODO.md
+=======
+
+/.idea
+>>>>>>> f53f2f75b7ab9cc7bc0e5cef95714dfb196261d4

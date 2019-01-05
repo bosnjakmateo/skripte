@@ -1,5 +1,5 @@
 const express = require('express')
-const bodyPareser = require("body-parser")
+const bodyParser = require("body-parser")
 const passport = require("passport")
 const mongoose = require("mongoose")
 
@@ -12,8 +12,8 @@ const universities = require("./routes/api/universities")
 const app = express()
 
 // Body parser middleware
-app.use(bodyPareser.urlencoded({ extended: false }))
-app.use(bodyPareser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 // Passport middleware
