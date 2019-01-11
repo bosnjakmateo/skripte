@@ -84,7 +84,7 @@ class Navbar extends Component {
                     </Link>
 
                     <div className="hamburger-container">
-                        <HamburgerSpin buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
+                        <HamburgerSpin padding={0} buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
                     </div>
                 </div>
             </div>

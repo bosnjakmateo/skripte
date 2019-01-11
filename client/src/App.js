@@ -11,7 +11,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import AllKolegiji from"./Components/AllKolegiji";
 import LandingPage from"./Components/LandingPage";
-import UploadSkripta from "./Components/UploadSkripta";
 import setAuthToken from './Utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './Actions/authActions';
 import jwt_decode from 'jwt-decode';
@@ -52,7 +51,6 @@ class App extends Component {
                   <Route exact path="/skripta" component={Skripta}/>
                   <Route exact path="/landing" component={LandingPage}/>
                   <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
-                  <Route exact path="/upload" component={UploadSkripta}/>
               </div>
             </Router>
         </Provider>
