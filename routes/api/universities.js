@@ -81,7 +81,7 @@ router.get("/:id", (req, res) => {
  * @api {patch} universities/:id Patch a university
  * @apiName PatchUniversity
  * @apiGroup University
- *
+ *@apiParam {String} name City name
  * @apiParam {Id} id University id
  * @apiUse UniversityParam
  *
