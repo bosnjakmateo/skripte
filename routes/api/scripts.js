@@ -34,6 +34,8 @@ const Script = require("../../models/Script")
  * @apiParam {String{5-50}} title Script title
  * @apiParam {String{10-200}} description Script description
  * @apiParam {Id} _subject Subject id
+ * 
+ * @apiHeader {String} token User token
  *
  * @apiUse ScriptSuccess
  * 
@@ -134,6 +136,8 @@ router.patch("/:id", (req, res) => {
  *
  * @apiParam {Id} id Script id
  * @apiParam {String} text Comment text
+ * 
+ * @apiHeader {String} token User token
  *
  * @apiUse ScriptSuccess
  * 
