@@ -204,6 +204,13 @@ define({ "api": [
             "optional": false,
             "field": "id",
             "description": "<p>City id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>City name</p>"
           }
         ]
       }
@@ -1134,7 +1141,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1257,7 +1264,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1358,6 +1365,29 @@ define({ "api": [
             "optional": false,
             "field": "id",
             "description": "<p>Script id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "5-50",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Script title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "10-200",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Script description</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_subject",
+            "description": "<p>Subject id</p>"
           }
         ]
       }
@@ -1393,7 +1423,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1536,7 +1566,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1642,7 +1672,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1688,7 +1718,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "5-200",
+            "size": "10-200",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -2384,17 +2414,17 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>City name</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>University id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>University name</p>"
           },
           {
             "group": "Parameter",
@@ -2644,7 +2674,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "6-30",
+            "size": "3-30",
             "optional": false,
             "field": "username",
             "description": "<p>User username</p>"
