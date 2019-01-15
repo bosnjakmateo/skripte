@@ -7,7 +7,14 @@ class FavoriteKolegijiCard extends Component {
     constructor(props){
         super(props);
         this.state = {};
-    }
+
+        this.removeSkripta = this.removeSkripta.bind(this);
+}
+
+removeSkripta(e){
+    e.preventDefault();
+    {/* TODO : remove home favorite skripta card */}
+}
 
 
     render() {
@@ -21,7 +28,7 @@ class FavoriteKolegijiCard extends Component {
                         <p className="favorite-kolegij-card-description">pitanja i odgovori na pitanja, moguće su griješke,pitanja i odgovori na pitanja, moguće su griješke</p>
                     </div>
                 </Link>
-                <img src={removeIcon} className="remove-favorite-skripta-card"/>
+                <img onClick={this.removeSkripta} src={removeIcon} className="remove-favorite-skripta-card"/>
             </div>
         );
     }

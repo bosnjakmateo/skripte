@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
         return res.status(400).json(errors)
     }
 
-    Script.findOne({ name: req.body.name })
+    Script.findOne({ title: req.body.title })
         .then(script => {
             if (script) {
                 return res.status(400).json({ message: "Script already exists" })

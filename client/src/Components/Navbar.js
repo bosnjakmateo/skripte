@@ -58,17 +58,17 @@ class Navbar extends Component {
                     {this.state.isOpen && <Sidebar clicker={this.toggleMenu}/>}
                 </CSSTransitionGroup>
                 <div className="navbar-logo">
-                    <Link to="/">
+                    <Link to="/home">
                         <h1 className="logo">SKRIPTE</h1>
                     </Link>
                 </div>
                 <div className="navbar-menu">
-
+                    {/*
                     <Link className="home-button" to="/upload">
                         <button className={"navbar-link" + (this.state.currentRoute === "/upload" ? " color-blue" : "")}>UPLOAD</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/upload" ? " mask-stay" : "")}/>
                     </Link>
-
+                    */}
                     <Link className="svikolegiji-button" to="/svikolegiji">
                         <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/svikolegiji" ? " mask-stay" : "")}/>
@@ -84,7 +84,7 @@ class Navbar extends Component {
                     </Link>
 
                     <div className="hamburger-container">
-                        <HamburgerSpin buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
+                        <HamburgerSpin padding={0} buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
                     </div>
                 </div>
             </div>
