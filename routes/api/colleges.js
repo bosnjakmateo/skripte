@@ -18,7 +18,7 @@ const College = require("../../models/College")
  /**
  * @apiDefine CollegeParam
  *
- * @apiParam {String{5-50}} name College name
+ * @apiParam {String{2-50}} name College name
  * @apiParam {Id} _city City id
  * @apiParam {Id} _university University id
  */

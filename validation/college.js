@@ -8,8 +8,8 @@ module.exports = function validateUserData(data) {
         errors.name = "Name field is required"
     }
 
-    if (!Validator.isLength(data.name, { min: 5, max: 50 })) {
-        errors.name = "Name must be between 5 and 50 characters"
+    if (!Validator.isLength(data.name, { min: 2, max: 50 })) {
+        errors.name = "Name must be between 2 and 50 characters"
     }
 
     if (Validator.isEmpty(data._city)) {

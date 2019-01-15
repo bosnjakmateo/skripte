@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
                     name: req.body.name
                 })
                 newCity.save()
-                    .then(newShift => res.json(newShift))
+                    .then(newCity => res.json(newCity))
                     .catch(err => res.json(err))
             }
         })

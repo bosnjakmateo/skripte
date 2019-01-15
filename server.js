@@ -8,6 +8,7 @@ const cities = require("./routes/api/cities")
 const colleges = require("./routes/api/colleges")
 const scripts = require("./routes/api/scripts")
 const universities = require("./routes/api/universities")
+const fields = require("./routes/api/fields")
 
 const app = express()
 
@@ -45,6 +46,7 @@ app.use("/cities", cities)
 app.use("/colleges", colleges)
 app.use("/scripts", scripts)
 app.use("/universities", universities)
+app.use("/fields", fields)
 
 const port = process.env.PORT || 5000
 

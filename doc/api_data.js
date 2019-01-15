@@ -512,7 +512,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "5-50",
+            "size": "2-50",
             "optional": false,
             "field": "name",
             "description": "<p>College name</p>"
@@ -601,7 +601,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "5-50",
+            "size": "2-50",
             "optional": false,
             "field": "name",
             "description": "<p>College name</p>"
@@ -639,6 +639,359 @@ define({ "api": [
             "optional": false,
             "field": "name",
             "description": "<p>City name</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "url": "fields/:id",
+    "title": "Delete a field",
+    "name": "DeleteField",
+    "group": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Field deleted",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Field to delete not found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "delete",
+    "url": "fields/",
+    "title": "Delete all fields",
+    "name": "DeleteFields",
+    "group": "Field",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Fields deleted",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No fields to delete",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field"
+  },
+  {
+    "type": "get",
+    "url": "fields/:id",
+    "title": "Get field by id",
+    "name": "GetField",
+    "group": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No field was found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "fields/",
+    "title": "Get all fields",
+    "name": "GetFields",
+    "group": "Field",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No fields were found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "patch",
+    "url": "fields/:id",
+    "title": "Patch a field",
+    "name": "PatchField",
+    "group": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Field to update not found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "fields/",
+    "title": "Add a field",
+    "name": "PostField",
+    "group": "Field",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Field already exists",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/fields.js",
+    "groupTitle": "Field",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Field id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Field name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College name</p>"
           }
         ]
       }
