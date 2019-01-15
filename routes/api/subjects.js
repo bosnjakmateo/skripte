@@ -1,44 +1,46 @@
 const express = require("express")
 const router = express.Router()
 
-// Load input validation
-const validateSubjectInput = require("../../validation/subject")
-
 // Load models
 const Subject = require("../../models/Subject")
 
+/**
+ * @apiDefine SubjectSuccess
+ *
+ * @apiSuccess {Id} id Subject id
+ * @apiSuccess {String} name Subject name
+ * @apiSuccess {String} semester Subject semester
+ * @apiSuccess {Id} _college College id
+ */
+
+/**
+ * @apiDefine SubjectParam
+ *
+ * @apiParam {String} name Subject name
+ * @apiParam {String} semester Subject semester
+ * @apiParam {Id} _college College id
+ */ 
 
 /**
  * @api {post} subjects/ Add a subject
  * @apiName PostSubject
  * @apiGroup Subject
  *
- * @apiParam {String} name Subject name 3-50 chars
- * @apiParam {Id} _college College id
+ * @apiUse SubjectParam
  *
- * @apiSuccess {Number} id Subject id
- * @apiSuccess {String} name Subject name
- * @apiParam {Id} _college College id
+ * @apiUse SubjectSuccess
  * 
  * @apiError {String} message="Subject already exists"
  */
 router.post("/", (req, res) => {
-    const { errors, isValid } = validateSubjectInput(req.body)
-
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
-
-    Subject.findOne({ name: req.body.name })
+    Subject.findOne({ name: req.body.name, _college: req.body._college })
         .then(subject => {
             if (subject) {
                 return res.status(400).json({ message: "Subject already exists" })
             } else {
-                const newSubject = new Subject({
-                    name: req.body.name
-                })
+                const newSubject = new Subject(req.body)
                 newSubject.save()
-                    .then(newShift => res.json(newShift))
+                    .then(newSubject => res.json(newSubject))
                     .catch(err => res.json(err))
             }
         })
@@ -50,9 +52,7 @@ router.post("/", (req, res) => {
  * @apiName GetSubjects
  * @apiGroup Subject
  *
- * @apiSuccess {Id} id Subject id
- * @apiSuccess {String} name Subject name 
- * @apiParam {Id} _college College id
+ * @apiUse SubjectSuccess
  * 
  * @apiError {String} message="No subjects were found"
  */
@@ -64,14 +64,12 @@ router.get("/", (req, res) => {
 
 /**
  * @api {get} subjects/:id Get subject by id
- * @apiName GetCity
+ * @apiName GetSubject
  * @apiGroup Subject
  *
  * @apiParam {Id} id Subject id
  *
- * @apiSuccess {Id} id Subject id
- * @apiSuccess {String} name Subject name 
- * @apiParam {Id} _college College id
+ * @apiUse SubjectSuccess
  * 
  * @apiError {String} message="No subject was found"
  */
@@ -83,23 +81,17 @@ router.get("/:id", (req, res) => {
 
 /**
  * @api {patch} subjects/:id Patch a subject
- * @apiName PatchCity
+ * @apiName PatchSubject
  * @apiGroup Subject
  *
- * @apiParam {Id} id Subject id
- *
- * @apiSuccess {Id} id Subject id
- * @apiSuccess {String} name Subject name
- * @apiParam {Id} _college College id
+ * @apiParam {Id} id Subject id 
+ * @apiUse SubjectParam
+ * 
+ * @apiUse SubjectSuccess
  * 
  * @apiError {String} message="Subject to update not found"
  */
 router.patch("/:id", (req, res) => {
-  const { errors, isValid } = validateSubjectInput(req.body)
-  if(!isValid) {
-      return res.status(400).json(errors)
-  }
-
   Subject.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
       .then(subject => {
         if(!subject){
@@ -114,7 +106,7 @@ router.patch("/:id", (req, res) => {
 
 /**
  * @api {delete} subjects/:id Delete a subject
- * @apiName DeleteCity
+ * @apiName DeleteSubject
  * @apiGroup Subject
  *
  * @apiParam {Id} id Subject id
@@ -137,10 +129,10 @@ router.delete("/:id", (req, res) => {
 
 /**
  * @api {delete} subjects/ Delete all subjects
- * @apiName DeleteCities
+ * @apiName DeleteSubjects
  * @apiGroup Subject
  *
- * @apiSuccess {String} message="Cities deleted"
+ * @apiSuccess {String} message="Subjects deleted"
  * 
  * @apiError {String} message="No subjects to delete"
  */

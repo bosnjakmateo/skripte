@@ -7,6 +7,10 @@ const SubjectSchema = new Schema({
         type: String,
         required: true
     },
+    semester: {
+        type: String,
+        required: true
+    },
     _college: {
         type: Schema.Types.ObjectId, ref: 'College',
         required: true

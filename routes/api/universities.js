@@ -1,9 +1,6 @@
 const express = require("express")
 const router = express.Router()
 
-// Load input validation
-const validateUniversityInput = require("../../validation/university")
-
 // Load models
 const University = require("../../models/University")
 
@@ -15,12 +12,12 @@ const University = require("../../models/University")
  * @apiSuccess {Id} _city City name
  */
 
- /**
- * @apiDefine UniversityParam
- *
- * @apiParam {String{5-50}} name University name
- * @apiParam {Id} _city City name
- */
+/**
+* @apiDefine UniversityParam
+*
+* @apiParam {String} name University name
+* @apiParam {Id} _city City name
+*/
 
 /**
  * @api {post} universities/ Add a university
@@ -34,12 +31,6 @@ const University = require("../../models/University")
  * @apiError {String} message="University already exists"
  */
 router.post("/", (req, res) => {
-    const { errors, isValid } = validateUniversityInput(req.body)
-
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
-
     University.findOne({ name: req.body.name })
         .then(university => {
             if (university) {
@@ -99,20 +90,15 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="University to update not found"
  */
 router.patch("/:id", (req, res) => {
-  const { errors, isValid } = validateUniversityInput(req.body)
-  if(!isValid) {
-      return res.status(400).json(errors)
-  }
-
-  University.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
-      .then(university => {
-        if(!university){
-          return res.status(404).json({message: "University to update not found"});
-        } else {
-          return res.json(university)
-        }
-      })
-      .catch(err => console.log(err));
+    University.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        .then(university => {
+            if (!university) {
+                return res.status(404).json({ message: "University to update not found" });
+            } else {
+                return res.json(university)
+            }
+        })
+        .catch(err => console.log(err));
 
 })
 
@@ -128,13 +114,13 @@ router.patch("/:id", (req, res) => {
  * @apiError {String} message="University to delete not found"
  */
 router.delete("/:id", (req, res) => {
-    University.findOneAndDelete({ _id: req.params.id})
+    University.findOneAndDelete({ _id: req.params.id })
         .then(university => {
-          if(!university){
-            return res.status(404).json({ message: "University to delete not found"});
-          } else{
-            return res.json( {message: "University deleted"} )
-          }
+            if (!university) {
+                return res.status(404).json({ message: "University to delete not found" });
+            } else {
+                return res.json({ message: "University deleted" })
+            }
         })
         .catch(err => console.log(err));
 })
@@ -150,7 +136,7 @@ router.delete("/:id", (req, res) => {
  */
 router.delete("/", (req, res) => {
     University.deleteMany({})
-        .then(university => res.json( {message: "Universities deleted"} ))
+        .then(university => res.json({ message: "Universities deleted" }))
         .catch(err => res.status(404).json({ message: "No universities to delete" }))
 })
 

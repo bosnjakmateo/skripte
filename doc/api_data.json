@@ -260,7 +260,7 @@
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>City name 3-50 chars</p>"
+            "description": "<p>City name</p>"
           }
         ]
       }
@@ -512,7 +512,6 @@
           {
             "group": "Parameter",
             "type": "String",
-            "size": "2-50",
             "optional": false,
             "field": "name",
             "description": "<p>College name</p>"
@@ -601,7 +600,6 @@
           {
             "group": "Parameter",
             "type": "String",
-            "size": "2-50",
             "optional": false,
             "field": "name",
             "description": "<p>College name</p>"
@@ -1129,9 +1127,6 @@
             "group": "Success 200",
             "type": "String",
             "size": "5-50",
-            "allowedValues": [
-              "\"small\""
-            ],
             "optional": false,
             "field": "title",
             "description": "<p>Script title</p>"
@@ -1255,9 +1250,6 @@
             "group": "Success 200",
             "type": "String",
             "size": "5-50",
-            "allowedValues": [
-              "\"small\""
-            ],
             "optional": false,
             "field": "title",
             "description": "<p>Script title</p>"
@@ -1394,9 +1386,6 @@
             "group": "Success 200",
             "type": "String",
             "size": "5-50",
-            "allowedValues": [
-              "\"small\""
-            ],
             "optional": false,
             "field": "title",
             "description": "<p>Script title</p>"
@@ -1540,9 +1529,6 @@
             "group": "Success 200",
             "type": "String",
             "size": "5-50",
-            "allowedValues": [
-              "\"small\""
-            ],
             "optional": false,
             "field": "title",
             "description": "<p>Script title</p>"
@@ -1695,9 +1681,6 @@
             "group": "Success 200",
             "type": "String",
             "size": "5-50",
-            "allowedValues": [
-              "\"small\""
-            ],
             "optional": false,
             "field": "title",
             "description": "<p>Script title</p>"
@@ -1793,47 +1776,9 @@
   },
   {
     "type": "delete",
-    "url": "subjects/",
-    "title": "Delete all subjects",
-    "name": "DeleteCities",
-    "group": "Subject",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "defaultValue": "Cities deleted",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "defaultValue": "No subjects to delete",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/api/subjects.js",
-    "groupTitle": "Subject"
-  },
-  {
-    "type": "delete",
     "url": "subjects/:id",
     "title": "Delete a subject",
-    "name": "DeleteCity",
+    "name": "DeleteSubject",
     "group": "Subject",
     "parameter": {
       "fields": {
@@ -1881,10 +1826,48 @@
     "groupTitle": "Subject"
   },
   {
+    "type": "delete",
+    "url": "subjects/",
+    "title": "Delete all subjects",
+    "name": "DeleteSubjects",
+    "group": "Subject",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Subjects deleted",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No subjects to delete",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/subjects.js",
+    "groupTitle": "Subject"
+  },
+  {
     "type": "get",
     "url": "subjects/:id",
     "title": "Get subject by id",
-    "name": "GetCity",
+    "name": "GetSubject",
     "group": "Subject",
     "parameter": {
       "fields": {
@@ -1895,33 +1878,6 @@
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Id",
-            "optional": false,
-            "field": "_college",
-            "description": "<p>College id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Id",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Subject id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Subject name</p>"
           }
         ]
       }
@@ -1942,14 +1898,7 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/subjects.js",
-    "groupTitle": "Subject"
-  },
-  {
-    "type": "get",
-    "url": "subjects/",
-    "title": "Get all subjects",
-    "name": "GetSubjects",
-    "group": "Subject",
+    "groupTitle": "Subject",
     "success": {
       "fields": {
         "Success 200": [
@@ -1966,15 +1915,16 @@
             "optional": false,
             "field": "name",
             "description": "<p>Subject name</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
+          },
           {
-            "group": "Parameter",
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Id",
             "optional": false,
             "field": "_college",
@@ -1982,7 +1932,14 @@
           }
         ]
       }
-    },
+    }
+  },
+  {
+    "type": "get",
+    "url": "subjects/",
+    "title": "Get all subjects",
+    "name": "GetSubjects",
+    "group": "Subject",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1999,34 +1956,7 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/subjects.js",
-    "groupTitle": "Subject"
-  },
-  {
-    "type": "patch",
-    "url": "subjects/:id",
-    "title": "Patch a subject",
-    "name": "PatchCity",
-    "group": "Subject",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Id",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Subject id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Id",
-            "optional": false,
-            "field": "_college",
-            "description": "<p>College id</p>"
-          }
-        ]
-      }
-    },
+    "groupTitle": "Subject",
     "success": {
       "fields": {
         "Success 200": [
@@ -2043,6 +1973,61 @@
             "optional": false,
             "field": "name",
             "description": "<p>Subject name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College id</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "patch",
+    "url": "subjects/:id",
+    "title": "Patch a subject",
+    "name": "PatchSubject",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Subject id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Subject name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College id</p>"
           }
         ]
       }
@@ -2063,40 +2048,13 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/subjects.js",
-    "groupTitle": "Subject"
-  },
-  {
-    "type": "post",
-    "url": "subjects/",
-    "title": "Add a subject",
-    "name": "PostSubject",
-    "group": "Subject",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Subject name 3-50 chars</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Id",
-            "optional": false,
-            "field": "_college",
-            "description": "<p>College id</p>"
-          }
-        ]
-      }
-    },
+    "groupTitle": "Subject",
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
@@ -2107,10 +2065,31 @@
             "optional": false,
             "field": "name",
             "description": "<p>Subject name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College id</p>"
           }
         ]
       }
-    },
+    }
+  },
+  {
+    "type": "post",
+    "url": "subjects/",
+    "title": "Add a subject",
+    "name": "PostSubject",
+    "group": "Subject",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -2127,7 +2106,68 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/subjects.js",
-    "groupTitle": "Subject"
+    "groupTitle": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Subject name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Subject id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Subject name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "semester",
+            "description": "<p>Subject semester</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_college",
+            "description": "<p>College id</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "delete",
@@ -2352,7 +2392,6 @@
           {
             "group": "Parameter",
             "type": "String",
-            "size": "5-50",
             "optional": false,
             "field": "name",
             "description": "<p>University name</p>"
@@ -2441,7 +2480,6 @@
           {
             "group": "Parameter",
             "type": "String",
-            "size": "5-50",
             "optional": false,
             "field": "name",
             "description": "<p>University name</p>"

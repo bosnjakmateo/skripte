@@ -24,7 +24,7 @@ const User = require("../../models/User")
  * @apiName PostUser
  * @apiGroup User
  *
- * @apiParam {String{6-30}} username User username
+ * @apiParam {String{3-30}} username User username
  * @apiParam {String{6-30}} password User password
  * @apiParam {Email} email User email
  *

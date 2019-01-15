@@ -1,9 +1,6 @@
 const express = require("express")
 const router = express.Router()
 
-// Load input validation
-const validateCollegeInput = require("../../validation/college")
-
 // Load models
 const College = require("../../models/College")
 
@@ -18,7 +15,7 @@ const College = require("../../models/College")
  /**
  * @apiDefine CollegeParam
  *
- * @apiParam {String{2-50}} name College name
+ * @apiParam {String} name College name
  * @apiParam {Id} _city City id
  * @apiParam {Id} _university University id
  */
@@ -35,12 +32,6 @@ const College = require("../../models/College")
  * @apiError {String} message="College already exists"
  */
 router.post("/", (req, res) => {
-    const { errors, isValid } = validateCollegeInput(req.body)
-
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
-
     College.findOne({ name: req.body.name })
         .then(college => {
             if (college) {
@@ -103,11 +94,6 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="College to update not found"
  */
 router.patch("/:id", (req, res) => {
-  const { errors, isValid } = validateCollegeInput(req.body)
-  if(!isValid) {
-      return res.status(400).json(errors)
-  }
-
   College.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
       .then(college => {
         if(!college){

@@ -1,8 +1,6 @@
 const express = require("express")
 const router = express.Router()
 
-// Load input validation
-const validateCityInput = require("../../validation/city")
 
 // Load models
 const City = require("../../models/City")
@@ -19,19 +17,13 @@ const City = require("../../models/City")
  * @apiName PostCity
  * @apiGroup City
  *
- * @apiParam {String} name City name 3-50 chars
+ * @apiParam {String} name City name
  *
  * @apiUse CitySuccess
  * 
  * @apiError {String} message="City already exists"
  */
 router.post("/", (req, res) => {
-    const { errors, isValid } = validateCityInput(req.body)
-
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
-
     City.findOne({ name: req.body.name })
         .then(city => {
             if (city) {
@@ -86,17 +78,13 @@ router.get("/:id", (req, res) => {
  * @apiGroup City
  *
  * @apiParam {Id} id City id
+ * @apiParam {String} name City name
  *
  * @apiUse CitySuccess
  * 
  * @apiError {String} message="City to update not found"
  */
 router.patch("/:id", (req, res) => {
-  const { errors, isValid } = validateCityInput(req.body)
-  if(!isValid) {
-      return res.status(400).json(errors)
-  }
-
   City.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
       .then(city => {
         if(!city){

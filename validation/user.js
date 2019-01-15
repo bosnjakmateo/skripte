@@ -8,8 +8,8 @@ module.exports = function validateUserData(data) {
         errors.username = "Username field is required"
     }
 
-    if (!Validator.isLength(data.username, { min: 6, max: 30 })) {
-        errors.username = "Username must be between 6 and 30 characters"
+    if (!Validator.isLength(data.username, { min: 3, max: 30 })) {
+        errors.username = "Username must be between 3 and 30 characters"
     }
 
     if (Validator.isEmpty(data.email)) {
