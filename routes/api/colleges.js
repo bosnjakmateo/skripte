@@ -144,9 +144,6 @@ router.delete("/:id", (req, res) => {
         .catch(err => console.log(err));
 })
 
-// @route   DELETE api/colleges
-// @desc    Get all colleges
-// @access  Public
 /**
  * @api {delete} colleges/ Delete all colleges
  * @apiName DeleteColleges

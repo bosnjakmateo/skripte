@@ -20,7 +20,7 @@ module.exports = function validateUserData(data) {
         errors.description = "Description must be between 5 and 200 characters"
     }
 
-    if (Validator.isEmpty(data._college)) {
+    if (Validator.isEmpty(data._subject)) {
         errors.name = "College field is required"
     }
 

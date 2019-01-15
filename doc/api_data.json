@@ -48,7 +48,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>City id</p>"
@@ -143,7 +143,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>City id</p>"
@@ -200,7 +200,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>City id</p>"
@@ -655,7 +655,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Script id</p>"
@@ -744,7 +744,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Script id</p>"
@@ -800,7 +800,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "likes._user",
             "description": "<p>User id</p>"
@@ -814,7 +814,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "dislikes._user",
             "description": "<p>User id</p>"
@@ -842,7 +842,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_subject",
             "description": "<p>Subject id</p>"
@@ -905,7 +905,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "likes._user",
             "description": "<p>User id</p>"
@@ -919,7 +919,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "dislikes._user",
             "description": "<p>User id</p>"
@@ -947,7 +947,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_subject",
             "description": "<p>Subject id</p>"
@@ -967,7 +967,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Script id</p>"
@@ -1023,7 +1023,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "likes._user",
             "description": "<p>User id</p>"
@@ -1037,7 +1037,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "dislikes._user",
             "description": "<p>User id</p>"
@@ -1065,7 +1065,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_subject",
             "description": "<p>Subject id</p>"
@@ -1101,7 +1101,7 @@
           },
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_subject",
             "description": "<p>Subject id</p>"
@@ -1157,7 +1157,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "likes._user",
             "description": "<p>User id</p>"
@@ -1171,7 +1171,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "dislikes._user",
             "description": "<p>User id</p>"
@@ -1199,7 +1199,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_subject",
             "description": "<p>Subject id</p>"
@@ -1257,7 +1257,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
@@ -1308,14 +1308,14 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
           },
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_college",
             "description": "<p>College id</p>"
@@ -1328,7 +1328,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
@@ -1372,7 +1372,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
@@ -1392,7 +1392,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_college",
             "description": "<p>College id</p>"
@@ -1429,14 +1429,14 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
           },
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_college",
             "description": "<p>College id</p>"
@@ -1449,7 +1449,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>Subject id</p>"
@@ -1500,7 +1500,7 @@
           },
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "_college",
             "description": "<p>College id</p>"
@@ -1595,7 +1595,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>University id</p>"
@@ -1641,26 +1641,6 @@
     "title": "Get all university",
     "name": "GetUniversities",
     "group": "University",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>University id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>University name</p>"
-          }
-        ]
-      }
-    },
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1677,7 +1657,34 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/universities.js",
-    "groupTitle": "University"
+    "groupTitle": "University",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>University id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>University name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "get",
@@ -1690,30 +1697,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>University id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>University id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>University name</p>"
           }
         ]
       }
@@ -1734,7 +1721,34 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/universities.js",
-    "groupTitle": "University"
+    "groupTitle": "University",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>University id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>University name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "patch",
@@ -1747,30 +1761,25 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>University id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>University id</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Parameter",
             "type": "String",
+            "size": "5-50",
             "optional": false,
             "field": "name",
             "description": "<p>University name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
           }
         ]
       }
@@ -1791,34 +1800,13 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/universities.js",
-    "groupTitle": "University"
-  },
-  {
-    "type": "post",
-    "url": "universities/",
-    "title": "Add a university",
-    "name": "PostUniversity",
-    "group": "University",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "size": "5-50",
-            "optional": false,
-            "field": "name",
-            "description": "<p>University name</p>"
-          }
-        ]
-      }
-    },
+    "groupTitle": "University",
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Id",
             "optional": false,
             "field": "id",
             "description": "<p>University id</p>"
@@ -1829,10 +1817,24 @@
             "optional": false,
             "field": "name",
             "description": "<p>University name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
           }
         ]
       }
-    },
+    }
+  },
+  {
+    "type": "post",
+    "url": "universities/",
+    "title": "Add a university",
+    "name": "PostUniversity",
+    "group": "University",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1849,7 +1851,55 @@
     },
     "version": "0.0.0",
     "filename": "routes/api/universities.js",
-    "groupTitle": "University"
+    "groupTitle": "University",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "5-50",
+            "optional": false,
+            "field": "name",
+            "description": "<p>University name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>University id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>University name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_city",
+            "description": "<p>City name</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "get",

@@ -68,7 +68,7 @@ router.get("/", (req, res) => {
  * @apiName GetCity
  * @apiGroup City
  *
- * @apiParam {Number} id City id
+ * @apiParam {Id} id City id
  *
  * @apiUse CitySuccess
  * 
@@ -81,11 +81,11 @@ router.get("/:id", (req, res) => {
 })
 
 /**
- * @api {patch} cities/:id Edit a city
+ * @api {patch} cities/:id Patch a city
  * @apiName PatchCity
  * @apiGroup City
  *
- * @apiParam {Number} id City id
+ * @apiParam {Id} id City id
  *
  * @apiUse CitySuccess
  * 
@@ -114,7 +114,7 @@ router.patch("/:id", (req, res) => {
  * @apiName DeleteCity
  * @apiGroup City
  *
- * @apiParam {Number} id City id
+ * @apiParam {Id} id City id
  *
  * @apiSuccess {String} message="City deleted"
  * 

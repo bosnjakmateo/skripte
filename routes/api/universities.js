@@ -8,14 +8,28 @@ const validateUniversityInput = require("../../validation/university")
 const University = require("../../models/University")
 
 /**
+ * @apiDefine UniversitySuccess
+ *
+ * @apiSuccess {Id} id University id
+ * @apiSuccess {String} name University name
+ * @apiSuccess {Id} _city City name
+ */
+
+ /**
+ * @apiDefine UniversityParam
+ *
+ * @apiParam {String{5-50}} name University name
+ * @apiParam {Id} _city City name
+ */
+
+/**
  * @api {post} universities/ Add a university
  * @apiName PostUniversity
  * @apiGroup University
  *
- * @apiParam {String{5-50}} name University name
+ * @apiUse UniversityParam
  * 
- * @apiSuccess {Number} id University id
- * @apiSuccess {String} name University name
+ * @apiUse UniversitySuccess
  * 
  * @apiError {String} message="University already exists"
  */
@@ -45,9 +59,7 @@ router.post("/", (req, res) => {
  * @apiName GetUniversities
  * @apiGroup University
  * 
- * 
- * @apiSuccess {Number} id University id
- * @apiSuccess {String} name University name
+ * @apiUse UniversitySuccess
  * 
  * @apiError {String} message="No universities where found"
  */
@@ -62,10 +74,9 @@ router.get("/", (req, res) => {
  * @apiName GetUniversity
  * @apiGroup University
  * 
- * @apiParam {Number} id University id
+ * @apiParam {Id} id University id
  * 
- * @apiSuccess {Number} id University id
- * @apiSuccess {String} name University name
+ * @apiUse UniversitySuccess
  * 
  * @apiError {String} message="No university was found"
  */
@@ -76,14 +87,14 @@ router.get("/:id", (req, res) => {
 })
 
 /**
- * @api {patch} universities/:id Edit a university
+ * @api {patch} universities/:id Patch a university
  * @apiName PatchUniversity
  * @apiGroup University
  *
- * @apiParam {Number} id University id
+ * @apiParam {Id} id University id
+ * @apiUse UniversityParam
  *
- * @apiSuccess {Number} id University id
- * @apiSuccess {String} name University name
+ * @apiUse UniversitySuccess
  * 
  * @apiError {String} message="University to update not found"
  */
@@ -110,7 +121,7 @@ router.patch("/:id", (req, res) => {
  * @apiName DeleteUniversity
  * @apiGroup University
  *
- * @apiParam {Number} id University id
+ * @apiParam {Id} id University id
  *
  * @apiSuccess {String} message="University deleted"
  * 
@@ -128,9 +139,6 @@ router.delete("/:id", (req, res) => {
         .catch(err => console.log(err));
 })
 
-// @route   DELETE api/universities
-// @desc    Get all universities
-// @access  Public
 /**
  * @api {delete} subjects/ Delete all universities
  * @apiName DeleteUniversities

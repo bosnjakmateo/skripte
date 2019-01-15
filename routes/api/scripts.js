@@ -13,13 +13,13 @@ const Script = require("../../models/Script")
  * @apiSuccess {String{5-50}="small"} title Script title
  * @apiSuccess {String{5-200}} description Script description 
  * @apiSuccess {Array[]} likes Script likes
- * @apiSuccess {Number} likes._user User id
+ * @apiSuccess {Id} likes._user User id
  * @apiSuccess {Array[]} dislikes Script dislikes
- * @apiSuccess {Number} dislikes._user User id
+ * @apiSuccess {Id} dislikes._user User id
  * @apiSuccess {Array[]} comments Script comments
  * @apiSuccess {String} comments.text Comment text 
  * @apiSuccess {String} comments.user Comment user 
- * @apiSuccess {Number} _subject Subject id
+ * @apiSuccess {Id} _subject Subject id
  */
 
 /**
@@ -29,7 +29,7 @@ const Script = require("../../models/Script")
  *
  * @apiParam {String{5-50}} title Script title
  * @apiParam {String{5-200}} description Script description
- * @apiParam {Number} _subject Subject id
+ * @apiParam {Id} _subject Subject id
  *
  * @apiUse ScriptSuccess
  * 
@@ -76,7 +76,7 @@ router.get("/", (req, res) => {
  * @apiName GetScript
  * @apiGroup Script
  * 
- * @apiParam {Number} id Script id
+ * @apiParam {Id} id Script id
  *
  * @apiUse ScriptSuccess
  * 
@@ -89,11 +89,11 @@ router.get("/:id", (req, res) => {
 })
 
 /**
- * @api {patch} scripts/:id Edit a script
+ * @api {patch} scripts/:id Patch a script
  * @apiName PatchScript
  * @apiGroup Script
  *
- * @apiParam {Number} id Script id
+ * @apiParam {Id} id Script id
  *
  * @apiUse ScriptSuccess
  * 
@@ -122,7 +122,7 @@ router.patch("/:id", (req, res) => {
  * @apiName DeleteScript
  * @apiGroup Script
  *
- * @apiParam {Number} id Script id
+ * @apiParam {Id} id Script id
  *
  * @apiSuccess {String} message="Script deleted"
  * 

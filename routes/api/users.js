@@ -114,9 +114,7 @@ router.post("/login", (req, res) => {
 	})
 })
 
-// @route   GET api/users/current
-// @desc    Returns current user
-// @access  Private
+
 /**
  * @api {get} users/current Returns current user
  * @apiName CurrentUser

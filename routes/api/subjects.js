@@ -14,11 +14,11 @@ const Subject = require("../../models/Subject")
  * @apiGroup Subject
  *
  * @apiParam {String} name Subject name 3-50 chars
- * @apiParam {Number} _college College id
+ * @apiParam {Id} _college College id
  *
  * @apiSuccess {Number} id Subject id
  * @apiSuccess {String} name Subject name
- * @apiParam {Number} _college College id
+ * @apiParam {Id} _college College id
  * 
  * @apiError {String} message="Subject already exists"
  */
@@ -50,9 +50,9 @@ router.post("/", (req, res) => {
  * @apiName GetSubjects
  * @apiGroup Subject
  *
- * @apiSuccess {Number} id Subject id
+ * @apiSuccess {Id} id Subject id
  * @apiSuccess {String} name Subject name 
- * @apiParam {Number} _college College id
+ * @apiParam {Id} _college College id
  * 
  * @apiError {String} message="No subjects were found"
  */
@@ -67,11 +67,11 @@ router.get("/", (req, res) => {
  * @apiName GetCity
  * @apiGroup Subject
  *
- * @apiParam {Number} id Subject id
+ * @apiParam {Id} id Subject id
  *
- * @apiSuccess {Number} id Subject id
+ * @apiSuccess {Id} id Subject id
  * @apiSuccess {String} name Subject name 
- * @apiParam {Number} _college College id
+ * @apiParam {Id} _college College id
  * 
  * @apiError {String} message="No subject was found"
  */
@@ -82,15 +82,15 @@ router.get("/:id", (req, res) => {
 })
 
 /**
- * @api {patch} subjects/:id Edit a subject
+ * @api {patch} subjects/:id Patch a subject
  * @apiName PatchCity
  * @apiGroup Subject
  *
- * @apiParam {Number} id Subject id
+ * @apiParam {Id} id Subject id
  *
- * @apiSuccess {Number} id Subject id
+ * @apiSuccess {Id} id Subject id
  * @apiSuccess {String} name Subject name
- * @apiParam {Number} _college College id
+ * @apiParam {Id} _college College id
  * 
  * @apiError {String} message="Subject to update not found"
  */
@@ -117,7 +117,7 @@ router.patch("/:id", (req, res) => {
  * @apiName DeleteCity
  * @apiGroup Subject
  *
- * @apiParam {Number} id Subject id
+ * @apiParam {Id} id Subject id
  *
  * @apiSuccess {String} message="Subject deleted"
  * 
