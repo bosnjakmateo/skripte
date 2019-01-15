@@ -192,7 +192,7 @@ define({ "api": [
   {
     "type": "patch",
     "url": "cities/:id",
-    "title": "Edit a city",
+    "title": "Patch a city",
     "name": "PatchCity",
     "group": "City",
     "parameter": {
@@ -842,6 +842,27 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "comments.date",
+            "description": "<p>Comment date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Script date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user",
+            "description": "<p>User who added script</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Id",
             "optional": false,
             "field": "_subject",
@@ -947,6 +968,27 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "comments.date",
+            "description": "<p>Comment date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Script date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user",
+            "description": "<p>User who added script</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Id",
             "optional": false,
             "field": "_subject",
@@ -959,7 +1001,7 @@ define({ "api": [
   {
     "type": "patch",
     "url": "scripts/:id",
-    "title": "Edit a script",
+    "title": "Patch a script",
     "name": "PatchScript",
     "group": "Script",
     "parameter": {
@@ -1062,6 +1104,173 @@ define({ "api": [
             "optional": false,
             "field": "comments.user",
             "description": "<p>Comment user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "comments.date",
+            "description": "<p>Comment date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Script date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user",
+            "description": "<p>User who added script</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "_subject",
+            "description": "<p>Subject id</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "scripts/comment/:id",
+    "title": "Post a comment for a script",
+    "name": "PostComment",
+    "group": "Script",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Script id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>Comment text</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No script found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/scripts.js",
+    "groupTitle": "Script",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "size": "5-50",
+            "allowedValues": [
+              "\"small\""
+            ],
+            "optional": false,
+            "field": "title",
+            "description": "<p>Script title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "size": "5-200",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Script description</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array[]",
+            "optional": false,
+            "field": "likes",
+            "description": "<p>Script likes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "likes._user",
+            "description": "<p>User id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array[]",
+            "optional": false,
+            "field": "dislikes",
+            "description": "<p>Script dislikes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "dislikes._user",
+            "description": "<p>User id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array[]",
+            "optional": false,
+            "field": "comments",
+            "description": "<p>Script comments</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "comments.text",
+            "description": "<p>Comment text</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "comments.user",
+            "description": "<p>Comment user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "comments.date",
+            "description": "<p>Comment date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Script date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user",
+            "description": "<p>User who added script</p>"
           },
           {
             "group": "Success 200",
@@ -1196,6 +1405,27 @@ define({ "api": [
             "optional": false,
             "field": "comments.user",
             "description": "<p>Comment user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "comments.date",
+            "description": "<p>Comment date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Script date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user",
+            "description": "<p>User who added script</p>"
           },
           {
             "group": "Success 200",
@@ -1421,7 +1651,7 @@ define({ "api": [
   {
     "type": "patch",
     "url": "subjects/:id",
-    "title": "Edit a subject",
+    "title": "Patch a subject",
     "name": "PatchCity",
     "group": "Subject",
     "parameter": {
@@ -1753,7 +1983,7 @@ define({ "api": [
   {
     "type": "patch",
     "url": "universities/:id",
-    "title": "Edit a university",
+    "title": "Patch a university",
     "name": "PatchUniversity",
     "group": "University",
     "parameter": {
@@ -2013,7 +2243,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "users/",
+    "url": "users/register",
     "title": "Regsiter a user",
     "name": "PostUser",
     "group": "User",

@@ -27,8 +27,18 @@ const ScriptSchema = new Schema({
         },
         user: {
             type: String
+        },
+        date: {
+            type: Date
         }
     }],
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    user: {
+        type: String
+    },
     _subject: {
         type: Schema.Types.ObjectId, ref: 'Subject',
         required: true

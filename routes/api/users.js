@@ -20,7 +20,7 @@ const User = require("../../models/User")
  */
 
 /**
- * @api {post} users/ Regsiter a user
+ * @api {post} users/register Regsiter a user
  * @apiName PostUser
  * @apiGroup User
  *
@@ -32,7 +32,7 @@ const User = require("../../models/User")
  * 
  * @apiError {String} message="Email already exists"
  */
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
 	const { errors, isValid } = validateUserInput(req.body)
 
 	if (!isValid) {

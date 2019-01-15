@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const passport = require("passport")
 
 // Load input validation
 const validateScriptInput = require("../../validation/script")
@@ -19,6 +20,9 @@ const Script = require("../../models/Script")
  * @apiSuccess {Array[]} comments Script comments
  * @apiSuccess {String} comments.text Comment text 
  * @apiSuccess {String} comments.user Comment user 
+ * @apiSuccess {Date} comments.date Comment date 
+ * @apiSuccess {Date} date Script date 
+ * @apiSuccess {String} user User who added script 
  * @apiSuccess {Id} _subject Subject id
  */
 
@@ -35,25 +39,28 @@ const Script = require("../../models/Script")
  * 
  * @apiError {String} message="Script already exists"
  */
-router.post("/", (req, res) => {
-    const { errors, isValid } = validateScriptInput(req.body)
+router.post("/", passport.authenticate("jwt", { session: false }), 
+    (req, res) => {
+        const { errors, isValid } = validateScriptInput(req.body)
 
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
+        if (!isValid) {
+            return res.status(400).json(errors)
+        }
 
-    Script.findOne({ title: req.body.title })
-        .then(script => {
-            if (script) {
-                return res.status(400).json({ message: "Script already exists" })
-            } else {
-                const newScript = new Script(req.body)
-                newScript.save()
-                    .then(newScript => res.json(newScript))
-                    .catch(err => res.json(err))
-            }
-        })
-        .catch(err => req.json(err))
+        Script.findOne({ title: req.body.title })
+            .then(script => {
+                if (script) {
+                    return res.status(400).json({ message: "Script already exists" })
+                } else {
+                    req.body.user = req.user.username
+                    
+                    const newScript = new Script(req.body)
+                    newScript.save()
+                        .then(newScript => res.json(newScript))
+                        .catch(err => res.json(err))
+                }
+            })
+            .catch(err => req.json(err))
 })
 
 /**
@@ -115,6 +122,35 @@ router.patch("/:id", (req, res) => {
       })
       .catch(err => console.log(err));
 
+})
+
+/**
+ * @api {post} scripts/comment/:id Post a comment for a script
+ * @apiName PostComment
+ * @apiGroup Script
+ *
+ * @apiParam {Id} id Script id
+ * @apiParam {String} text Comment text
+ *
+ * @apiUse ScriptSuccess
+ * 
+ * @apiError {String} message="No script found"
+ */
+router.post("/comments/:id", passport.authenticate("jwt", { session: false }), 
+    (req, res) => {
+        Script.findById(req.params.id)
+            .then(script => {
+                const newComment = {
+                    text: req.body.text,
+                    user: req.user.username,
+                    date: Date.now()
+                }
+
+                script.comments.unshift(newComment)
+
+                script.save().then(script => res.json(script))
+            })
+            .catch(err => res.status(404).json({ message: "No script found" }))
 })
 
 /**
