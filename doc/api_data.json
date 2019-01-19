@@ -1667,6 +1667,70 @@
   },
   {
     "type": "post",
+    "url": "scripts/favorites/:id",
+    "title": "Add script to favorites",
+    "name": "PostFavorite",
+    "group": "Script",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Script id</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Script added to favorites",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Script not found/No script found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/scripts.js",
+    "groupTitle": "Script"
+  },
+  {
+    "type": "post",
     "url": "scripts/",
     "title": "Add a script",
     "name": "PostScript",
@@ -1721,7 +1785,7 @@
             "type": "String",
             "optional": false,
             "field": "message",
-            "defaultValue": "Script already exists",
+            "defaultValue": "Script already exists/No user found",
             "description": ""
           }
         ]
@@ -2139,6 +2203,70 @@
         ]
       }
     }
+  },
+  {
+    "type": "post",
+    "url": "subjects/favorites/:id",
+    "title": "Add subject to favorites",
+    "name": "PostFavorite",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Subject id</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Subject added to favorites",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Subject not found/No user found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/subjects.js",
+    "groupTitle": "Subject"
   },
   {
     "type": "post",
@@ -2613,6 +2741,48 @@
             "optional": false,
             "field": "email",
             "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "favoriteSubjects",
+            "description": "<p>User favorite subjects</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "favoriteSubjects._subject",
+            "description": "<p>User favorite subject</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "favoriteScripts",
+            "description": "<p>User favorite scripts</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "favoriteScripts._script",
+            "description": "<p>User favorite script</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "scripts",
+            "description": "<p>User scripts</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Id",
+            "optional": false,
+            "field": "scripts._script",
+            "description": "<p>User script</p>"
           }
         ]
       }

@@ -15,9 +15,19 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    favorites: [{
+    favoriteSubjects: [{
         _subject: {
             type: Schema.Types.ObjectId, ref: 'Subject'
+        }
+    }],
+    favoriteScripts: [{
+        _script: {
+            type: Schema.Types.ObjectId, ref: 'Script'
+        }
+    }],
+    scripts: [{
+        _script: {
+            type: Schema.Types.ObjectId, ref: 'Script'
         }
     }]
 })

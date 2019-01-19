@@ -7,6 +7,7 @@ const validateScriptInput = require("../../validation/script")
 
 // Load models
 const Script = require("../../models/Script")
+const User = require("../../models/User")
 
 /**
  * @apiDefine ScriptSuccess
@@ -39,7 +40,8 @@ const Script = require("../../models/Script")
  *
  * @apiUse ScriptSuccess
  * 
- * @apiError {String} message="Script already exists"
+ * 
+ * @apiError {String} message="Script already exists/No user found"
  */
 router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
     const { errors, isValid } = validateScriptInput(req.body)
@@ -59,6 +61,20 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
                 newScript.save()
                     .then(newScript => res.json(newScript))
                     .catch(err => res.json(err))
+                
+                    User.findById(req.user._id)
+                        .then(user => {
+                            const newUserScript = {
+                                _script: newScript._id
+                            }
+
+                            user.scripts.unshift(newUserScript)
+
+                            user.save()
+                            console.log("Script added to users scripts")
+                            //.then(res.status(200).json({ message: "Script added to users scripts" }))
+                        })
+                        .catch(err => res.status(404).json({ message: "No user found" }))
             }
         })
         .catch(err => req.json(err))
@@ -120,12 +136,12 @@ router.patch("/:id", (req, res) => {
     Script.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
         .then(script => {
             if (!script) {
-                return res.status(404).json({ message: "Script to update not found" });
+                return res.status(404).json({ message: "Script to update not found" })
             } else {
                 return res.json(script)
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
 
 })
 
@@ -143,22 +159,57 @@ router.patch("/:id", (req, res) => {
  * 
  * @apiError {String} message="No script found"
  */
-router.post("/comments/:id", passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-        Script.findById(req.params.id)
-            .then(script => {
-                const newComment = {
-                    text: req.body.text,
-                    user: req.user.username,
-                    date: Date.now()
-                }
+router.post("/comments/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+    Script.findById(req.params.id)
+        .then(script => {
+            const newComment = {
+                text: req.body.text,
+                user: req.user.username,
+                date: Date.now()
+            }
 
-                script.comments.unshift(newComment)
+            script.comments.unshift(newComment)
 
-                script.save().then(script => res.json(script))
-            })
-            .catch(err => res.status(404).json({ message: "No script found" }))
-    })
+            script.save().then(script => res.json(script))
+        })
+        .catch(err => res.status(404).json({ message: "No script found" }))
+})
+
+/**
+ * @api {post} scripts/favorites/:id Add script to favorites
+ * @apiName PostFavorite
+ * @apiGroup Script
+ *
+ * @apiParam {Id} id Script id
+ * 
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} message="Script added to favorites"
+ * 
+ * @apiError {String} message="Script not found/No script found"
+ */
+router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+    Script.findById(req.params.id)
+        .then(script => {
+            if(!script){
+                return res.status(404).json({ message: "Script not found" })
+            }
+            else {
+                User.findById(req.user._id)
+                    .then(user => {
+                        const newFavorite = {
+                            _script: req.params.id
+                        }
+
+                        user.favoriteScripts.unshift(newFavorite)
+
+                        user.save().then(res.status(200).json({ message: "Script added to favorites" }))
+                    })
+                    .catch(err => res.status(404).json({ message: "No user found" }))
+            }
+        })
+        .catch(err => console.log(err))
+})
 
 /**
  * @api {delete} scripts/:id Delete a script

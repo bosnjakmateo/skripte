@@ -1,8 +1,11 @@
 const express = require("express")
 const router = express.Router()
+const passport = require("passport")
+
 
 // Load models
 const Subject = require("../../models/Subject")
+const User = require("../../models/User")
 
 /**
  * @apiDefine SubjectSuccess
@@ -77,6 +80,42 @@ router.get("/:id", (req, res) => {
     Subject.findById(req.params.id)
         .then(subject => res.json(subject))
         .catch(err => res.status(404).json({ message: "No subject was found" }))
+})
+
+/**
+ * @api {post} subjects/favorites/:id Add subject to favorites
+ * @apiName PostFavorite
+ * @apiGroup Subject
+ *
+ * @apiParam {Id} id Subject id
+ * 
+ * @apiHeader {String} token User token
+ *      
+ * @apiSuccess {String} message="Subject added to favorites"
+ * 
+ * @apiError {String} message="Subject not found/No user found"
+ */
+router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+    Subject.findById(req.params.id)
+        .then(subject => {
+            if(!subject){
+                return res.status(404).json({ message: "Subject not found" })
+            }
+            else {
+                User.findById(req.user._id)
+                    .then(user => {
+                        const newFavorite = {
+                            _subject: req.params.id
+                        }
+
+                        user.favoriteSubjects.unshift(newFavorite)
+
+                        user.save().then(res.status(404).json({ message: "Subject added to favorites" }))
+                    })
+                    .catch(err => res.status(404).json({ message: "No user found" }))
+            }
+        })
+        .catch(err => console.log(err))
 })
 
 /**
