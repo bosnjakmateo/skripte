@@ -15,6 +15,7 @@ import setAuthToken from './Utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './Actions/authActions';
 import jwt_decode from 'jwt-decode';
 
+
 // Check for token
 if (localStorage.jwtToken) {
     // Set auth token header auth
@@ -36,23 +37,24 @@ if (localStorage.jwtToken) {
     }
 }
 
+
 class App extends Component {
   render() {
     return (
         <Provider store={ store }>
-            <Router>
-              <div className="App">
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/register" component={Registration} />
-                  <Route exact path="/" component={LandingPage}/>
-                  <Route exact path="/home" component={Home}/>
-                  <Route exact path="/svikolegiji" component={AllKolegiji}/>
-                  <Route exact path="/kolegij" component={KolegijContent}/>
-                  <Route exact path="/skripta" component={Skripta}/>
-                  <Route exact path="/landing" component={LandingPage}/>
-                  <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
-              </div>
-            </Router>
+                <Router>
+                  <div className="App">
+                      <Route exact path="/login" component={Login} />
+                      <Route exact path="/register" component={Registration} />
+                      <Route exact path="/" component={LandingPage}/>
+                      <Route exact path="/home" component={Home}/>
+                      <Route exact path="/svikolegiji" component={AllKolegiji}/>
+                      <Route path="/kolegij/:kolegij_id" component={KolegijContent}/>
+                      <Route path="/skripta/:skripta_id" component={Skripta}/>
+                      <Route exact path="/landing" component={LandingPage}/>
+                      <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
+                  </div>
+                </Router>
         </Provider>
     );
   }

@@ -3,6 +3,7 @@ import '../App.css';
 import Papers from "../Images/papers.svg"
 import { Link } from 'react-router-dom';
 import {connect} from "react-redux";
+import {getCurrentUser} from "../Actions/authActions";
 import { loginUser } from "../Actions/authActions";
 import PropTypes from 'prop-types';
 import classnames from "classnames";
@@ -51,6 +52,7 @@ class Login extends Component {
         };
 
         this.props.loginUser(userData);
+
     }
 
     render() {
@@ -118,4 +120,4 @@ const mapStateToProps = (state) => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginUser,getCurrentUser })(Login);

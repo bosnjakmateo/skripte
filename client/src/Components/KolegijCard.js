@@ -19,10 +19,10 @@ class KolegijCard extends Component {
 
     render() {
         return (
-            <Link to="/kolegij">
+            <Link to={`/kolegij/`+this.props.keyprop}>
                 <div className="kolegij-card">
                     <h1 className="kolegij-card-title">{this.props.title}</h1>
-                    <img onClick={this.removeKolegij} src={removeIcon} className="remove-kolegij-card"/>
+                    <img alt="remove-button" onClick={this.removeKolegij} src={removeIcon} className="remove-kolegij-card"/>
                 </div>
             </Link>
         );

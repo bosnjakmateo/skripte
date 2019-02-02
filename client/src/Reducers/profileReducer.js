@@ -1,25 +1,74 @@
-import { GET_PROFILE, PROFILE_LOADING } from "../Actions/types";
+import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS} from '../Actions/types';
+
 
 const initialState = {
-    profile: null,
-    profiles: null,
-    loading: false
+    favoriteSubjects:[],
+    favoriteScripts:[],
+    currentSubject:[],
+    currentScript:[],
+    allSubjects:[],
+    allScripts:[],
+    filteredSubjects:[],
+    filteredScripts:[],
+    filteredFavoriteScripts:[]
 };
 
-export default function(state = initialState, action){
-    switch(action.type){
-        case PROFILE_LOADING:
-            return {
-                ...state,
-                loading: true
-            };
-        case GET_PROFILE:
+
+
+export default function(state = initialState, action) {
+    switch(action.type) {
+        case GET_SUBJECT:
             return{
                 ...state,
-                profile: action.payload,
-                loading: false
-            };
+                favoriteSubjects: [...state.favoriteSubjects,action.payload]
+            }
+        case GET_SCRIPTS:
+            return{
+                ...state,
+                favoriteScripts: action.payload
+            }
+        case GET_SUBJECT_BY_ID:
+            return{
+                ...state,
+                currentSubject: action.payload
+            }
+        case GET_ALL_SUBJECTS:
+            return{
+                ...state,
+                allSubjects: action.payload
+            }
+        case GET_SUBJECT_SCRIPTS:
+            return{
+                ...state,
+                allScripts: action.payload
+            }
+        case FILTERED_SUBJECTS:
+            return{
+                ...state,
+                filteredSubjects: action.payload
+            }
+        case FILTERED_SUBJECTS2:
+            return{
+                ...state,
+                filteredScripts: action.payload
+            }
+        case FILTERED_FAVORITE_SCRIPTS:
+            return{
+                ...state,
+                filteredFavoriteScripts: action.payload
+            }
+        case GET_SCRIPT_BY_ID:
+            return{
+                ...state,
+                currentScript: action.payload
+            }
+        case CLEAR_SCRIPTS:
+            return{
+                ...state,
+                filteredScripts: []
+            }
         default:
             return state;
     }
 }
+

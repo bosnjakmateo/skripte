@@ -982,6 +982,7 @@ button:focus{
 .skripta-card-title{
     font-size:16px;
     color:#3384FF;
+    word-wrap: break-word;
 }
 
 @media screen and (max-width: 1920px) {
@@ -2144,7 +2145,7 @@ html, body{
 .upload-modal-container{
     background-color: rgba(0, 0, 0, 0.25);
     width:100%;
-    height:100%;
+    height: 95.7vh;
     position:absolute;
     top:40px;
     z-index: 100;
@@ -2169,4 +2170,29 @@ html, body{
 
 .textarea{
     width:50%;
+}
+
+.skripta-card a{
+    width:100%;
+    height:100%;
+}
+
+.navbar-username{
+    position:absolute;
+    top:0;
+    left:15%;
+    color:white;
+}
+
+.spinner-container{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.spinner{
+    width:20%;
+    height:20%
 }

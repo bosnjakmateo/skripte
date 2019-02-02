@@ -39,7 +39,7 @@ class SkriptaComments extends Component {
                     <div>
                     <h1 className="skripta-comments-content-title">Komentari<span>(6)</span></h1>
                         <button className="toggle-comments-button" onClick={this.toggleComments}>Komentiraj</button>
-                        <img src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
+                        <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>
                     <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         vitae orci semper

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import FavoriteKolegijiCard from "./FavoriteKolegijCard";
+import FavoriteSkriptaCard from "./FavoriteSkriptaCard";
 
-class FavoriteKolegiji extends Component {
+class FavoriteSkripte extends Component {
     constructor(props){
         super(props);
         this.state = {};
@@ -15,12 +15,12 @@ class FavoriteKolegiji extends Component {
                 <div className="favorite-kolegiji-name-container">
                     <h1 className="favorite-kolegiji-name">Omiljene Skripte</h1>
                 </div>
-                <FavoriteKolegijiCard/>
-                <FavoriteKolegijiCard/>
-                <FavoriteKolegijiCard/>
+                <FavoriteSkriptaCard/>
+                <FavoriteSkriptaCard/>
+                <FavoriteSkriptaCard/>
             </div>
         );
     }
 }
 
-export default FavoriteKolegiji;
+export default FavoriteSkripte;

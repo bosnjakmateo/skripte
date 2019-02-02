@@ -4,14 +4,21 @@ import Navbar from "./Navbar";
 import SkriptaCard from "./SkriptaCard";
 import Headroom from 'react-headroom';
 import UploadModal from "./UploadModal";
+import {withRouter} from "react-router-dom";
+import {getSubjectById, getAllScripts, filtered2,clearScripts} from "../Actions/profileActions";
+import {connect} from "react-redux";
+import Spinner from "./Spinner";
+
 
 class KolegijContent extends Component {
     constructor(props){
         super(props);
         this.state = {
-            modalIsOpen: false
+            modalIsOpen: false,
+            id: null
         };
 
+        this.asd3 = this.asd3.bind(this);
         this.toggleModal = this.toggleModal.bind(this)
     }
 
@@ -21,13 +28,43 @@ class KolegijContent extends Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.profile.allScripts !== prevProps.profile.allScripts  ) {
+            this.asd3()
+        }
+    }
+
+    asd3(){
+        let res = this.props.profile.allScripts.filter(a => a._subject.includes(this.props.profile.currentSubject._id));
+        this.props.filtered2(res)
+    }
+
+    componentDidMount(){
+        let id = this.props.match.params.kolegij_id;
+        console.log(this.props)
+        this.setState({
+            id: id
+        })
+        this.props.getSubjectById(id)
+        this.props.getAllScripts()
+    }
+
+    componentWillUnmount(){
+        this.props.clearScripts();
+    }
+
+
+
+
+
+
     render() {
         return (
             <div className="kolegij-page">
                 <Headroom disableInlineStyles={true}>
                 <Navbar/>
                 <div className="kolegij-second-navbar">
-                    <h1 className="kolegij-second-navbar-title">Strukture podataka i algoritmi</h1>
+                    <h1 className="kolegij-second-navbar-title">{this.props.profile.currentSubject.name}</h1>
                     <div className="kolegij-second-navbar-search">
                         <input className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..." />
                         <select
@@ -50,21 +87,12 @@ class KolegijContent extends Component {
                 </div>
                 </Headroom>
                 <div className="skripte-container">
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
-                    <SkriptaCard/>
+
+                    {this.props.auth.loading ? <Spinner/>
+                        : this.props.profile.filteredScripts.map((item) =>
+                            <SkriptaCard keyprop={item._id} key={item._id} title={item.title} date={item.date} username={item.user} description={item.description} />
+                        )}
+
                 </div>
                 {this.state.modalIsOpen === true ?
                     <UploadModal modalIsOpen={this.state.modalIsOpen} toggleModal={this.toggleModal}/>
@@ -74,4 +102,10 @@ class KolegijContent extends Component {
     }
 }
 
-export default KolegijContent;
+const mapStateToProps = (state) => ({
+    profile:state.profile,
+    auth:state.auth,
+});
+
+
+export default withRouter(connect(mapStateToProps, {getSubjectById,getAllScripts,filtered2,clearScripts})(KolegijContent))

@@ -68,7 +68,7 @@ class LandingPage extends Component {
                         <div className={classnames('landing-page-top-right-content',{
                             'animate-phone-img' : this.state.mounted
                         })}>
-                            <img className="landing-page-top-right-content-image" src={Phone4} />
+                            <img alt="phone" className="landing-page-top-right-content-image" src={Phone4} />
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ class LandingPage extends Component {
                                 Mauris consecteturipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                                 vitae orci semper, tincidunt
                             </p>
-                            <img src={Phone} className="first-container-img"/>
+                            <img alt="phone" src={Phone} className="first-container-img"/>
                         </div>
                         <div className="first-container">
                             <p className="first-container-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
@@ -89,7 +89,7 @@ class LandingPage extends Component {
                                 vitae orci semper, tincidunt est quis, semper est.
                                 Mauris consectetur
                             </p>
-                            <img src={Phone} className="first-container-img"/>
+                            <img alt="phone" src={Phone} className="first-container-img"/>
                         </div>
                         <div className="first-container">
                             <p className="first-container-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
@@ -97,7 +97,7 @@ class LandingPage extends Component {
                                 Mauris consectetur ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                                 vitae orci semper,
                             </p>
-                            <img src={Phone} className="first-container-img"/>
+                            <img alt="phone" src={Phone} className="first-container-img"/>
                         </div>
                     </div>
                 </div>

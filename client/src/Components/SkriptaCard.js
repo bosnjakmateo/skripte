@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+
+import {connect} from "react-redux";
 
 class SkriptaCard extends Component {
     constructor(props){
@@ -12,11 +14,11 @@ class SkriptaCard extends Component {
     render() {
         return (
             <div className="skripta-card">
-                <Link to="/skripta"><div className="skripta-card-content">
-                    <h1 className="skripta-card-title">Naziv</h1>
-                    <p className="skripta-card-date">21.12.2012</p>
-                    <p className="skripta-card-username">ivanbalen666</p>
-                    <p className="skripta-card-description">pitanja i odgovori, moguće su griješke pitanja i odgovori, moguće su griješke</p>
+                <Link to={`/skripta/`+this.props.keyprop}><div className="skripta-card-content">
+                    <h1 className="skripta-card-title">{this.props.title}</h1>
+                    <p className="skripta-card-date">{this.props.date}</p>
+                    <p className="skripta-card-username">{this.props.username}</p>
+                    <p className="skripta-card-description">{this.props.description}</p>
                 </div>
                 </Link>
             </div>
@@ -24,4 +26,10 @@ class SkriptaCard extends Component {
     }
 }
 
-export default SkriptaCard;
+const mapStateToProps = (state) => ({
+    profile:state.profile,
+    auth:state.auth,
+});
+
+
+export default withRouter(connect(mapStateToProps, {})(SkriptaCard))

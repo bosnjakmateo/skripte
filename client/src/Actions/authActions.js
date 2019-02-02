@@ -1,4 +1,4 @@
-import {GET_ERRORS, SET_CURRENT_USER} from "./types";
+import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER} from "./types";
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 import setAuthToken from "../Utils/setAuthToken";
@@ -7,7 +7,7 @@ import setAuthToken from "../Utils/setAuthToken";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
     axios
-        .post('/users', userData)
+        .post('/users/register', userData)
         .then(res => history.push("/login"))
         .catch(err =>
             dispatch({
@@ -49,6 +49,26 @@ export const setCurrentUser = (decoded) => {
   }
 };
 
+export const getCurrentUser = () => dispatch => {
+    dispatch(setProfileLoading())
+    axios
+        .get('/users/current')
+        .then(res =>
+            dispatch({
+                type: GET_USER,
+                payload: res.data
+            })
+        )
+
+};
+
+
+export const setProfileLoading = () => {
+    return{
+        type: PROFILE_LOADING
+    }
+};
+
 
 // Log User Out
 export const logoutUser = () => dispatch => {
@@ -56,3 +76,4 @@ export const logoutUser = () => dispatch => {
     setAuthToken(false);
     dispatch(setCurrentUser({}));
 };
+

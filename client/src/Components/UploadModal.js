@@ -28,6 +28,7 @@ class UploadModal extends Component {
                             </div>
                         </form>
                     </div>
+                    <button onClick={this.props.toggleModal}>close modal</button>
                 </div>
             </div>
         );

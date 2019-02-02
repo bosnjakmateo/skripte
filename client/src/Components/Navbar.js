@@ -8,6 +8,8 @@ import { HamburgerSpin } from 'react-animated-burgers'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from "../Actions/authActions";
+import { getCurrentUser } from "../Actions/authActions";
+
 
 class Navbar extends Component {
     constructor(props){
@@ -23,6 +25,9 @@ class Navbar extends Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
+    componentDidMount(){
+        this.props.getCurrentUser();
+    }
 
 
     toggleMenu() {
@@ -47,8 +52,8 @@ class Navbar extends Component {
     }
 
 
+
     render() {
-        console.log(this.props.auth);
         return (
             <div className="navbar">
                 <CSSTransitionGroup
@@ -61,14 +66,9 @@ class Navbar extends Component {
                     <Link to="/home">
                         <h1 className="logo">SKRIPTE</h1>
                     </Link>
+                    <p className="navbar-username">hello {this.props.auth.userData.username}</p>
                 </div>
                 <div className="navbar-menu">
-                    {/*
-                    <Link className="home-button" to="/upload">
-                        <button className={"navbar-link" + (this.state.currentRoute === "/upload" ? " color-blue" : "")}>UPLOAD</button>
-                        <div className={"mask-home" + (this.state.currentRoute === "/upload" ? " mask-stay" : "")}/>
-                    </Link>
-                    */}
                     <Link className="svikolegiji-button" to="/svikolegiji">
                         <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/svikolegiji" ? " mask-stay" : "")}/>
@@ -96,5 +96,5 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 });
 
-export default withRouter(connect(mapStateToProps, { logoutUser })(Navbar))
+export default withRouter(connect(mapStateToProps, { logoutUser,getCurrentUser })(Navbar))
 
