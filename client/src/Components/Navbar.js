@@ -7,8 +7,10 @@ import { CSSTransitionGroup } from 'react-transition-group'
 import { HamburgerSpin } from 'react-animated-burgers'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import userMenuArrow from "../Images/userMenuArrow.svg"
 import { logoutUser } from "../Actions/authActions";
 import { getCurrentUser } from "../Actions/authActions";
+import classnames from "classnames";
 
 
 class Navbar extends Component {
@@ -18,11 +20,13 @@ class Navbar extends Component {
             isOpen: false,
             isActive: false,
             currentRoute: this.props.location.pathname,
+            userMenu:false
         };
 
         this.toggleMenu = this.toggleMenu.bind(this);
         this.toggleButton = this.toggleButton.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.toggleUserMenu = this.toggleUserMenu.bind(this);
     }
 
     componentDidMount(){
@@ -37,6 +41,10 @@ class Navbar extends Component {
         }else{
             document.body.classList.remove('non-scrollable');
         }
+    }
+
+    toggleUserMenu() {
+        this.setState({ userMenu: !this.state.userMenu });
     }
 
     toggleButton() {
@@ -54,6 +62,7 @@ class Navbar extends Component {
 
 
     render() {
+        console.log(this.state)
         return (
             <div className="navbar">
                 <CSSTransitionGroup
@@ -66,7 +75,6 @@ class Navbar extends Component {
                     <Link to="/home">
                         <h1 className="logo">SKRIPTE</h1>
                     </Link>
-                    <p className="navbar-username">hello {this.props.auth.userData.username}</p>
                 </div>
                 <div className="navbar-menu">
                     <Link className="svikolegiji-button" to="/svikolegiji">
@@ -79,10 +87,23 @@ class Navbar extends Component {
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
 
-                    <Link to="/login">
-                        <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon" src={logout_icon}/>
-                    </Link>
-
+                    {/*
+                        <Link to="/login">
+                            <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon"
+                                 src={logout_icon}/>
+                        </Link>
+                    */}
+                    <div className="user-menu" onClick={this.toggleUserMenu}>
+                        <p className="user-name">{this.props.auth.userData.username}</p>
+                        <img src={userMenuArrow} className={classnames("user-menu-arrow",{
+                        "rotate-arrow" : this.state.userMenu})}
+                            alt="drop-down-arrow"/>
+                        <div className={classnames("user-menu-collapsible",{
+                            "menu-collapsed" : this.state.userMenu
+                        })}>
+                            <p className="logout-button" onClick={this.handleLogoutClick}>Logout</p>
+                        </div>
+                    </div>
                     <div className="hamburger-container">
                         <HamburgerSpin padding={0} buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
                     </div>
