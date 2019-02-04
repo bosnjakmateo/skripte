@@ -63,7 +63,6 @@ class SkriptaComments extends Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <div className={classnames('skripta-comments ',{
                 'toggled-comments' : this.state.commentsToggled,

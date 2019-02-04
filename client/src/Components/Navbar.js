@@ -79,9 +79,9 @@ class Navbar extends Component {
                     </Link>
                 </div>
                 <div className="navbar-menu">
-                    <Link className="svikolegiji-button" to="/svikolegiji">
-                        <button className={"navbar-link" + (this.state.currentRoute === "/svikolegiji" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
-                        <div className={"mask-home" + (this.state.currentRoute === "/svikolegiji" ? " mask-stay" : "")}/>
+                    <Link className="svikolegiji-button" to="/institucije">
+                        <button className={"navbar-link" + (this.state.currentRoute === "/institucije" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
+                        <div className={"mask-home" + (this.state.currentRoute === "/institucije" ? " mask-stay" : "")}/>
                     </Link>
 
                     <Link className="home-button" to="/home">
@@ -103,10 +103,10 @@ class Navbar extends Component {
                         <div className={classnames("user-menu-collapsible",{
                             "menu-collapsed" : this.state.userMenu
                         })}>
-                            <div className="collapsed-menu-content">
-                            <p className="logout-button" onClick={this.handleLogoutClick}>Logout</p>
-                            <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon"
-                                 src={logout_icon}/>
+                            <div className="collapsed-menu-content" onClick={this.handleLogoutClick} >
+                                <p className="logout-button">Logout</p>
+                                <img className="navbar-logout-icon" alt="logout-icon"
+                                     src={logout_icon}/>
                             </div>
                         </div>
                     </div>

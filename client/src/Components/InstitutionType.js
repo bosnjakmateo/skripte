@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import '../App.css';
 import classnames from "classnames";
 import InstitutionLocation from "./InstitutionLocation";
+import {getUniversities} from "../Actions/institutionsActions";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import Spinner from "./Spinner";
 
 class InstitutionType extends Component {
     constructor(props){
@@ -9,7 +13,8 @@ class InstitutionType extends Component {
         this.state = {
             universityOpen: false,
             collageOpen: false,
-            mounted: false
+            mounted: false,
+            universityCount:""
         };
 
         this.toggleUniversityContent = this.toggleUniversityContent.bind(this);
@@ -18,6 +23,7 @@ class InstitutionType extends Component {
     }
 
     componentDidMount() {
+        this.props.getUniversities();
         this.setState({
             mounted: true
         })
@@ -45,40 +51,34 @@ class InstitutionType extends Component {
                 'button-fade-in' : this.state.mounted
             })}>
                 <div className="institution-type-container">
-                    <h1 onClick={this.toggleUniversityContent} className="institution-type-title">SVEUČILIŠTE<span className="institution-count"> (8)</span></h1>
+                    <h1 onClick={this.toggleUniversityContent} className="institution-type-title">SVEUČILIŠTE
+                        <span className="institution-count"> ({!this.props.profile.loading ? this.props.institutions.universities.length : null})</span>
+                    </h1>
                     <div className={classnames('institution-type-content-container',{
                         'institution-type-container-open' : this.state.universityOpen
                     })}
                     >
                         <div className={classnames('institution-type-content make-invisible',{
                             'make-visible' :  this.state.universityOpen
-                        })}
-                        >
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
+                        })}>
+                            {this.props.profile.loading ? <Spinner/> :
+                                this.props.institutions.universities.map((item) => {
+                                   return <InstitutionLocation key={item._id} keyprop={item._id} name={item.name}/>
+                                })
+                            }
                         </div>
                     </div>
                 </div>
                 <div className="institution-type-container">
-                    <h1 onClick={this.toggleCollageContent} className="institution-type-title">VELEUČILIŠTE<span className="institution-count"> (4)</span></h1>
+                    <h1 onClick={this.toggleCollageContent} className="institution-type-title">VELEUČILIŠTE<span className="institution-count"> (0)</span></h1>
                     <div className={classnames('institution-type-content-container',{
                         'institution-type-container-open' : this.state.collageOpen
                     })}
                     >
                         <div className={classnames('institution-type-content make-invisible',{
                             'make-visible' :  this.state.collageOpen
-                        })}
-                        >
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
-                            <InstitutionLocation/>
+                        })}>
+
                         </div>
                     </div>
                 </div>
@@ -88,4 +88,10 @@ class InstitutionType extends Component {
     }
 }
 
-export default InstitutionType;
+const mapStateToProps = (state) => ({
+    auth:state.auth,
+    profile:state.profile,
+    institutions:state.institutions
+});
+
+export default withRouter(connect(mapStateToProps, {getUniversities})(InstitutionType))

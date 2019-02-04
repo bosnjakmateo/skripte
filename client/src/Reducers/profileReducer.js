@@ -1,4 +1,4 @@
-import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
+import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,GET_UNIVERSITIES,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
 
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
     filteredSubjects:[],
     filteredScripts:[],
     filteredFavoriteScripts:[],
-    comments:[]
+    comments:[],
 };
 
 
@@ -77,4 +77,3 @@ export default function(state = initialState, action) {
             return state;
     }
 }
-

@@ -6,6 +6,8 @@ import Registration from "./Components/Registration";
 import Home from "./Components/Home";
 import Skripta from "./Components/Skripta";
 import InstitutionLocation from "./Components/InstitutionLocation";
+import Fields from "./Components/Fields";
+import InstitutionFields from "./Components/InstitutionFields";
 import KolegijContent from "./Components/KolegijContent";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -48,11 +50,13 @@ class App extends Component {
                       <Route exact path="/register" component={Registration} />
                       <Route exact path="/" component={LandingPage}/>
                       <Route exact path="/home" component={Home}/>
-                      <Route exact path="/svikolegiji" component={AllKolegiji}/>
+                      <Route exact path="/institucije" component={AllKolegiji}/>
+                      <Route path="/institucije/:institucija_id" component={InstitutionFields}/>
                       <Route path="/kolegij/:kolegij_id" component={KolegijContent}/>
                       <Route path="/skripta/:skripta_id" component={Skripta}/>
                       <Route exact path="/landing" component={LandingPage}/>
                       <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
+                      <Route path="/smjer/:smjer_id" component={Fields}/>
                   </div>
                 </Router>
         </Provider>

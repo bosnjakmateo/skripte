@@ -2258,3 +2258,28 @@ html, body{
     background: #3d92ff;
     transition:0.2s;
 }
+
+.comment{
+    word-wrap: break-word;
+}
+
+.institution-type-content a{
+    text-decoration: none;
+    color: black;
+}
+
+.institution-fields-page{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.field-item a{
+    text-decoration: none;
+    color:#3d92ff;
+    font-weight:bold;
+}
+
+.field-page{
+    margin-left:5%;
+    margin-right:5%;
+}
