@@ -11,6 +11,7 @@ import userMenuArrow from "../Images/userMenuArrow.svg"
 import { logoutUser } from "../Actions/authActions";
 import { getCurrentUser } from "../Actions/authActions";
 import classnames from "classnames";
+import onClickOutside from "react-onclickoutside";
 
 
 class Navbar extends Component {
@@ -61,8 +62,9 @@ class Navbar extends Component {
 
 
 
+
+
     render() {
-        console.log(this.state)
         return (
             <div className="navbar">
                 <CSSTransitionGroup
@@ -101,7 +103,11 @@ class Navbar extends Component {
                         <div className={classnames("user-menu-collapsible",{
                             "menu-collapsed" : this.state.userMenu
                         })}>
+                            <div className="collapsed-menu-content">
                             <p className="logout-button" onClick={this.handleLogoutClick}>Logout</p>
+                            <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon"
+                                 src={logout_icon}/>
+                            </div>
                         </div>
                     </div>
                     <div className="hamburger-container">

@@ -2,16 +2,42 @@ import React, { Component } from 'react';
 import '../App.css';
 import classnames from 'classnames';
 import close from "../Images/close.svg";
+import Comment from "./Comment";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {postComment,getScriptById} from "../Actions/profileActions";
 
 class SkriptaComments extends Component {
     constructor(props){
         super(props);
-        this.state = { commentsToggled: false };
-        this.state = { commentsToggledMobile: false};
+        this.state={
+            commentsToggled: false,
+            commentsToggledMobile: false,
+            loaded: false,
+            commentsNumber: "",
+            text: ""
+        };
 
         this.toggleComments = this.toggleComments.bind(this);
         this.toggleCommentsMobile = this.toggleCommentsMobile.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
+
+    onChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+    onSubmit(e){
+        e.preventDefault();
+        this.props.postComment(this.props.profile.currentScript._id,this.state.text)
+        this.setState({
+            text:""
+        })
+    }
+
 
     toggleComments () {
         this.setState({ commentsToggled: !this.state.commentsToggled });
@@ -21,8 +47,23 @@ class SkriptaComments extends Component {
         this.setState({ commentsToggledMobile: !this.state.commentsToggledMobile });
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript  ) {
+            this.setState({
+                loaded:true,
+            })
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.profile.comments !== this.props.profile.comments ) {
+            this.props.getScriptById(this.props.match.params.skripta_id)
+        }
+    }
+
 
     render() {
+        console.log(this.props)
         return (
             <div className={classnames('skripta-comments ',{
                 'toggled-comments' : this.state.commentsToggled,
@@ -37,45 +78,16 @@ class SkriptaComments extends Component {
                     'make-visible' : this.state.commentsToggledMobile,
                 })}>
                     <div>
-                    <h1 className="skripta-comments-content-title">Komentari<span>(6)</span></h1>
+                    <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.currentScript.comments.length : null})</span></h1>
                         <button className="toggle-comments-button" onClick={this.toggleComments}>Komentiraj</button>
                         <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper
-                    </p>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consectetur
-                    </p>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consecteturLorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                    </p>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consectetur
-                    </p>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consecteturLorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                    </p>
-                    <p><span className="bolded">ivanbalen666:</span> ivanbalen666: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        vitae orci semper, tincidunt est quis,
-                        semper est.Mauris consectetur
-                    </p>
-                    <form>
+                    {this.state.loaded ? this.props.profile.currentScript.comments.map((comment) => {
+                       return <Comment key={comment._id} user={comment.user} text={comment.text} date={comment.date}/>
+                    }):null}
+                    <form onSubmit={this.onSubmit}>
                         <label>
-                            <textarea placeholder="Komentiraj..." className="comment-form" />
+                            <textarea onChange={this.onChange} name="text" value={this.state.text} placeholder="Komentiraj..." className="comment-form" />
                         </label>
                         < br/>
                         <input className="post-comment" type="submit" value="Komentiraj" />
@@ -85,5 +97,10 @@ class SkriptaComments extends Component {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    profile:state.profile,
+    auth:state.auth,
+});
 
-export default SkriptaComments;
+export default withRouter(connect(mapStateToProps, {postComment,getScriptById})(SkriptaComments))
+

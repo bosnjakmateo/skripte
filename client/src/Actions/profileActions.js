@@ -1,6 +1,6 @@
 import {
     GET_SUBJECT, GET_SCRIPTS, GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, GET_SUBJECT_SCRIPTS,
-    SET_CURRENT_USER,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS
+    SET_CURRENT_USER,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT
 } from "./types";
 import axios from 'axios';
 
@@ -103,4 +103,16 @@ export const clearScripts = () => {
     return{
         type:CLEAR_SCRIPTS
     }
+};
+
+export const postComment = (id,text) => dispatch => {
+    axios
+        .post(`/scripts/comments/${id}`,{text})
+        .then(res =>
+            dispatch({
+                type: POST_COMMENT,
+                payload: res.data
+            })
+        )
+
 };

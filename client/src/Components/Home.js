@@ -64,9 +64,11 @@ class Home extends Component {
                     <Navbar/>
                 <div className="second-navbar">
                     <h1 className="second-navbar-title">Moji Kolegiji</h1>
+                    {/*
                     <div className="second-navbar-search">
                         <input className="second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
                     </div>
+                    */}
                 </div>
                 </Headroom>
                 <div className={classnames('main-container',{
