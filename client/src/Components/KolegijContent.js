@@ -87,7 +87,7 @@ class KolegijContent extends Component {
                         <input className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..." />
                         <select
                             className="resours-type-select">
-                            <option className="hidden"> Godina </option>
+                            <option className="hidden"> Godina: </option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
