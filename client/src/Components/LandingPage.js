@@ -63,7 +63,6 @@ class LandingPage extends Component {
                             })}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                                 vitae orci semper, tincidunt est quis, semper est.
                                 Mauris consectetur</p>
-                            <Link to="/home">HOME</Link>
                         </div>
                         <div className={classnames('landing-page-top-right-content',{
                             'animate-phone-img' : this.state.mounted

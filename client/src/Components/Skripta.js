@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import SkriptaInfo from "./SkriptaInfo";
 import SkriptaComments from "./SkriptaComments";
 import SkriptaPdf from "./SkriptaPdf";
-import {getScriptById} from "../Actions/profileActions";
+import {getScriptById,addScriptToFavorites} from "../Actions/profileActions";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
@@ -15,6 +15,7 @@ class Skripta extends Component {
         this.state = {
             id: null
         };
+        this.addToFavorites = this.addToFavorites.bind(this);
     }
 
     componentDidMount(){
@@ -26,14 +27,19 @@ class Skripta extends Component {
     }
 
 
-
+    addToFavorites(){
+        this.props.addScriptToFavorites(this.props.match.params.skripta_id)
+    }
 
     render() {
         return (
             <div className="skripta-page">
                 <Navbar/>
                 <div className="skripta-second-navbar">
-                    <h1 className="skripta-second-navbar-title">{this.props.profile.currentScript.title}</h1>
+                    <div className="test2">
+                        <h1 className="skripta-second-navbar-title">{this.props.profile.currentScript.title}</h1>
+                        <button onClick={this.addToFavorites}>Dodaj Skriptu u Favorite</button>
+                    </div>
                     <p className="skripta-second-navbar-description">{this.props.profile.currentScript.description}</p>
                 </div>
                 <div className="skripta-page-content">
@@ -51,5 +57,5 @@ const mapStateToProps = (state) => ({
     auth:state.auth,
 });
 
-export default withRouter(connect(mapStateToProps, {getScriptById})(Skripta))
+export default withRouter(connect(mapStateToProps, {getScriptById,addScriptToFavorites})(Skripta))
 

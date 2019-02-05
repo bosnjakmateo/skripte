@@ -1,4 +1,4 @@
-import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,GET_UNIVERSITIES,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
+import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,POST_SCRIPT,ADD_SCRIPT_TO_FAVORITES,ADD_SUBJECT_TO_FAVORITES,GET_UNIVERSITIES,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
 
 
 const initialState = {
@@ -72,6 +72,21 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 comments: [...state.currentScript.comments,action.payload]
+            }
+        case ADD_SUBJECT_TO_FAVORITES:
+            return{
+                ...state,
+                filteredSubjects: [...state.filteredSubjects,action.payload]
+            }
+        case ADD_SCRIPT_TO_FAVORITES:
+            return{
+                ...state,
+                filteredFavoriteScripts: [...state.filteredFavoriteScripts,action.payload]
+            }
+        case POST_SCRIPT:
+            return{
+                ...state,
+                allScripts: [...state.allScripts,action.payload]
             }
         default:
             return state;

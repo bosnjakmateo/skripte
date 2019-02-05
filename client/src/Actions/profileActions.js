@@ -1,6 +1,7 @@
 import {
     GET_SUBJECT, GET_SCRIPTS, GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, GET_SUBJECT_SCRIPTS,
-    SET_CURRENT_USER,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT,GET_UNIVERSITIES
+    SET_CURRENT_USER,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT,GET_UNIVERSITIES,
+    ADD_SUBJECT_TO_FAVORITES,ADD_SCRIPT_TO_FAVORITES,POST_SCRIPT,REMOVE_SCRIPT_FROM_FAVORITES,REMOVE_SUBJECT_FROM_FAVORITES
 } from "./types";
 import axios from 'axios';
 
@@ -114,5 +115,37 @@ export const postComment = (id,text) => dispatch => {
                 payload: res.data
             })
         )
+};
 
+export const addScriptToFavorites = (id) => dispatch => {
+    axios
+        .post(`/scripts/favorites/${id}`)
+        .then(res =>
+            dispatch({
+                type: ADD_SCRIPT_TO_FAVORITES,
+                payload: res.data
+            })
+        )
+};
+
+export const addSubjectToFavorites = (id) => dispatch => {
+    axios
+        .post(`/subjects/favorites/${id}`)
+        .then(res =>
+            dispatch({
+                type: ADD_SUBJECT_TO_FAVORITES,
+                payload: res.data
+            })
+        )
+};
+
+export const postScript = (postData) => dispatch => {
+    axios
+        .post("/scripts/", postData)
+        .then(res =>
+            dispatch({
+                type: POST_SCRIPT,
+                payload: res.data
+            })
+        )
 };

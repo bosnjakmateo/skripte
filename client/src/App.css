@@ -2283,3 +2283,13 @@ html, body{
     margin-left:5%;
     margin-right:5%;
 }
+
+.test2{
+    display: flex;
+}
+
+.test2 button{
+    height:25px;
+    margin-left:15px;
+    margin-top:9px;
+}
