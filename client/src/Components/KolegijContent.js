@@ -14,8 +14,7 @@ class KolegijContent extends Component {
     constructor(props){
         super(props);
         this.state = {
-            modalIsOpen: false,
-            id: null
+            modalIsOpen: false
         };
 
         this.asd3 = this.asd3.bind(this);
@@ -40,12 +39,7 @@ class KolegijContent extends Component {
     }
 
     componentDidMount(){
-        let id = this.props.match.params.kolegij_id;
-        console.log(this.props)
-        this.setState({
-            id: id
-        })
-        this.props.getSubjectById(id)
+        this.props.getSubjectById(this.props.match.params.kolegij_id)
         this.props.getAllScripts()
     }
 
