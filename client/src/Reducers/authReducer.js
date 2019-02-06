@@ -6,6 +6,7 @@ const initialState = {
     user: {},
     userData: {},
     loading: false,
+    userFetched:false
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +22,7 @@ export default function(state = initialState, action) {
                 ...state,
                 userData: action.payload,
                 loading: false,
+                userFetched:true
              }
         case PROFILE_LOADING:
             return{

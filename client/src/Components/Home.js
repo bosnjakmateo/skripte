@@ -26,18 +26,16 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            mounted:true
-        });
         this.props.getCurrentUser();
         this.setState({
+            mounted:true,
             currentUser:true
         });
     }
 
     componentDidUpdate(prevProps, nextState) {
 
-        if(this.state.currentUser !== nextState.currentUser){
+        if(this.props.auth.userFetched !== prevProps.auth.userFetched || this.state.currentUser !== nextState.currentUser){
             this.props.getAllSubjects();
             this.props.getAllScripts();
         }
@@ -98,7 +96,7 @@ class Home extends Component {
                             </div>
                             {this.props.auth.loading ? <Spinner/>
                                 : this.props.profile.filteredFavoriteScripts.map((item) =>
-                                    <FavoriteSkriptaCard keyprop={item._id} key={item._id} title={item.title} description={item.description} date={item.date}/>
+                                        <FavoriteSkriptaCard keyprop={item._id} key={item._id} title={item.title} description={item.description} date={item.date}/>
                                 )}
                         </div>
                     </div>

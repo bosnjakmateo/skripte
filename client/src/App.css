@@ -2293,3 +2293,23 @@ html, body{
     margin-left:15px;
     margin-top:9px;
 }
+
+
+.card-enter {
+    transform:scale(0);
+}
+
+.card-enter.card-enter-active {
+
+    transform:scale(1);
+}
+
+.card-leave {
+    opacity: 1;
+}
+
+.card-leave.card-leave-active {
+    opacity: 0.01;
+
+}
+
