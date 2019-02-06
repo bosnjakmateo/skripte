@@ -15,13 +15,15 @@ class KolegijContent extends Component {
         super(props);
         this.state = {
             modalIsOpen: false,
-            subjectAlreadyInFavorites:false
+            subjectAlreadyInFavorites:false,
+            query:""
         };
 
         this.addToFavorites = this.addToFavorites.bind(this);
         this.asd3 = this.asd3.bind(this);
         this.toggleModal = this.toggleModal.bind(this)
         this.checkIfAlreadyInFavorites = this.checkIfAlreadyInFavorites.bind(this)
+        this.setQuery = this.setQuery.bind(this);
     }
 
     toggleModal(){
@@ -72,8 +74,15 @@ class KolegijContent extends Component {
         }
     }
 
+    setQuery(e){
+        this.setState({
+            query:e
+        })
+    }
 
     render() {
+        let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
+        console.log(filteredScripts)
         return (
             <div className="kolegij-page">
                 <Headroom disableInlineStyles={true}>
@@ -84,7 +93,11 @@ class KolegijContent extends Component {
                         <button disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Favorite</button>
                     </div>
                     <div className="kolegij-second-navbar-search">
-                        <input className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..." />
+                        <input  className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..."
+                                onChange={(event) => {
+                                    this.setQuery(event.target.value);
+                                }}
+                        />
                         <select
                             className="resours-type-select">
                             <option className="hidden"> Godina: </option>
@@ -106,7 +119,7 @@ class KolegijContent extends Component {
                 </Headroom>
                 <div className="skripte-container">
                     {this.props.auth.loading ? <Spinner/>
-                        : this.props.profile.filteredScripts.map((item) =>
+                        : filteredScripts.map((item) =>
                             <SkriptaCard keyprop={item._id} key={item._id} title={item.title} date={item.date} username={item.user} description={item.description} />
                         )}
                 </div>

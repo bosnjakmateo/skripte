@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import removeIcon from "../Images/remove.svg"
+import {connect} from "react-redux";
+import {removeScriptFromFavorites} from "../Actions/profileActions";
 
 class FavoriteSkriptaCard extends Component {
     constructor(props){
@@ -13,7 +15,7 @@ class FavoriteSkriptaCard extends Component {
 
 removeSkripta(e){
     e.preventDefault();
-    {/* TODO : remove home favorite skripta card */}
+    //this.props.removeScriptFromFavorites()
 }
 
 
@@ -34,4 +36,10 @@ removeSkripta(e){
     }
 }
 
-export default FavoriteSkriptaCard;
+const mapStateToProps = (state) => ({
+    userFavoriteSubjects: state.auth.userData.favoriteSubjects,
+    auth:state.auth,
+    profile:state.profile
+});
+
+export default withRouter(connect(mapStateToProps, {removeScriptFromFavorites})(FavoriteSkriptaCard))

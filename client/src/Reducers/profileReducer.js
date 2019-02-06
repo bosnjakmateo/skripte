@@ -1,4 +1,7 @@
-import {GET_SUBJECT, GET_SCRIPTS,GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,POST_SCRIPT,ADD_SCRIPT_TO_FAVORITES,ADD_SUBJECT_TO_FAVORITES,GET_UNIVERSITIES,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
+import {GET_SUBJECT,REMOVE_SUBJECT_FROM_FAVORITES,REMOVE_SCRIPT_FROM_FAVORITES, GET_SCRIPTS,
+    GET_SUBJECT_BY_ID,GET_ALL_SUBJECTS,POST_SCRIPT,ADD_SCRIPT_TO_FAVORITES,ADD_SUBJECT_TO_FAVORITES,
+    GET_UNIVERSITIES,GET_SUBJECT_SCRIPTS,FILTERED_SUBJECTS,FILTERED_SUBJECTS2,GET_SCRIPT_BY_ID,
+    FILTERED_FAVORITE_SCRIPTS,CLEAR_SCRIPTS,POST_COMMENT} from '../Actions/types';
 
 
 const initialState = {
@@ -88,7 +91,18 @@ export default function(state = initialState, action) {
                 ...state,
                 allScripts: [...state.allScripts,action.payload]
             }
+        case REMOVE_SUBJECT_FROM_FAVORITES:
+            return{
+                ...state,
+                filteredSubjects: state.filteredSubjects.filter(item => item._id !== action.payload)
+            }
+        case REMOVE_SCRIPT_FROM_FAVORITES:
+            return{
+                ...state,
+                filteredFavoriteScripts: [...state.filteredFavoriteScripts,action.payload]
+            }
         default:
             return state;
     }
 }
+

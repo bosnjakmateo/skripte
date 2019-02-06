@@ -149,3 +149,27 @@ export const postScript = (postData) => dispatch => {
             })
         )
 };
+
+
+export const removeSubjectFromFavorites = (id) => dispatch => {
+    axios
+        .delete(`/subjects/favorites/${id}`)
+        .then(res =>
+            dispatch({
+                type: REMOVE_SUBJECT_FROM_FAVORITES,
+                payload: id
+            })
+        )
+};
+
+
+export const removeScriptFromFavorites = (id) => dispatch => {
+    axios
+        .post(`/scripts/favorites/${id}`)
+        .then(res =>
+            dispatch({
+                type: REMOVE_SCRIPT_FROM_FAVORITES,
+                payload: res.data
+            })
+        )
+};

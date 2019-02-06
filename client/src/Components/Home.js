@@ -25,10 +25,10 @@ class Home extends Component {
         this.filterFavoriteScriptsFromAll = this.filterFavoriteScriptsFromAll.bind(this);
     }
 
-     componentDidMount() {
-         this.setState({
-             mounted:true
-         });
+    componentDidMount() {
+        this.setState({
+            mounted:true
+        });
         this.props.getCurrentUser();
         this.setState({
             currentUser:true
@@ -70,14 +70,14 @@ class Home extends Component {
             <div className="home-page">
                 <Headroom disableInlineStyles={true}>
                     <Navbar/>
-                <div className="second-navbar">
-                    <h1 className="second-navbar-title">Moji Kolegiji</h1>
-                    {/*
+                    <div className="second-navbar">
+                        <h1 className="second-navbar-title">Moji Kolegiji</h1>
+                        {/*
                     <div className="second-navbar-search">
                         <input className="second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
                     </div>
                     */}
-                </div>
+                    </div>
                 </Headroom>
                 <div className={classnames('main-container',{
                     'fade-in-keyframes' : this.state.mounted
