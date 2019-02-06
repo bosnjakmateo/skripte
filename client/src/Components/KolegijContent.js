@@ -82,7 +82,6 @@ class KolegijContent extends Component {
 
     render() {
         let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
-        console.log(filteredScripts)
         return (
             <div className="kolegij-page">
                 <Headroom disableInlineStyles={true}>

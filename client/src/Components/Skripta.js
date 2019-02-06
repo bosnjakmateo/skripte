@@ -13,9 +13,11 @@ class Skripta extends Component {
     constructor(props){
         super(props);
         this.state = {
-            id: null
+            id: null,
+            scriptAlreadyInFavorites:false,
         };
         this.addToFavorites = this.addToFavorites.bind(this);
+        this.checkIfAlreadyInFavorites = this.checkIfAlreadyInFavorites.bind(this)
     }
 
     componentDidMount(){
@@ -26,9 +28,31 @@ class Skripta extends Component {
         this.props.getScriptById(id);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript  ) {
+            this.checkIfAlreadyInFavorites();
+        }
+    }
+
 
     addToFavorites(){
-        this.props.addScriptToFavorites(this.props.match.params.skripta_id)
+        this.props.addScriptToFavorites(this.props.match.params.skripta_id);
+        this.setState({
+            scriptAlreadyInFavorites: true
+        })
+    }
+
+    checkIfAlreadyInFavorites(){
+        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._script.includes(this.props.profile.currentScript._id));
+        if(ress.length > 0){
+            this.setState({
+                scriptAlreadyInFavorites: true
+            })
+        }else{
+            this.setState({
+                scriptAlreadyInFavorites: false
+            })
+        }
     }
 
     render() {
@@ -38,7 +62,7 @@ class Skripta extends Component {
                 <div className="skripta-second-navbar">
                     <div className="test2">
                         <h1 className="skripta-second-navbar-title">{this.props.profile.currentScript.title}</h1>
-                        <button onClick={this.addToFavorites}>Dodaj Skriptu u Favorite</button>
+                        <button disabled={this.state.scriptAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Favorite</button>
                     </div>
                     <p className="skripta-second-navbar-description">{this.props.profile.currentScript.description}</p>
                 </div>
