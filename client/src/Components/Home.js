@@ -17,23 +17,31 @@ class Home extends Component {
         super(props);
         this.state = {
             mounted:false,
-            data:[]
+            data:[],
+            currentUser:false
         };
 
         this.filterFavoriteSubjectsFromAll = this.filterFavoriteSubjectsFromAll.bind(this);
         this.filterFavoriteScriptsFromAll = this.filterFavoriteScriptsFromAll.bind(this);
     }
 
-    componentDidMount() {
+     componentDidMount() {
          this.setState({
              mounted:true
          });
-         this.props.getCurrentUser();
-         this.props.getAllSubjects();
-         this.props.getAllScripts();
+        this.props.getCurrentUser();
+        this.setState({
+            currentUser:true
+        });
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, nextState) {
+
+        if(this.state.currentUser !== nextState.currentUser){
+            this.props.getAllSubjects();
+            this.props.getAllScripts();
+        }
+
         if (this.props.profile.allSubjects !== prevProps.profile.allSubjects  ) {
             this.filterFavoriteSubjectsFromAll();
         }
