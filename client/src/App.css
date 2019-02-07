@@ -84,9 +84,10 @@ button:focus{
 
 .button-prijava{
     margin-right:15px;
-    color:#3384FF;
+    color:white;
     border:0;
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    background:#ffa920;
 }
 
 
@@ -97,29 +98,26 @@ button:focus{
 
 
 .button-prijava:hover{
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
-    background: rgba(255, 255, 255, 0.8);
-
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0);
+    background-color: #ffb300;
 }
 
 .button-registracija{
     margin-left:15px;
-    color:white;
-    border-color:white;
-    border-style: solid;
-    border-width: 5px;
-    background:transparent;
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    background:white;
+    color:#3384FF;
+    border:0;
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .button-registracija:hover{
-    background:white;
-    color:#3384FF;
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    background:#ffa920;
+    color:white;
+    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0);
 }
 
 .button-seperator{
@@ -728,9 +726,10 @@ button:focus{
 }
 
 .kolegij-card{
-    width:100%;
-    margin-top:20px;
-    margin-bottom:20px;
+    width:90%;
+    margin-top:18px;
+    margin-bottom:18px;
+    margin-left:5%;
     height:60px;
     position:relative;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
@@ -2295,21 +2294,50 @@ html, body{
 }
 
 
-.card-enter {
-    transform:scale(0);
+
+.incorrect-message{
+    font-size:11px;
+    margin:0;
+    margin-top:2px;
+    float:right;
+    color:red;
 }
 
-.card-enter.card-enter-active {
-
-    transform:scale(1);
+.incorrect-message-login{
+    font-size:15px;
+    margin:0;
+    color:#ffa920;
+    transform: skewX(-25deg);
 }
 
-.card-leave {
-    opacity: 1;
+.incorrect-message-container-login{
+    display:inline-flex;
 }
 
-.card-leave.card-leave-active {
-    opacity: 0.01;
-
+.warning-icon{
+    width: 15px;
+    margin-top: -3px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
+.favorite-subjects-name-container {
+    height: 50px;
+    background-color: #3384FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 5px 5px 0 0;
+}
+
+.favorite-subjects{
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    padding-bottom:20px;
+}

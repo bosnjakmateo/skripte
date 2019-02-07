@@ -11,7 +11,6 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import Spinner from "./Spinner"
 
-
 class Home extends Component {
     constructor(props){
         super(props);
@@ -69,7 +68,7 @@ class Home extends Component {
                 <Headroom disableInlineStyles={true}>
                     <Navbar/>
                     <div className="second-navbar">
-                        <h1 className="second-navbar-title">Moji Kolegiji</h1>
+                        <h1 className="second-navbar-title">Dashboard</h1>
                         {/*
                     <div className="second-navbar-search">
                         <input className="second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
@@ -81,13 +80,15 @@ class Home extends Component {
                     'fade-in-keyframes' : this.state.mounted
                 })}>
                     <div className="kolegij-card-container">
-
-                        {this.props.auth.loading ? <Spinner/>
-                            : this.props.profile.filteredSubjects.map((item) =>
-                                <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
+                        <div className="favorite-subjects">
+                            <div className="favorite-subjects-name-container">
+                                <h1 className="favorite-kolegiji-name">Omiljeni Kolegiji</h1>
+                            </div>
+                            { this.props.auth.loading ? <Spinner/>
+                                : this.props.profile.filteredSubjects.map((item) =>
+                                  <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
                             )}
-
-
+                        </div>
                     </div>
                     <div className="favorite-kolegiji-container">
                         <div className="favorite-kolegiji">

@@ -5,6 +5,7 @@ import SkriptaInfo from "./SkriptaInfo";
 import SkriptaComments from "./SkriptaComments";
 import SkriptaPdf from "./SkriptaPdf";
 import {getScriptById,addScriptToFavorites} from "../Actions/profileActions";
+import {getCurrentUser} from "../Actions/authActions";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
@@ -43,7 +44,7 @@ class Skripta extends Component {
     }
 
     checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._script.includes(this.props.profile.currentScript._id));
+        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._script.includes(this.props.match.params.skripta_id));
         if(ress.length > 0){
             this.setState({
                 scriptAlreadyInFavorites: true
@@ -81,5 +82,5 @@ const mapStateToProps = (state) => ({
     auth:state.auth,
 });
 
-export default withRouter(connect(mapStateToProps, {getScriptById,addScriptToFavorites})(Skripta))
+export default withRouter(connect(mapStateToProps, {getScriptById,addScriptToFavorites,getCurrentUser})(Skripta))
 

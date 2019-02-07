@@ -40,7 +40,7 @@ class KolegijContent extends Component {
     }
 
     asd3(){
-        let res = this.props.profile.allScripts.filter(a => a._subject.includes(this.props.profile.currentSubject._id));
+        let res = this.props.profile.allScripts.filter(a => a._subject.includes(this.props.match.params.kolegij_id));
         this.props.filtered2(res)
     }
 
@@ -97,7 +97,7 @@ class KolegijContent extends Component {
                                     this.setQuery(event.target.value);
                                 }}
                         />
-                        <select
+                        {/*  <select
                             className="resours-type-select">
                             <option className="hidden"> Godina: </option>
                             <option value="2019">2019</option>
@@ -107,6 +107,7 @@ class KolegijContent extends Component {
                             <option value="2015">2015</option>
                             <option value="2014">2014</option>
                         </select>
+                        */}
                         <div onClick={this.toggleModal} className="upload-skripta-button-container">
                             <div className="upload-skripta-button">
                                 <p id="txt">UPLODAJ</p>

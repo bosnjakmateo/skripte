@@ -16,6 +16,7 @@ import LandingPage from"./Components/LandingPage";
 import setAuthToken from './Utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './Actions/authActions';
 import jwt_decode from 'jwt-decode';
+import PrivateRoute from './Components/common/PrivateRoute';
 
 
 // Check for token
@@ -49,14 +50,14 @@ class App extends Component {
                       <Route exact path="/login" component={Login} />
                       <Route exact path="/register" component={Registration} />
                       <Route exact path="/" component={LandingPage}/>
-                      <Route exact path="/home" component={Home}/>
-                      <Route exact path="/institucije" component={AllKolegiji}/>
-                      <Route path="/institucije/:institucija_id" component={InstitutionFields}/>
-                      <Route path="/kolegij/:kolegij_id" component={KolegijContent}/>
-                      <Route path="/skripta/:skripta_id" component={Skripta}/>
+                      <PrivateRoute exact path="/home" component={Home}/>
+                      <PrivateRoute exact path="/institucije" component={AllKolegiji}/>
+                      <PrivateRoute path="/institucije/:institucija_id" component={InstitutionFields}/>
+                      <PrivateRoute path="/kolegij/:kolegij_id" component={KolegijContent}/>
+                      <PrivateRoute path="/skripta/:skripta_id" component={Skripta}/>
                       <Route exact path="/landing" component={LandingPage}/>
-                      <Route exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
-                      <Route path="/smjer/:smjer_id" component={Fields}/>
+                      <PrivateRoute exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
+                      <PrivateRoute path="/smjer/:smjer_id" component={Fields}/>
                   </div>
                 </Router>
         </Provider>

@@ -14,7 +14,8 @@ class Registration extends Component {
             email:"",
             password:"",
             password2:"",
-            errors: {}
+            errors: {},
+            secondPassword:false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -47,6 +48,15 @@ class Registration extends Component {
                 password: this.state.password,
             };
             this.props.registerUser(newUser, this.props.history);
+            if(this.state.password !== this.state.password2){
+                this.setState({
+                    secondPassword:true
+                })
+            }else{
+                this.setState({
+                    secondPassword:false
+                })
+            }
     }
 
     render() {
@@ -79,6 +89,7 @@ class Registration extends Component {
                                             value={this.state.username}
                                             onChange={this.onChange}
                                         />
+                                        {errors.username ? <div className="incorrect-message-container"><p className="incorrect-message">{errors.username}</p></div> : null}
                                     </div>
                                     <div className="label">
                                         <h3
@@ -97,6 +108,7 @@ class Registration extends Component {
                                             value={this.state.email}
                                             onChange={this.onChange}
                                         />
+                                        {errors.email ? <div className="incorrect-message-container"><p className="incorrect-message">{errors.email}</p></div> : null}
                                     </div>
                                     <div className="label">
                                         <h3
@@ -115,18 +127,19 @@ class Registration extends Component {
                                             value={this.state.password}
                                             onChange={this.onChange}
                                         />
+                                        {errors.password ? <div className="incorrect-message-container"><p className="incorrect-message">{errors.password}</p></div> : null}
                                     </div>
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
-                                                'shake make-red' : errors.password2 !== errors.password
+                                                'shake make-red' : this.state.secondPassword || errors.password
                                             })}
                                         >
                                             Ponovi lozinku:
                                         </h3>
                                         <input
                                             className={classnames('registration-inputs',{
-                                                'is-invalid shake' : errors.password2 !== errors.password
+                                                'is-invalid shake' : this.state.secondPassword || errors.password
                                             })}
                                             type="password"
                                             name="password2"

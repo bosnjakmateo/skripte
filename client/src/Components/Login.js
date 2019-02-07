@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {getCurrentUser} from "../Actions/authActions";
 import { loginUser } from "../Actions/authActions";
 import PropTypes from 'prop-types';
-import classnames from "classnames";
+import warning from '../Images/warrning.svg'
 
 class Login extends Component {
     constructor(props){
@@ -57,7 +57,6 @@ class Login extends Component {
 
     render() {
         const {errors} = this.state;
-
         return (
             <div className="login-page">
                 <div className="login-container">
@@ -71,9 +70,6 @@ class Login extends Component {
                             <form onSubmit={this.onSubmit}>
                                 <label>
                                     <input
-                                        className={classnames('empty',{
-                                            'make-red shake' : errors.email
-                                        })}
                                         type="email"
                                         name="email"
                                         placeholder="Email"
@@ -82,15 +78,16 @@ class Login extends Component {
                                     />
                                     <br />
                                     <input
-                                        className={classnames('empty',{
-                                            'make-red shake' : errors.password
-                                        })}
                                         type="password"
                                            name="password"
                                            placeholder="lozinka"
                                            value={this.state.password}
                                            onChange={this.onChange}
                                     />
+                                    {errors.message ?<div className="incorrect-message-container-login">
+                                        <img alt="warning" src={warning} className="warning-icon"/>
+                                        <p className="incorrect-message-login">Wrong password or username</p>
+                                    </div> : null}
                                 </label>
                                 <div className="login-buttons-container">
                                     <button type="submit" className="buttons-login button-prijava">PRIJAVA</button>
