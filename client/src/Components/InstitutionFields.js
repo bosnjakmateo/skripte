@@ -28,7 +28,7 @@ class InstitutionFields extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.institutions.institutionFields !== prevProps.institutions.institutionFields  ) {
+        if (this.props.institutions.institutionFields !== prevProps.institutions.institutionFields && this.state.mounted === true  ) {
             this.filterInstitutionFields()
         }
     }

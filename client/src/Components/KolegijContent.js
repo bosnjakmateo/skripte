@@ -89,7 +89,7 @@ class KolegijContent extends Component {
                 <div className="kolegij-second-navbar">
                     <div className="test2">
                         <h1 className="kolegij-second-navbar-title">{this.props.profile.currentSubject.name}</h1>
-                        <button disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Favorite</button>
+
                     </div>
                     <div className="kolegij-second-navbar-search">
                         <input  className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..."
@@ -108,10 +108,13 @@ class KolegijContent extends Component {
                             <option value="2014">2014</option>
                         </select>
                         */}
-                        <div onClick={this.toggleModal} className="upload-skripta-button-container">
-                            <div className="upload-skripta-button">
-                                <p id="txt">UPLODAJ</p>
-                                <div className="mask3"/>
+                        <div className="kolegij-content-buttons-container">
+                            <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>FAVORIT</button>
+                            <div onClick={this.toggleModal} className="upload-skripta-button-container">
+                                <div className="upload-skripta-button">
+                                    <p id="txt">UPLODAJ</p>
+                                    <div className="mask3"/>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -35,7 +35,7 @@ class UploadModal extends Component {
 
     render() {
         return (
-            <div className="upload-modal-container">
+            <div  className="upload-modal-container">
                 <div  className="upload-modal">
                     <div className="upload-modal-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ:</h1>

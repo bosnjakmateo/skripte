@@ -39,10 +39,10 @@ class Home extends Component {
             this.props.getAllScripts();
         }
 
-        if (this.props.profile.allSubjects !== prevProps.profile.allSubjects  ) {
+        if (this.props.profile.allSubjects !== prevProps.profile.allSubjects && this.props.auth.loading === false  ) {
             this.filterFavoriteSubjectsFromAll();
         }
-        if (this.props.profile.allScripts !== prevProps.profile.allScripts  ) {
+        if (this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false  ) {
             this.filterFavoriteScriptsFromAll();
         }
     }
@@ -50,11 +50,15 @@ class Home extends Component {
     filterFavoriteSubjectsFromAll(){
         let allSubjects = this.props.profile.allSubjects
         let favoriteSubjects = this.props.auth.userData.favoriteSubjects
+        console.log(allSubjects)
+        console.log(favoriteSubjects)
         let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._subject))
         this.props.filtered(favorites)
     }
 
     filterFavoriteScriptsFromAll(){
+        console.log(allScripts)
+        console.log(allScripts)
         let allScripts = this.props.profile.allScripts;
         let favoriteScripts = this.props.auth.userData.favoriteScripts
         let favorites = allScripts.filter(item => favoriteScripts.find(item2 => item._id === item2._script))

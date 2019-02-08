@@ -12,6 +12,7 @@ import { logoutUser } from "../Actions/authActions";
 import { getCurrentUser } from "../Actions/authActions";
 import classnames from "classnames";
 import onClickOutside from "react-onclickoutside";
+import Darken from "./Darken";
 
 
 class Navbar extends Component {
@@ -28,6 +29,7 @@ class Navbar extends Component {
         this.toggleButton = this.toggleButton.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.toggleUserMenu = this.toggleUserMenu.bind(this);
+        this.toggleDark = this.toggleDark.bind(this);
     }
 
     componentDidMount(){
@@ -47,6 +49,9 @@ class Navbar extends Component {
     toggleUserMenu() {
         this.setState({ userMenu: !this.state.userMenu });
     }
+    toggleDark(){
+
+    }
 
     toggleButton() {
         this.setState({
@@ -61,11 +66,10 @@ class Navbar extends Component {
     }
 
 
-
-
-
     render() {
         return (
+            <div>
+                {this.state.userMenu ? <Darken toggleDark={this.toggleUserMenu}/> : null}
             <div className="navbar">
                 <CSSTransitionGroup
                     transitionName="sidebar"
@@ -88,13 +92,6 @@ class Navbar extends Component {
                         <button  className={"navbar-link" + (this.state.currentRoute === "/home" ? " color-blue" : "")}>MOJI KOLEGIJI</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
-
-                    {/*
-                        <Link to="/login">
-                            <img onClick={this.handleLogoutClick} className="navbar-logout-icon" alt="logout-icon"
-                                 src={logout_icon}/>
-                        </Link>
-                    */}
                     <div className="user-menu" onClick={this.toggleUserMenu}>
                         <p className="user-name">{this.props.auth.userData.username}</p>
                         <img src={userMenuArrow} className={classnames("user-menu-arrow",{
@@ -114,6 +111,7 @@ class Navbar extends Component {
                         <HamburgerSpin padding={0} buttonWidth={33} isActive={this.state.isOpen} toggleButton={this.toggleMenu}  barColor="white" />
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

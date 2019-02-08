@@ -1305,10 +1305,7 @@ html, body{
     height:100%;
 }
 
-.non-scrollable{
-    overflow:hidden !important;
 
-}
 
 .route-wrapper {
     position: relative;
@@ -2088,7 +2085,6 @@ html, body{
     font-weight: bold;
     border:2px solid #3384FF;
     cursor: pointer;
-    float:right;
     margin-right:5px;
     border-radius:3px;
 }
@@ -2129,12 +2125,13 @@ html, body{
 
 .kolegij-page{
     position:relative;
+    height:100vh;
 }
 
 .upload-modal-container{
     background-color: rgba(0, 0, 0, 0.25);
     width:100%;
-    height: 95.7vh;
+    height: 100%;
     position:absolute;
     top:40px;
     z-index: 100;
@@ -2341,3 +2338,42 @@ html, body{
     border-radius: 5px;
     padding-bottom:20px;
 }
+
+.kolegij-content-buttons-container{
+    float:right;
+}
+
+.favorites-skripta-button{
+    margin-right: 20px;
+    background: transparent;
+    color: #ffa920;
+    font-weight: 700;
+    border: 2px solid #ffa920;
+    cursor: pointer;
+    border-radius: 3px;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    padding-left: 27px;
+    padding-right: 27px;
+}
+
+.favorites-skripta-button:disabled{
+    opacity:0.5;
+    cursor:initial;
+}
+
+.darken{
+    width:100%;
+    height:100vh;
+    background: rgba(0, 0, 0, 0);
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 1000;
+}
+
+
+.non-scrollable{
+    overflow-y: hidden;
+}
+
