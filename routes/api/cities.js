@@ -24,20 +24,20 @@ const City = require("../../models/City")
  * @apiError {String} message="City already exists"
  */
 router.post("/", (req, res) => {
-    City.findOne({ name: req.body.name })
-        .then(city => {
-            if (city) {
-                return res.status(400).json({ message: "City already exists" })
-            } else {
-                const newCity = new City({
-                    name: req.body.name
-                })
-                newCity.save()
-                    .then(newCity => res.json(newCity))
-                    .catch(err => res.json(err))
-            }
+  City.findOne({ name: req.body.name })
+    .then(city => {
+      if (city) {
+        return res.status(400).json({ message: "City already exists" })
+      } else {
+        const newCity = new City({
+          name: req.body.name
         })
-        .catch(err => req.json(err))
+        newCity.save()
+          .then(newCity => res.json(newCity))
+          .catch(err => res.json(err))
+      }
+    })
+    .catch(err => req.json(err))
 })
 
 /**
@@ -50,9 +50,9 @@ router.post("/", (req, res) => {
  * @apiError {String} message="No cities were found"
  */
 router.get("/", (req, res) => {
-    City.find()
-        .then(city => res.json(city))
-        .catch(err => res.status(404).json({ message: "No cities where found" }))
+  City.find()
+    .then(city => res.json(city))
+    .catch(err => res.status(404).json({ message: "No cities where found" }))
 })
 
 /**
@@ -67,9 +67,9 @@ router.get("/", (req, res) => {
  * @apiError {String} message="No city was found"
  */
 router.get("/:id", (req, res) => {
-    City.findById(req.params.id)
-        .then(city => res.json(city))
-        .catch(err => res.status(404).json({ message: "No city was found" }))
+  City.findById(req.params.id)
+    .then(city => res.json(city))
+    .catch(err => res.status(404).json({ message: "No city was found" }))
 })
 
 /**
@@ -85,15 +85,15 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="City to update not found"
  */
 router.patch("/:id", (req, res) => {
-  City.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
-      .then(city => {
-        if(!city){
-          return res.status(404).json({message: "City to update not found"});
-        } else {
-          return res.json(city)
-        }
-      })
-      .catch(err => console.log(err));
+  City.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(city => {
+      if (!city) {
+        return res.status(404).json({ message: "City to update not found" });
+      } else {
+        return res.json(city)
+      }
+    })
+    .catch(err => console.log(err));
 
 })
 
@@ -109,15 +109,15 @@ router.patch("/:id", (req, res) => {
  * @apiError {String} message="City to delete not found"
  */
 router.delete("/:id", (req, res) => {
-    City.findOneAndDelete({ _id: req.params.id})
-        .then(city => {
-          if(!city){
-            return res.status(404).json({ message: "City to delete not found"});
-          } else{
-            return res.json( {message: "City deleted"} )
-          }
-        })
-        .catch(err => console.log(err));
+  City.findOneAndDelete({ _id: req.params.id })
+    .then(city => {
+      if (!city) {
+        return res.status(404).json({ message: "City to delete not found" });
+      } else {
+        return res.json({ message: "City deleted" })
+      }
+    })
+    .catch(err => console.log(err));
 })
 
 /**
@@ -130,9 +130,9 @@ router.delete("/:id", (req, res) => {
  * @apiError {String} message="No cities to delete"
  */
 router.delete("/", (req, res) => {
-    City.deleteMany({})
-        .then(city => res.json( {message: "Cities deleted"} ))
-        .catch(err => res.status(404).json({ message: "No cities to delete" }))
+  City.deleteMany({})
+    .then(city => res.json({ message: "Cities deleted" }))
+    .catch(err => res.status(404).json({ message: "No cities to delete" }))
 })
 
 module.exports = router

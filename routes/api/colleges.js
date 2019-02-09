@@ -12,13 +12,13 @@ const College = require("../../models/College")
  * @apiSuccess {Id} _university University id
  */
 
- /**
- * @apiDefine CollegeParam
- *
- * @apiParam {String} name College name
- * @apiParam {Id} _city City id
- * @apiParam {Id} _university University id
- */
+/**
+* @apiDefine CollegeParam
+*
+* @apiParam {String} name College name
+* @apiParam {Id} _city City id
+* @apiParam {Id} _university University id
+*/
 
 /**
  * @api {post} colleges/ Add a college
@@ -32,18 +32,18 @@ const College = require("../../models/College")
  * @apiError {String} message="College already exists"
  */
 router.post("/", (req, res) => {
-    College.findOne({ name: req.body.name })
-        .then(college => {
-            if (college) {
-                return res.status(400).json({ message: "College already exists" })
-            } else {
-                const newCollege = new College(req.body)
-                newCollege.save()
-                    .then(newCollege => res.json(newCollege))
-                    .catch(err => res.json(err))
-            }
-        })
-        .catch(err => req.json(err))
+  College.findOne({ name: req.body.name })
+    .then(college => {
+      if (college) {
+        return res.status(400).json({ message: "College already exists" })
+      } else {
+        const newCollege = new College(req.body)
+        newCollege.save()
+          .then(newCollege => res.json(newCollege))
+          .catch(err => res.json(err))
+      }
+    })
+    .catch(err => req.json(err))
 })
 
 
@@ -57,9 +57,9 @@ router.post("/", (req, res) => {
  * @apiError {String} message="No colleges where found"
  */
 router.get("/", (req, res) => {
-    College.find()
-        .then(college => res.json(college))
-        .catch(err => res.status(404).json({ message: "No colleges where found" }))
+  College.find()
+    .then(college => res.json(college))
+    .catch(err => res.status(404).json({ message: "No colleges where found" }))
 })
 
 
@@ -75,9 +75,9 @@ router.get("/", (req, res) => {
  * @apiError {String} message="No college was found"
  */
 router.get("/:id", (req, res) => {
-    College.findById(req.params.id)
-        .then(college => res.json(college))
-        .catch(err => res.status(404).json({ message: "No college was found" }))
+  College.findById(req.params.id)
+    .then(college => res.json(college))
+    .catch(err => res.status(404).json({ message: "No college was found" }))
 })
 
 
@@ -94,15 +94,15 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="College to update not found"
  */
 router.patch("/:id", (req, res) => {
-  College.findOneAndUpdate({_id: req.params.id}, req.body, { new: true })
-      .then(college => {
-        if(!college){
-          return res.status(404).json({message: "College to update not found"});
-        } else {
-          return res.json(college)
-        }
-      })
-      .catch(err => console.log(err));
+  College.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(college => {
+      if (!college) {
+        return res.status(404).json({ message: "College to update not found" });
+      } else {
+        return res.json(college)
+      }
+    })
+    .catch(err => console.log(err));
 
 })
 
@@ -119,15 +119,15 @@ router.patch("/:id", (req, res) => {
  * @apiError {String} message="College to delete not found"
  */
 router.delete("/:id", (req, res) => {
-    College.findOneAndDelete({ _id: req.params.id})
-        .then(college => {
-          if(!college){
-            return res.status(404).json({ message: "College to delete not found"});
-          } else{
-            return res.json( {message: "College deleted"} )
-          }
-        })
-        .catch(err => console.log(err));
+  College.findOneAndDelete({ _id: req.params.id })
+    .then(college => {
+      if (!college) {
+        return res.status(404).json({ message: "College to delete not found" });
+      } else {
+        return res.json({ message: "College deleted" })
+      }
+    })
+    .catch(err => console.log(err));
 })
 
 /**
@@ -140,9 +140,9 @@ router.delete("/:id", (req, res) => {
  * @apiError {String} message="No colleges to delete"
  */
 router.delete("/", (req, res) => {
-    College.deleteMany({})
-        .then(college => res.json( {message: "Colleges deleted"} ))
-        .catch(err => res.status(404).json({ message: "No colleges to delete" }))
+  College.deleteMany({})
+    .then(college => res.json({ message: "Colleges deleted" }))
+    .catch(err => res.status(404).json({ message: "No colleges to delete" }))
 })
 
 module.exports = router

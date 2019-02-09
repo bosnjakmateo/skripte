@@ -25,17 +25,17 @@ app.use(passport.initialize())
 require("./config/passport.js")(passport)
 
 //DB config; Connect to MongoDB
-if(process.env.NODE_ENV==='test'){
-    const db = require("./config/keys").mongoURITest
+if (process.env.NODE_ENV === 'test') {
+  const db = require("./config/keys").mongoURITest
 
-    mongoose
+  mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err))
-}else{
-    const db = require("./config/keys").mongoURI
+} else {
+  const db = require("./config/keys").mongoURI
 
-    mongoose
+  mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err))
@@ -53,5 +53,5 @@ app.use("/fields", fields)
 const port = process.env.PORT || 5000
 
 module.exports = app.listen(port, () => {
-    console.log(`App listening on port ${port}!`)
+  console.log(`App listening on port ${port}!`)
 })
