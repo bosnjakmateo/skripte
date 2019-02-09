@@ -125,9 +125,9 @@ router.post("/login", (req, res) => {
  * @apiSuccess {String} username User username
  * @apiSuccess {Email} email User email
  * @apiSuccess {Array} favoriteSubjects User favorite subjects
- * @apiSuccess {Id} favoriteSubjects._subject User favorite subject
+ * @apiSuccess {Id} favoriteSubjects._id User favorite subject
  * @apiSuccess {Array} favoriteScripts User favorite scripts
- * @apiSuccess {Id} favoriteScripts._script User favorite script
+ * @apiSuccess {Id} favoriteScripts._id User favorite script
  * @apiSuccess {Array} scripts User scripts
  * @apiSuccess {Id} scripts._script User script
  */
