@@ -30,7 +30,7 @@ class Skripta extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.profile.currentScript !== prevProps.profile.currentScript  ) {
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript && this.props.auth.loading === false  ) {
             this.checkIfAlreadyInFavorites();
         }
     }

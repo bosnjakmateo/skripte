@@ -6,8 +6,10 @@ const initialState = {
     universities:[],
     university:[],
     institutionFields:[],
+    fieldsFetched:false,
+    universityFetched:false,
     filteredFields:[],
-    filteredInstitutionSubjects:[]
+    filteredInstitutionSubjects:[],
 };
 
 
@@ -22,12 +24,14 @@ export default function(state = initialState, action) {
         case GET_UNIVERSITY_BY_ID:
             return{
                 ...state,
-                university: action.payload
+                university: action.payload,
+                universityFetched: true
             }
         case GET_ALL_INSTITUTION_FIELDS:
             return{
                 ...state,
-                institutionFields: action.payload
+                institutionFields: action.payload,
+                fieldsFetched:true
             }
         case FILTERED_FIELDS:
             return{

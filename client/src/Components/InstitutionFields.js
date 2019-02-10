@@ -9,29 +9,25 @@ import {getInstitutionById,getAllInstitutionFields,filterFields} from "../Action
 class InstitutionFields extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            mounted: false
-        };
+        this.state = {};
 
         this.filterInstitutionFields = this.filterInstitutionFields.bind(this);
     }
 
 
-
     componentDidMount() {
-        this.props.getInstitutionById(this.props.match.params.institucija_id)
         this.props.getAllInstitutionFields();
-        this.setState({
-            mounted: true
-        })
-        this.filterInstitutionFields()
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.institutions.institutionFields !== prevProps.institutions.institutionFields && this.state.mounted === true  ) {
-            this.filterInstitutionFields()
+        if (this.props.institutions.fieldsFetched !== prevProps.institutions.fieldsFetched ) {
+            this.props.getInstitutionById(this.props.match.params.institucija_id)
+        }
+        if (this.props.institutions.universityFetched !== prevProps.institutions.universityFetched ) {
+            this.filterInstitutionFields();
         }
     }
+
 
     filterInstitutionFields(){
         let res = this.props.institutions.institutionFields.filter(a => a._university.includes(this.props.institutions.university._id));

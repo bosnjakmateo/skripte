@@ -50,15 +50,11 @@ class Home extends Component {
     filterFavoriteSubjectsFromAll(){
         let allSubjects = this.props.profile.allSubjects
         let favoriteSubjects = this.props.auth.userData.favoriteSubjects
-        console.log(allSubjects)
-        console.log(favoriteSubjects)
         let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._subject))
         this.props.filtered(favorites)
     }
 
     filterFavoriteScriptsFromAll(){
-        console.log(allScripts)
-        console.log(allScripts)
         let allScripts = this.props.profile.allScripts;
         let favoriteScripts = this.props.auth.userData.favoriteScripts
         let favorites = allScripts.filter(item => favoriteScripts.find(item2 => item._id === item2._script))
@@ -73,11 +69,6 @@ class Home extends Component {
                     <Navbar/>
                     <div className="second-navbar">
                         <h1 className="second-navbar-title">Dashboard</h1>
-                        {/*
-                    <div className="second-navbar-search">
-                        <input className="second-navbar-search-input" type="text" placeholder="Pretraži kolegij..." />
-                    </div>
-                    */}
                     </div>
                 </Headroom>
                 <div className={classnames('main-container',{

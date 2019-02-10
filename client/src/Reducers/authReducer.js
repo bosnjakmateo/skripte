@@ -1,4 +1,4 @@
-import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER} from '../Actions/types';
+import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS} from '../Actions/types';
 import isEmpty from '../Validation/isEmpty';
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
     user: {},
     userData: {},
     loading: false,
-    userFetched:false
+    userFetched:false,
+    registrationSuccess: false
 };
 
 export default function(state = initialState, action) {
@@ -28,6 +29,11 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 loading: true
+            }
+        case REGISTER_SUCCESS:
+            return{
+                ...state,
+                registrationSuccess: true
             }
             default:
                 return state;
