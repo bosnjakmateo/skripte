@@ -1003,6 +1003,70 @@
     }
   },
   {
+    "type": "post",
+    "url": "scripts/favorites/:id",
+    "title": "Delete script from favorites",
+    "name": "DeleteFavorite",
+    "group": "Script",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Script id</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Script deleted from favorites",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Script not found/No script found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/scripts.js",
+    "groupTitle": "Script"
+  },
+  {
     "type": "delete",
     "url": "scripts/:id",
     "title": "Delete a script",
@@ -1719,7 +1783,7 @@
             "type": "String",
             "optional": false,
             "field": "message",
-            "defaultValue": "Script not found/No script found",
+            "defaultValue": "Script not found || No script found || Script already added to favorites",
             "description": ""
           }
         ]
@@ -1893,6 +1957,70 @@
         ]
       }
     }
+  },
+  {
+    "type": "post",
+    "url": "subjects/favorites/:id",
+    "title": "Delete subject from favorites",
+    "name": "DeleteFavorite",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Subject id</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Subject deleted from favorites",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Subject not found/No user found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/subjects.js",
+    "groupTitle": "Subject"
   },
   {
     "type": "delete",
@@ -2258,7 +2386,7 @@
             "type": "String",
             "optional": false,
             "field": "message",
-            "defaultValue": "Subject not found/No user found",
+            "defaultValue": "Subject not found || No user found || Subject already added to favorites",
             "description": ""
           }
         ]
@@ -2753,7 +2881,7 @@
             "group": "Success 200",
             "type": "Id",
             "optional": false,
-            "field": "favoriteSubjects._subject",
+            "field": "favoriteSubjects._id",
             "description": "<p>User favorite subject</p>"
           },
           {
@@ -2767,7 +2895,7 @@
             "group": "Success 200",
             "type": "Id",
             "optional": false,
-            "field": "favoriteScripts._script",
+            "field": "favoriteScripts._id",
             "description": "<p>User favorite script</p>"
           },
           {

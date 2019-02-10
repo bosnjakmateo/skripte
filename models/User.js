@@ -3,33 +3,33 @@ const Schema = mongoose.Schema
 
 // Create schema
 const UserSchema = new Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    favoriteSubjects: [{
-        _subject: {
-            type: Schema.Types.ObjectId, ref: 'Subject'
-        }
-    }],
-    favoriteScripts: [{
-        _script: {
-            type: Schema.Types.ObjectId, ref: 'Script'
-        }
-    }],
-    scripts: [{
-        _script: {
-            type: Schema.Types.ObjectId, ref: 'Script'
-        }
-    }]
+  username: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  favoriteSubjects: [{
+    _subject: {
+      type: Schema.Types.ObjectId, ref: 'Subject'
+    }
+  }],
+  favoriteScripts: [{
+    _script: {
+      type: Schema.Types.ObjectId, ref: 'Script'
+    }
+  }],
+  scripts: [{
+    _script: {
+      type: Schema.Types.ObjectId, ref: 'Script'
+    }
+  }]
 })
 
 module.exports = User = mongoose.model("users", UserSchema)

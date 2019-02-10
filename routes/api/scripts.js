@@ -44,40 +44,40 @@ const User = require("../../models/User")
  * @apiError {String} message="Script already exists/No user found"
  */
 router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
-    const { errors, isValid } = validateScriptInput(req.body)
+  const { errors, isValid } = validateScriptInput(req.body)
 
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
 
-    Script.findOne({ title: req.body.title })
-        .then(script => {
-            if (script) {
-                return res.status(400).json({ message: "Script already exists" })
-            } else {
-                req.body.user = req.user.username
+  Script.findOne({ title: req.body.title })
+    .then(script => {
+      if (script) {
+        return res.status(400).json({ message: "Script already exists" })
+      } else {
+        req.body.user = req.user.username
 
-                const newScript = new Script(req.body)
-                newScript.save()
-                    .then(newScript => res.json(newScript))
-                    .catch(err => res.json(err))
-                
-                    User.findById(req.user._id)
-                        .then(user => {
-                            const newUserScript = {
-                                _script: newScript._id
-                            }
+        const newScript = new Script(req.body)
+        newScript.save()
+          .then(newScript => res.json(newScript))
+          .catch(err => res.json(err))
 
-                            user.scripts.unshift(newUserScript)
-
-                            user.save()
-                            console.log("Script added to users scripts")
-                            //.then(res.status(200).json({ message: "Script added to users scripts" }))
-                        })
-                        .catch(err => res.status(404).json({ message: "No user found" }))
+        User.findById(req.user._id)
+          .then(user => {
+            const newUserScript = {
+              _script: newScript._id
             }
-        })
-        .catch(err => req.json(err))
+
+            user.scripts.unshift(newUserScript)
+
+            user.save()
+            console.log("Script added to users scripts")
+            //.then(res.status(200).json({ message: "Script added to users scripts" }))
+          })
+          .catch(err => res.status(404).json({ message: "No user found" }))
+      }
+    })
+    .catch(err => req.json(err))
 })
 
 /**
@@ -90,9 +90,9 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
  * @apiError {String} message="No scripts where found"
  */
 router.get("/", (req, res) => {
-    Script.find()
-        .then(script => res.json(script))
-        .catch(err => res.status(404).json({ message: "No scripts where found" }))
+  Script.find()
+    .then(script => res.json(script))
+    .catch(err => res.status(404).json({ message: "No scripts where found" }))
 })
 
 /**
@@ -107,9 +107,9 @@ router.get("/", (req, res) => {
  * @apiError {String} message="No script was found"
  */
 router.get("/:id", (req, res) => {
-    Script.findById(req.params.id)
-        .then(script => res.json(script))
-        .catch(err => res.status(404).json({ message: "No script was found" }))
+  Script.findById(req.params.id)
+    .then(script => res.json(script))
+    .catch(err => res.status(404).json({ message: "No script was found" }))
 })
 
 /**
@@ -127,21 +127,21 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="Script to update not found"
  */
 router.patch("/:id", (req, res) => {
-    const { errors, isValid } = validateScriptInput(req.body)
+  const { errors, isValid } = validateScriptInput(req.body)
 
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
 
-    Script.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-        .then(script => {
-            if (!script) {
-                return res.status(404).json({ message: "Script to update not found" })
-            } else {
-                return res.json(script)
-            }
-        })
-        .catch(err => console.log(err))
+  Script.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(script => {
+      if (!script) {
+        return res.status(404).json({ message: "Script to update not found" })
+      } else {
+        return res.json(script)
+      }
+    })
+    .catch(err => console.log(err))
 
 })
 
@@ -160,19 +160,19 @@ router.patch("/:id", (req, res) => {
  * @apiError {String} message="No script found"
  */
 router.post("/comments/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
-    Script.findById(req.params.id)
-        .then(script => {
-            const newComment = {
-                text: req.body.text,
-                user: req.user.username,
-                date: Date.now()
-            }
+  Script.findById(req.params.id)
+    .then(script => {
+      const newComment = {
+        text: req.body.text,
+        user: req.user.username,
+        date: Date.now()
+      }
 
-            script.comments.unshift(newComment)
+      script.comments.unshift(newComment)
 
-            script.save().then(script => res.json(script))
-        })
-        .catch(err => res.status(404).json({ message: "No script found" }))
+      script.save().then(script => res.json(script))
+    })
+    .catch(err => res.status(404).json({ message: "No script found" }))
 })
 
 /**
@@ -186,29 +186,74 @@ router.post("/comments/:id", passport.authenticate("jwt", { session: false }), (
  *
  * @apiSuccess {String} message="Script added to favorites"
  * 
+ * @apiError {String} message="Script not found || No script found || Script already added to favorites"
+ */
+router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+  Script.findById(req.params.id)
+    .then(script => {
+      if (!script) {
+        return res.status(404).json({ message: "Script not found" })
+      }
+      else {
+        User.findById(req.user._id)
+          .then(user => {
+            let newFavorite = {
+              _id: req.params.id
+            }
+
+            user.favoriteScripts.forEach(i => {
+              if(JSON.stringify(i) === JSON.stringify(newFavorite))
+                res.status(400).json({ message: "Script already added to favorites" })
+            })
+
+            user.favoriteScripts.unshift(newFavorite)
+
+            user.save().then(res.status(200).json({ message: "Script added to favorites" }))
+          })
+          .catch(err => res.status(404).json({ message: "No user found" }))
+      }
+    })
+    .catch(err => console.log(err))
+})
+
+/**
+ * @api {post} scripts/favorites/:id Delete script from favorites
+ * @apiName DeleteFavorite
+ * @apiGroup Script
+ *
+ * @apiParam {Id} id Script id
+ * 
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} message="Script deleted from favorites"
+ * 
  * @apiError {String} message="Script not found/No script found"
  */
 router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
-    Script.findById(req.params.id)
-        .then(script => {
-            if(!script){
-                return res.status(404).json({ message: "Script not found" })
+  Script.findById(req.params.id)
+    .then(script => {
+      if (!script) {
+        return res.status(404).json({ message: "Script not found" })
+      }
+      else {
+        User.findById(req.user._id)
+          .then(user => {
+            let newFavorite = {
+              _id: req.params.id
             }
-            else {
-                User.findById(req.user._id)
-                    .then(user => {
-                        const newFavorite = {
-                            _script: req.params.id
-                        }
 
-                        user.favoriteScripts.unshift(newFavorite)
+            user.favoriteScripts.forEach(i => {
+              if(JSON.stringify(i) === JSON.stringify(newFavorite)){
+                user.favoriteScripts = user.favoriteScripts.filter(j => j !== i)
+              }
+            })
 
-                        user.save().then(res.status(200).json({ message: "Script added to favorites" }))
-                    })
-                    .catch(err => res.status(404).json({ message: "No user found" }))
-            }
-        })
-        .catch(err => console.log(err))
+            user.save().then(res.status(200).json({ message: "Script added to favorites" }))
+          })
+          .catch(err => res.status(404).json({ message: "No user found" }))
+      }
+    })
+    .catch(err => console.log(err))
 })
 
 /**
@@ -223,15 +268,15 @@ router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), 
  * @apiError {String} message="Script to delete not found"
  */
 router.delete("/:id", (req, res) => {
-    Script.findOneAndDelete({ _id: req.params.id })
-        .then(script => {
-            if (!script) {
-                return res.status(404).json({ message: "Script to delete not found" });
-            } else {
-                return res.json({ message: "Script deleted" })
-            }
-        })
-        .catch(err => console.log(err));
+  Script.findOneAndDelete({ _id: req.params.id })
+    .then(script => {
+      if (!script) {
+        return res.status(404).json({ message: "Script to delete not found" });
+      } else {
+        return res.json({ message: "Script deleted" })
+      }
+    })
+    .catch(err => console.log(err));
 })
 
 /**
@@ -244,9 +289,9 @@ router.delete("/:id", (req, res) => {
  * @apiError {String} message="No scripts to delete"
  */
 router.delete("/", (req, res) => {
-    Script.deleteMany({})
-        .then(script => res.json({ message: "Scripts removed" }))
-        .catch(err => res.status(404).json({ message: "No scripts to delete" }))
+  Script.deleteMany({})
+    .then(script => res.json({ message: "Scripts removed" }))
+    .catch(err => res.status(404).json({ message: "No scripts to delete" }))
 })
 
 module.exports = router

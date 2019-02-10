@@ -31,18 +31,18 @@ const University = require("../../models/University")
  * @apiError {String} message="University already exists"
  */
 router.post("/", (req, res) => {
-    University.findOne({ name: req.body.name })
-        .then(university => {
-            if (university) {
-                return res.status(400).json({ message: "University already exists" })
-            } else {
-                const newUniversity = new University(req.body)
-                newUniversity.save()
-                    .then(newUniversity => res.json(newUniversity))
-                    .catch(err => res.json(err))
-            }
-        })
-        .catch(err => req.json(err))
+  University.findOne({ name: req.body.name })
+    .then(university => {
+      if (university) {
+        return res.status(400).json({ message: "University already exists" })
+      } else {
+        const newUniversity = new University(req.body)
+        newUniversity.save()
+          .then(newUniversity => res.json(newUniversity))
+          .catch(err => res.json(err))
+      }
+    })
+    .catch(err => req.json(err))
 })
 
 /**
@@ -55,9 +55,9 @@ router.post("/", (req, res) => {
  * @apiError {String} message="No universities where found"
  */
 router.get("/", (req, res) => {
-    University.find()
-        .then(university => res.json(university))
-        .catch(err => res.status(404).json({ message: "No universities where found" }))
+  University.find()
+    .then(university => res.json(university))
+    .catch(err => res.status(404).json({ message: "No universities where found" }))
 })
 
 /**
@@ -72,9 +72,9 @@ router.get("/", (req, res) => {
  * @apiError {String} message="No university was found"
  */
 router.get("/:id", (req, res) => {
-    University.findById(req.params.id)
-        .then(university => res.json(university))
-        .catch(err => res.status(404).json({ message: "No university was found" }))
+  University.findById(req.params.id)
+    .then(university => res.json(university))
+    .catch(err => res.status(404).json({ message: "No university was found" }))
 })
 
 /**
@@ -90,15 +90,15 @@ router.get("/:id", (req, res) => {
  * @apiError {String} message="University to update not found"
  */
 router.patch("/:id", (req, res) => {
-    University.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-        .then(university => {
-            if (!university) {
-                return res.status(404).json({ message: "University to update not found" });
-            } else {
-                return res.json(university)
-            }
-        })
-        .catch(err => console.log(err));
+  University.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(university => {
+      if (!university) {
+        return res.status(404).json({ message: "University to update not found" });
+      } else {
+        return res.json(university)
+      }
+    })
+    .catch(err => console.log(err));
 
 })
 
@@ -114,15 +114,15 @@ router.patch("/:id", (req, res) => {
  * @apiError {String} message="University to delete not found"
  */
 router.delete("/:id", (req, res) => {
-    University.findOneAndDelete({ _id: req.params.id })
-        .then(university => {
-            if (!university) {
-                return res.status(404).json({ message: "University to delete not found" });
-            } else {
-                return res.json({ message: "University deleted" })
-            }
-        })
-        .catch(err => console.log(err));
+  University.findOneAndDelete({ _id: req.params.id })
+    .then(university => {
+      if (!university) {
+        return res.status(404).json({ message: "University to delete not found" });
+      } else {
+        return res.json({ message: "University deleted" })
+      }
+    })
+    .catch(err => console.log(err));
 })
 
 /**
@@ -135,9 +135,9 @@ router.delete("/:id", (req, res) => {
  * @apiError {String} message="No universities to delete"
  */
 router.delete("/", (req, res) => {
-    University.deleteMany({})
-        .then(university => res.json({ message: "Universities deleted" }))
-        .catch(err => res.status(404).json({ message: "No universities to delete" }))
+  University.deleteMany({})
+    .then(university => res.json({ message: "Universities deleted" }))
+    .catch(err => res.status(404).json({ message: "No universities to delete" }))
 })
 
 module.exports = router
