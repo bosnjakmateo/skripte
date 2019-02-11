@@ -51,3 +51,5 @@ export const filterInstitutionSubjects = (data) =>{
         payload:data
     }
 }
+
+

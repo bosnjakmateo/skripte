@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Papers from "../Images/papers.svg"
+import SuccessArrow from "../Images/succesArrow.svg"
 import { Link } from 'react-router-dom';
 import {connect} from "react-redux";
 import {getCurrentUser} from "../Actions/authActions";
@@ -14,7 +15,8 @@ class Login extends Component {
         this.state = {
             email:"",
             password:"",
-            errors: {}
+            errors: {},
+            registerSuccess:false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -34,6 +36,13 @@ class Login extends Component {
     componentDidMount(){
         if(this.props.auth.isAuthenticated){
             this.props.history.push("/home")
+        }
+    }
+    componentDidUpdate(prevProps) {
+        if(this.props.auth.registrationSuccess !== prevProps.auth.registrationSuccess){
+            this.setState({
+                registerSuccess:true
+            })
         }
     }
 
@@ -101,6 +110,12 @@ class Login extends Component {
                 <div className="paper-container">
                     <img alt="login" className="paper-image" src={Papers}/>
                 </div>
+                {this.state.registerSuccess ?
+                    <div className="registration-successful-notification">
+                        <p>Registration Successful</p>
+                        <img className="success-arrow" src={SuccessArrow} alt="Success Arrow" />
+                    </div>
+                : null}
             </div>
         );
     }

@@ -1,4 +1,4 @@
-import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER} from "./types";
+import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS} from "./types";
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 import setAuthToken from "../Utils/setAuthToken";
@@ -8,7 +8,7 @@ import setAuthToken from "../Utils/setAuthToken";
 export const registerUser = (userData, history) => dispatch => {
     axios
         .post('/users/register', userData)
-        .then(res => history.push("/login"))
+        .then(res => {history.push("/login");dispatch({type:REGISTER_SUCCESS})})
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

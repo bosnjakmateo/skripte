@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 import { registerUser } from "../Actions/authActions";
 import classnames from 'classnames';
@@ -149,7 +149,7 @@ class Registration extends Component {
                                     </div>
                                 </label>
                                 <div className="register-buttons-container">
-                                    <button type="submit" className="buttons-register button-registriraj-se">REGISTRACIJA</button>
+                                    <button type="submit" className="buttons-register button-registriraj-se">REGISTRIRAJ SE</button>
                                     <span className="button-seperator">ili</span>
                                     <Link to="/login"><button className="buttons-register button-prijavi-se">PRIJAVA</button></Link>
                                 </div>
@@ -173,4 +173,4 @@ const mapStateToProps = (state) => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { registerUser })(Registration);
+export default withRouter(connect(mapStateToProps, { registerUser })(Registration));
