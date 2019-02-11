@@ -155,7 +155,7 @@ router.delete("/favorites/:id", passport.authenticate("jwt", { session: false })
               }
             })
 
-            user.save().then(res.status(404).json({ message: "Subject deleted from favorites" }))
+            user.save().then(res.status(200).json({ message: "Subject deleted from favorites" }))
           })
           .catch(err => res.status(404).json({ message: "No user found" }))
       }
