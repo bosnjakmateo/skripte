@@ -15,7 +15,7 @@ class FavoriteSkriptaCard extends Component {
 
 removeSkripta(e){
     e.preventDefault();
-    //this.props.removeScriptFromFavorites()
+    this.props.removeScriptFromFavorites(this.props.keyprop)
 }
 
 

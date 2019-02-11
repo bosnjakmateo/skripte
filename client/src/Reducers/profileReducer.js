@@ -14,7 +14,7 @@ const initialState = {
     filteredSubjects:[],
     filteredScripts:[],
     filteredFavoriteScripts:[],
-    comments:[],
+    comments:[]
 };
 
 
@@ -99,7 +99,7 @@ export default function(state = initialState, action) {
         case REMOVE_SCRIPT_FROM_FAVORITES:
             return{
                 ...state,
-                filteredFavoriteScripts: [...state.filteredFavoriteScripts,action.payload]
+                filteredFavoriteScripts: state.filteredFavoriteScripts.filter(item => item._id !== action.payload)
             }
         default:
             return state;

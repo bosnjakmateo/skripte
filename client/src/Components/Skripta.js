@@ -44,7 +44,7 @@ class Skripta extends Component {
     }
 
     checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._script.includes(this.props.match.params.skripta_id));
+        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._id.includes(this.props.match.params.skripta_id));
         if(ress.length > 0){
             this.setState({
                 scriptAlreadyInFavorites: true

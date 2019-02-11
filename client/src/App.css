@@ -726,8 +726,8 @@ button:focus{
 
 .kolegij-card{
     width:90%;
-    margin-top:13px;
-    margin-bottom:13px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     margin-left:5%;
     height:60px;
     position:relative;
@@ -767,19 +767,19 @@ button:focus{
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     margin-top: 20px;
     position:relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background: white;
+    padding-top:58px;
+    min-height:520px;
 }
 
 .favorite-kolegiji-name-container{
     height:50px;
     background-color:#3384FF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom:20px;
+    position:absolute;
+    text-align: center;
+    width:100%;
+    top:0;
 }
 
 .favorite-kolegiji-name{
@@ -790,12 +790,14 @@ button:focus{
 
 .favorite-kolegiji-card{
     width:90%;
+    margin-left:5%;
     align-self: center;
-    margin-top:10px;
+    margin-top:15px;
     margin-bottom:20px;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor:pointer;
+
 }
 
 .favorite-kolegiji-card:hover{
@@ -818,6 +820,8 @@ button:focus{
     margin-left:5px;
     color:#3384FF;
     padding-right:25px;
+    padding-bottom:8px;
+    padding-top:6px;
 }
 
 .favorite-kolegij-card-type{
@@ -833,6 +837,7 @@ button:focus{
 .favorite-kolegij-card-description{
     font-size:14px;
     margin:10px 5px;
+    padding-bottom:7px;
 }
 
 .institution-type{
@@ -2318,21 +2323,22 @@ html, body{
 .favorite-subjects-name-container {
     height: 50px;
     background-color: #3384FF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom: 20px;
+    position:absolute;
+    text-align: center;
+    width:100%;
+    top:0;
 }
 
 .favorite-subjects{
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     margin-top: 20px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     padding-bottom:20px;
     background:white;
+    min-height:500px;
+    padding-top:58px;
 }
 
 .kolegij-content-buttons-container{
@@ -2402,11 +2408,12 @@ html, body{
     width:350px;
     border:0;
     border-bottom: 1px solid rgba(51, 132, 255, 0.62);
-    padding:4px 0px;
+    padding:4px 0;
+    background:transparent;
 }
 
 body{
-    background: #f0f0f0;
+    background: #f5f5f5;
 }
 
 .registration-successful-notification{

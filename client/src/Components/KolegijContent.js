@@ -54,7 +54,8 @@ class KolegijContent extends Component {
     }
 
     addToFavorites(){
-        this.props.addSubjectToFavorites(this.props.match.params.kolegij_id)
+        this.props.addSubjectToFavorites(this.props.profile.currentSubject._id)
+        console.log(this.props.profile.currentSubject._id)
         this.setState({
             subjectAlreadyInFavorites: true
         })
@@ -62,7 +63,7 @@ class KolegijContent extends Component {
 
 
     checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._subject.includes(this.props.profile.currentSubject._id));
+        let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._id.includes(this.props.profile.currentSubject._id));
         if(ress.length > 0){
             this.setState({
                 subjectAlreadyInFavorites: true

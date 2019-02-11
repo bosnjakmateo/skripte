@@ -15,11 +15,12 @@ class KolegijCard extends Component {
 
     removeKolegij(e){
         e.preventDefault();
-        //this.props.removeSubjectFromFavorites();
+        this.props.removeSubjectFromFavorites(this.props.keyprop);
     }
 
 
     render() {
+
         return (
             <Link to={`/kolegij/`+this.props.keyprop}>
                 <div className="kolegij-card">

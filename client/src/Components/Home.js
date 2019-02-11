@@ -50,14 +50,14 @@ class Home extends Component {
     filterFavoriteSubjectsFromAll(){
         let allSubjects = this.props.profile.allSubjects
         let favoriteSubjects = this.props.auth.userData.favoriteSubjects
-        let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._subject))
+        let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._id))
         this.props.filtered(favorites)
     }
 
     filterFavoriteScriptsFromAll(){
         let allScripts = this.props.profile.allScripts;
         let favoriteScripts = this.props.auth.userData.favoriteScripts
-        let favorites = allScripts.filter(item => favoriteScripts.find(item2 => item._id === item2._script))
+        let favorites = allScripts.filter(item => favoriteScripts.find(item2 => item._id === item2._id))
         this.props.filtered3(favorites)
     }
 
