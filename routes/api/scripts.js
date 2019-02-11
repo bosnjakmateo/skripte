@@ -229,7 +229,7 @@ router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), 
  * 
  * @apiError {String} message="Script not found/No script found"
  */
-router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+router.delete("/favorites/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
   Script.findById(req.params.id)
     .then(script => {
       if (!script) {

@@ -115,7 +115,7 @@ router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), 
 
             user.favoriteSubjects.unshift(newFavorite)
 
-            user.save().then(res.status(404).json({ message: "Subject added to favorites" }))
+            user.save().then(res.status(200).json({ message: "Subject added to favorites" }))
           })
           .catch(err => res.status(404).json({ message: "No user found" }))
       }
