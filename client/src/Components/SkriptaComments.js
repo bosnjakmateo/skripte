@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import classnames from 'classnames';
 import close from "../Images/close.svg";
+import minimize from "../Images/minimize.svg";
+import enlarge from "../Images/enlarge.svg"
 import Comment from "./Comment";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
@@ -78,7 +80,11 @@ class SkriptaComments extends Component {
                 })}>
                     <div>
                     <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.currentScript.comments.length : null})</span></h1>
-                        <button className="toggle-comments-button" onClick={this.toggleComments}>Komentiraj</button>
+                        {this.state.commentsToggled ?
+                            <img src={minimize} className="toggle-comments-button" onClick={this.toggleComments}/>
+                            :
+                            <img src={enlarge} className="toggle-comments-button" onClick={this.toggleComments}/>
+                        }
                         <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>
                     {this.state.loaded ? this.props.profile.currentScript.comments.map((comment) => {

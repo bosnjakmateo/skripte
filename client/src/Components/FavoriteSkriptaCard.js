@@ -30,7 +30,7 @@ removeSkripta(e){
                         <p className="favorite-kolegij-card-description">{this.props.description}</p>
                     </div>
                 </Link>
-                <img alt="asd" onClick={this.removeSkripta} src={removeIcon} className="remove-favorite-skripta-card"/>
+                <img alt="asd" onClick={this.removeSkripta} title="Izbrisi Skriptu iz Omiljenih" src={removeIcon} className="remove-favorite-skripta-card"/>
             </div>
         );
     }

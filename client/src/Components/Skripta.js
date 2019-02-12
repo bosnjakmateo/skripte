@@ -16,6 +16,7 @@ class Skripta extends Component {
         this.state = {
             id: null,
             scriptAlreadyInFavorites:false,
+            loading:true
         };
         this.addToFavorites = this.addToFavorites.bind(this);
         this.checkIfAlreadyInFavorites = this.checkIfAlreadyInFavorites.bind(this)
@@ -31,7 +32,15 @@ class Skripta extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.profile.currentScript !== prevProps.profile.currentScript && this.props.auth.loading === false  ) {
+            this.setState({
+                loading:true
+            })
             this.checkIfAlreadyInFavorites();
+        }
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript && this.props.auth.loading === false  ) {
+            this.setState({
+                loading:false
+            })
         }
     }
 
@@ -61,11 +70,13 @@ class Skripta extends Component {
             <div className="skripta-page">
                 <Navbar/>
                 <div className="skripta-second-navbar">
-                    <div className="test2">
-                        <h1 className="skripta-second-navbar-title">{this.props.profile.currentScript.title}</h1>
-                        <button disabled={this.state.scriptAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Favorite</button>
+                    <div className="test3">
+                        <h1 className="skripta-second-navbar-title">{this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
+                        {this.state.loading ?
+                            <button className="add-to-favorites-button" disabled>Dodaj u Favorite</button>
+                            :
+                            <button className="add-to-favorites-button" disabled={this.state.scriptAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Favorite</button>}
                     </div>
-                    <p className="skripta-second-navbar-description">{this.props.profile.currentScript.description}</p>
                 </div>
                 <div className="skripta-page-content">
                     <SkriptaPdf/>

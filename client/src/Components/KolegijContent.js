@@ -16,7 +16,9 @@ class KolegijContent extends Component {
         this.state = {
             modalIsOpen: false,
             subjectAlreadyInFavorites:false,
-            query:""
+            query:"",
+            mounted:false,
+            loading:true
         };
 
         this.addToFavorites = this.addToFavorites.bind(this);
@@ -32,10 +34,19 @@ class KolegijContent extends Component {
         })
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.profile.allScripts !== prevProps.profile.allScripts  ) {
-            this.checkIfAlreadyInFavorites();
+    componentDidUpdate(prevProps,nextState) {
+        if(this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false) {
+            this.setState({
+                loading:true
+            })
             this.asd3()
+            this.checkIfAlreadyInFavorites();
+        }
+        if(this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false) {
+            this.setState({
+                loading:false
+            })
+            console.log(this.state)
         }
     }
 
@@ -47,15 +58,15 @@ class KolegijContent extends Component {
     componentDidMount(){
         this.props.getSubjectById(this.props.match.params.kolegij_id)
         this.props.getAllScripts()
+        this.setState({
+            mounted:true
+        })
     }
 
-    componentWillUnmount(){
-        this.props.clearScripts();
-    }
+
 
     addToFavorites(){
         this.props.addSubjectToFavorites(this.props.profile.currentSubject._id)
-        console.log(this.props.profile.currentSubject._id)
         this.setState({
             subjectAlreadyInFavorites: true
         })
@@ -89,8 +100,7 @@ class KolegijContent extends Component {
                 <Navbar/>
                 <div className="kolegij-second-navbar">
                     <div className="test2">
-                        <h1 className="kolegij-second-navbar-title">{this.props.profile.currentSubject.name}</h1>
-
+                        <h1 className="kolegij-second-navbar-title">{this.state.loading ? <div className="aaa"/> : this.props.profile.currentSubject.name}</h1>
                     </div>
                     <div className="kolegij-second-navbar-search">
                         <input  className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..."
@@ -98,31 +108,31 @@ class KolegijContent extends Component {
                                     this.setQuery(event.target.value);
                                 }}
                         />
-                        {/*  <select
-                            className="resours-type-select">
-                            <option className="hidden"> Godina: </option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                        </select>
-                        */}
                         <div className="kolegij-content-buttons-container">
-                            <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>FAVORIT</button>
-                            <div onClick={this.toggleModal} className="upload-skripta-button-container">
-                                <div className="upload-skripta-button">
-                                    <p id="txt">UPLODAJ</p>
-                                    <div className="mask3"/>
+                            {this.state.loading ? <button disabled className="favorites-skripta-button">DODAJ U FAVORITE</button>
+                                :
+                                <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>DODAJ U FAVORITE</button>}
+                            {this.state.loading ?
+                                <div className="upload-skripta-button-container loading-disabled-placeholder">
+                                    <div className="upload-skripta-button">
+                                        <p id="txt">UPLODAJ</p>
+                                        <div className="mask3"/>
+                                    </div>
                                 </div>
-                            </div>
+                                :
+                                <div onClick={this.toggleModal} className="upload-skripta-button-container">
+                                    <div className="upload-skripta-button">
+                                        <p id="txt">UPLODAJ</p>
+                                        <div className="mask3"/>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
                 </Headroom>
                 <div className="skripte-container">
-                    {this.props.auth.loading ? <Spinner/>
+                    {this.state.loading ? <Spinner/>
                         : filteredScripts.map((item) =>
                             <SkriptaCard keyprop={item._id} key={item._id} title={item.title} date={item.date} username={item.user} description={item.description} />
                         )}

@@ -33,7 +33,9 @@ class Navbar extends Component {
     }
 
     componentDidMount(){
-        this.props.getCurrentUser();
+        if(Object.keys(this.props.auth.userData).length === 0){
+            this.props.getCurrentUser()
+        }
     }
 
 
