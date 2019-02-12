@@ -784,12 +784,18 @@ button:focus{
 
 }
 
+.user-menu-collapsible a{
+    text-decoration: none;
+    color:white;
+}
+
 .favorite-kolegiji{
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     margin-top: 20px;
     position:relative;
     background: white;
     padding-top:58px;
+    padding-bottom: 1px;
     min-height:520px;
 }
 
@@ -988,6 +994,7 @@ button:focus{
 .skripta-card-content{
     margin:10px;
     color:black;
+    word-break:break-word;
 }
 
 .skripta-card a{
@@ -1271,7 +1278,6 @@ html, body{
     font-weight: 700;
     border: 2px solid#307fd2;
     cursor: pointer;
-    border-radius: 3px;
     padding-left: 15px;
     padding-right: 15px;
     transition:0.2s;
@@ -1617,7 +1623,6 @@ html, body{
     font-weight:600;
     font-size:15px;
     padding:8px 12px;
-    border-radius:3px;
     margin-top:10px;
     margin-bottom:10px;
     cursor:pointer;
@@ -1860,6 +1865,16 @@ html, body{
     border-radius: 4px;
     font-size:1.01em;
 }
+.comment-options{
+    font-size: 12px;
+    display: block;
+    color: grey;
+
+}
+.under-comment{
+    display:flex;
+    justify-content: space-between;
+}
 .login{
     background: #ffa920;
     padding-top:10px;
@@ -1868,6 +1883,9 @@ html, body{
 .register{
     background:transparent;
     border:3px solid white;
+}
+.post-comment:disabled{
+    opacity:0.3;
 }
 
 .landing-page-button .mask {
@@ -2143,7 +2161,6 @@ html, body{
     border:2px solid #3384FF;
     cursor: pointer;
     margin-right:5px;
-    border-radius:3px;
     transition:0.2s;
 }
 
@@ -2203,7 +2220,6 @@ html, body{
     width:60%;
     height:70%;
     position:absolute;
-    border-radius:7px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
@@ -2263,17 +2279,16 @@ html, body{
     background: #3384ff;
     width: 100%;
     text-align: center;
-    transform: translateY(-27px);
+    transform: translateY(-48px);
     transition:0.2s;
     z-index: -1;
     cursor: pointer;
-
 }
 
 .menu-collapsed{
     transition:0.2s;
     transform: translateY(40px);
-
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .user-menu-collapsible p{
@@ -2313,9 +2328,15 @@ html, body{
     background: #3d92ff;
     transition:0.2s;
 }
-
+.comment-textarea{
+    margin-top:15px;
+}
 .comment{
     word-wrap: break-word;
+    border-bottom:1px solid #aaaaaa;
+}
+.comment p{
+    margin-bottom:5px;
 }
 
 .institution-type-content a{
@@ -2422,7 +2443,6 @@ html, body{
     font-weight: 700;
     border: 2px solid#307fd2;
     cursor: pointer;
-    border-radius: 3px;
     padding-top: 8px;
     padding-bottom: 4px;
     padding-left: 27px;
@@ -2447,13 +2467,20 @@ html, body{
 .darken{
     width:100%;
     height:100vh;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.23);
     position:absolute;
     top:0;
     left:0;
     z-index: 1000;
+    transition:0.2s;
 }
 
+
+.navbar-account-icon{
+    margin-right: -15px;
+    margin-left: -3px;
+    width:12px;
+}
 
 .non-scrollable{
     overflow-y: hidden;
@@ -2470,7 +2497,6 @@ html, body{
 }
 .field-item{
     transition:0.1s;
-
 }
 
 .field-item a{
@@ -2554,4 +2580,9 @@ body{
 .loading-disabled-placeholder{
     opacity:0.2;
     pointer-events: none;
+}
+
+.account-page{
+    margin-left:5%;
+    margin-right:5%;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import logout_icon from "../Images/logout.svg";
+import accountIcon from "../Images/accountIcon.svg";
 import { Link } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import { CSSTransitionGroup } from 'react-transition-group'
@@ -95,13 +96,20 @@ class Navbar extends Component {
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
                     <div className="user-menu" onClick={this.toggleUserMenu}>
-                        <p className="user-name">{this.props.auth.userData.username}</p>
+                        {!Object.keys(this.props.auth.userData).length > 0 ? <p className="user-name">user</p> :<p className="user-name">{this.props.auth.userData.username}</p>}
                         <img src={userMenuArrow} className={classnames("user-menu-arrow",{
                         "rotate-arrow" : this.state.userMenu})}
                             alt="drop-down-arrow"/>
                         <div className={classnames("user-menu-collapsible",{
                             "menu-collapsed" : this.state.userMenu
                         })}>
+                            <Link to="/account">
+                                <div className="collapsed-menu-content">
+                                    <p className="logout-button margin-fix">Account</p>
+                                    <img className="navbar-account-icon" alt="account-icon"
+                                         src={accountIcon}/>
+                                </div>
+                            </Link>
                             <div className="collapsed-menu-content" onClick={this.handleLogoutClick} >
                                 <p className="logout-button">Logout</p>
                                 <img className="navbar-logout-icon" alt="logout-icon"

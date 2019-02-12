@@ -34,10 +34,12 @@ class SkriptaComments extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        this.props.postComment(this.props.profile.currentScript._id,this.state.text)
-        this.setState({
-            text:""
-        })
+        if(this.state.text !== "") {
+            this.props.postComment(this.props.profile.currentScript._id, this.state.text);
+            this.setState({
+                text: ""
+            })
+        }
     }
 
 
@@ -90,12 +92,12 @@ class SkriptaComments extends Component {
                     {this.state.loaded ? this.props.profile.currentScript.comments.map((comment) => {
                        return <Comment key={comment._id} user={comment.user} text={comment.text} date={comment.date}/>
                     }):null}
-                    <form onSubmit={this.onSubmit}>
+                    <form className="comment-textarea" onSubmit={this.onSubmit}>
                         <label>
-                            <textarea onChange={this.onChange} name="text" value={this.state.text} placeholder="Komentiraj..." className="comment-form" />
+                            <textarea onChange={this.onChange} name="text" value={this.state.text} placeholder="Komentiraj..." className="comment-form" minLength="2" maxLength="300"/>
                         </label>
                         < br/>
-                        <input className="post-comment" type="submit" value="Komentiraj" />
+                        <input disabled={!this.state.text} className="post-comment" type="submit" value="Komentiraj" />
                     </form>
                 </div>
             </div>

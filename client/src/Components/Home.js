@@ -25,7 +25,8 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.props.getCurrentUser();
+            this.props.getCurrentUser()
+
         this.setState({
             mounted:true,
             currentUser:true

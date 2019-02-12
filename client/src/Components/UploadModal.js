@@ -57,6 +57,7 @@ class UploadModal extends Component {
                                     name="description"
                                     value={this.state.description}
                                     onChange={this.onChange}
+                                    maxLength="94"
                                 />
                             </div>
                             {/*<div className="upload-skripta-component">
