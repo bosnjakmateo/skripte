@@ -5,6 +5,7 @@ import close from "../Images/close.svg";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {getScriptById} from "../Actions/profileActions";
+import Moment from "react-moment";
 
 class SkriptaInfo extends Component {
     constructor(props){
@@ -19,6 +20,7 @@ class SkriptaInfo extends Component {
     }
 
     render() {
+        let timestamp = Date.parse(this.props.profile.currentScript.date);
         return (
             <div className={classnames('skripta-information ',{
                 'skripta-information-mobile-toggled' : this.state.informationToggledMobile,
@@ -34,9 +36,8 @@ class SkriptaInfo extends Component {
                     <h1 className="skripta-comments-content-title">Detalji</h1>
                     <img alt="assd" src={close} className="mobile-close-information-button" onClick={this.toggleInformationMobile} />
                     <p><span className="bolded">Korisnik:</span> {this.props.profile.currentScript.user}</p>
-                    <p><span className="bolded">Datum:</span> {this.props.profile.currentScript.date}</p>
+                    <span className="bolded">Datum:</span> <Moment format="DD.MM.YYYY">{timestamp}</Moment>
                     <p><span className="bolded">Smjer:</span>Informatika</p>
-                    <p><span className="bolded">Ocjena:</span> 4/5</p>
                     <p><span className="bolded">Opis:</span> {this.props.profile.currentScript.description}</p>
                 </div>
             </div>

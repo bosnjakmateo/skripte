@@ -17,7 +17,8 @@ class SkriptaComments extends Component {
             commentsToggledMobile: false,
             loaded: false,
             commentsNumber: "",
-            text: ""
+            text: "",
+            postPosted:false
         };
 
         this.toggleComments = this.toggleComments.bind(this);
@@ -35,9 +36,10 @@ class SkriptaComments extends Component {
     onSubmit(e){
         e.preventDefault();
         if(this.state.text !== "") {
-            this.props.postComment(this.props.profile.currentScript._id, this.state.text);
+            this.props.postComment(this.props.profile.currentScript._id, this.state.text,this.props.match.params.skripta_id);
             this.setState({
-                text: ""
+                text: "",
+                postPosted:true
             })
         }
     }
@@ -51,17 +53,17 @@ class SkriptaComments extends Component {
         this.setState({ commentsToggledMobile: !this.state.commentsToggledMobile });
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.profile.currentScript !== prevProps.profile.currentScript  ) {
+    componentDidUpdate(prevProps,nextState) {
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript) {
             this.setState({
-                loaded:true,
+                loaded:true
             })
         }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.profile.comments !== this.props.profile.comments ) {
+        if (this.state.postPosted !== nextState.postPosted) {
             this.props.getScriptById(this.props.match.params.skripta_id)
+            this.setState({
+                postPosted:false
+            })
         }
     }
 
@@ -90,7 +92,7 @@ class SkriptaComments extends Component {
                         <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>
                     {this.state.loaded ? this.props.profile.currentScript.comments.map((comment) => {
-                       return <Comment key={comment._id} user={comment.user} text={comment.text} date={comment.date}/>
+                       return <Comment keyprop={comment._id} key={comment._id} user={comment.user} text={comment.text} date={comment.date}/>
                     }):null}
                     <form className="comment-textarea" onSubmit={this.onSubmit}>
                         <label>

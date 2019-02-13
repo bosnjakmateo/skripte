@@ -19,7 +19,8 @@ import {
     REMOVE_SUBJECT_FROM_FAVORITES,
     GET_ERRORS,
     PROFILE_LOADING,
-    DATA_LOADING
+    DATA_LOADING,
+    DELETE_COMMENT
 } from "./types";
 import axios from 'axios';
 
@@ -130,7 +131,6 @@ export const postComment = (id,text) => dispatch => {
         .then(res =>
             dispatch({
                 type: POST_COMMENT,
-                payload: res.data
             })
         )
 };
@@ -188,6 +188,17 @@ export const removeScriptFromFavorites = (id) => dispatch => {
             dispatch({
                 type: REMOVE_SCRIPT_FROM_FAVORITES,
                 payload: id
+            })
+        )
+};
+
+export const deleteComment = (scriptId,commentId) => dispatch => {
+    axios
+        .delete(`/scripts/comments/${scriptId}/${commentId}`)
+        .then(res =>
+            dispatch({
+                type: DELETE_COMMENT,
+                payload: commentId
             })
         )
 };

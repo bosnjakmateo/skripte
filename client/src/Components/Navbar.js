@@ -23,20 +23,43 @@ class Navbar extends Component {
             isOpen: false,
             isActive: false,
             currentRoute: this.props.location.pathname,
-            userMenu:false
+            userMenu:false,
+            scrollPosition:0,
+            currentScroll:0
         };
 
         this.toggleMenu = this.toggleMenu.bind(this);
         this.toggleButton = this.toggleButton.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.toggleUserMenu = this.toggleUserMenu.bind(this);
-        this.toggleDark = this.toggleDark.bind(this);
     }
 
     componentDidMount(){
-        if(Object.keys(this.props.auth.userData).length === 0){
+
             this.props.getCurrentUser()
+
+        this.listener = this.handleScroll.bind(this);
+        window.addEventListener('scroll', this.listener);
+    }
+
+    componentDidUpdate() {
+        if(this.state.userMenu === true){
+                if (this.state.currentScroll !== this.state.scrollPosition) {
+                    this.setState({
+                        userMenu:false
+                    })
+                }
         }
+    }
+    handleScroll(){
+        let position = window.pageYOffset;
+        this.setState({
+            currentScroll:position
+        })
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.listener);
     }
 
 
@@ -50,10 +73,7 @@ class Navbar extends Component {
     }
 
     toggleUserMenu() {
-        this.setState({ userMenu: !this.state.userMenu });
-    }
-    toggleDark(){
-
+        this.setState({ userMenu: !this.state.userMenu,scrollPosition:window.pageYOffset });
     }
 
     toggleButton() {

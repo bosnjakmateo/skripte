@@ -4,6 +4,7 @@ import {Link, withRouter} from 'react-router-dom';
 import removeIcon from "../Images/remove.svg"
 import {connect} from "react-redux";
 import {removeScriptFromFavorites} from "../Actions/profileActions";
+import Moment from "react-moment";
 
 class FavoriteSkriptaCard extends Component {
     constructor(props){
@@ -20,17 +21,19 @@ removeSkripta(e){
 
 
     render() {
+        let timestamp = Date.parse(this.props.date);
         return (
             <div className="favorite-kolegiji-card">
                 <Link to={`/skripta/`+this.props.keyprop}>
                     <div className="favorite-kolegij-card-content">
                         <h1 className="favorite-kolegij-card-title">{this.props.title}</h1>
-                        {/* <p className="favorite-kolegij-card-type">Usmeni</p> */}
-                        <p className="favorite-kolegij-card-date">{this.props.date}</p>
+                        <p className="favorite-kolegij-card-date"><Moment format="DD.MM.YYYY">{timestamp}</Moment></p>
                         <p className="favorite-kolegij-card-description">{this.props.description}</p>
                     </div>
                 </Link>
                 <img alt="asd" onClick={this.removeSkripta} title="Izbrisi Skriptu iz Omiljenih" src={removeIcon} className="remove-favorite-skripta-card"/>
+                <div className="side-favorite-card"/>
+                <div className="side-favorite-card2"/>
             </div>
         );
     }

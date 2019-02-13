@@ -35,18 +35,12 @@ class KolegijContent extends Component {
     }
 
     componentDidUpdate(prevProps,nextState) {
-        if(this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false) {
+        if(this.props.profile.allScripts !== prevProps.profile.allScripts) {
             this.setState({
                 loading:true
             })
             this.asd3()
             this.checkIfAlreadyInFavorites();
-        }
-        if(this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false) {
-            this.setState({
-                loading:false
-            })
-            console.log(this.state)
         }
     }
 
@@ -84,6 +78,9 @@ class KolegijContent extends Component {
                 subjectAlreadyInFavorites: false
             })
         }
+        this.setState({
+            loading:false
+        })
     }
 
     setQuery(e){

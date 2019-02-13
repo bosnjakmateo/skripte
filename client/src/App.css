@@ -797,6 +797,7 @@ button:focus{
     padding-top:58px;
     padding-bottom: 1px;
     min-height:520px;
+    z-index: 10;
 }
 
 .favorite-kolegiji-name-container{
@@ -816,27 +817,25 @@ button:focus{
 }
 
 .favorite-kolegiji-card{
-    width:90%;
-    margin-left:5%;
+    width:85%;
+    margin-left:7%;
     align-self: center;
-    margin-top:15px;
-    margin-bottom:20px;
+    margin-top:20px;
+    margin-bottom:30px;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor:pointer;
     -webkit-font-smoothing: antialiased;
     backface-visibility: hidden;
+    position:relative;
+    background: white;
 }
 
 .favorite-kolegiji-card:hover{
-    box-shadow: 0 0 10px rgba(38, 38, 38, 0.45);
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transform:scale(1.01)perspective(1px);
+
 }
 
-.favorite-kolegiji-card{
-    position:relative;
-}
+
 
 .favorite-kolegij-card-content{
     margin-left:10px;
@@ -957,7 +956,32 @@ button:focus{
     color: #797979;
     border-color: rgba(51, 132, 255, 0.62);
 }
-
+.side-card{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    bottom:0;
+    background: #f9f9f9;
+    transition:0.2s ;
+    z-index: -1;
+    opacity:0.7;
+    transform:translateX(-7px)translateY(7px);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+}
+.side-card2{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    bottom:0;
+    background: #f9f9f9;
+    transition:0.2s ;
+    z-index: -2;
+    opacity:0.4;
+    transform:translateX(-14px)translateY(14px);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+}
 
 .skripte-container{
     margin-left:4%;
@@ -969,6 +993,7 @@ button:focus{
 
 
 .skripta-card{
+    position:relative;
     margin-left:0.6%;
     height:300px;
     margin-right:0.6%;
@@ -980,19 +1005,32 @@ button:focus{
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
-    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition:0.2s;
     cursor:pointer;
     background:white;
-
 }
 
-.skripta-card:hover {
-    box-shadow: 0 0 12px rgba(33, 33, 33, 0.4);
+.skripta-card:hover{
+    transition:0.2s;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.31);
+    transition-delay:0.1s
+}
+
+.skripta-card:hover .side-card {
+    transform:translateX(0)translateY(0)rotate(4deg);
     transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+}
+.skripta-card:hover .side-card2 {
+    transform:translateX(0)translateY(0)rotate(-4deg);
+    transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+
 }
 
 .skripta-card-content{
     margin:10px;
+    padding-left:5px;
     color:black;
     word-break:break-word;
 }
@@ -1425,7 +1463,6 @@ html, body{
     overflow-x: hidden;
     -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    cursor: pointer;
 }
 .skripta-comments {
     position: absolute;
@@ -1439,7 +1476,6 @@ html, body{
     -webkit-transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     transition: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     overflow-x: hidden;
-    cursor: pointer;
 }
 
 .detalji-mobile{
@@ -1473,6 +1509,15 @@ html, body{
 .comments-toggle-button{
     transform: rotate(-90deg);
     font-size: 13px;
+}
+@media screen and (min-width: 1750px) {
+
+    .favorite-subjects{
+        min-height: 670px !important;
+    }
+    .favorite-kolegiji{
+        min-height: 690px !important;
+    }
 }
 
 @media screen and (max-width: 1800px) {
@@ -1521,6 +1566,13 @@ html, body{
 }
 
 @media screen and (max-width: 990px) {
+
+    .favorite-subjects{
+        min-height: 250px !important;
+    }
+    .favorite-kolegiji{
+        min-height: 270px !important;
+    }
     .skripta-information{
         width:6%;
         right:0;
@@ -1869,8 +1921,15 @@ html, body{
     font-size: 12px;
     display: block;
     color: grey;
-
+    transition: 0.2s;
 }
+.delete-comment:hover{
+    color: #d90010;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size:14px;
+}
+
 .under-comment{
     display:flex;
     justify-content: space-between;
@@ -2112,6 +2171,50 @@ html, body{
     transition-delay:0.6s ;
 }
 
+.side-favorite-card{
+    background: #fdfdfd;
+    position: absolute;
+    z-index: -1;
+    right:-1.5%;
+    top:-5%;
+    width:100%;
+    height:100%;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    opacity:0.9;
+    transform: skewX(-2deg);
+    transition: 0.2s;
+}
+
+.side-favorite-card2{
+    background: #fbfbfb;
+    position: absolute;
+    z-index: -2;
+    right:-3%;
+    top:-10%;
+    width:100%;
+    height:100%;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    opacity:0.7;
+    transform: skewX(-4deg);
+    transition: 0.2s;
+}
+
+.favorite-kolegiji-card:hover .side-favorite-card{
+    transition: 0.2s;
+    transform:skew(0deg);
+    right:0;
+    top:0;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0);
+    transition-delay:0.1s;
+}
+
+.favorite-kolegiji-card:hover .side-favorite-card2{
+    transition: 0.2s;
+    transform:skew(0deg);
+    right:0;
+    top:0;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0);
+}
 
 
 .upload-skripta-container{
@@ -2205,17 +2308,17 @@ html, body{
 
 .upload-modal-container{
     background-color: rgba(0, 0, 0, 0.25);
-    width:100%;
-    height: 95.6%;
-    position:absolute;
-    top:40px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
     z-index: 100;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 
 .upload-modal{
-    top:40px;
+    top:15%;
     background:white;
     width:60%;
     height:70%;
@@ -2333,7 +2436,8 @@ html, body{
 }
 .comment{
     word-wrap: break-word;
-    border-bottom:1px solid #aaaaaa;
+    border-bottom:1px solid #eaeaea;
+    transition: 0.2s;
 }
 .comment p{
     margin-bottom:5px;
@@ -2465,14 +2569,15 @@ html, body{
 }
 
 .darken{
-    width:100%;
-    height:100vh;
+    width: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.23);
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1000;
-    transition:0.2s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
 }
 
 

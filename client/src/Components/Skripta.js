@@ -31,16 +31,11 @@ class Skripta extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.profile.currentScript !== prevProps.profile.currentScript && this.props.auth.loading === false  ) {
+        if (this.props.profile.currentScript !== prevProps.profile.currentScript  ) {
             this.setState({
                 loading:true
             })
             this.checkIfAlreadyInFavorites();
-        }
-        if (this.props.profile.currentScript !== prevProps.profile.currentScript && this.props.auth.loading === false  ) {
-            this.setState({
-                loading:false
-            })
         }
     }
 
@@ -63,9 +58,13 @@ class Skripta extends Component {
                 scriptAlreadyInFavorites: false
             })
         }
+        this.setState({
+            loading:false
+        })
     }
 
     render() {
+        console.log(this.state)
         return (
             <div className="skripta-page">
                 <Navbar/>
