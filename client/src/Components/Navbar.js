@@ -35,8 +35,7 @@ class Navbar extends Component {
     }
 
     componentDidMount(){
-
-            this.props.getCurrentUser()
+        this.props.getCurrentUser()
 
         this.listener = this.handleScroll.bind(this);
         window.addEventListener('scroll', this.listener);
@@ -60,6 +59,7 @@ class Navbar extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.listener);
+        document.body.classList.remove('non-scrollable');
     }
 
 

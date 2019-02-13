@@ -537,6 +537,18 @@ button:focus{
     }
 }
 
+@media screen and (max-width: 600px) {
+    .kolegij-second-navbar-search{
+        display: flex;
+        flex-direction: column;
+    }
+    .kolegij-content-buttons-container{
+        margin-top:10px;
+    }
+    .kolegij-second-navbar-search-input{
+        width:100% !important;
+    }
+}
 
 @media screen and (max-width: 545px) {
     .kolegij-second-navbar-search{
@@ -544,17 +556,6 @@ button:focus{
     }
     .skripte-container{
         margin-top:12px;
-    }
-    .kolegij-content-buttons-container{
-        margin-top:10px;
-    }
-
-    .kolegij-second-navbar-search{
-        display: flex;
-        flex-direction: column;
-    }
-    .kolegij-second-navbar-search-input{
-        width:100% !important;
     }
     .label{
         margin-bottom:15px;
@@ -1149,6 +1150,12 @@ button:focus{
         margin-left:2%;
         margin-right:2%;
         margin-top:3%;
+    }
+    .side-card{
+        visibility: hidden;
+    }
+    .side-card2{
+        visibility: hidden;
     }
     .kolegij-second-navbar-search-input{
         width:35%;
@@ -1836,9 +1843,6 @@ html, body{
         width: 100%;
         margin-left: 5%;
     }
-    #txt{
-        padding: 2px 15px !important;
-    }
     .landing-page-intro-text{
         font-size:40px;
     }
@@ -2289,6 +2293,37 @@ html, body{
     transition: 0.2s ease;
 }
 
+
+.remove-from-favorites-button{
+    height:30px;
+    background: transparent;
+    color: rgba(255, 78, 63, 0.86);
+    font-weight: 700;
+    border: 2px solid rgba(255, 78, 63, 0.86);;
+    cursor: pointer;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition:0.2s;
+}
+.remove-from-favorites-button:disabled{
+    opacity:0.2 !important;
+}
+.remove-from-favorites-button:disabled:hover{
+    background: transparent;
+    color: rgba(255, 78, 63, 0.86);
+}
+
+.remove-from-favorites-button:hover{
+    background:rgba(255, 78, 63, 0.86);
+    transition:0.2s;
+    color:white;
+}
+
+
+
+
+
+
 .upload-skripta-button:hover .mask3{
     background: #3384FF;
     height:100%;
@@ -2549,8 +2584,8 @@ html, body{
     cursor: pointer;
     padding-top: 8px;
     padding-bottom: 4px;
-    padding-left: 27px;
-    padding-right: 27px;
+    padding-left: 25px;
+    padding-right: 25px;
     transition:0.2s;
 }
 
@@ -2567,6 +2602,38 @@ html, body{
     color: #307fd2;
     background:transparent;
 }
+
+
+.remove-favorites-skripta-button{
+    margin-right: 20px;
+    background: transparent;
+    color: rgba(255, 78, 63, 0.86);
+    font-weight: 700;
+    border: 2px solid rgba(255, 78, 63, 0.86);
+    cursor: pointer;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    padding-left: 22px;
+    padding-right: 22px;
+    transition:0.2s;
+}
+
+.remove-favorites-skripta-button:disabled{
+    opacity:0.2;
+    cursor:initial;
+}
+.remove-favorites-skripta-button:hover{
+    color: white;
+    background:rgba(255, 78, 63, 0.86);
+    transition:0.2s;
+}
+.remove-favorites-skripta-button:disabled:hover{
+    color: rgba(255, 78, 63, 0.86);
+    background:transparent;
+}
+
+
+
 
 .darken{
     width: 100%;

@@ -5,7 +5,14 @@ import SkriptaCard from "./SkriptaCard";
 import Headroom from 'react-headroom';
 import UploadModal from "./UploadModal";
 import {withRouter} from "react-router-dom";
-import {getSubjectById, getAllScripts, filtered2,clearScripts,addSubjectToFavorites} from "../Actions/profileActions";
+import {
+    getSubjectById,
+    getAllScripts,
+    filtered2,
+    clearScripts,
+    addSubjectToFavorites,
+    removeSubjectFromFavorites
+} from "../Actions/profileActions";
 import {connect} from "react-redux";
 import Spinner from "./Spinner";
 
@@ -26,6 +33,7 @@ class KolegijContent extends Component {
         this.toggleModal = this.toggleModal.bind(this)
         this.checkIfAlreadyInFavorites = this.checkIfAlreadyInFavorites.bind(this)
         this.setQuery = this.setQuery.bind(this);
+        this.removeSubject = this.removeSubject.bind(this);
     }
 
     toggleModal(){
@@ -63,6 +71,14 @@ class KolegijContent extends Component {
         this.props.addSubjectToFavorites(this.props.profile.currentSubject._id)
         this.setState({
             subjectAlreadyInFavorites: true
+        })
+    }
+
+    removeSubject(e){
+        e.preventDefault();
+        this.props.removeSubjectFromFavorites(this.props.profile.currentSubject._id)
+        this.setState({
+            subjectAlreadyInFavorites: false
         })
     }
 
@@ -106,20 +122,21 @@ class KolegijContent extends Component {
                                 }}
                         />
                         <div className="kolegij-content-buttons-container">
-                            {this.state.loading ? <button disabled className="favorites-skripta-button">DODAJ U FAVORITE</button>
+                            {this.state.loading || this.state.subjectAlreadyInFavorites ?
+                                <button className="remove-favorites-skripta-button" disabled={this.state.loading} onClick={this.removeSubject}>Izbrisi iz Omiljenih</button>
                                 :
-                                <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>DODAJ U FAVORITE</button>}
+                                <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Omlijene</button>}
                             {this.state.loading ?
                                 <div className="upload-skripta-button-container loading-disabled-placeholder">
                                     <div className="upload-skripta-button">
-                                        <p id="txt">UPLODAJ</p>
+                                        <p id="txt">UPLOAD SCRIPT</p>
                                         <div className="mask3"/>
                                     </div>
                                 </div>
                                 :
                                 <div onClick={this.toggleModal} className="upload-skripta-button-container">
                                     <div className="upload-skripta-button">
-                                        <p id="txt">UPLODAJ</p>
+                                        <p id="txt">UPLOAD SCRIPT</p>
                                         <div className="mask3"/>
                                     </div>
                                 </div>
@@ -148,4 +165,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default withRouter(connect(mapStateToProps, {getSubjectById,getAllScripts,filtered2,clearScripts,addSubjectToFavorites})(KolegijContent))
+export default withRouter(connect(mapStateToProps, {getSubjectById,getAllScripts,filtered2,clearScripts,addSubjectToFavorites,removeSubjectFromFavorites})(KolegijContent))
