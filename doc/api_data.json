@@ -1004,6 +1004,77 @@
   },
   {
     "type": "post",
+    "url": "scripts/comment/:id/:commentId",
+    "title": "Delete a comment from a script",
+    "name": "DeleteComment",
+    "group": "Script",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Script id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "CommentId",
+            "optional": false,
+            "field": "commentId",
+            "description": "<p>Comment id</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Comment deleted",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "No script found || No comment found",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/scripts.js",
+    "groupTitle": "Script"
+  },
+  {
+    "type": "post",
     "url": "scripts/favorites/:id",
     "title": "Delete script from favorites",
     "name": "DeleteFavorite",
@@ -2911,6 +2982,13 @@
             "optional": false,
             "field": "scripts._script",
             "description": "<p>User script</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Tutorial",
+            "optional": false,
+            "field": "tutorial",
+            "description": "<p>User tutorial</p>"
           }
         ]
       }
@@ -3065,5 +3143,42 @@
         ]
       }
     }
+  },
+  {
+    "type": "get",
+    "url": "users/tutorial",
+    "title": "Set tutorial to false",
+    "name": "TutorialUser",
+    "group": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Tutorial set to true",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/users.js",
+    "groupTitle": "User"
   }
 ]
