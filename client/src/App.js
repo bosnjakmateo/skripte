@@ -5,6 +5,7 @@ import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Home from "./Components/Home";
 import Skripta from "./Components/Skripta";
+import Account from "./Components/Account";
 import InstitutionLocation from "./Components/InstitutionLocation";
 import Fields from "./Components/Fields";
 import InstitutionFields from "./Components/InstitutionFields";
@@ -58,6 +59,7 @@ class App extends Component {
                       <Route exact path="/landing" component={LandingPage}/>
                       <PrivateRoute exact path="/svikolegiji/lokacija" component={InstitutionLocation}/>
                       <PrivateRoute path="/smjer/:smjer_id" component={Fields}/>
+                      <PrivateRoute path="/account" component={Account}/>
                   </div>
                 </Router>
         </Provider>

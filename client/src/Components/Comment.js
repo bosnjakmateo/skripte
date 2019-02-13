@@ -19,6 +19,10 @@ class Comment extends Component {
         return (
             <div className="comment">
                 <p><span className="bolded">{this.props.user + ": "}</span>{this.props.text}</p>
+                <div className="under-comment">
+                    <span className="comment-options">{this.props.date}</span>
+                    {this.props.auth.userData.username === this.props.user ?<span className="comment-options">izbrisi</span> :null}
+                </div>
             </div>
         );
     }
