@@ -130,6 +130,7 @@ router.post("/login", (req, res) => {
  * @apiSuccess {Id} favoriteScripts._id User favorite script
  * @apiSuccess {Array} scripts User scripts
  * @apiSuccess {Id} scripts._script User script
+ * @apiSuccess {Tutorial} tutorial User tutorial
  */
 router.get("/current", passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -138,8 +139,34 @@ router.get("/current", passport.authenticate("jwt", { session: false }),
       email: req.user.email,
       favoriteSubjects: req.user.favoriteSubjects,
       favoriteScripts: req.user.favoriteScripts,
-      scripts: req.user.scripts
+      scripts: req.user.scripts,
+      tutorial: req.user.tutorial
     })
+  }
+)
+
+/**
+ * @api {get} users/tutorial Set tutorial to true
+ * @apiName TutorialUser
+ * @apiGroup User
+ *
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} message="Tutorial set to true"
+ */
+router.patch("/tutorial", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findByIdAndUpdate({_id: req.user.id})
+      .then(user => {
+        if(!user){
+          return res.status(404).json({ message: "User not found" })
+        } else {
+          user.tutorial = true
+          user.save()
+          return res.json({ message: "Tutorial set to true" })
+        }
+      })
+      .catch(err => console.log(err))
   }
 )
 

@@ -29,7 +29,11 @@ const UserSchema = new Schema({
     _script: {
       type: Schema.Types.ObjectId, ref: 'Script'
     }
-  }]
+  }],
+  tutorial: {
+    type: Boolean,
+    default: false
+  }
 })
 
 module.exports = User = mongoose.model("users", UserSchema)

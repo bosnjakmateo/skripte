@@ -176,6 +176,41 @@ router.post("/comments/:id", passport.authenticate("jwt", { session: false }), (
 })
 
 /**
+ * @api {post} scripts/comment/:id/:commentId Delete a comment from a script
+ * @apiName DeleteComment
+ * @apiGroup Script
+ *
+ * @apiParam {Id} id Script id
+ * @apiParam {CommentId} commentId Comment id
+ * 
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} message="Comment deleted"
+ * 
+ * @apiError {String} message="No script found || No comment found"
+ */
+router.delete("/comments/:id/:commentId", passport.authenticate("jwt", { session: false }), (req, res) => {
+  Script.findById(req.params.id)
+    .then(script => {
+      let flag = false
+
+      script.comments.forEach(c => {
+        if(JSON.stringify(c._id) === JSON.stringify(req.params.commentId)){
+          script.comments = script.comments.filter(i => i !== c)
+          flag = true
+        }
+      })
+
+      if(!flag){
+        res.json({ message: "No comment found" })
+      }
+
+      script.save().then(script => res.json({ message: "Comment deleted" }))
+    })
+    .catch(err => res.status(404).json({ message: "No script found" }))
+})
+
+/**
  * @api {post} scripts/favorites/:id Add script to favorites
  * @apiName PostFavorite
  * @apiGroup Script
