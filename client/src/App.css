@@ -832,14 +832,10 @@ button:focus{
     background: white;
 }
 
-.favorite-kolegiji-card:hover{
-
-}
-
-
 
 .favorite-kolegij-card-content{
     margin-left:10px;
+    word-break:break-all;
 }
 .institution-location-title{
     color:#3384FF;
@@ -1383,9 +1379,9 @@ html, body{
     margin-right: 4%;
 }
 
-
 .skripta-information-content{
-        padding:10px;
+    padding:10px;
+    word-break: break-all;
 }
 .skripta-comments-content{
     padding-left:10px;
@@ -2169,11 +2165,7 @@ html, body{
     z-index: 100;
 }
 
-.favorite-kolegiji-card:hover .remove-favorite-skripta-card{
-    opacity:0.7;
-    transition:opacity 0.8s;
-    transition-delay:0.6s ;
-}
+
 
 .side-favorite-card{
     background: #fdfdfd;
@@ -2209,7 +2201,6 @@ html, body{
     right:0;
     top:0;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0);
-    transition-delay:0.1s;
 }
 
 .favorite-kolegiji-card:hover .side-favorite-card2{
@@ -2758,3 +2749,368 @@ body{
     margin-left:5%;
     margin-right:5%;
 }
+
+.tut{
+    position:absolute;
+    height:100vh;
+    width:100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index:1000;
+    animation: fade-background 0.3s ease;
+}
+
+.fade-to-save-eyes{
+    position:absolute;
+
+    z-index:1000;
+    animation: fade-background-eyes 1s ease alternate;
+
+}
+
+@keyframes fade-background-eyes {
+    0%{
+        background: rgba(0, 0, 0, 0.65);
+        height:100vh;
+        width:100%;
+
+    }
+    90%{
+        background: rgba(0, 0, 0, 0);
+        height:100vh;
+        width:100%;
+
+    }
+    100%{
+        height:0;
+        width:0;
+    }
+}
+
+@keyframes fade-background {
+    from{
+        background: rgba(0, 0, 0, 0);
+    }
+    to{
+        background: rgba(0, 0, 0, 0.65);
+    }
+}
+
+@keyframes fade-text {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.favorite-subjects-tutorial{
+    z-index: 10001;
+}
+
+.favorite-scripts-tutorial{
+    z-index: 10001;
+}
+
+.right-intro{
+    position: relative;
+    width:100%;
+    height:102.2%;
+    z-index: 4000;
+    top:-2.2%;
+    left:0;
+    overflow-x:hidden ;
+    overflow-y: hidden;
+}
+
+.right-intro-content-container{
+    position: absolute;
+    color:white;
+    background: rgba(0, 0, 0, 0.65);
+    width:33%;
+    transform:translateX(350%);
+    top:0;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    animation: slide-from-right 0.6s ease 0.5s forwards;
+}
+
+.right-intro-content-container h2{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.2s forwards;
+}
+.right-intro-content-container p{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.5s forwards;
+}
+.right-intro-content-container button{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.9s forwards;
+}
+
+
+@keyframes slide-from-right {
+    from{
+        transform:translateX(350%);
+        opacity:0;
+    }
+    to{
+        transform:translateX(203%);
+    }
+}
+
+@keyframes slide-from-left {
+    from{
+        transform:translateX(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateX(0%);
+    }
+}
+
+@keyframes slide-from-bottom {
+    from{
+        transform:translateY(200%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0%);
+    }
+}
+
+.right-intro-content{
+    margin-top:70px;
+    padding:30px;
+}
+.right-intro-content p{
+    margin-top:40px;
+}
+
+.right-continue-button{
+    margin-top:60px;
+    padding:9px 35px;
+    font-size:18px;
+    background: transparent;
+    color:white;
+    letter-spacing: 1px;
+    border:2px solid white;
+    transition:0.2s;
+}
+
+.right-continue-button:hover{
+    cursor:pointer;
+    transition:0.2s;
+    opacity:0.8;
+}
+
+.left-intro{
+    position: relative;
+    width:100%;
+    height:100%;
+    z-index: 4000;
+    top:-2.2%;
+    left:0;
+}
+
+.left-intro-content-container{
+    position: absolute;
+    color:white;
+    background: rgba(0, 0, 0, 0.65);
+    width:65%;
+    transform:translateX(-100%);
+    top:0;
+    height:102.2%;
+    display: flex;
+    flex-direction: column;
+    animation: slide-from-left 0.6s ease 0.1s forwards;
+}
+
+.left-intro-content-container h2{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.2s forwards;
+}
+.left-intro-content-container p{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.5s forwards;
+}
+.left-intro-content-container button{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.9s forwards;
+}
+
+.left-intro-content{
+    margin-top:75px;
+    padding:30px;
+    text-align: left;
+    width:50%;
+    position: absolute;
+    right:0;
+}
+.left-intro-content p{
+    margin-top:40px;
+}
+
+.left-continue-button{
+    margin-top:60px;
+    padding:9px 35px;
+    font-size:18px;
+    background: transparent;
+    color:white;
+    letter-spacing: 1px;
+    border:2px solid white;
+    transition:0.2s;
+}
+
+.left-continue-button:hover{
+    cursor:pointer;
+    transition:0.2s;
+    opacity:0.8;
+}
+
+
+
+.third-intro{
+    position: relative;
+    width:100%;
+    height:102.2%;
+    z-index: 4000;
+    top:-2.2%;
+    left:0;
+    overflow: hidden;
+}
+
+.third-intro-content-container{
+    position: absolute;
+    color:white;
+    background: rgba(0, 0, 0, 0.65);
+    width:100%;
+    left:0;
+    height:100%;
+    transform: translateY(100%);
+    animation: slide-from-bottom 0.4s ease 0.1s forwards;
+}
+
+.third-intro-content{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width:40%;
+    transform: translateY(-125%)translateX(70%);
+    text-align: center;
+}
+.third-intro-content p{
+    margin-top:40px;
+}
+
+.third-continue-button{
+    margin-top:60px;
+    padding:9px 35px;
+    font-size:18px;
+    background: transparent;
+    color:white;
+    letter-spacing: 1px;
+    border:2px solid white;
+    transition:0.2s;
+}
+
+.third-continue-button:hover{
+    cursor:pointer;
+    transition:0.2s;
+    opacity:0.8;
+}
+
+.third-intro-content-container h2{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1s forwards;
+}
+.third-intro-content-container p{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.3s forwards;
+}
+.third-intro-content-container button{
+    opacity: 0;
+    animation: fade-text 0.6s ease 1.6s forwards;
+}
+
+.tutorial-kolegij-card{
+    width:90%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left:5%;
+    height:60px;
+    position:relative;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    opacity:0 !important;
+    transform: scale(0) !important;
+}
+
+.tutorial-card-1{
+    animation:show-tutorial-kolegij-card 0.5s ease 2.6s forwards;
+}
+.tutorial-card-2{
+    animation:show-tutorial-kolegij-card 0.5s ease 3.6s forwards;
+}
+.tutorial-card-3{
+    animation:show-tutorial-kolegij-card 0.5s ease 4.6s forwards;
+}
+.tutorial-card-4{
+    animation:show-tutorial-kolegij-card 0.5s ease 5.6s forwards;
+}
+.tutorial-card-5{
+    animation:show-tutorial-kolegij-card 0.5s ease 6.6s forwards;
+}
+.tutorial-card-6{
+    animation:show-tutorial-kolegij-card 0.5s ease 7.6s forwards;
+}
+.tutorial-card-7{
+    animation:show-tutorial-kolegij-card 0.5s ease 8.6s forwards;
+}
+.tutorial-card-8{
+    animation:show-tutorial-kolegij-card 0.5s ease 9.6s forwards;
+}
+
+@keyframes show-tutorial-kolegij-card {
+    0%{
+        opacity:0;
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.06);
+        opacity:1;
+    }
+    100%{
+        opacity:1;
+        transform: scale(1);
+    }
+}
+
+.tutorial-favorite-kolegiji-card{
+    width:85%;
+    margin-left:7%;
+    align-self: center;
+    margin-top:20px;
+    margin-bottom:30px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    position:relative;
+    background: white;
+    opacity:0 !important;
+    transform: scale(0) !important;
+}
+
+.tutorial-skripta-card-1{
+    animation:show-tutorial-kolegij-card 0.5s ease 2.6s forwards;
+}
+.tutorial-skripta-card-2{
+    animation:show-tutorial-kolegij-card 0.5s ease 3.6s forwards;
+}
+.tutorial-skripta-card-3{
+    animation:show-tutorial-kolegij-card 0.5s ease 4.6s forwards;
+}
+.tutorial-skripta-card-4{
+    animation:show-tutorial-kolegij-card 0.5s ease 5.6s forwards;
+}
+
+

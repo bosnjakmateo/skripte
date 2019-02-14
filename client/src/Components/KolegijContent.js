@@ -129,14 +129,14 @@ class KolegijContent extends Component {
                             {this.state.loading ?
                                 <div className="upload-skripta-button-container loading-disabled-placeholder">
                                     <div className="upload-skripta-button">
-                                        <p id="txt">UPLOAD SCRIPT</p>
+                                        <p id="txt">Upload</p>
                                         <div className="mask3"/>
                                     </div>
                                 </div>
                                 :
                                 <div onClick={this.toggleModal} className="upload-skripta-button-container">
                                     <div className="upload-skripta-button">
-                                        <p id="txt">UPLOAD SCRIPT</p>
+                                        <p id="txt">Upload</p>
                                         <div className="mask3"/>
                                     </div>
                                 </div>

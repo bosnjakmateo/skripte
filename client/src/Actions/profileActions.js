@@ -20,7 +20,7 @@ import {
     GET_ERRORS,
     PROFILE_LOADING,
     DATA_LOADING,
-    DELETE_COMMENT
+    DELETE_COMMENT, GET_USER,TUTORIAL_COMPLETED
 } from "./types";
 import axios from 'axios';
 
@@ -207,5 +207,13 @@ export const deleteComment = (scriptId,commentId) => dispatch => {
 export const setLoading = () => {
     return{
         type: DATA_LOADING
+    }
+};
+
+export const completeTutorial = () => {
+        axios
+        .patch('/users/tutorial')
+    return {
+        type:TUTORIAL_COMPLETED
     }
 };
