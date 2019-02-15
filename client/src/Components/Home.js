@@ -133,7 +133,7 @@ class Home extends Component {
                                             ante sollicitudin sit amet
                                         </p>
                                         <button onClick={this.completeThirdPart}
-                                                className="third-continue-button">Pronađi Kolegij
+                                                className="third-continue-button">Završi
                                         </button>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@ class Home extends Component {
                     <div className="left-intro">
                         <div className="left-intro-content-container">
                             <div className="left-intro-content">
-                                <h2>right intro</h2>
+                                <h2>Omiljene Skripte</h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et sem erat. Donec at
                                     elit
@@ -161,7 +161,7 @@ class Home extends Component {
                                 'slide-in-from-right' : this.state.mounted
                             })}>
                                 <div className="right-intro-content">
-                                    <h2>right intro</h2>
+                                    <h2>Omiljeni Kolegiji</h2>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et sem erat. Donec at
                                         elit

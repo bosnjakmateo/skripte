@@ -12,6 +12,7 @@ class UploadModal extends Component {
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.prevent = this.prevent.bind(this);
     }
 
     onChange(event){
@@ -33,10 +34,14 @@ class UploadModal extends Component {
 
     }
 
+    prevent(e){
+        e.stopPropagation();
+    }
+
     render() {
         return (
-            <div  className="upload-modal-container">
-                <div  className="upload-modal">
+            <div onClick={this.props.toggleModal} className="upload-modal-container">
+                <div onClick={((e) => this.prevent(e))}  className="upload-modal">
                     <div className="upload-modal-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ:</h1>
                         <form onSubmit={this.onSubmit}>
