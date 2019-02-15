@@ -49,6 +49,9 @@ class Navbar extends Component {
                     })
                 }
         }
+        if(this.props.auth.isAuthenticated === false) {
+            window.location.href = '/login';
+        }
     }
     handleScroll(){
         let position = window.pageYOffset;
