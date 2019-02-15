@@ -1,41 +1,26 @@
 import {
-    GET_SUBJECT,
-    GET_SCRIPTS,
     GET_SUBJECT_BY_ID,
     GET_ALL_SUBJECTS,
     GET_SUBJECT_SCRIPTS,
-    SET_CURRENT_USER,
     FILTERED_SUBJECTS,
     FILTERED_SUBJECTS2,
     GET_SCRIPT_BY_ID,
     FILTERED_FAVORITE_SCRIPTS,
     CLEAR_SCRIPTS,
     POST_COMMENT,
-    GET_UNIVERSITIES,
     ADD_SUBJECT_TO_FAVORITES,
     ADD_SCRIPT_TO_FAVORITES,
     POST_SCRIPT,
     REMOVE_SCRIPT_FROM_FAVORITES,
     REMOVE_SUBJECT_FROM_FAVORITES,
-    GET_ERRORS,
-    PROFILE_LOADING,
-    DATA_LOADING,
-    DELETE_COMMENT, GET_USER,TUTORIAL_COMPLETED
+    DELETE_COMMENT,
+    TUTORIAL_COMPLETED,
+    GET_ERRORS
 } from "./types";
 import axios from 'axios';
 
 
 
-export const getFavoriteSubject = (id) => dispatch => {
-    axios
-        .get(`/subjects/${id}`)
-        .then(res =>
-            dispatch({
-                type: GET_SUBJECT,
-                payload: res.data
-            })
-        )
-};
 
 export const getAllSubjects = () => dispatch => {
     axios
@@ -70,6 +55,12 @@ export const getSubjectById = (id) => dispatch => {
                 payload: res.data
             })
         )
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
 };
 
 export const getScriptById = (id) => dispatch => {
@@ -81,18 +72,12 @@ export const getScriptById = (id) => dispatch => {
                 payload: res.data
             })
         )
-};
-
-export const getFavoriteScripts = (id) => dispatch => {
-    axios
-        .get(`/subjects/${id}`)
-        .then(res =>
+        .catch(err =>
             dispatch({
-                type: GET_SCRIPTS,
-                payload: res.data
+                type: GET_ERRORS,
+                payload: err.response.data
             })
-        )
-
+        );
 };
 
 
@@ -131,6 +116,7 @@ export const postComment = (id,text) => dispatch => {
         .then(res =>
             dispatch({
                 type: POST_COMMENT,
+                payload:res.data
             })
         )
 };
@@ -203,12 +189,6 @@ export const deleteComment = (scriptId,commentId) => dispatch => {
         )
 };
 
-
-export const setLoading = () => {
-    return{
-        type: DATA_LOADING
-    }
-};
 
 export const completeTutorial = () => {
         axios

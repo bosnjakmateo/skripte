@@ -29,7 +29,6 @@ class UploadModal extends Component {
             description: this.state.description,
             _subject: this.props.profile.currentSubject._id
         };
-        console.log(postData)
         this.props.postScript(postData);
 
     }

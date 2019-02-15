@@ -2754,9 +2754,9 @@ body{
     position:absolute;
     height:100vh;
     width:100%;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.75);
     z-index:1000;
-    animation: fade-background 0.3s ease;
+    animation: fade-background 1.5s ease;
 }
 
 .fade-to-save-eyes{
@@ -2769,7 +2769,7 @@ body{
 
 @keyframes fade-background-eyes {
     0%{
-        background: rgba(0, 0, 0, 0.65);
+        background: rgba(0, 0, 0, 0.70);
         height:100vh;
         width:100%;
 
@@ -2805,11 +2805,13 @@ body{
 }
 
 .favorite-subjects-tutorial{
-    z-index: 10001;
+    z-index: 1001;
+    animation:fade-text 3s ease 1s forwards;
+    opacity:0 !important;
 }
 
 .favorite-scripts-tutorial{
-    z-index: 10001;
+    z-index: 1001;
 }
 
 .right-intro{
@@ -3114,3 +3116,41 @@ body{
 }
 
 
+.error-page{
+    position: absolute;
+    height:100%;
+    width:100%;
+    background: rgba(0, 0, 0, 0.8);
+    top:0;
+    left:0;
+    z-index: 5000;
+}
+
+.confirmation-page{
+    position: absolute;
+    height:100%;
+    width:100%;
+    background: rgba(0, 0, 0, 0.56);
+    top:0;
+    left:0;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-buttons-container{
+    background:#3384FF;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:35px;
+    color:white;
+}
+
+.confirmation-buttons button{
+    margin:20px;
+    padding:10px 30px;
+}

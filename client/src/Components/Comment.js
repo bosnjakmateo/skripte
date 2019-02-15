@@ -9,35 +9,22 @@ import Moment from "react-moment";
 class Comment extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            postDeleted:false
-        };
+        this.state = {};
 
         this.handleCommentDelete = this.handleCommentDelete.bind(this);
     }
 
 
-    componentDidUpdate(prevProps, nextState, snapshot) {
-        if (this.state.postDeleted !== nextState.postDeleted ) {
-            this.props.getScriptById(this.props.match.params.skripta_id)
-            this.setState({
-                postDeleted:false
-            })
-        }
-    }
+
 
 
     handleCommentDelete(){
         this.props.deleteComment(this.props.profile.currentScript._id,this.props.keyprop);
-        this.setState({
-            postDeleted:true
-        })
     }
 
 
     render() {
         let timestamp = Date.parse(this.props.date);
-
         return (
             <div className="comment">
                 <p><span className="bolded">{this.props.user + ": "}</span>{this.props.text}</p>

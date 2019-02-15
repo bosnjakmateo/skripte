@@ -1,14 +1,12 @@
 import {
-    GET_SUBJECT, REMOVE_SUBJECT_FROM_FAVORITES, REMOVE_SCRIPT_FROM_FAVORITES, GET_SCRIPTS,
+    REMOVE_SUBJECT_FROM_FAVORITES, REMOVE_SCRIPT_FROM_FAVORITES, GET_SCRIPTS,
     GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, POST_SCRIPT, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
-    GET_UNIVERSITIES, GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
-    FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT, PROFILE_LOADING,DATA_LOADING,DELETE_COMMENT
+    GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
+    FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT,DATA_LOADING,DELETE_COMMENT,GET_ERRORS
 } from '../Actions/types';
 
 
 const initialState = {
-    favoriteSubjects:[],
-    favoriteScripts:[],
     currentSubject:[],
     currentScript:[],
     allSubjects:[],
@@ -17,22 +15,18 @@ const initialState = {
     filteredScripts:[],
     filteredFavoriteScripts:[],
     comments:[],
-    loading:false
+    loading:false,
+    errors:[]
 };
 
 
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case GET_SUBJECT:
+        case GET_ERRORS:
             return{
                 ...state,
-                favoriteSubjects: [...state.favoriteSubjects,action.payload]
-            }
-        case GET_SCRIPTS:
-            return{
-                ...state,
-                favoriteScripts: action.payload
+                errors: action.payload
             }
         case GET_SUBJECT_BY_ID:
             return{
@@ -68,7 +62,8 @@ export default function(state = initialState, action) {
         case GET_SCRIPT_BY_ID:
             return{
                 ...state,
-                currentScript: action.payload
+                currentScript: action.payload,
+                comments:action.payload.comments
             }
         case CLEAR_SCRIPTS:
             return{
@@ -105,6 +100,13 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 loading: true
+            }
+        case POST_COMMENT:
+            let allComments = action.payload.comments;
+            let val = allComments[0];
+            return{
+                ...state,
+                comments: [...state.comments, val]
             }
         case DELETE_COMMENT:
             return{

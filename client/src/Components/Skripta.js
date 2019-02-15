@@ -14,7 +14,6 @@ class Skripta extends Component {
     constructor(props){
         super(props);
         this.state = {
-            id: null,
             scriptAlreadyInFavorites:false,
             loading:true
         };
@@ -24,11 +23,7 @@ class Skripta extends Component {
     }
 
     componentDidMount(){
-        let id = this.props.match.params.skripta_id;
-        this.setState({
-            id: id
-        })
-        this.props.getScriptById(id);
+        this.props.getScriptById(this.props.match.params.skripta_id);
     }
 
     componentDidUpdate(prevProps) {
@@ -38,11 +33,14 @@ class Skripta extends Component {
             })
             this.checkIfAlreadyInFavorites();
         }
+        if(this.props.profile.errors !== prevProps.profile.errors){
+            window.location.href = '/home';
+        }
     }
 
     removeSkripta(e){
         e.preventDefault();
-        this.props.removeScriptFromFavorites(this.props.profile.currentScript._id)
+        this.props.removeScriptFromFavorites(this.props.match.params.skripta_id)
         this.setState({
             scriptAlreadyInFavorites: false
         })
@@ -72,7 +70,6 @@ class Skripta extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="skripta-page">
                 <Navbar/>

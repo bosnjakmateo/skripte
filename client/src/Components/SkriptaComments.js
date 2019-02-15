@@ -59,12 +59,7 @@ class SkriptaComments extends Component {
                 loaded:true
             })
         }
-        if (this.state.postPosted !== nextState.postPosted) {
-            this.props.getScriptById(this.props.match.params.skripta_id)
-            this.setState({
-                postPosted:false
-            })
-        }
+
     }
 
 
@@ -91,7 +86,7 @@ class SkriptaComments extends Component {
                         }
                         <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>
-                    {this.state.loaded ? this.props.profile.currentScript.comments.map((comment) => {
+                    {this.state.loaded ? this.props.profile.comments.map((comment) => {
                        return <Comment keyprop={comment._id} key={comment._id} user={comment.user} text={comment.text} date={comment.date}/>
                     }):null}
                     <form className="comment-textarea" onSubmit={this.onSubmit}>

@@ -42,13 +42,16 @@ class KolegijContent extends Component {
         })
     }
 
-    componentDidUpdate(prevProps,nextState) {
+    componentDidUpdate(prevProps) {
         if(this.props.profile.allScripts !== prevProps.profile.allScripts) {
             this.setState({
                 loading:true
             })
             this.asd3()
             this.checkIfAlreadyInFavorites();
+        }
+        if(this.props.profile.errors !== prevProps.profile.errors){
+            window.location.href = '/home';
         }
     }
 
@@ -68,7 +71,7 @@ class KolegijContent extends Component {
 
 
     addToFavorites(){
-        this.props.addSubjectToFavorites(this.props.profile.currentSubject._id)
+        this.props.addSubjectToFavorites(this.props.match.params.kolegij_id)
         this.setState({
             subjectAlreadyInFavorites: true
         })
@@ -76,7 +79,7 @@ class KolegijContent extends Component {
 
     removeSubject(e){
         e.preventDefault();
-        this.props.removeSubjectFromFavorites(this.props.profile.currentSubject._id)
+        this.props.removeSubjectFromFavorites(this.props.match.params.kolegij_id)
         this.setState({
             subjectAlreadyInFavorites: false
         })
@@ -84,7 +87,7 @@ class KolegijContent extends Component {
 
 
     checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._id.includes(this.props.profile.currentSubject._id));
+        let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._id.includes(this.props.match.params.kolegij_id));
         if(ress.length > 0){
             this.setState({
                 subjectAlreadyInFavorites: true
