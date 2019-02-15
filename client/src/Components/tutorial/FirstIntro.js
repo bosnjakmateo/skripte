@@ -22,8 +22,9 @@ class FirstIntro extends Component {
                             id erat feugiat malesuada et in ex. Donec consectetur felis arcu, vitae facilisis
                             ante sollicitudin sit amet
                         </p>
-                        <button onClick={this.props.completeFirstPart} className="right-continue-button">Nastavi</button>
+                        <button onClick={this.props.completeFirstPart} className="right-continue-button">Nastavi<span className="button-arrow">➤</span></button>
                     </div>
+                    <p onClick={this.props.skipTutorial} className="right-skip-tutorial">Skip tutorial</p>
                 </div>
             </div>
         );

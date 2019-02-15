@@ -17,24 +17,24 @@ export default function(state = initialState, action) {
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),
                 user: action.payload
-            }
+            };
         case GET_USER:
             return{
                 ...state,
                 userData: action.payload,
                 loading: false,
                 userFetched:true
-             }
+             };
         case PROFILE_LOADING:
             return{
                 ...state,
                 loading: true
-            }
+            };
         case REGISTER_SUCCESS:
             return{
                 ...state,
                 registrationSuccess: true
-            }
+            };
             default:
                 return state;
     }

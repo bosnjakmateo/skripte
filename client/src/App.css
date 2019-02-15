@@ -36,7 +36,7 @@
 }
 
 .login-header h1{
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
 }
 
 .login-paragraph{
@@ -46,7 +46,7 @@
 }
 
 .login-paragraph p{
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
 }
 
 .login-forms input{
@@ -59,7 +59,7 @@
     margin-left:8px;
     border:0;
     background-color:#9CC4FF;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
     font-family: Averia Libre, sans-serif !important;
 }
 
@@ -75,7 +75,7 @@ button:focus{
     height:50px;
     transform: skewX(-25deg);
     margin-top:30px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
     font-weight: bold;
     font-size:17px;
     letter-spacing: 1px;
@@ -413,7 +413,7 @@ button:focus{
     width:200px;
     height:50px;
     margin-top:30px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
     font-weight: bold;
     font-size:17px;
     letter-spacing: 1px;
@@ -425,16 +425,14 @@ button:focus{
     margin-left:80px;
     color:#3384FF;
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    border-color:#3384FF;
-    border-style: solid;
-    border-width: 5px;
+    border: 5px solid #3384FF;
     background-color:transparent;
 }
 
 .button-prijavi-se:hover{
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0);
     background: #3384FF;
     color:white;
 }
@@ -451,7 +449,7 @@ button:focus{
     background: #ffc02f;
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     cursor: pointer;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0);
 }
 
 
@@ -704,7 +702,7 @@ button:focus{
     height:45px;
     position:relative;
     width:100%;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
     background-color:white;
 }
 .second-navbar-title{
@@ -732,7 +730,7 @@ button:focus{
     width:100%;
     border:0;
     border-bottom: 1px solid rgba(51, 132, 255, 0.62);
-    padding:4px 0px;
+    padding:4px 0;
 }
 
 .kolegij-card-container{
@@ -912,7 +910,7 @@ button:focus{
 
 .kolegij-second-navbar{
     position:relative;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
     background:white;
 }
 
@@ -940,7 +938,7 @@ button:focus{
     width:25%;
     border:0;
     border-bottom: 1px solid rgba(51, 132, 255, 0.62);
-    padding:4px 0px;
+    padding:4px 0;
 }
 
 .resours-type-select{
@@ -1029,7 +1027,7 @@ button:focus{
     margin:10px;
     padding-left:5px;
     color:black;
-    word-break:break-word;
+    word-break:break-all;
 }
 
 .skripta-card a{
@@ -1526,7 +1524,7 @@ html, body{
 @media screen and (max-width: 1800px) {
 
     .skripta-information-content p{
-        margin: 10px 0px
+        margin: 10px 0;
     }
 
 }
@@ -2584,16 +2582,17 @@ html, body{
     opacity:0.2;
     cursor:initial;
 }
+
 .favorites-skripta-button:hover{
     color: white;
     background:#307fd2;
     transition:0.2s;
 }
+
 .favorites-skripta-button:disabled:hover{
     color: #307fd2;
     background:transparent;
 }
-
 
 .remove-favorites-skripta-button{
     margin-right: 20px;
@@ -2622,9 +2621,6 @@ html, body{
     color: rgba(255, 78, 63, 0.86);
     background:transparent;
 }
-
-
-
 
 .darken{
     width: 100%;
@@ -2840,15 +2836,15 @@ body{
 
 .right-intro-content-container h2{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.2s forwards;
+    animation: fade-text 1s ease 1.2s forwards;
 }
 .right-intro-content-container p{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.5s forwards;
+    animation: fade-text 1s ease 1.5s forwards;
 }
 .right-intro-content-container button{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.9s forwards;
+    animation: fade-text 1s ease 1.9s forwards;
 }
 
 
@@ -2885,14 +2881,15 @@ body{
 .right-intro-content{
     margin-top:70px;
     padding:30px;
+    -webkit-backface-visibility: hidden;
 }
 .right-intro-content p{
     margin-top:40px;
 }
 
 .right-continue-button{
-    margin-top:60px;
-    padding:9px 35px;
+    margin-top:35px;
+    padding: 9px 20px 9px 35px;
     font-size:18px;
     background: transparent;
     color:white;
@@ -2902,9 +2899,20 @@ body{
 }
 
 .right-continue-button:hover{
-    cursor:pointer;
+     cursor:pointer;
+     transition:0.2s;
+    padding-left:25px;
+ }
+
+.right-continue-button:hover .button-arrow{
+    margin-left:20px;
     transition:0.2s;
-    opacity:0.8;
+    opacity:1;
+}
+
+.button-arrow{
+    opacity:0;
+    transition:0.2s;
 }
 
 .left-intro{
@@ -2931,15 +2939,15 @@ body{
 
 .left-intro-content-container h2{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.2s forwards;
+    animation: fade-text 1s ease 1s forwards;
 }
 .left-intro-content-container p{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.5s forwards;
+    animation: fade-text 1s ease 1.5s forwards;
 }
 .left-intro-content-container button{
     opacity: 0;
-    animation: fade-text 0.6s ease 1.9s forwards;
+    animation: fade-text 1s ease 1.9s forwards;
 }
 
 .left-intro-content{
@@ -2955,8 +2963,8 @@ body{
 }
 
 .left-continue-button{
-    margin-top:60px;
-    padding:9px 35px;
+    margin-top:35px;
+    padding: 9px 20px 9px 35px;
     font-size:18px;
     background: transparent;
     color:white;
@@ -2965,12 +2973,18 @@ body{
     transition:0.2s;
 }
 
+
 .left-continue-button:hover{
     cursor:pointer;
     transition:0.2s;
-    opacity:0.8;
+    padding-left:25px;
 }
 
+.left-continue-button:hover .button-arrow{
+    margin-left:20px;
+    transition:0.2s;
+    opacity:1;
+}
 
 
 .third-intro{
@@ -3153,4 +3167,32 @@ body{
 .confirmation-buttons button{
     margin:20px;
     padding:10px 30px;
+}
+
+.right-skip-tutorial{
+    position: absolute;
+    right: 5%;
+    bottom: 2%;
+    color: #4b4b4b;
+    transition:0.2s;
+}
+
+.right-skip-tutorial:hover{
+    cursor: pointer;
+    color: #6d6d6d;
+    transition:0.2s;
+}
+
+.left-skip-tutorial{
+    position: absolute;
+   left: 5%;
+    bottom: 2%;
+    color: #4b4b4b;
+    transition:0.2s;
+}
+
+.left-skip-tutorial:hover{
+    cursor: pointer;
+    color: #6d6d6d;
+    transition:0.2s;
 }

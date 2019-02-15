@@ -113,7 +113,6 @@ class Home extends Component {
         this.props.completeTutorial();
     }
 
-
     render() {
         return (
             <div className="home-page">
@@ -127,10 +126,10 @@ class Home extends Component {
                                 <ThirdIntro completeThirdPart={this.completeThirdPart}/>
                             }
                             {this.state.tutorial && this.state.tutorialSecondPartComplete ? null :
-                                <SecondIntro completeSecondPart={this.completeSecondPart}/>
+                                <SecondIntro completeSecondPart={this.completeSecondPart} skipTutorial={this.completeThirdPart}/>
                             }
                             { this.state.tutorial && this.state.tutorialFirstPartComplete ? null :
-                                <FirstIntro mounted={this.state.mounted} completeFirstPart={this.completeFirstPart}/>
+                                <FirstIntro mounted={this.state.mounted} skipTutorial={this.completeThirdPart} completeFirstPart={this.completeFirstPart}/>
                             }
                         </div>
                     : null

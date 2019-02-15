@@ -53,7 +53,7 @@ class SkriptaComments extends Component {
         this.setState({ commentsToggledMobile: !this.state.commentsToggledMobile });
     }
 
-    componentDidUpdate(prevProps,nextState) {
+    componentDidUpdate(prevProps) {
         if (this.props.profile.currentScript !== prevProps.profile.currentScript) {
             this.setState({
                 loaded:true
@@ -80,9 +80,9 @@ class SkriptaComments extends Component {
                     <div>
                     <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.currentScript.comments.length : null})</span></h1>
                         {this.state.commentsToggled ?
-                            <img src={minimize} className="toggle-comments-button" onClick={this.toggleComments}/>
+                            <img src={minimize} alt="minimize" className="toggle-comments-button" onClick={this.toggleComments}/>
                             :
-                            <img src={enlarge} className="toggle-comments-button" onClick={this.toggleComments}/>
+                            <img src={enlarge} alt="enlarge" className="toggle-comments-button" onClick={this.toggleComments}/>
                         }
                         <img alt="asdasd" src={close} className="mobile-close-comments-button" onClick={this.toggleCommentsMobile} />
                     </div>

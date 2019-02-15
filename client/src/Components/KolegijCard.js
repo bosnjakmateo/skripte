@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {Link, withRouter} from 'react-router-dom';
-import removeIcon from "../Images/remove.svg"
 import {removeSubjectFromFavorites} from "../Actions/profileActions";
 import {connect} from "react-redux";
 

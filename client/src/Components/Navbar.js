@@ -12,7 +12,6 @@ import userMenuArrow from "../Images/userMenuArrow.svg"
 import { logoutUser } from "../Actions/authActions";
 import { getCurrentUser } from "../Actions/authActions";
 import classnames from "classnames";
-import onClickOutside from "react-onclickoutside";
 import Darken from "./Darken";
 
 
@@ -35,7 +34,7 @@ class Navbar extends Component {
     }
 
     componentDidMount(){
-        this.props.getCurrentUser()
+        this.props.getCurrentUser();
 
         this.listener = this.handleScroll.bind(this);
         window.addEventListener('scroll', this.listener);
