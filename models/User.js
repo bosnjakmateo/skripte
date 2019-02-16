@@ -33,6 +33,10 @@ const UserSchema = new Schema({
   tutorial: {
     type: Boolean,
     default: false
+  },
+  theme: {
+    type: String,
+    default: "Light"
   }
 })
 

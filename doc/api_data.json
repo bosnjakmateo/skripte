@@ -2989,6 +2989,13 @@
             "optional": false,
             "field": "tutorial",
             "description": "<p>User tutorial</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Theme",
+            "optional": false,
+            "field": "theme",
+            "description": "<p>User theme</p>"
           }
         ]
       }
@@ -3145,9 +3152,62 @@
     }
   },
   {
-    "type": "get",
+    "type": "patch",
+    "url": "users/theme",
+    "title": "Set theme",
+    "name": "ThemeUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"Light || Dark\""
+            ],
+            "optional": false,
+            "field": "theme",
+            "description": "<p>User theme</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "defaultValue": "Theme changed",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "patch",
     "url": "users/tutorial",
-    "title": "Set tutorial to false",
+    "title": "Set tutorial to true",
     "name": "TutorialUser",
     "group": "User",
     "header": {
