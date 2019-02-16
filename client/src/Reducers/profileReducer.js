@@ -17,7 +17,7 @@ const initialState = {
     comments:[],
     loading:false,
     errors:[],
-    theme:""
+    theme:null
 };
 
 
