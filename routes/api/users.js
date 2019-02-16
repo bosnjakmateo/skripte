@@ -131,6 +131,7 @@ router.post("/login", (req, res) => {
  * @apiSuccess {Array} scripts User scripts
  * @apiSuccess {Id} scripts._script User script
  * @apiSuccess {Tutorial} tutorial User tutorial
+ * @apiSuccess {Theme} theme User theme
  */
 router.get("/current", passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -140,13 +141,14 @@ router.get("/current", passport.authenticate("jwt", { session: false }),
       favoriteSubjects: req.user.favoriteSubjects,
       favoriteScripts: req.user.favoriteScripts,
       scripts: req.user.scripts,
-      tutorial: req.user.tutorial
+      tutorial: req.user.tutorial,
+      theme: req.user.theme
     })
   }
 )
 
 /**
- * @api {get} users/tutorial Set tutorial to true
+ * @api {patch} users/tutorial Set tutorial to true
  * @apiName TutorialUser
  * @apiGroup User
  *
@@ -169,5 +171,33 @@ router.patch("/tutorial", passport.authenticate("jwt", { session: false }),
       .catch(err => console.log(err))
   }
 )
+
+/**
+ * @api {patch} users/theme Set theme
+ * @apiName ThemeUser
+ * @apiGroup User
+ * 
+ * @apiParam {String="Light || Dark"} theme User theme
+ *
+ * @apiHeader {String} token User token
+ *
+ * @apiSuccess {String} message="Theme changed"
+ */
+router.patch("/theme", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findByIdAndUpdate({_id: req.user.id})
+      .then(user => {
+        if(!user){
+          return res.status(404).json({ message: "User not found" })
+        } else {
+          user.theme = req.body.theme
+          user.save()
+          return res.json({ message: "Theme changed" })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+)
+
 
 module.exports = router
