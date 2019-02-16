@@ -171,7 +171,7 @@ class Home extends Component {
                                 : this.props.profile.filteredSubjects.map((item) =>
                                   <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
                             )}
-                            {this.state.subjectsFiltered && Object.keys(this.props.profile.filteredSubjects).length === 0 ? <AddKolegijCard/> : null}
+                            {this.state.subjectsFiltered && Object.keys(this.props.profile.filteredSubjects).length === 0 && this.props.auth.userData.tutorial === "false" ? <AddKolegijCard/> : null}
                         </div>
                     </div>
                     <div className="favorite-kolegiji-container">

@@ -527,7 +527,6 @@ button:focus{
     }
     .registration-form{
         padding-left: 5%;
-        position: absolute;
         top: 10%;
     }
     .registration-paper{
@@ -1103,6 +1102,7 @@ button:focus{
         width: 90%;
         margin-left: 5%;
         position: initial;
+        margin-bottom:25px;
     }
     .kolegij-card-container{
         width:90%;
