@@ -758,7 +758,6 @@ button:focus{
     box-shadow: 0 0 10px rgba(38, 38, 38, 0.45);
     transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     transform:scale(1.01)perspective(1px);
-
 }
 
 .kolegij-card-title{
@@ -2452,9 +2451,9 @@ html, body{
 }
 
 .user-menu-collapsible :hover{
-    background: #3d92ff;
-    transition:0.2s;
-}
+     background: #3d92ff;
+     transition:0.2s;
+ }
 .comment-textarea{
     margin-top:15px;
 }
@@ -3196,3 +3195,92 @@ body{
     color: #6d6d6d;
     transition:0.2s;
 }
+
+
+.add-kolegij-card{
+    width:90%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left:5%;
+    height:60px;
+    position:relative;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
+    cursor:pointer;
+    transition:0.2s ;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.add-kolegij-card:hover{
+    box-shadow: 0 0 10px rgba(38, 38, 38, 0.45);
+    transition:0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.add-kolegij-card:hover .add-kolegij-card-button{
+    transform:scale(1.13);
+    transition:0.2s;
+}
+
+.add-kolegij-card-button{
+    width:33px;
+    transform:scale(1);
+    transition:0.2s;
+    opacity:0.8;
+}
+
+/*####################################################      DARK MODE       ####################################################*/
+
+
+.navbar-dark{
+    background: #272727;
+}
+
+.home-button-dark{
+    background: #272727;
+}
+
+.svikolegiji-button-dark{
+    background: #272727;
+}
+
+.user-menu-dark{
+    background: #272727;
+}
+.user-menu-collapsible-dark{
+    background: #272727;
+}
+
+.user-menu-collapsible-dark :hover{
+    background: #444444 !important;
+    transition:0.2s;
+}
+
+.favorite-subjects-dark{
+    background: #464646;
+}
+
+.favorite-subjects-name-container-dark{
+    background: #303030;
+}
+
+.second-navbar-dark{
+    background: #303030;
+}
+.second-navbar-dark-title{
+    color: #e2e2e2;
+}
+.kolegij-card-dark{
+    background: #545454;
+}
+.kolegij-card-title-dark{
+    color: #e2e2e2;
+}
+.favorite-kolegiji-dark{
+    background: #464646;
+}
+.favorite-kolegiji-name-container-dark{
+    background: #303030;
+}
+
+/*####################################################    END OF DARK MODE       ####################################################*/

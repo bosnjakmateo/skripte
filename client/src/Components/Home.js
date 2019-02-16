@@ -15,6 +15,7 @@ import TutorialSkriptaCardPlaceholders from "./tutorial/TutorialSkriptaCardPlace
 import ThirdIntro from "./tutorial/ThirdIntro";
 import FirstIntro from "./tutorial/FirstIntro";
 import SecondIntro from "./tutorial/SecondIntro";
+import AddKolegijCard from "./AddKolegijCard";
 
 class Home extends Component {
     constructor(props){
@@ -137,8 +138,12 @@ class Home extends Component {
                 </div>
                 <Headroom disableInlineStyles={true}>
                     <Navbar/>
-                    <div className="second-navbar">
-                        <h1 className="second-navbar-title">Dashboard</h1>
+                    <div className={classnames('second-navbar',{
+                        'second-navbar-dark' : this.props.profile.theme === "dark"
+                    })}>
+                        <h1 className={classnames('second-navbar-title',{
+                            'second-navbar-dark-title' : this.props.profile.theme === "dark"
+                        })}>Dashboard</h1>
                     </div>
                 </Headroom>
                 <div className={classnames('main-container',{
@@ -146,9 +151,12 @@ class Home extends Component {
                 })}>
                     <div className="kolegij-card-container">
                         <div className={classnames("favorite-subjects",{
-                        "favorite-subjects-tutorial" : this.state.tutorial && !this.state.tutorialFirstPartComplete
+                        "favorite-subjects-tutorial" : this.state.tutorial && !this.state.tutorialFirstPartComplete,
+                            "favorite-subjects-dark" : this.props.profile.theme === "dark"
                         })}>
-                            <div className="favorite-subjects-name-container">
+                            <div className={classnames('favorite-subjects-name-container',{
+                                'favorite-subjects-name-container-dark' : this.props.profile.theme === "dark"
+                            })}>
                                 <h1 className="favorite-kolegiji-name">Omiljeni Kolegiji</h1>
                             </div>
                             { this.state.tutorialFirstPartComplete ? null :
@@ -158,13 +166,17 @@ class Home extends Component {
                                 : this.props.profile.filteredSubjects.map((item) =>
                                   <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
                             )}
+                            <AddKolegijCard/>
                         </div>
                     </div>
                     <div className="favorite-kolegiji-container">
                         <div className={classnames("favorite-kolegiji",{
-                            "favorite-scripts-tutorial" : this.state.tutorial && !this.state.tutorialSecondPartComplete
+                            "favorite-scripts-tutorial" : this.state.tutorial && !this.state.tutorialSecondPartComplete,
+                            "favorite-kolegiji-dark" : this.props.profile.theme === "dark"
                         })}>
-                            <div className="favorite-kolegiji-name-container">
+                            <div className={classnames('favorite-kolegiji-name-container',{
+                                'favorite-kolegiji-name-container-dark' : this.props.profile.theme === "dark"
+                            })}>
                                 <h1 className="favorite-kolegiji-name">Omiljene Skripte</h1>
                             </div>
                             {this.state.tutorialSecondPartComplete ? null :

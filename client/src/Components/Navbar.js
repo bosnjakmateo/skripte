@@ -38,6 +38,7 @@ class Navbar extends Component {
 
         this.listener = this.handleScroll.bind(this);
         window.addEventListener('scroll', this.listener);
+
     }
 
     componentDidUpdate() {
@@ -50,6 +51,10 @@ class Navbar extends Component {
         }
         if(this.props.auth.isAuthenticated === false) {
             window.location.href = '/login';
+        }
+        if(this.props.profile.theme === "dark"){
+            const body = document.getElementsByTagName("BODY");
+            body[0].style.background="#3c3c3c";
         }
     }
     handleScroll(){
@@ -95,7 +100,9 @@ class Navbar extends Component {
         return (
             <div>
                 {this.state.userMenu ? <Darken toggleDark={this.toggleUserMenu}/> : null}
-            <div className="navbar">
+                <div className={classnames('navbar',{
+                    'navbar-dark' : this.props.profile.theme === "dark"
+                })}>
                 <CSSTransitionGroup
                     transitionName="sidebar"
                     transitionEnterTimeout={800}
@@ -108,22 +115,29 @@ class Navbar extends Component {
                     </Link>
                 </div>
                 <div className="navbar-menu">
-                    <Link className="svikolegiji-button" to="/institucije">
+                    <Link to="/institucije" className={classnames('svikolegiji-button',{
+                        'svikolegiji-button-dark' : this.props.profile.theme === "dark"
+                    })}>
                         <button className={"navbar-link" + (this.state.currentRoute === "/institucije" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/institucije" ? " mask-stay" : "")}/>
                     </Link>
 
-                    <Link className="home-button" to="/home">
+                    <Link to="/home" className={classnames('home-button',{
+                        'home-button-dark' : this.props.profile.theme === "dark"
+                    })}>
                         <button  className={"navbar-link" + (this.state.currentRoute === "/home" ? " color-blue" : "")}>MOJI KOLEGIJI</button>
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
-                    <div className="user-menu" onClick={this.toggleUserMenu}>
+                    <div onClick={this.toggleUserMenu} className={classnames('user-menu',{
+                        'user-menu-dark' : this.props.profile.theme === "dark"
+                    })}>
                         {!Object.keys(this.props.auth.userData).length > 0 ? <p className="user-name">user</p> :<p className="user-name">{this.props.auth.userData.username}</p>}
                         <img src={userMenuArrow} className={classnames("user-menu-arrow",{
                         "rotate-arrow" : this.state.userMenu})}
                             alt="drop-down-arrow"/>
                         <div className={classnames("user-menu-collapsible",{
-                            "menu-collapsed" : this.state.userMenu
+                            "menu-collapsed" : this.state.userMenu,
+                            "user-menu-collapsible-dark" : this.props.profile.theme === "dark"
                         })}>
                             <Link to="/account">
                                 <div className="collapsed-menu-content">
@@ -150,7 +164,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    profile: state.profile
 });
 
 export default withRouter(connect(mapStateToProps, { logoutUser,getCurrentUser })(Navbar))

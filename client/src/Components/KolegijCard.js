@@ -3,6 +3,7 @@ import '../App.css';
 import {Link, withRouter} from 'react-router-dom';
 import {removeSubjectFromFavorites} from "../Actions/profileActions";
 import {connect} from "react-redux";
+import classnames from "classnames";
 
 class KolegijCard extends Component {
     constructor(props){
@@ -22,8 +23,12 @@ class KolegijCard extends Component {
 
         return (
             <Link to={`/kolegij/`+this.props.keyprop}>
-                <div className="kolegij-card">
-                    <h1 className="kolegij-card-title">{this.props.title}</h1>
+                <div className={classnames('kolegij-card',{
+                    'kolegij-card-dark' : this.props.profile.theme === "dark"
+                })}>
+                    <h1 className={classnames('kolegij-card-title',{
+                        'kolegij-card-title-dark' : this.props.profile.theme === "dark"
+                    })}>{this.props.title}</h1>
                 </div>
             </Link>
         );

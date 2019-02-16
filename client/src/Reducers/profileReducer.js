@@ -16,7 +16,8 @@ const initialState = {
     filteredFavoriteScripts:[],
     comments:[],
     loading:false,
-    errors:[]
+    errors:[],
+    theme:""
 };
 
 

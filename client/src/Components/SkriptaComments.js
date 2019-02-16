@@ -62,7 +62,6 @@ class SkriptaComments extends Component {
 
     }
 
-
     render() {
         return (
             <div className={classnames('skripta-comments ',{
