@@ -1201,7 +1201,6 @@ button:focus{
     background-color: #3384FF;
     position: fixed;
     z-index: 0;
-    padding-bottom: 85px;
     right:0;
     display:flex;
     flex-direction: column;
@@ -3443,3 +3442,7 @@ body{
     transition:0.2s;
 }
 /*####################################################    END OF DARK MODE       ####################################################*/
+
+body{
+    overflow-x:hidden;
+}

@@ -33,7 +33,8 @@ class AddKolegijCard extends Component {
 
 
 const mapStateToProps = (state) => ({
-    profile:state.profile
+    profile:state.profile,
+    auth:state.auth
 });
 
 export default withRouter(connect(mapStateToProps, {})(AddKolegijCard))

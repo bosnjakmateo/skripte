@@ -75,11 +75,6 @@ class Navbar extends Component {
 
     toggleMenu() {
         this.setState({ isOpen: !this.state.isOpen });
-        if(!this.state.isOpen) {
-            document.body.classList.add('non-scrollable');
-        }else{
-            document.body.classList.remove('non-scrollable');
-        }
     }
 
     toggleUserMenu() {
@@ -124,7 +119,7 @@ class Navbar extends Component {
                     transitionName="sidebar"
                     transitionEnterTimeout={800}
                     transitionLeaveTimeout={500}>
-                    {this.state.isOpen && <Sidebar clicker={this.toggleMenu}/>}
+                    {this.state.isOpen && <Sidebar toggleMenu={this.toggleMenu} changeTheme={this.changeTheme} clicker={this.toggleMenu}/>}
                 </CSSTransitionGroup>
                 <div className="navbar-logo">
                     <Link to="/home">
