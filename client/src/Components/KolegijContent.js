@@ -15,6 +15,7 @@ import {
 } from "../Actions/profileActions";
 import {connect} from "react-redux";
 import Spinner from "./Spinner";
+import classnames from "classnames";
 
 
 class KolegijContent extends Component {
@@ -114,12 +115,18 @@ class KolegijContent extends Component {
             <div className="kolegij-page">
                 <Headroom disableInlineStyles={true}>
                 <Navbar/>
-                <div className="kolegij-second-navbar">
-                    <div className="test2">
-                        <h1 className="kolegij-second-navbar-title">{this.state.loading ? <div className="aaa"/> : this.props.profile.currentSubject.name}</h1>
-                    </div>
+                    <div className={classnames('kolegij-second-navbar',{
+                        'kolegij-second-navbar-dark' : this.props.auth.theme === "Dark"
+                    })}>
+                        <div className="test2">
+                            <h1 className={classnames('kolegij-second-navbar-title',{
+                                'kolegij-second-navbar-title-dark' : this.props.auth.theme === "Dark"
+                            })}>{this.state.loading ? <div className="aaa"/> : this.props.profile.currentSubject.name}</h1>
+                        </div>
                     <div className="kolegij-second-navbar-search">
-                        <input  className="kolegij-second-navbar-search-input" type="text" placeholder="Traži skriptu..."
+                        <input className={classnames('kolegij-second-navbar-search-input',{
+                            'kolegij-second-navbar-search-input-dark' : this.props.auth.theme === "Dark"
+                        })} type="text" placeholder="Traži skriptu..."
                                 onChange={(event) => {
                                     this.setQuery(event.target.value);
                                 }}

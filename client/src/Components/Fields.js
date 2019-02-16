@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import FieldsSubjects from "./FieldsSubjects";
 import {getAllSubjects} from "../Actions/profileActions";
 import {filterInstitutionSubjects} from "../Actions/institutionsActions";
+import classnames from "classnames";
 
 class Fields extends Component {
     constructor(props){
@@ -48,11 +49,13 @@ class Fields extends Component {
             <div>
                 <Navbar/>
                <div className="field-page">
-                   <input  className="search-subject-fields" type="text" placeholder="Traži kolegij..."
+                   <input type="text" placeholder="Traži kolegij..."
                            onChange={(event) => {
                                this.setQuery(event.target.value);
                            }}
-                   />
+                          className={classnames('search-subject-fields',{
+                              'search-subject-fields-dark' : this.props.auth.theme === "Dark"
+                          })}/>
                    {this.props.auth.loading ? null
                        : filteredSubjects.map((item) =>
                            <FieldsSubjects keyprop={item._id} key={item._id} name={item.name}/>

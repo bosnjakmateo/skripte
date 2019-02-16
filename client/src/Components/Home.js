@@ -28,6 +28,7 @@ class Home extends Component {
             tutorialSecondPartComplete:true,
             tutorialThirdPartComplete:true,
             tutorialCompleted:false,
+            subjectsFiltered:false
         };
 
         this.filterFavoriteSubjectsFromAll = this.filterFavoriteSubjectsFromAll.bind(this);
@@ -75,6 +76,9 @@ class Home extends Component {
         let favoriteSubjects = this.props.auth.userData.favoriteSubjects;
         let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._id));
         this.props.filtered(favorites)
+        this.setState({
+            subjectsFiltered:true
+        })
     }
 
     filterFavoriteScriptsFromAll(){
@@ -115,6 +119,7 @@ class Home extends Component {
     }
 
     render() {
+
         return (
             <div className="home-page">
                 <div className={classnames('',{
@@ -139,10 +144,10 @@ class Home extends Component {
                 <Headroom disableInlineStyles={true}>
                     <Navbar/>
                     <div className={classnames('second-navbar',{
-                        'second-navbar-dark' : this.props.profile.theme === "dark"
+                        'second-navbar-dark' : this.props.auth.theme === "Dark"
                     })}>
                         <h1 className={classnames('second-navbar-title',{
-                            'second-navbar-dark-title' : this.props.profile.theme === "dark"
+                            'second-navbar-dark-title' : this.props.auth.theme === "Dark"
                         })}>Dashboard</h1>
                     </div>
                 </Headroom>
@@ -152,10 +157,10 @@ class Home extends Component {
                     <div className="kolegij-card-container">
                         <div className={classnames("favorite-subjects",{
                         "favorite-subjects-tutorial" : this.state.tutorial && !this.state.tutorialFirstPartComplete,
-                            "favorite-subjects-dark" : this.props.profile.theme === "dark"
+                            "favorite-subjects-dark" : this.props.auth.theme === "Dark"
                         })}>
                             <div className={classnames('favorite-subjects-name-container',{
-                                'favorite-subjects-name-container-dark' : this.props.profile.theme === "dark"
+                                'favorite-subjects-name-container-dark' : this.props.auth.theme === "Dark"
                             })}>
                                 <h1 className="favorite-kolegiji-name">Omiljeni Kolegiji</h1>
                             </div>
@@ -166,16 +171,16 @@ class Home extends Component {
                                 : this.props.profile.filteredSubjects.map((item) =>
                                   <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
                             )}
-                            <AddKolegijCard/>
+                            {this.state.subjectsFiltered && Object.keys(this.props.profile.filteredSubjects).length === 0 ? <AddKolegijCard/> : null}
                         </div>
                     </div>
                     <div className="favorite-kolegiji-container">
                         <div className={classnames("favorite-kolegiji",{
                             "favorite-scripts-tutorial" : this.state.tutorial && !this.state.tutorialSecondPartComplete,
-                            "favorite-kolegiji-dark" : this.props.profile.theme === "dark"
+                            "favorite-kolegiji-dark" : this.props.auth.theme === "Dark"
                         })}>
                             <div className={classnames('favorite-kolegiji-name-container',{
-                                'favorite-kolegiji-name-container-dark' : this.props.profile.theme === "dark"
+                                'favorite-kolegiji-name-container-dark' : this.props.auth.theme === "Dark"
                             })}>
                                 <h1 className="favorite-kolegiji-name">Omiljene Skripte</h1>
                             </div>

@@ -3,6 +3,7 @@ import '../App.css';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import { Link } from 'react-router-dom';
+import classnames from "classnames";
 
 class InstitutionField extends Component {
     constructor(props){
@@ -23,7 +24,9 @@ class InstitutionField extends Component {
         return (
             <div className="field-item">
                 <Link to={`/smjer/`+this.props.keyprop}>
-                    <p>{this.props.name}</p>
+                    <p className={classnames('institution-field-item',{
+                        'institution-field-item-dark' : this.props.auth.theme === "Dark"
+                    })}>{this.props.name}</p>
                 </Link>
             </div>
         );

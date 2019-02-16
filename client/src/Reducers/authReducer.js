@@ -1,4 +1,4 @@
-import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS} from '../Actions/types';
+import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS,THEME_CHANGED} from '../Actions/types';
 import isEmpty from '../Validation/isEmpty';
 
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     userData: {},
     loading: false,
     userFetched:false,
-    registrationSuccess: false
+    registrationSuccess: false,
+    theme:""
 };
 
 export default function(state = initialState, action) {
@@ -23,7 +24,8 @@ export default function(state = initialState, action) {
                 ...state,
                 userData: action.payload,
                 loading: false,
-                userFetched:true
+                userFetched:true,
+                theme:action.payload.theme
              };
         case PROFILE_LOADING:
             return{
@@ -34,6 +36,11 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 registrationSuccess: true
+            };
+        case THEME_CHANGED:
+            return{
+                ...state,
+                theme: action.payload
             };
             default:
                 return state;

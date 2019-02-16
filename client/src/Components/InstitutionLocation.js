@@ -3,6 +3,7 @@ import '../App.css';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import { Link } from 'react-router-dom';
+import classnames from "classnames";
 
 class InstitutionLocation extends Component {
     constructor(props){
@@ -15,7 +16,9 @@ class InstitutionLocation extends Component {
         return (
             <Link to={`/institucije/`+this.props.keyprop}>
                 <div className="institution-location">
-                    <p className="institution-location-title">{this.props.name}</p>
+                    <p className={classnames('institution-location-title',{
+                        'institution-location-title-dark' :  this.props.auth.theme === "Dark"
+                    })}>{this.props.name}</p>
                 </div>
             </Link>
 

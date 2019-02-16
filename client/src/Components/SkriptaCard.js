@@ -4,6 +4,7 @@ import {Link, withRouter} from 'react-router-dom';
 import Moment from "react-moment";
 
 import {connect} from "react-redux";
+import classnames from "classnames";
 
 class SkriptaCard extends Component {
     constructor(props){
@@ -15,7 +16,9 @@ class SkriptaCard extends Component {
     render() {
         let timestamp = Date.parse(this.props.date);
         return (
-            <div className="skripta-card">
+            <div className={classnames('skripta-card',{
+                'skripta-card-dark' : this.props.auth.theme === "Dark"
+            })}>
                 <Link to={`/skripta/`+this.props.keyprop}>
                     <div className="skripta-card-content">
                         <h1 className="skripta-card-title">{this.props.title}</h1>
@@ -24,8 +27,12 @@ class SkriptaCard extends Component {
                         <p className="skripta-card-description">{this.props.description}</p>
                     </div>
                 </Link>
-                <div className="side-card"/>
-                <div className="side-card2"/>
+                <div className={classnames('side-card',{
+                    'side-card-dark' : this.props.auth.theme === "Dark"
+                })}/>
+                    <div className={classnames('side-card2',{
+                        'side-card2-dark' : this.props.auth.theme === "Dark"
+                    })}/>
             </div>
         );
     }

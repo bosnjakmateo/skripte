@@ -15,7 +15,8 @@ import {
     REMOVE_SUBJECT_FROM_FAVORITES,
     DELETE_COMMENT,
     TUTORIAL_COMPLETED,
-    GET_ERRORS
+    GET_ERRORS,
+    THEME_CHANGED
 } from "./types";
 import axios from 'axios';
 
@@ -75,7 +76,7 @@ export const getScriptById = (id) => dispatch => {
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
-                payload: err.response.data
+                payload: err.response
             })
         );
 };
@@ -192,7 +193,7 @@ export const deleteComment = (scriptId,commentId) => dispatch => {
 
 export const completeTutorial = () => {
         axios
-        .patch('/users/tutorial')
+        .patch('/users/tutorial');
     return {
         type:TUTORIAL_COMPLETED
     }

@@ -24,19 +24,26 @@ class SkriptaInfo extends Component {
         return (
             <div className={classnames('skripta-information ',{
                 'skripta-information-mobile-toggled' : this.state.informationToggledMobile,
+                'skripta-information-dark' : this.props.auth.theme === "Dark"
             })}>
                 <div onClick={this.toggleInformationMobile}  className={classnames('detalji-mobile ',{
                     'make-invisible' : this.state.informationToggledMobile,
                 })}>
-                    <p className="detalji-toggle-button">DETALJI</p>
+                    <p className={classnames('detalji-toggle-button',{
+                        'detalji-toggle-button-dark' : this.props.auth.theme === "Dark"
+                    })}>
+                        DETALJI</p>
                 </div>
                 <div className={classnames('skripta-information-content ',{
                     'make-visible' : this.state.informationToggledMobile,
                 })}>
-                    <h1 className="skripta-comments-content-title">Detalji</h1>
+                    <h1 className={classnames('skripta-comments-content-title ',{
+                        'skripta-comments-content-title-dark' : this.props.auth.theme === "Dark"
+                    })}>
+                        Detalji</h1>
                     <img alt="assd" src={close} className="mobile-close-information-button" onClick={this.toggleInformationMobile} />
                     <p><span className="bolded">Korisnik:</span> {this.props.profile.currentScript.user}</p>
-                    <span className="bolded">Datum:</span> <Moment format="DD.MM.YYYY">{timestamp}</Moment>
+                    <span className="bolded">Datum: <Moment format="DD.MM.YYYY">{timestamp}</Moment></span>
                     <p><span className="bolded">Smjer:</span>Informatika</p>
                     <p><span className="bolded">Opis:</span> {this.props.profile.currentScript.description}</p>
                 </div>

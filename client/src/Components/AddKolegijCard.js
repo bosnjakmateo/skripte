@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import addKolegij from "../Images/addKolegij.svg"
+import addKolegijDark from "../Images/addKolegijDark.svg"
+import classnames from "classnames";
+import {connect} from "react-redux";
+
 
 class AddKolegijCard extends Component {
     constructor(props){
@@ -14,8 +18,13 @@ class AddKolegijCard extends Component {
 
         return (
             <Link to={"/institucije"}>
-                <div className="add-kolegij-card">
-                    <img className="add-kolegij-card-button" src={addKolegij} alt="add new kolegij" title="dodaj novi kolegij"/>
+                <div className={classnames('add-kolegij-card',{
+                    'add-kolegij-card-dark' : this.props.auth.theme === "Dark"
+                })}>
+                    {this.props.auth.theme === "Dark" ? <img className="add-kolegij-card-button" src={addKolegijDark} alt="add new kolegij" title="dodaj novi kolegij"/>
+                        :
+                        <img className="add-kolegij-card-button" src={addKolegij} alt="add new kolegij" title="dodaj novi kolegij"/>
+                    }
                 </div>
             </Link>
         );
@@ -23,4 +32,8 @@ class AddKolegijCard extends Component {
 }
 
 
-export default AddKolegijCard
+const mapStateToProps = (state) => ({
+    profile:state.profile
+});
+
+export default withRouter(connect(mapStateToProps, {})(AddKolegijCard))

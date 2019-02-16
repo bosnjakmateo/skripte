@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import InstitutionField from "./InstitutionField";
 import {getInstitutionById,getAllInstitutionFields,filterFields} from "../Actions/institutionsActions";
+import classnames from "classnames";
 
 class InstitutionFields extends Component {
     constructor(props){
@@ -39,7 +40,9 @@ class InstitutionFields extends Component {
             <div>
                 <Navbar/>
                     <div className="institution-fields-page">
-                        <h2>{this.props.institutions.university.name}</h2>
+                        <h2 className={classnames('institution-fields-title',{
+                            'institution-fields-title-dark' : this.props.auth.theme === "Dark"
+                        })}>{this.props.institutions.university.name}</h2>
                         {this.props.auth.loading ? null
                             : this.props.institutions.filteredFields.map((item) =>
                                 <InstitutionField keyprop={item._id} key={item._id} name={item.name}/>

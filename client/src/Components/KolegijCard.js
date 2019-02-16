@@ -24,10 +24,10 @@ class KolegijCard extends Component {
         return (
             <Link to={`/kolegij/`+this.props.keyprop}>
                 <div className={classnames('kolegij-card',{
-                    'kolegij-card-dark' : this.props.profile.theme === "dark"
+                    'kolegij-card-dark' : this.props.auth.theme === "Dark"
                 })}>
                     <h1 className={classnames('kolegij-card-title',{
-                        'kolegij-card-title-dark' : this.props.profile.theme === "dark"
+                        'kolegij-card-title-dark' : this.props.auth.theme === "Dark"
                     })}>{this.props.title}</h1>
                 </div>
             </Link>

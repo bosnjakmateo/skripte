@@ -8,6 +8,7 @@ import {getScriptById, addScriptToFavorites, removeScriptFromFavorites} from "..
 import {getCurrentUser} from "../Actions/authActions";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import classnames from "classnames";
 
 
 class Skripta extends Component {
@@ -73,9 +74,14 @@ class Skripta extends Component {
         return (
             <div className="skripta-page">
                 <Navbar/>
-                <div className="skripta-second-navbar">
+                <div className={classnames('skripta-second-navbar',{
+                    'skripta-second-navbar-dark' : this.props.auth.theme === "Dark"
+                })}>
                     <div className="test3">
-                        <h1 className="skripta-second-navbar-title">{this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
+                        <h1 className={classnames('skripta-second-navbar-title',{
+                            'skripta-second-navbar-title-dark' : this.props.auth.theme === "Dark"
+                        })}>
+                            {this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
                         {this.state.loading || this.state.scriptAlreadyInFavorites?
                             <button className="remove-from-favorites-button" disabled={this.state.loading} onClick={this.removeSkripta}>Izbrisi iz Omiljenih</button>
                             :

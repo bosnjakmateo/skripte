@@ -67,14 +67,19 @@ class SkriptaComments extends Component {
             <div className={classnames('skripta-comments ',{
                 'toggled-comments' : this.state.commentsToggled,
                 'skripta-comments-mobile-toggled' : this.state.commentsToggledMobile,
+                'skripta-comments-dark' : this.props.auth.theme === "Dark"
             })}>
                 <div onClick={this.toggleCommentsMobile}  className={classnames('comments-mobile ',{
                     'make-invisible' : this.state.commentsToggledMobile,
                 })}>
-                    <p className="comments-toggle-button">KOMENTARI</p>
+                    <p className={classnames('comments-toggle-button',{
+                        'comments-toggle-button-dark' : this.props.auth.theme === "Dark"
+                    })}>
+                        DETALJI</p>
                 </div>
                 <div className={classnames('skripta-comments-content ',{
                     'make-visible' : this.state.commentsToggledMobile,
+                    'skripta-comments-content-dark' : this.props.auth.theme === "Dark"
                 })}>
                     <div>
                     <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.currentScript.comments.length : null})</span></h1>

@@ -50,7 +50,9 @@ class InstitutionType extends Component {
             <div className={classnames('institution-type',{
                 'button-fade-in' : this.state.mounted
             })}>
-                <div className="institution-type-container">
+                <div className={classnames('institution-type-container',{
+                    'institution-type-container-dark' : this.props.auth.theme === "Dark"
+                })}>
                     <h1 onClick={this.toggleUniversityContent} className="institution-type-title">SVEUČILIŠTE
                         <span className="institution-count"> ({!this.props.profile.loading ? this.props.institutions.universities.length : null})</span>
                     </h1>
@@ -69,12 +71,14 @@ class InstitutionType extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="institution-type-container">
-                    <h1 onClick={this.toggleCollageContent} className="institution-type-title">VELEUČILIŠTE<span className="institution-count"> (0)</span></h1>
+                <div className={classnames('institution-type-container',{
+                    'institution-type-container-dark' : this.props.auth.theme === "Dark"
+                })}>
+                    <h1 onClick={this.toggleCollageContent} className="institution-type-title">VELEUČILIŠTE
+                        <span className="institution-count"> (0)</span></h1>
                     <div className={classnames('institution-type-content-container',{
                         'institution-type-container-open' : this.state.collageOpen
-                    })}
-                    >
+                    })}>
                         <div className={classnames('institution-type-content make-invisible',{
                             'make-visible' :  this.state.collageOpen
                         })}>

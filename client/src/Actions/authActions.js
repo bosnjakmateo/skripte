@@ -1,4 +1,4 @@
-import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS} from "./types";
+import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER, REGISTER_SUCCESS, THEME_CHANGED} from "./types";
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 import setAuthToken from "../Utils/setAuthToken";
@@ -77,3 +77,13 @@ export const logoutUser = () => dispatch => {
     dispatch(setCurrentUser({}));
 };
 
+export const changeTheme = (mode) => dispatch =>  {
+    axios
+        .patch('/users/theme',  {theme:mode})
+        .then(res =>
+            dispatch({
+                type: THEME_CHANGED,
+                payload:mode
+            })
+        )
+};
