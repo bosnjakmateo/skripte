@@ -34,7 +34,7 @@ class Skripta extends Component {
             })
             this.checkIfAlreadyInFavorites();
         }
-        if(this.props.profile.errors !== prevProps.profile.errors){
+        if(this.props.profile.urlError !== prevProps.profile.urlError){
             window.location.href = '/home';
         }
     }
@@ -82,10 +82,10 @@ class Skripta extends Component {
                             'skripta-second-navbar-title-dark' : this.props.auth.theme === "Dark"
                         })}>
                             {this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
-                        {this.state.loading || this.state.scriptAlreadyInFavorites?
+                        {this.state.loading || this.state.scriptAlreadyInFavorites && !this.props.profile.favoritesLoading ?
                             <button className="remove-from-favorites-button" disabled={this.state.loading} onClick={this.removeSkripta}>Izbrisi iz Omiljenih</button>
                             :
-                            <button className="add-to-favorites-button" disabled={this.state.scriptAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Omiljene</button>}
+                            <button className="add-to-favorites-button" disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites}>Dodaj u Omiljene</button>}
                     </div>
                 </div>
                 <div className="skripta-page-content">

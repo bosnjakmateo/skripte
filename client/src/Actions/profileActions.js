@@ -15,8 +15,8 @@ import {
     REMOVE_SUBJECT_FROM_FAVORITES,
     DELETE_COMMENT,
     TUTORIAL_COMPLETED,
-    GET_ERRORS,
-    THEME_CHANGED
+    GET_ERRORS,FAVORITES_LOADING,
+    GET_URL_ERROR
 } from "./types";
 import axios from 'axios';
 
@@ -58,8 +58,8 @@ export const getSubjectById = (id) => dispatch => {
         )
         .catch(err =>
             dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
+                type: GET_URL_ERROR,
+                payload: err.response
             })
         );
 };
@@ -75,7 +75,7 @@ export const getScriptById = (id) => dispatch => {
         )
         .catch(err =>
             dispatch({
-                type: GET_ERRORS,
+                type: GET_URL_ERROR,
                 payload: err.response
             })
         );
@@ -123,23 +123,23 @@ export const postComment = (id,text) => dispatch => {
 };
 
 export const addScriptToFavorites = (id) => dispatch => {
+    dispatch(setFavoritesLoading())
     axios
         .post(`/scripts/favorites/${id}`)
         .then(res =>
             dispatch({
-                type: ADD_SCRIPT_TO_FAVORITES,
-                payload: res.data
+                type: ADD_SCRIPT_TO_FAVORITES
             })
         )
 };
 
 export const addSubjectToFavorites = (id) => dispatch => {
+    dispatch(setFavoritesLoading())
         axios
             .post(`/subjects/favorites/${id}`)
             .then(res =>
                 dispatch({
-                    type: ADD_SUBJECT_TO_FAVORITES,
-                    payload: res.data,
+                    type: ADD_SUBJECT_TO_FAVORITES
                 })
             )
 };
@@ -153,10 +153,17 @@ export const postScript = (postData) => dispatch => {
                 payload: res.data
             })
         )
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response
+            })
+        );
 };
 
 
 export const removeSubjectFromFavorites = (id) => dispatch => {
+    dispatch(setFavoritesLoading())
     axios
         .delete(`/subjects/favorites/${id}`)
         .then(res =>
@@ -169,6 +176,7 @@ export const removeSubjectFromFavorites = (id) => dispatch => {
 
 
 export const removeScriptFromFavorites = (id) => dispatch => {
+    dispatch(setFavoritesLoading())
     axios
         .delete(`/scripts/favorites/${id}`)
         .then(res =>
@@ -196,5 +204,12 @@ export const completeTutorial = () => {
         .patch('/users/tutorial');
     return {
         type:TUTORIAL_COMPLETED
+    }
+};
+
+
+export const setFavoritesLoading = () => {
+    return{
+        type: FAVORITES_LOADING
     }
 };

@@ -2,7 +2,8 @@ import {
     REMOVE_SUBJECT_FROM_FAVORITES, REMOVE_SCRIPT_FROM_FAVORITES,
     GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, POST_SCRIPT, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
     GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
-    FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT,DATA_LOADING,DELETE_COMMENT,GET_ERRORS,THEME_CHANGED
+    FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT, DATA_LOADING, DELETE_COMMENT, GET_ERRORS, THEME_CHANGED,
+    FAVORITES_LOADING, PROFILE_LOADING,GET_URL_ERROR
 } from '../Actions/types';
 
 
@@ -17,6 +18,8 @@ const initialState = {
     comments:[],
     loading:false,
     errors:[],
+    urlError:[],
+    favoritesLoading:false
 };
 
 
@@ -27,6 +30,11 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 errors: action.payload
+            };
+        case GET_URL_ERROR:
+            return{
+                ...state,
+                urlError: action.payload
             };
         case GET_SUBJECT_BY_ID:
             return{
@@ -73,12 +81,14 @@ export default function(state = initialState, action) {
         case ADD_SUBJECT_TO_FAVORITES:
             return{
                 ...state,
-                filteredSubjects: [...state.filteredSubjects,action.payload]
+                filteredSubjects: state.filteredSubjects,
+                favoritesLoading:false
             };
         case ADD_SCRIPT_TO_FAVORITES:
             return{
                 ...state,
-                filteredFavoriteScripts: [...state.filteredFavoriteScripts,action.payload]
+                filteredFavoriteScripts: state.filteredFavoriteScripts,
+                favoritesLoading:false
             };
         case POST_SCRIPT:
             return{
@@ -88,12 +98,14 @@ export default function(state = initialState, action) {
         case REMOVE_SUBJECT_FROM_FAVORITES:
             return{
                 ...state,
-                filteredSubjects: state.filteredSubjects.filter(item => item._id !== action.payload)
+                filteredSubjects: state.filteredSubjects.filter(item => item._id !== action.payload),
+                favoritesLoading:false
             };
         case REMOVE_SCRIPT_FROM_FAVORITES:
             return{
                 ...state,
-                filteredFavoriteScripts: state.filteredFavoriteScripts.filter(item => item._id !== action.payload)
+                filteredFavoriteScripts: state.filteredFavoriteScripts.filter(item => item._id !== action.payload),
+                favoritesLoading:false
             };
         case DATA_LOADING:
             return{
@@ -111,6 +123,11 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 comments: state.comments.filter(item => item._id !== action.payload)
+            };
+        case FAVORITES_LOADING:
+            return{
+                ...state,
+                favoritesLoading: true
             };
         default:
             return state;

@@ -218,7 +218,24 @@ button:focus{
         padding-right: 5%;
         width: 60%;
     }
+    .upload-modal{
+        width:80% !important;
+    }
+    .upload-skripta-component{
+        margin:20px 0 !important;
+    }
+    .textarea{
+        width:95% !important;
+    }
+    .upload-skripta-input{
+        width:95% !important;
+    }
+    .upload-modal-content{
+        padding-left: 10px !important;
+        padding-top: 10px !important;
+    }
 }
+
 
 @media screen and (max-width: 600px) {
     .paper-container{
@@ -2244,7 +2261,13 @@ html, body{
 .upload-skripta-component{
     margin:35px 0;
 }
-
+.upload-skripta-input{
+    width:55%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-left:2px;
+    padding-bottom:3px;
+}
 
 
 .upload-skripta-button-container{
@@ -2342,19 +2365,19 @@ html, body{
 .upload-modal{
     top:15%;
     background:white;
-    width:60%;
+    width:45%;
     height:70%;
-    position:absolute;
+    position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .upload-modal-content{
-    margin-left:25px;
-    margin-top:25px;
+    padding-left:25px;
+    padding-top:25px;
 }
 
 .textarea{
-    width:50%;
+    width:55%;
 }
 
 .skripta-card a{
@@ -2397,6 +2420,11 @@ html, body{
     cursor: pointer;
     font-weight:bold;
 
+}
+.upload-modal-error{
+    color:red;
+    font-size:12px;
+    transition:0.2s;
 }
 
 .user-menu-collapsible{
@@ -3440,6 +3468,30 @@ body{
 .skripta-comments-content-dark textarea{
     background: #464646;
     transition:0.2s;
+}
+.upload-modal-dark{
+    background: #464646;
+}
+.upload-modal-dark h1{
+    color:#e2e2e2;
+}
+.upload-modal-dark .upload-skripta-input{
+    border-bottom:1px solid #e2e2e2;
+    background: #464646;
+    color:#e2e2e2;
+}
+.upload-modal-dark input{
+    color:#e2e2e2;
+}
+.upload-modal-dark input::placeholder{
+    color:#a9a9a9;
+}
+.upload-modal-dark textarea{
+    color:#e2e2e2;
+    background: #464646;
+}
+.upload-modal-dark textarea::placeholder{
+    color: #a9a9a9;
 }
 /*####################################################    END OF DARK MODE       ####################################################*/
 

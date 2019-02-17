@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import {connect} from "react-redux";
 import {postScript} from "../Actions/profileActions";
+import classnames from "classnames";
 
 class UploadModal extends Component {
     constructor(props){
@@ -30,7 +31,6 @@ class UploadModal extends Component {
             _subject: this.props.profile.currentSubject._id
         };
         this.props.postScript(postData);
-
     }
 
     prevent(e){
@@ -40,18 +40,24 @@ class UploadModal extends Component {
     render() {
         return (
             <div onClick={this.props.toggleModal} className="upload-modal-container">
-                <div onClick={((e) => this.prevent(e))}  className="upload-modal">
+                <div onClick={((e) => this.prevent(e))}
+                    className={classnames('upload-modal',{
+                    'upload-modal-dark' : this.props.auth.theme === "Dark"
+                })}>
                     <div className="upload-modal-content">
-                        <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ:</h1>
+                        <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
                         <form onSubmit={this.onSubmit}>
                             <div className="upload-skripta-component">
                                 <input
+                                    className="upload-skripta-input"
                                     type="text"
-                                    placeholder="Naslov..."
+                                    placeholder="Naslov skripte..."
                                     name="title"
                                     value={this.state.title}
                                     onChange={this.onChange}
                                 />
+                                <br/>
+                                <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.title : null }</span>
                             </div>
                             <div className="upload-skripta-component">
                                 <textarea
@@ -63,17 +69,17 @@ class UploadModal extends Component {
                                     onChange={this.onChange}
                                     maxLength="94"
                                 />
+                                <br/>
+                                <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
-                            {/*<div className="upload-skripta-component">
-                                <input type="file"/>
+                            <div className="upload-skripta-component">
+                                <input type="file" accept=".pdf"/>
                             </div>
-                            */}
                             <div className="upload-skripta-component">
                                 <button>OBJAVI</button>
                             </div>
                         </form>
                     </div>
-                    <button type="submit" onClick={this.props.toggleModal}>close modal</button>
                 </div>
             </div>
         );

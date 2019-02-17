@@ -51,7 +51,7 @@ class KolegijContent extends Component {
             this.asd3()
             this.checkIfAlreadyInFavorites();
         }
-        if(this.props.profile.errors !== prevProps.profile.errors){
+        if(this.props.profile.urlError !== prevProps.profile.urlError){
             window.location.href = '/home';
         }
     }
@@ -132,10 +132,10 @@ class KolegijContent extends Component {
                                 }}
                         />
                         <div className="kolegij-content-buttons-container">
-                            {this.state.loading || this.state.subjectAlreadyInFavorites ?
+                            {this.state.loading || this.state.subjectAlreadyInFavorites && !this.props.profile.favoritesLoading ?
                                 <button className="remove-favorites-skripta-button" disabled={this.state.loading} onClick={this.removeSubject}>Izbrisi iz Omiljenih</button>
                                 :
-                                <button className="favorites-skripta-button" disabled={this.state.subjectAlreadyInFavorites} onClick={this.addToFavorites}>Dodaj u Omlijene</button>}
+                                <button className="favorites-skripta-button" disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites}>Dodaj u Omlijene</button>}
                             {this.state.loading ?
                                 <div className="upload-skripta-button-container loading-disabled-placeholder">
                                     <div className="upload-skripta-button">
