@@ -87,20 +87,26 @@ class KolegijContent extends Component {
     }
 
 
-    checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._id.includes(this.props.match.params.kolegij_id));
-        if(ress.length > 0){
+    checkIfAlreadyInFavorites() {
+        if (this.props.auth.userData.favoriteSubjects) {
+            let ress = this.props.auth.userData.favoriteSubjects.filter(a => a._id.includes(this.props.match.params.kolegij_id));
+            if (ress.length > 0) {
+                this.setState({
+                    subjectAlreadyInFavorites: true
+                })
+            } else {
+                this.setState({
+                    subjectAlreadyInFavorites: false
+                })
+            }
             this.setState({
-                subjectAlreadyInFavorites: true
+                loading: false
             })
-        }else{
+        }else {
             this.setState({
-                subjectAlreadyInFavorites: false
+                loading: false
             })
         }
-        this.setState({
-            loading:false
-        })
     }
 
     setQuery(e){
@@ -110,7 +116,6 @@ class KolegijContent extends Component {
     }
 
     render() {
-        console.log(this.state)
         let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
         return (
             <div className="kolegij-page">
@@ -134,24 +139,17 @@ class KolegijContent extends Component {
                         />
                         <div className="kolegij-content-buttons-container">
                             {this.state.loading || this.state.subjectAlreadyInFavorites && !this.props.profile.favoritesLoading ?
-                                <button className="remove-favorites-skripta-button" disabled={this.state.loading} onClick={this.removeSubject}>Izbrisi iz Omiljenih</button>
+                                <button disabled={this.state.loading} onClick={this.removeSubject} className={classnames('remove-favorites-skripta-button',{
+                                    'remove-favorites-skripta-button-dark' : this.props.auth.theme === "Dark"
+                                })}>Izbrisi iz Omiljenih</button>
                                 :
-                                <button className="favorites-skripta-button" disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites}>Dodaj u Omlijene</button>}
-                            {this.state.loading ?
-                                <div className="upload-skripta-button-container loading-disabled-placeholder">
-                                    <div className="upload-skripta-button">
-                                        <p id="txt">Upload</p>
-                                        <div className="mask3"/>
-                                    </div>
-                                </div>
-                                :
-                                <div onClick={this.toggleModal} className="upload-skripta-button-container">
-                                    <div className="upload-skripta-button">
-                                        <p id="txt">Upload</p>
-                                        <div className="mask3"/>
-                                    </div>
-                                </div>
+                                <button disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites} className={classnames('favorites-skripta-button',{
+                                    'favorites-skripta-button-dark' : this.props.auth.theme === "Dark"
+                                })}>Dodaj u Omlijene</button>
                             }
+                                <button disabled={this.state.loading} onClick={this.toggleModal} className={classnames('add-skripta-button',{
+                                    'add-skripta-button-dark' : this.props.auth.theme === "Dark"
+                                })}>Dodaj Skriptu</button>
                         </div>
                     </div>
                 </div>

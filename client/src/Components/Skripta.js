@@ -55,18 +55,23 @@ class Skripta extends Component {
     }
 
     checkIfAlreadyInFavorites(){
-        let ress = this.props.auth.userData.favoriteScripts.filter(a => a._id.includes(this.props.match.params.skripta_id));
-        if(ress.length > 0){
+        if(this.props.auth.userData) {
+            let ress = this.props.auth.userData.favoriteScripts.filter(a => a._id.includes(this.props.match.params.skripta_id));
+            if (ress.length > 0) {
+                this.setState({
+                    scriptAlreadyInFavorites: true
+                })
+            } else {
+                this.setState({
+                    scriptAlreadyInFavorites: false
+                })
+            }
             this.setState({
-                scriptAlreadyInFavorites: true
+                loading: false
             })
-        }else{
-            this.setState({
-                scriptAlreadyInFavorites: false
-            })
-        }
+        }else
         this.setState({
-            loading:false
+            loading: false
         })
     }
 
@@ -83,9 +88,13 @@ class Skripta extends Component {
                         })}>
                             {this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
                         {this.state.scriptAlreadyInFavorites && !this.props.profile.favoritesLoading ?
-                            <button className="remove-from-favorites-button" disabled={this.state.loading} onClick={this.removeSkripta}>Izbrisi iz Omiljenih</button>
+                            <button disabled={this.state.loading} onClick={this.removeSkripta} className={classnames('remove-from-favorites-button',{
+                                'remove-from-favorites-button-dark' : this.props.auth.theme === "Dark"
+                            })}>Izbrisi iz Omiljenih</button>
                             :
-                            <button className="add-to-favorites-button" disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites}>Dodaj u Omiljene</button>}
+                            <button disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites} className={classnames('add-to-favorites-button',{
+                                'add-to-favorites-button-dark' : this.props.auth.theme === "Dark"
+                            })}>Dodaj u Omiljene</button>}
                     </div>
                 </div>
                 <div className="skripta-page-content">

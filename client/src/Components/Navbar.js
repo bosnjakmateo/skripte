@@ -130,14 +130,23 @@ class Navbar extends Component {
                     <Link to="/institucije" className={classnames('svikolegiji-button',{
                         'svikolegiji-button-dark' : this.props.auth.theme === "Dark"
                     })}>
-                        <button className={"navbar-link" + (this.state.currentRoute === "/institucije" ? " color-blue" : "")}>PRONAĐI KOLEGIJ</button>
+                        <button className={classnames('navbar-link',{
+                            'color-blue' : this.state.currentRoute ==="/institucije",
+                            'color-orange' : this.state.currentRoute === "/institucije" && this.props.auth.theme === "Dark"
+                        })}>PRONAĐI KOLEGIJ</button>
+
                         <div className={"mask-home" + (this.state.currentRoute === "/institucije" ? " mask-stay" : "")}/>
                     </Link>
 
                     <Link to="/home" className={classnames('home-button',{
                         'home-button-dark' : this.props.auth.theme === "Dark"
                     })}>
-                        <button  className={"navbar-link" + (this.state.currentRoute === "/home" ? " color-blue" : "")}>MOJI KOLEGIJI</button>
+
+                        <button className={classnames('navbar-link',{
+                            'color-blue' : this.state.currentRoute ==="/home",
+                            'color-orange' : this.state.currentRoute === "/home" && this.props.auth.theme === "Dark"
+                        })}>MOJI KOLEGIJI</button>
+
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
                     <div onClick={this.toggleUserMenu} className={classnames('user-menu',{

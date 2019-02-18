@@ -98,7 +98,9 @@ class SkriptaComments extends Component {
                             <textarea onChange={this.onChange} name="text" value={this.state.text} placeholder="Komentiraj..." className="comment-form" minLength="2" maxLength="300"/>
                         </label>
                         < br/>
-                        <input disabled={!this.state.text} className="post-comment" type="submit" value="Komentiraj" />
+                        <input disabled={!this.state.text} type="submit" value="Komentiraj" className={classnames('post-comment',{
+                            'post-comment-dark' : this.props.auth.theme === "Dark"
+                        })}/>
                     </form>
                 </div>
             </div>

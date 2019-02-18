@@ -557,7 +557,7 @@ button:focus{
         flex-direction: column;
     }
     .kolegij-content-buttons-container{
-        margin-top:10px;
+        margin-top:10px !important;
     }
     .kolegij-second-navbar-search-input{
         width:100% !important;
@@ -1350,6 +1350,37 @@ html, body{
     color:white;
 }
 
+
+
+.add-to-favorites-button-dark{
+    height:30px;
+    background: transparent;
+    color: #e08816;
+    font-weight: 700;
+    border: 2px solid #e08816;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition:0.2s;
+}
+
+.add-to-favorites-button-dark:disabled:hover{
+    background: transparent;
+    color: #e08816;
+}
+
+.add-to-favorites-button-dark:hover{
+    background:#e08816;
+    transition:0.2s;
+    color:white;
+}
+
+
+
+
+
+
+
 .skripta-second-navbar-description {
     font-size: 15px;
     color: #3384FF;
@@ -2094,6 +2125,9 @@ html, body{
     color:#3384FF;
     transition:0.2s;
 }
+.svikolegiji-button-dark:hover .navbar-link{
+    color:#e08816;
+}
 
 .svikolegiji-button .mask-home {
     position: absolute;
@@ -2119,9 +2153,15 @@ html, body{
     transition:0.2s ease;
 }
 .home-button:hover .navbar-link{
-    color:#3384FF;
-    transition:0.2s;
+     color:#3384FF;
+     transition:0.2s;
+ }
+
+.home-button-dark:hover .navbar-link{
+    color:#e08816;
+
 }
+
 
 .home-button .mask-home {
     position: absolute;
@@ -2146,6 +2186,9 @@ html, body{
 }
 .color-blue{
     color:#3384FF;
+}
+.color-orange{
+    color: #e08816 !important;
 }
 
 .remove-kolegij-card{
@@ -2532,8 +2575,8 @@ html, body{
     justify-content: space-between;
 }
 .test3 button{
-    margin-top: 19px;
-    margin-right: 4.6%;
+    margin-top: 16px;
+    margin-right: 4.7%;
 }
 
 .test2 button{
@@ -2541,10 +2584,6 @@ html, body{
     margin-left:15px;
     margin-top:9px;
 }
-
-
-
-
 
 .incorrect-message{
     font-size:11px;
@@ -2586,7 +2625,6 @@ html, body{
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     margin-top: 20px;
     position: relative;
-
     padding-bottom:20px;
     background:white;
     min-height:500px;
@@ -2595,30 +2633,76 @@ html, body{
 
 .kolegij-content-buttons-container{
     float:right;
+    margin-top:-4px;
 }
 
-.favorites-skripta-button{
-    margin-right: 20px;
-    background: transparent;
-    color: #307fd2;
-    font-weight: 700;
-    border: 2px solid#307fd2;
-    cursor: pointer;
-    padding-top: 8px;
-    padding-bottom: 4px;
-    padding-left: 25px;
-    padding-right: 25px;
+.add-skripta-button-dark{
+    background: #e08816 !important;
+    color: #f7f7f7;
+    border: 2px solid #e08816 !important;
+    transition: 0.2s;
+}
+
+.add-skripta-button-dark:hover{
+    color: #f1f1f1;
+    background: #ff9c17 !important;
+    border: 2px solid #ff9c17 !important;
     transition:0.2s;
 }
 
-.favorites-skripta-button:disabled{
+.add-skripta-button-dark:disabled:hover{
+    color: white;
+    background:#e08816;
+}
+
+
+
+
+.add-skripta-button{
+    margin-right: 20px;
+    background: #3384FF;
+    color: #f7f7f7;
+    font-weight: 900;
+    border: 2px solid #3384FF;
+    cursor: pointer;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    padding: 5px 20px;
+}
+
+.add-skripta-button:disabled{
     opacity:0.2;
     cursor:initial;
 }
 
+.add-skripta-button:hover{
+    color: #f1f1f1;
+    background: #3ca0ff;
+    border: 2px solid #3ca0ff;
+    transition:0.2s;
+}
+
+.add-skripta-button:disabled:hover{
+    color: white;
+    background:#3384FF;
+}
+
+
+.favorites-skripta-button{
+    margin-right: 20px;
+    background: transparent;
+    color: #3384FF;
+    font-weight: 900;
+    border: 2px solid #3384FF;
+    cursor: pointer;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    padding: 5px 20px;
+}
+
 .favorites-skripta-button:hover{
     color: white;
-    background:#307fd2;
+    background:#3384FF;
     transition:0.2s;
 }
 
@@ -2627,17 +2711,35 @@ html, body{
     background:transparent;
 }
 
+
+
+.favorites-skripta-button-dark{
+    background: transparent;
+    color: #e08816;
+    border: 2px solid #e08816;
+    transition: 0.2s;
+}
+
+
+.favorites-skripta-button-dark:hover{
+    color: white;
+    background:#e08816;
+    transition:0.2s;
+}
+
+.favorites-skripta-button-dark:disabled:hover{
+    color: white;
+    background:transparent;
+}
+
 .remove-favorites-skripta-button{
     margin-right: 20px;
     background: transparent;
     color: rgba(255, 78, 63, 0.86);
-    font-weight: 700;
+    font-weight: 900;
     border: 2px solid rgba(255, 78, 63, 0.86);
     cursor: pointer;
-    padding-top: 8px;
-    padding-bottom: 4px;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding:5px 20px;
     transition:0.2s;
 }
 
@@ -2654,6 +2756,26 @@ html, body{
     color: rgba(255, 78, 63, 0.86);
     background:transparent;
 }
+
+
+.remove-favorites-skripta-button-dark{
+    background: transparent;
+    color: rgba(255, 78, 63, 0.86);
+    border: 2px solid rgba(255, 78, 63, 0.86);
+    transition:0.2s;
+}
+
+.remove-favorites-skripta-button-dark:hover{
+    color: white;
+    background:rgba(255, 78, 63, 0.86);
+    transition:0.2s;
+}
+.remove-favorites-skripta-button-dark:disabled:hover{
+    color: rgba(255, 78, 63, 0.86);
+    background:transparent;
+}
+
+
 
 .darken{
     width: 100%;
@@ -3311,7 +3433,7 @@ body{
     transition:0.2s;
 }
 .kolegij-card-title-dark{
-    color: #e2e2e2;
+    color: #e08816;
     transition:0.2s;
 }
 .favorite-kolegiji-dark{
@@ -3331,7 +3453,7 @@ body{
     transition:0.2s;
 }
 .favorite-kolegiji-card-title-dark{
-    color:#e2e2e2;
+    color:#e08816;
     transition:0.2s;
 }
 .favorite-kolegij-card-date-dark{
@@ -3397,7 +3519,7 @@ body{
     transition:0.2s;
 }
 .kolegij-second-navbar-title-dark{
-    color:#e2e2e2;
+    color:#e08816 !important;
     transition:color 1s;
 }
 .kolegij-second-navbar-search-input-dark{
@@ -3414,6 +3536,9 @@ body{
     background: #464646;
     transition:0.2s;
 }
+.skripta-card-dark h1{
+    color: #d17f15 !important;
+}
 .side-card-dark,
 .side-card2-dark{
     background: #464646;
@@ -3429,7 +3554,7 @@ body{
     transition:0.2s;
 }
 .skripta-second-navbar-title-dark{
-    color:#e2e2e2;
+    color:#e08816;
     transition:0.2s;
 }
 .skripta-information-dark{
@@ -3447,7 +3572,7 @@ body{
     transition:0.2s;
 }
 .skripta-comments-content-title-dark{
-    color:#e2e2e2;
+    color:#e08816;
     transition:0.2s;
 }
 .skripta-comments-dark{
@@ -3455,10 +3580,15 @@ body{
     transition:0.2s;
 }
 .skripta-comments-content-dark,
-.skripta-comments-content-dark span,
-.skripta-comments-content-dark h1{
+.skripta-comments-content-dark span{
     color:#e2e2e2;
     transition:0.2s;
+}
+.skripta-comments-content-dark h1{
+    color:#e08816 ;
+}
+.skripta-comments-content-dark h1 span{
+    color:#e08816 ;
 }
 .skripta-comments-content-dark textarea{
     background: #464646;
@@ -3493,6 +3623,18 @@ body{
 .upload-modal-dark textarea::placeholder{
     color: #a9a9a9;
 }
+.post-comment-dark{
+    background:#e08816;
+}
+
+.post-comment-dark:hover{
+    background: #ef9117;
+}
+.post-comment:disabled{
+    background: #ef9117;
+
+}
+
 /*####################################################    END OF DARK MODE       ####################################################*/
 
 body{
