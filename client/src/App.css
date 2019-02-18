@@ -3478,32 +3478,26 @@ body{
     transition:0.2s;
 }
 .institution-location-title-dark{
-    color:#e2e2e2;
-    transition:0.2s;
+    color:#e08816;
 }
 .institution-location-title-dark:hover{
-    color: #ffffff;
-    transition:0.2s;
+    color: #ff9b19;
 }
 .institution-fields-title-dark{
     color: #e2e2e2;
     transition:0.2s;
 }
 .institution-field-item-dark{
-    color: #e2e2e2;
-    transition:0.2s;
+    color:#e08816;
 }
 .institution-field-item-dark:hover{
-    color: #ffffff;
-    transition:0.2s;
+    color: #ff9b19;
 }
 .field-subject-item-dark{
-    color: #e2e2e2;
-    transition:0.2s;
+    color:#e08816;
 }
 .field-subject-item-dark:hover{
-    color: #ffffff;
-    transition:0.2s;
+    color: #ff9b19;
 }
 .search-subject-fields-dark{
     border-bottom: 1px solid #e2e2e2;
