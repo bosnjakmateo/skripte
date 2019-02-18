@@ -82,7 +82,7 @@ class Skripta extends Component {
                             'skripta-second-navbar-title-dark' : this.props.auth.theme === "Dark"
                         })}>
                             {this.state.loading ? <div className="aaa"/> : this.props.profile.currentScript.title}</h1>
-                        {this.state.loading || this.state.scriptAlreadyInFavorites && !this.props.profile.favoritesLoading ?
+                        {this.state.scriptAlreadyInFavorites && !this.props.profile.favoritesLoading ?
                             <button className="remove-from-favorites-button" disabled={this.state.loading} onClick={this.removeSkripta}>Izbrisi iz Omiljenih</button>
                             :
                             <button className="add-to-favorites-button" disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites}>Dodaj u Omiljene</button>}

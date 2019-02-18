@@ -123,7 +123,7 @@ export const postComment = (id,text) => dispatch => {
 };
 
 export const addScriptToFavorites = (id) => dispatch => {
-    dispatch(setFavoritesLoading())
+    dispatch(setFavoritesLoading());
     axios
         .post(`/scripts/favorites/${id}`)
         .then(res =>
@@ -134,7 +134,7 @@ export const addScriptToFavorites = (id) => dispatch => {
 };
 
 export const addSubjectToFavorites = (id) => dispatch => {
-    dispatch(setFavoritesLoading())
+    dispatch(setFavoritesLoading());
         axios
             .post(`/subjects/favorites/${id}`)
             .then(res =>

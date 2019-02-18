@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import {connect} from "react-redux";
 import {postScript} from "../Actions/profileActions";
+import {getCurrentUser} from "../Actions/authActions";
 import classnames from "classnames";
 
 class UploadModal extends Component {
@@ -31,6 +32,7 @@ class UploadModal extends Component {
             _subject: this.props.profile.currentSubject._id
         };
         this.props.postScript(postData);
+        this.props.getCurrentUser();
     }
 
     prevent(e){
@@ -92,4 +94,4 @@ const mapStateToProps = (state) => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { postScript })(UploadModal);
+export default connect(mapStateToProps, { postScript,getCurrentUser })(UploadModal);

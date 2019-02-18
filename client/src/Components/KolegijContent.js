@@ -54,6 +54,7 @@ class KolegijContent extends Component {
         if(this.props.profile.urlError !== prevProps.profile.urlError){
             window.location.href = '/home';
         }
+
     }
 
     asd3(){
@@ -68,7 +69,6 @@ class KolegijContent extends Component {
             mounted:true
         })
     }
-
 
 
     addToFavorites(){
@@ -110,6 +110,7 @@ class KolegijContent extends Component {
     }
 
     render() {
+        console.log(this.state)
         let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
         return (
             <div className="kolegij-page">
