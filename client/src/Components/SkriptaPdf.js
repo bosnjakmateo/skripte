@@ -10,7 +10,7 @@ class SkriptaPdf extends Component {
     render() {
         return (
             <div className="pdf-container">
-                <embed id="asd" src="http://www.pdf995.com/samples/pdf.pdf"/>
+                <embed id="asd" src="http://www.pdf995.com/samples/pdf.pdf#view=FitH"/>
             </div>
         );
     }

@@ -1296,17 +1296,19 @@ html, body{
     z-index:100;
 }
 .headroom--unfixed {
-    position: relative;
+    position: fixed;
     transform: translateY(0);
+    transition:0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .headroom--unpinned {
     position: fixed;
     transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .headroom--pinned {
     position: fixed;
-    transition:0.1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition:0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     transform: translateY(0);
 }
 
@@ -3358,9 +3360,10 @@ body{
     width:90%;
     margin-top: 15px;
     margin-bottom: 20px;
-    margin-left:5%;
+    left:5%;
+    top:10%;
     height:60px;
-    position:relative;
+    position:absolute;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.27);
     cursor:pointer;
     transition:0.2s ;
@@ -3404,6 +3407,7 @@ body{
     background: #272727;
     transition:0.2s;
 }
+
 .user-menu-collapsible-dark{
     transition:0.2s;
     background: #272727;
@@ -3412,6 +3416,7 @@ body{
     background: #444444 !important;
     transition:0.2s;
 }
+
 .favorite-subjects-dark{
     background: #464646;
     transition:0.2s;

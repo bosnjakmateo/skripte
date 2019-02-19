@@ -63,10 +63,10 @@ class Home extends Component {
             }
         }
 
-        if (this.props.profile.allSubjects !== prevProps.profile.allSubjects && this.props.auth.loading === false  ) {
+        if (this.props.auth.userData.favoriteSubjects !== prevProps.auth.userData.favoriteSubjects && this.props.auth.loading === false  ) {
             this.filterFavoriteSubjectsFromAll();
         }
-        if (this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false  ) {
+        if (this.props.auth.userData.favoriteScripts !== prevProps.auth.userData.favoriteScripts && this.props.auth.loading === false  ) {
             this.filterFavoriteScriptsFromAll();
         }
     }
@@ -119,7 +119,6 @@ class Home extends Component {
     }
 
     render() {
-
         return (
             <div className="home-page">
                 <div className={classnames('',{
@@ -167,11 +166,11 @@ class Home extends Component {
                             { this.state.tutorialFirstPartComplete ? null :
                                 <TutorialKolegijCardPlaceholders/>
                             }
-                            { this.props.auth.loading ? <Spinner/>
+                            { this.props.auth.loading && Object.keys(this.props.profile.filteredSubjects).length > 0 ? <Spinner/>
                                 : this.props.profile.filteredSubjects.map((item) =>
                                   <KolegijCard keyprop={item._id} key={item._id} title={item.name}/>
                             )}
-                            {this.state.subjectsFiltered && Object.keys(this.props.profile.filteredSubjects).length === 0 && !this.state.tutorial  ? <AddKolegijCard/> : null}
+                            { Object.keys(this.props.profile.filteredSubjects).length === 0 && !this.state.tutorial  ? <AddKolegijCard/> : null}
                         </div>
                     </div>
                     <div className="favorite-kolegiji-container">

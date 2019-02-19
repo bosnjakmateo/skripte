@@ -54,7 +54,8 @@ export default function(state = initialState, action) {
         case FILTERED_SUBJECTS:
             return{
                 ...state,
-                filteredSubjects: action.payload
+                filteredSubjects: action.payload,
+                loading:false
             };
         case FILTERED_SUBJECTS2:
             return{
