@@ -63,10 +63,10 @@ class Home extends Component {
             }
         }
 
-        if (this.props.auth.userData.favoriteSubjects !== prevProps.auth.userData.favoriteSubjects && this.props.auth.loading === false  ) {
+        if (this.props.auth.userData.favoriteSubjects !== prevProps.auth.userData.favoriteSubjects || this.props.profile.allSubjects !== prevProps.profile.allSubjects && this.props.auth.loading === false  ) {
             this.filterFavoriteSubjectsFromAll();
         }
-        if (this.props.auth.userData.favoriteScripts !== prevProps.auth.userData.favoriteScripts && this.props.auth.loading === false  ) {
+        if (this.props.auth.userData.favoriteScripts !== prevProps.auth.userData.favoriteScripts || this.props.profile.allScripts !== prevProps.profile.allScripts && this.props.auth.loading === false  ) {
             this.filterFavoriteScriptsFromAll();
         }
     }
