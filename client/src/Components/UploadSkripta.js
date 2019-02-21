@@ -26,7 +26,7 @@ class UploadSkripta extends Component {
                 <div className="upload-skripta-container">
                     <div className="upload-skripta-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU</h1>
-                        <form>
+                        <form encType="multipart/form-data">
                             <div className="upload-skripta-component">
                                 <select
                                     className="upload-select">
@@ -74,7 +74,7 @@ class UploadSkripta extends Component {
 
 
                             <div className="upload-skripta-component">
-                                <input type="file"/>
+                                <input type="file" name={}/>
                             </div>
 
                             <div className="upload-skripta-component">
