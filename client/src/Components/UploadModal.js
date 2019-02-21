@@ -30,17 +30,20 @@ class UploadModal extends Component {
     onSubmit(event){
         event.preventDefault();
 
+
+        const formData = new FormData();
+        formData.append('pdf',this.state.file);
+
         const postData = {
             title: this.state.title,
             description: this.state.description,
             _subject: this.props.profile.currentSubject._id,
-            pdf:this.state.file
+            pdf:formData
         };
 
 
         this.props.postScript(postData);
         this.props.getCurrentUser();
-        console.log(postData)
     }
 
     prevent(e){
