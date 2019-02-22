@@ -90,7 +90,7 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
                             <div className="upload-skripta-component">
-                                <input type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}/>
+                                <input className="file-upload" type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}/>
                             </div>
                             <div className="upload-skripta-component">
                                 <input type='submit' value='Upload' />
