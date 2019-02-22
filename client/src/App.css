@@ -2327,8 +2327,11 @@ html, body{
 .upload-skripta-component{
     margin:35px 0;
 }
+.file-upload{
+    width:100%
+}
 .upload-skripta-input{
-    width:55%;
+    width:100%;
     border: none;
     border-bottom: 1px solid black;
     padding-left:2px;
@@ -2440,10 +2443,11 @@ html, body{
 .upload-modal-content{
     padding-left:25px;
     padding-top:25px;
+    padding-right:25px;
 }
 
 .textarea{
-    width:55%;
+    width:100%;
 }
 
 .skripta-card a{
@@ -4002,10 +4006,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .landing-page-third-section{
-    height: 141vh;
+    height: 165vh;
     position: relative;
     margin-top: 100px;
-    background-image: linear-gradient(to right, #3384ff , #1d4f9a);
+    background-image: linear-gradient(to bottom, #3384ff , #1d4e98);
 
 }
 .cards-container {
@@ -4074,12 +4078,14 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     right:0;
     top:30%;
+    padding-right:2%;
 }
 .share-img{
     float:right;
-    width:90%;
-    -webkit-filter: drop-shadow(15px 10px 8px rgba(34, 34, 34, 0.61));
-    filter: drop-shadow(15px 10px 8px rgba(34, 34, 34, 0.61));
+    width:80%;
+    -webkit-filter: drop-shadow(0px 0px 9px rgba(34, 34, 34, 0.35));
+    filter: drop-shadow(0px 0px 9px rgba(34, 34, 34, 0.35));
+    opacity: 0.9;
 }
 .share-text-left{
     position: absolute;
@@ -4095,19 +4101,97 @@ body::-webkit-scrollbar-thumb:hover {
     font-size:20px;
 }
 .landing-page-fourth-section{
-    height:100vh;
-    margin-top: 130px;
+    height:126vh;
+    padding-top: 150px;
+    background-image: linear-gradient(to top, #09448e , #1d4e98);
+    position: relative;
 }
 
 .comment-img-container{
-    width:50%;
-    position: absolute;
+    width:60%;
 }
 .comment-img-container img{
-    width:100%;
+    width:90%;
+    -webkit-filter: drop-shadow(10px 10px 13px rgba(34, 34, 34, 0.31));
+    filter: drop-shadow(10px 10px 13px rgba(34, 34, 34, 0.31));
+    float:right;
+}
+.comment-text h1{
+    font-size: 45px;
+}
+.comment-text h3{
+    font-size: 20px;
 }
 
 .landing-comment-container{
-    position: relative;
+    position: absolute;
+    width:100%;
+    top:35%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.comment-text-container{
+    width:35%;
+    margin-top:80px;
+    margin-left:5%;
+}
+
+.comment-text{
+    color:white;
+}
+
+.container-fourth-top{
+    position: absolute;
+    background: #ffffff;
+    top: -9%;
+    height: 200px;
+    widtH: 90%;
+    left: 5%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.40);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-fourth-top h1{
+    color:#3384ff;
+}
+
+.landing-page-fifth-section{
+    background:#09448e;
+    margin-top: -23px;
+    height: 100vh;
+}
+
+.landing-fifth-container{
+    padding-top:150px;
+    display:flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.commenting-text-container{
+    width:35%;
+    padding-left:15%;
+    padding-top:80px;
+    color:white;
+}
+
+.commenting-text h1{
+    font-size: 40px;
+}
+.commenting-text h3{
+    font-size: 25px;
+}
+
+.commenting-img-container{
+    width:50%;
+}
+
+.commenting-img-container img{
     width:100%;
 }

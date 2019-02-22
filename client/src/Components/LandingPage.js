@@ -3,6 +3,7 @@ import '../App.css';
 import dark from "../Images/darkScreen.png"
 import light from "../Images/lightScreen.png"
 import comment from "../Images/landingComment.png"
+import scroll from "../Images/scroll.gif";
 import share from "../Images/share.png";
 import Phone4 from "../Images/landingPhone.png";
 import { Link } from 'react-router-dom';
@@ -150,10 +151,10 @@ class LandingPage extends Component {
                                 <Reveal delay={600} duration={900} effect="slide-in">
                                     <h1>Immersive Dark Mode</h1>
                                 </Reveal>
-                                <Reveal delay={1200} duration={900} effect="slide-in">
+                                <Reveal delay={1000} duration={900} effect="slide-in">
                                     <h3>Switchable live</h3>
                                 </Reveal>
-                                <Reveal delay={1800} duration={900} effect="slide-in">
+                                <Reveal delay={1400} duration={900} effect="slide-in">
                                     <div className="theme-switch-buttons">
                                         <button disabled={this.state.darkTheme} className="dark-button" onClick={this.toggleDarkTheme}>Dark Theme</button>
                                         <button disabled={!this.state.darkTheme} className="light-button" onClick={this.toggleLightTheme}>Light Theme</button>
@@ -188,22 +189,54 @@ class LandingPage extends Component {
                     <div className="share-container">
                         <Reveal duration={900} fraction={0.7} effect="card-fade-up">
                         <div className="share-img-container">
-                            <img className="share-img" src={share}/>
+                            <img className="share-img" src={scroll}/>
                         </div>
                         </Reveal>
                         <Reveal duration={900} fraction={1} effect="card-fade-up">
                         <div className="share-text-left">
-                            <h1>Upload your own Scripts</h1>
-                            <h3>Share your knowledge with your colleagues</h3>
+                            <h1>Read scripts from anywhere</h1>
+                            <h3>My fake plants died because I did not pretend to water them.</h3>
                         </div>
                         </Reveal>
                     </div>
                 </div>
                 <div className="landing-page-fourth-section">
-                    <div className="landing-comment-container">
-                        <div className="comment-img-container">
-                            <img className="comment-img" src={comment}/>
+                    <Reveal duration={900} fraction={0.7} effect="card-fade-up">
+                        <div className="container-fourth-top">
+                            <h1>New Uploads every day</h1>
                         </div>
+                    </Reveal>
+                    <div className="landing-comment-container">
+                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
+                            <div className="comment-text-container">
+                                <div className="comment-text">
+                                    <h1>Upload your own scripts</h1>
+                                    <h3>Share you knowledge with other colleagues</h3>
+                                </div>
+                            </div>
+                        </Reveal>
+                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
+                            <div className="comment-img-container">
+                                <img className="comment-img" src={share}/>
+                            </div>
+                        </Reveal>
+                    </div>
+                </div>
+                <div className="landing-page-fifth-section">
+                    <div className="landing-fifth-container">
+                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
+                            <div className="commenting-img-container">
+                                <img className="commenting-img" src={comment}/>
+                            </div>
+                        </Reveal>
+                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
+                            <div className="commenting-text-container">
+                                <div className="commenting-text">
+                                    <h1>Commenting</h1>
+                                    <h3>A bank is a place that will lend you money if you can prove that you don't need it.</h3>
+                                </div>
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>
