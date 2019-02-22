@@ -14,6 +14,7 @@ const User = require("../../models/User")
  *
  * @apiSuccess {String{5-50}} title Script title
  * @apiSuccess {String{10-200}} description Script description 
+ * @apiSuccess {String} pdf Script pdf path 
  * @apiSuccess {Array[]} likes Script likes
  * @apiSuccess {Id} likes._user User id
  * @apiSuccess {Array[]} dislikes Script dislikes
@@ -34,6 +35,7 @@ const User = require("../../models/User")
  *
  * @apiParam {String{5-50}} title Script title
  * @apiParam {String{10-200}} description Script description
+ * @apiParam {File} pdf Script pdf file
  * @apiParam {Id} _subject Subject id
  * 
  * @apiHeader {String} token User token
@@ -41,7 +43,7 @@ const User = require("../../models/User")
  * @apiUse ScriptSuccess
  * 
  * 
- * @apiError {String} message="Script already exists/No user found"
+ * @apiError {String} message="Script already exists || No file was uploaded || No user found"
  */
 router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
   const { errors, isValid } = validateScriptInput(req.body)
@@ -55,7 +57,19 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
       if (script) {
         return res.status(400).json({ message: "Script already exists" })
       } else {
+        if (Object.keys(req.files).length == 0) {
+          return res.status(400).json({ message: "No file was uploaded" })
+        }
+
         req.body.user = req.user.username
+
+        let pdfPath = req.files.pdf
+
+        pdfPath.mv("C:/temp/skripte/", err => {
+          if(err){
+            return res.status(500).send(err)
+          }
+        })
 
         const newScript = new Script(req.body)
         newScript.save()
