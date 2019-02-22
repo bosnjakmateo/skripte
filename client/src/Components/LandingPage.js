@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import dark from "../Images/darkScreen.png"
 import light from "../Images/lightScreen.png"
+import comment from "../Images/landingComment.png"
 import share from "../Images/share.png";
 import Phone4 from "../Images/landingPhone.png";
 import { Link } from 'react-router-dom';
@@ -199,7 +200,11 @@ class LandingPage extends Component {
                     </div>
                 </div>
                 <div className="landing-page-fourth-section">
-
+                    <div className="landing-comment-container">
+                        <div className="comment-img-container">
+                            <img className="comment-img" src={comment}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
