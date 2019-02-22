@@ -1,4 +1,5 @@
 const express = require("express")
+const fileUpload = require('express-fileupload')
 const router = express.Router()
 const passport = require("passport")
 
@@ -8,6 +9,8 @@ const validateScriptInput = require("../../validation/script")
 // Load models
 const Script = require("../../models/Script")
 const User = require("../../models/User")
+
+express().use(fileUpload())
 
 /**
  * @apiDefine ScriptSuccess
@@ -46,7 +49,13 @@ const User = require("../../models/User")
  * @apiError {String} message="Script already exists || No file was uploaded || No user found"
  */
 router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
-  const { errors, isValid } = validateScriptInput(req.body)
+  if (Object.keys(req.files).length == 0) {
+    console.log("test")
+  } else {
+    console.log("dwadaw")
+  }
+
+  /*const { errors, isValid } = validateScriptInput(req.body)
 
   if (!isValid) {
     return res.status(400).json(errors)
@@ -67,6 +76,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
 
         pdfPath.mv("C:/temp/skripte/", err => {
           if(err){
+            console.log(err)
             return res.status(500).send(err)
           }
         })
@@ -75,6 +85,8 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
         newScript.save()
           .then(newScript => res.json(newScript))
           .catch(err => res.json(err))
+
+        console.log(newScript)
 
         User.findById(req.user._id)
           .then(user => {
@@ -91,7 +103,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req, res) =>
           .catch(err => res.status(404).json({ message: "No user found" }))
       }
     })
-    .catch(err => req.json(err))
+    .catch(err => res.json(err))*/
 })
 
 /**
