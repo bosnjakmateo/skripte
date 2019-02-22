@@ -11,6 +11,10 @@ const ScriptSchema = new Schema({
     type: String,
     required: true
   },
+  pdf: {
+    type: String,
+    required: true
+  },
   likes: [{
     _user: {
       type: Schema.Types.ObjectId, ref: 'User'
