@@ -64,7 +64,7 @@ class KolegijContent extends Component {
 
     componentDidMount(){
         this.props.getSubjectById(this.props.match.params.kolegij_id)
-        this.props.getAllScripts()
+        this.props.getAllScripts();
         this.setState({
             mounted:true
         })
@@ -116,6 +116,7 @@ class KolegijContent extends Component {
     }
 
     render() {
+
         let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
         return (
             <div className="kolegij-page">
@@ -138,7 +139,7 @@ class KolegijContent extends Component {
                                 }}
                         />
                         <div className="kolegij-content-buttons-container">
-                            {this.state.loading || this.state.subjectAlreadyInFavorites && !this.props.profile.favoritesLoading ?
+                            {(this.state.loading || this.state.subjectAlreadyInFavorites) && !this.props.profile.favoritesLoading ?
                                 <button disabled={this.state.loading} onClick={this.removeSubject} className={classnames('remove-favorites-skripta-button',{
                                     'remove-favorites-skripta-button-dark' : this.props.auth.theme === "Dark"
                                 })}>Izbrisi iz Omiljenih</button>

@@ -10,11 +10,15 @@ class UploadModal extends Component {
         super(props);
         this.state = {
             title:"",
-            description:""
+            description:"",
+            script:{},
+            scriptName:"",
+            file:null
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.prevent = this.prevent.bind(this);
+        this.getScript = this.getScript.bind(this);
     }
 
     onChange(event){
@@ -26,17 +30,28 @@ class UploadModal extends Component {
     onSubmit(event){
         event.preventDefault();
 
+
+        const formData = new FormData();
+        formData.append('pdf',this.state.file);
+
         const postData = {
             title: this.state.title,
             description: this.state.description,
-            _subject: this.props.profile.currentSubject._id
+            _subject: this.props.profile.currentSubject._id,
+            pdf:formData
         };
+
+
         this.props.postScript(postData);
         this.props.getCurrentUser();
     }
 
     prevent(e){
         e.stopPropagation();
+    }
+
+    getScript(e){
+        this.setState({file:e.target.files[0]});
     }
 
     render() {
@@ -48,7 +63,7 @@ class UploadModal extends Component {
                 })}>
                     <div className="upload-modal-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
-                        <form onSubmit={this.onSubmit}>
+                        <form encType="multipart/form-data" onSubmit={this.onSubmit}>
                             <div className="upload-skripta-component">
                                 <input
                                     className="upload-skripta-input"
@@ -75,10 +90,10 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
                             <div className="upload-skripta-component">
-                                <input type="file" accept=".pdf"/>
+                                <input type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}/>
                             </div>
                             <div className="upload-skripta-component">
-                                <button>OBJAVI</button>
+                                <input type='submit' value='Upload' />
                             </div>
                         </form>
                     </div>

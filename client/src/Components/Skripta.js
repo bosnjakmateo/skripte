@@ -92,14 +92,14 @@ class Skripta extends Component {
                                 'remove-from-favorites-button-dark' : this.props.auth.theme === "Dark"
                             })}>Izbrisi iz Omiljenih</button>
                             :
-                            <button disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites} className={classnames('add-to-favorites-button',{
+                            <button disabled={this.props.profile.favoritesLoading || this.state.loading} onClick={this.addToFavorites} className={classnames('add-to-favorites-button',{
                                 'add-to-favorites-button-dark' : this.props.auth.theme === "Dark"
                             })}>Dodaj u Omiljene</button>}
                     </div>
                 </div>
                 <div className="skripta-page-content">
                     <SkriptaPdf/>
-                        <SkriptaInfo/>
+                        <SkriptaInfo loading={this.state.loading}/>
                         <SkriptaComments/>
                 </div>
             </div>
