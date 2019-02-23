@@ -1,7 +1,8 @@
 const express = require("express")
-const fileUpload = require('express-fileupload')
 const router = express.Router()
 const passport = require("passport")
+const multer  = require('multer')
+const upload = multer({ dest: 'C:/temp/' })
 
 // Load input validation
 const validateScriptInput = require("../../validation/script")
@@ -9,8 +10,6 @@ const validateScriptInput = require("../../validation/script")
 // Load models
 const Script = require("../../models/Script")
 const User = require("../../models/User")
-
-express().use(fileUpload())
 
 /**
  * @apiDefine ScriptSuccess
@@ -48,11 +47,12 @@ express().use(fileUpload())
  * 
  * @apiError {String} message="Script already exists || No file was uploaded || No user found"
  */
-router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
-  if (Object.keys(req.files).length == 0) {
-    console.log("test")
+router.post("/"/*, passport.authenticate("jwt", { session: false })*/, upload.single('pdf'), (req, res) => {
+  console.log(req.file)
+  if (Object.keys(req.file).length == 0) {
+    console.log("Nije poslano")
   } else {
-    console.log("dwadaw")
+    console.log("Poslano!")
   }
 
   /*const { errors, isValid } = validateScriptInput(req.body)

@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require("body-parser")
-const fileUpload = require('express-fileupload')
 const passport = require("passport")
 const mongoose = require("mongoose")
 
@@ -17,9 +16,6 @@ const app = express()
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-// default options
-app.use(fileUpload())
 
 // Passport middleware
 app.use(passport.initialize())
