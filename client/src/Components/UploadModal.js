@@ -32,7 +32,7 @@ class UploadModal extends Component {
 
 
         const formData = new FormData();
-        formData.append('pdf',this.state.file);
+        formData.append('file',this.uploadInput.files[0]);
 
         const postData = {
             title: this.state.title,
@@ -63,7 +63,7 @@ class UploadModal extends Component {
                 })}>
                     <div className="upload-modal-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
-                        <form encType="multipart/form-data" onSubmit={this.onSubmit}>
+                        <form className="form" encType="multipart/form-data" onSubmit={this.onSubmit}>
                             <div className="upload-skripta-component">
                                 <input
                                     className="upload-skripta-input"
@@ -90,7 +90,9 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
                             <div className="upload-skripta-component">
-                                <input className="file-upload" type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}/>
+                                <input ref={(ref) => { this.uploadInput = ref; }}
+                                    className="file-upload" type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}
+                                />
                             </div>
                             <div className="upload-skripta-component">
                                 <input type='submit' value='Upload' />
