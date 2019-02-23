@@ -4014,7 +4014,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .cards-container {
     position: absolute;
-    top: -19%;
+    top: -16%;
     width: 100%;
     z-index: 2;
 }
@@ -4161,9 +4161,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .landing-page-fifth-section{
-    background:#09448e;
-    margin-top: -23px;
-    height: 100vh;
+    margin-top: -67px;
+    height: 114vh;
+    background: url('Images/big.svg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .landing-fifth-container{
@@ -4194,4 +4198,33 @@ body::-webkit-scrollbar-thumb:hover {
 
 .commenting-img-container img{
     width:100%;
+}
+
+.landing-page-last-section{
+    height:90vh;
+    position: relative;
+    background: white;
+    margin-top:-23px;
+}
+
+.landing-last-container{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:30%;
+}
+
+.last-container h1{
+    font-size:50px;
+    color:#1d4e98;
+}
+
+.last-container button{
+    margin-top:80px;
+    padding: 18px 45px;
+    font-size:20px;
+    font-weight:bold;
+    background:#1d4e98;
+    color:white;
+    border:none;
 }

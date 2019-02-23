@@ -239,6 +239,14 @@ class LandingPage extends Component {
                         </Reveal>
                     </div>
                 </div>
+                <div className="landing-page-last-section">
+                    <div className="landing-last-container">
+                        <div className="last-container">
+                            <h1>Create your account now</h1>
+                            <button>REGISTRIRAJ SE</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
