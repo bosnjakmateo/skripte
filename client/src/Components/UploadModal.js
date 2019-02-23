@@ -32,17 +32,9 @@ class UploadModal extends Component {
 
 
         const formData = new FormData();
-        formData.append('file',this.uploadInput.files[0]);
+        formData.append('pdf',this.uploadInput.files[0], this.uploadInput.name);
 
-        const postData = {
-            title: this.state.title,
-            description: this.state.description,
-            _subject: this.props.profile.currentSubject._id,
-            pdf:formData
-        };
-
-
-        this.props.postScript(postData);
+        this.props.postScript(formData);
         this.props.getCurrentUser();
     }
 
@@ -63,7 +55,7 @@ class UploadModal extends Component {
                 })}>
                     <div className="upload-modal-content">
                         <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
-                        <form className="form" encType="multipart/form-data" onSubmit={this.onSubmit}>
+                        <form encType="multipart/form-data" onSubmit={this.onSubmit}>
                             <div className="upload-skripta-component">
                                 <input
                                     className="upload-skripta-input"
@@ -90,8 +82,7 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
                             <div className="upload-skripta-component">
-                                <input ref={(ref) => { this.uploadInput = ref; }}
-                                    className="file-upload" type="file" accept=".pdf" id="upload_doc" name="pdf"  onChange={this.getScript}
+                                <input ref={(ref) => { this.uploadInput = ref; }} type="file" accept=".pdf" name="pdf"  onChange={this.getScript}
                                 />
                             </div>
                             <div className="upload-skripta-component">
