@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
-const multer  = require('multer')
+const multer = require('multer')
 const upload = multer({ dest: 'C:/temp/' })
 
 // Load input validation
@@ -47,15 +47,9 @@ const User = require("../../models/User")
  * 
  * @apiError {String} message="Script already exists || No file was uploaded || No user found"
  */
-router.post("/"/*, passport.authenticate("jwt", { session: false })*/, upload.single('pdf'), (req, res) => {
-  console.log(req.file)
-  if (Object.keys(req.file).length == 0) {
-    console.log("Nije poslano")
-  } else {
-    console.log("Poslano!")
-  }
-
-  /*const { errors, isValid } = validateScriptInput(req.body)
+router.post("/", passport.authenticate("jwt", { session: false }), upload.single('pdf'), (req, res) => {
+  //console.log(req.file)
+  const { errors, isValid } = validateScriptInput(req.body)
 
   if (!isValid) {
     return res.status(400).json(errors)
@@ -66,27 +60,12 @@ router.post("/"/*, passport.authenticate("jwt", { session: false })*/, upload.si
       if (script) {
         return res.status(400).json({ message: "Script already exists" })
       } else {
-        if (Object.keys(req.files).length == 0) {
-          return res.status(400).json({ message: "No file was uploaded" })
-        }
-
         req.body.user = req.user.username
-
-        let pdfPath = req.files.pdf
-
-        pdfPath.mv("C:/temp/skripte/", err => {
-          if(err){
-            console.log(err)
-            return res.status(500).send(err)
-          }
-        })
 
         const newScript = new Script(req.body)
         newScript.save()
           .then(newScript => res.json(newScript))
           .catch(err => res.json(err))
-
-        console.log(newScript)
 
         User.findById(req.user._id)
           .then(user => {
@@ -103,7 +82,7 @@ router.post("/"/*, passport.authenticate("jwt", { session: false })*/, upload.si
           .catch(err => res.status(404).json({ message: "No user found" }))
       }
     })
-    .catch(err => res.json(err))*/
+    .catch(err => res.json(err))
 })
 
 /**
@@ -221,13 +200,13 @@ router.delete("/comments/:id/:commentId", passport.authenticate("jwt", { session
       let flag = false
 
       script.comments.forEach(c => {
-        if(JSON.stringify(c._id) === JSON.stringify(req.params.commentId)){
+        if (JSON.stringify(c._id) === JSON.stringify(req.params.commentId)) {
           script.comments = script.comments.filter(i => i !== c)
           flag = true
         }
       })
 
-      if(!flag){
+      if (!flag) {
         res.json({ message: "No comment found" })
       }
 
@@ -263,7 +242,7 @@ router.post("/favorites/:id", passport.authenticate("jwt", { session: false }), 
             }
 
             user.favoriteScripts.forEach(i => {
-              if(JSON.stringify(i) === JSON.stringify(newFavorite))
+              if (JSON.stringify(i) === JSON.stringify(newFavorite))
                 res.status(400).json({ message: "Script already added to favorites" })
             })
 
@@ -304,7 +283,7 @@ router.delete("/favorites/:id", passport.authenticate("jwt", { session: false })
             }
 
             user.favoriteScripts.forEach(i => {
-              if(JSON.stringify(i) === JSON.stringify(newFavorite)){
+              if (JSON.stringify(i) === JSON.stringify(newFavorite)) {
                 user.favoriteScripts = user.favoriteScripts.filter(j => j !== i)
               }
             })
