@@ -35,7 +35,6 @@ class UploadModal extends Component {
 
 
         this.props.postScript(formData);
-        this.props.getCurrentUser();
     }
 
     prevent(e){
@@ -83,7 +82,7 @@ class UploadModal extends Component {
                                 />
                             </div>
                             <div className="upload-skripta-component">
-                                <input type='submit' value='Upload' />
+                                <button type="submit">Upload</button>
                             </div>
                         </form>
                     </div>

@@ -16,7 +16,8 @@ import {
     DELETE_COMMENT,
     TUTORIAL_COMPLETED,
     GET_ERRORS,FAVORITES_LOADING,
-    GET_URL_ERROR
+    GET_URL_ERROR,
+    GET_USER
 } from "./types";
 import axios from 'axios';
 
@@ -149,13 +150,15 @@ export const addSubjectToFavorites = (id) => dispatch => {
 export const postScript = (postData) => dispatch => {
 
     axios
-        .post("/scripts/", postData)
+        .post("/scripts", postData)
         .then(res =>
             dispatch({
                 type: POST_SCRIPT,
+                payload:res.data
             }),
 
         )
+
 
 };
 

@@ -55,6 +55,7 @@ class KolegijContent extends Component {
             window.location.href = '/home';
         }
 
+
     }
 
     asd3(){

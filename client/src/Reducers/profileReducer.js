@@ -1,9 +1,9 @@
 import {
     REMOVE_SUBJECT_FROM_FAVORITES, REMOVE_SCRIPT_FROM_FAVORITES,
-    GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, POST_SCRIPT, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
+    GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
     GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
     FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT, DATA_LOADING, DELETE_COMMENT, GET_ERRORS,
-    FAVORITES_LOADING,GET_URL_ERROR
+    FAVORITES_LOADING,GET_URL_ERROR,POST_SCRIPT
 } from '../Actions/types';
 
 
@@ -19,7 +19,8 @@ const initialState = {
     loading:false,
     errors:[],
     urlError:[],
-    favoritesLoading:false
+    favoritesLoading:false,
+    postedScript:[]
 };
 
 
@@ -91,11 +92,6 @@ export default function(state = initialState, action) {
                 filteredFavoriteScripts: state.filteredFavoriteScripts,
                 favoritesLoading:false
             };
-        case POST_SCRIPT:
-            return{
-                ...state,
-                allScripts: state.allScripts
-            };
         case REMOVE_SUBJECT_FROM_FAVORITES:
             return{
                 ...state,
@@ -129,6 +125,11 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 favoritesLoading: true
+            };
+        case POST_SCRIPT:
+            return{
+                ...state,
+                filteredScripts:[...state.filteredScripts, action.payload]
             };
         default:
             return state;
