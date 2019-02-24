@@ -144,22 +144,31 @@ export const addSubjectToFavorites = (id) => dispatch => {
             )
 };
 
+
+
 export const postScript = (postData) => dispatch => {
+
     axios
         .post("/scripts/", postData)
         .then(res =>
             dispatch({
                 type: POST_SCRIPT,
-                payload: res.data
-            })
+            }),
+
         )
-        .catch(err =>
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response
-            })
-        );
+
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const removeSubjectFromFavorites = (id) => dispatch => {

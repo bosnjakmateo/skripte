@@ -10,15 +10,11 @@ class UploadModal extends Component {
         super(props);
         this.state = {
             title:"",
-            description:"",
-            script:{},
-            scriptName:"",
-            file:null
+            description:""
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.prevent = this.prevent.bind(this);
-        this.getScript = this.getScript.bind(this);
     }
 
     onChange(event){
@@ -32,7 +28,11 @@ class UploadModal extends Component {
 
 
         const formData = new FormData();
-        formData.append('pdf',this.uploadInput.files[0], this.uploadInput.name);
+        formData.append('title', this.state.title)
+        formData.append('_subject', this.props.profile.currentSubject._id)
+        formData.append('description', this.state.description)
+        formData.append('pdf', this.uploadInput.files[0],this.uploadInput.name)
+
 
         this.props.postScript(formData);
         this.props.getCurrentUser();
@@ -42,9 +42,6 @@ class UploadModal extends Component {
         e.stopPropagation();
     }
 
-    getScript(e){
-        this.setState({file:e.target.files[0]});
-    }
 
     render() {
         return (
@@ -82,7 +79,7 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
                             <div className="upload-skripta-component">
-                                <input ref={(ref) => { this.uploadInput = ref; }} type="file" accept=".pdf" name="pdf"  onChange={this.getScript}
+                                <input ref={(ref) => { this.uploadInput = ref; }} type="file"  name="pdf"
                                 />
                             </div>
                             <div className="upload-skripta-component">

@@ -94,7 +94,7 @@ export default function(state = initialState, action) {
         case POST_SCRIPT:
             return{
                 ...state,
-                allScripts: [...state.allScripts,action.payload]
+                allScripts: state.allScripts
             };
         case REMOVE_SUBJECT_FROM_FAVORITES:
             return{
