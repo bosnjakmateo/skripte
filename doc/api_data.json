@@ -1283,6 +1283,13 @@
           },
           {
             "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pdfPath",
+            "description": "<p>Script pdf path</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Array[]",
             "optional": false,
             "field": "likes",
@@ -1403,6 +1410,13 @@
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pdfPath",
+            "description": "<p>Script pdf path</p>"
           },
           {
             "group": "Success 200",
@@ -1565,6 +1579,13 @@
           },
           {
             "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pdfPath",
+            "description": "<p>Script pdf path</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Array[]",
             "optional": false,
             "field": "likes",
@@ -1718,6 +1739,13 @@
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pdfPath",
+            "description": "<p>Script pdf path</p>"
           },
           {
             "group": "Success 200",
@@ -1891,6 +1919,13 @@
           },
           {
             "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "pdf",
+            "description": "<p>Script pdf file</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Id",
             "optional": false,
             "field": "_subject",
@@ -1920,7 +1955,7 @@
             "type": "String",
             "optional": false,
             "field": "message",
-            "defaultValue": "Script already exists/No user found",
+            "defaultValue": "Script already exists || No file was uploaded || No user found",
             "description": ""
           }
         ]
@@ -1947,6 +1982,13 @@
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pdfPath",
+            "description": "<p>Script pdf path</p>"
           },
           {
             "group": "Success 200",

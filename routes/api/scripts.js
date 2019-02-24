@@ -2,7 +2,6 @@ const express = require("express")
 const router = express.Router()
 const passport = require("passport")
 const multer = require('multer')
-const upload = multer({ dest: 'C:/temp/' })
 
 // Load input validation
 const validateScriptInput = require("../../validation/script")
@@ -11,12 +10,24 @@ const validateScriptInput = require("../../validation/script")
 const Script = require("../../models/Script")
 const User = require("../../models/User")
 
+// Multer settings
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'C:/temp/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + ".pdf")
+  }
+})
+const upload = multer({ storage: storage })
+//const upload = multer({ dest: 'C:/temp/' })
+
 /**
  * @apiDefine ScriptSuccess
  *
  * @apiSuccess {String{5-50}} title Script title
  * @apiSuccess {String{10-200}} description Script description 
- * @apiSuccess {String} pdf Script pdf path 
+ * @apiSuccess {String} pdfPath Script pdf path 
  * @apiSuccess {Array[]} likes Script likes
  * @apiSuccess {Id} likes._user User id
  * @apiSuccess {Array[]} dislikes Script dislikes
@@ -48,7 +59,6 @@ const User = require("../../models/User")
  * @apiError {String} message="Script already exists || No file was uploaded || No user found"
  */
 router.post("/", passport.authenticate("jwt", { session: false }), upload.single('pdf'), (req, res) => {
-  //console.log(req.file)
   const { errors, isValid } = validateScriptInput(req.body)
 
   if (!isValid) {
@@ -63,9 +73,11 @@ router.post("/", passport.authenticate("jwt", { session: false }), upload.single
         req.body.user = req.user.username
 
         const newScript = new Script(req.body)
+        newScript.pdfPath = req.file.path
         newScript.save()
           .then(newScript => res.json(newScript))
           .catch(err => res.json(err))
+        
 
         User.findById(req.user._id)
           .then(user => {
@@ -77,7 +89,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), upload.single
 
             user.save()
             console.log("Script added to users scripts")
-            //.then(res.status(200).json({ message: "Script added to users scripts" }))
+              .then(res.status(200).json({ message: "Script added to users scripts" }))
           })
           .catch(err => res.status(404).json({ message: "No user found" }))
       }

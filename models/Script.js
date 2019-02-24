@@ -11,7 +11,7 @@ const ScriptSchema = new Schema({
     type: String,
     required: true
   },
-  pdf: {
+  pdfPath: {
     type: String,
     required: true
   },
