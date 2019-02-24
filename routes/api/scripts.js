@@ -89,7 +89,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), upload.single
 
             user.save()
             console.log("Script added to users scripts")
-              .then(res.status(200).json({ message: "Script added to users scripts" }))
+            //.then(res.status(200).json({ message: "Script added to users scripts" }))
           })
           .catch(err => res.status(404).json({ message: "No user found" }))
       }
