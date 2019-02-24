@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
+import uploadIcon from "../Images/selectScript.svg";
+import uploadIconDark from "../Images/selectScriptDark.svg";
 import {connect} from "react-redux";
 import {postScript} from "../Actions/profileActions";
 import {getCurrentUser} from "../Actions/authActions";
@@ -10,11 +12,13 @@ class UploadModal extends Component {
         super(props);
         this.state = {
             title:"",
-            description:""
+            description:"",
+            file:{}
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.prevent = this.prevent.bind(this);
+        this.getScript = this.getScript.bind(this);
     }
 
     onChange(event){
@@ -25,7 +29,6 @@ class UploadModal extends Component {
 
     onSubmit(event){
         event.preventDefault();
-
 
         const formData = new FormData();
         formData.append('title', this.state.title)
@@ -41,22 +44,26 @@ class UploadModal extends Component {
         e.stopPropagation();
     }
 
+    getScript(e){
+        this.setState({file:e.target.files[0]});
+    }
 
     render() {
+        console.log(this.state)
         return (
             <div onClick={this.props.toggleModal} className="upload-modal-container">
                 <div onClick={((e) => this.prevent(e))}
                     className={classnames('upload-modal',{
                     'upload-modal-dark' : this.props.auth.theme === "Dark"
                 })}>
+                    <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
                     <div className="upload-modal-content">
-                        <h1 className="upload-skripta-title">OBJAVI SKRIPTU ZA KOLEGIJ: {this.props.profile.currentSubject.name}</h1>
                         <form encType="multipart/form-data" onSubmit={this.onSubmit}>
                             <div className="upload-skripta-component">
+                                <label>Naslov :</label>
                                 <input
                                     className="upload-skripta-input"
                                     type="text"
-                                    placeholder="Naslov skripte..."
                                     name="title"
                                     value={this.state.title}
                                     onChange={this.onChange}
@@ -65,9 +72,9 @@ class UploadModal extends Component {
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.title : null }</span>
                             </div>
                             <div className="upload-skripta-component">
+                                <label>Kratak opis :</label>
                                 <textarea
                                     className="textarea"
-                                    placeholder="Kratak opis..."
                                     rows="4"
                                     name="description"
                                     value={this.state.description}
@@ -77,12 +84,25 @@ class UploadModal extends Component {
                                 <br/>
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>
                             </div>
-                            <div className="upload-skripta-component">
-                                <input ref={(ref) => { this.uploadInput = ref; }} type="file"  name="pdf"
-                                />
+                            <div className="upload-skripta-component file-container">
+                                <input id="file" className="inputfile" ref={(ref) => { this.uploadInput = ref; }} type="file"  name="pdf" onChange={this.getScript}/>
+                                <label id="file-select-label" htmlFor="file"
+                                       className={classnames('',{
+                                        'make-green' : this.state.file.name
+                                })}>
+                                    {
+                                        this.props.auth.theme === "Dark" ?
+                                            <img id="file-select" src={uploadIconDark} alt="upload script" title="upload script"/>
+                                            :
+                                            <img id="file-select" src={uploadIcon} alt="upload script" title="upload script"/>
+                                    }
+                                    {!this.state.file.name ? "Choose a file..." : this.state.file.name}
+                                </label>
                             </div>
-                            <div className="upload-skripta-component">
-                                <button type="submit">Upload</button>
+                            <div className="upload-skripta-component upload-button-conatiner">
+                                <button type="submit" disabled={!this.state.file.name} className={classnames('',{
+                                    'upload-button-dark' : this.props.auth.theme === "Dark"
+                                })}>Upload</button>
                             </div>
                         </form>
                     </div>

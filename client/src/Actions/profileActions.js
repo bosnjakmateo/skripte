@@ -156,8 +156,13 @@ export const postScript = (postData) => dispatch => {
                 type: POST_SCRIPT,
                 payload:res.data
             }),
-
         )
+        .catch(err =>
+        dispatch({
+            type: GET_ERRORS,
+            payload: err.response
+        })
+    );
 
 
 };
