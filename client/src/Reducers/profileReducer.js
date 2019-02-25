@@ -20,7 +20,8 @@ const initialState = {
     errors:[],
     urlError:[],
     favoritesLoading:false,
-    postedScript:[]
+    postedScript:[],
+    scriptPostedToggle:false
 };
 
 
@@ -129,7 +130,8 @@ export default function(state = initialState, action) {
         case POST_SCRIPT:
             return{
                 ...state,
-                filteredScripts:[...state.filteredScripts, action.payload]
+                filteredScripts:[...state.filteredScripts, action.payload],
+                scriptPostedToggle:!state.scriptPostedToggle
             };
         default:
             return state;

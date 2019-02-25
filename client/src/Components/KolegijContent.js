@@ -16,6 +16,7 @@ import {
 import {connect} from "react-redux";
 import Spinner from "./Spinner";
 import classnames from "classnames";
+import Notification from "./Notification";
 
 
 class KolegijContent extends Component {
@@ -26,7 +27,8 @@ class KolegijContent extends Component {
             subjectAlreadyInFavorites:false,
             query:"",
             mounted:false,
-            loading:true
+            loading:true,
+            showNotification:false
         };
 
         this.addToFavorites = this.addToFavorites.bind(this);
@@ -54,8 +56,21 @@ class KolegijContent extends Component {
         if(this.props.profile.urlError !== prevProps.profile.urlError){
             window.location.href = '/home';
         }
+        if (this.props.profile.scriptPostedToggle !== prevProps.profile.scriptPostedToggle) {
+            this.toggleModal();
+            if(Object.keys(this.props.profile.filteredScripts).length > Object.keys(prevProps.profile.filteredScripts).length){
+                this.setState({
+                    showNotification:true
+                })
+                window.scrollTo(0,document.body.scrollHeight);
 
-
+                setTimeout(function(){
+                    this.setState({
+                        showNotification:false
+                    });
+                }.bind(this),5000);
+            }
+        }
     }
 
     asd3(){
@@ -117,7 +132,6 @@ class KolegijContent extends Component {
     }
 
     render() {
-
         let filteredScripts = this.props.profile.filteredScripts.filter(a => a.title.toLowerCase().includes(this.state.query.toLowerCase()));
         return (
             <div className="kolegij-page">
@@ -163,8 +177,9 @@ class KolegijContent extends Component {
                         )}
                 </div>
                 {this.state.modalIsOpen === true ?
-                    <UploadModal modalIsOpen={this.state.modalIsOpen} toggleModal={this.toggleModal}/>
+                    <UploadModal scriptUploaded={this.state.scriptUploaded} modalIsOpen={this.state.modalIsOpen} toggleModal={this.toggleModal}/>
                     : null}
+                {this.state.showNotification ? <Notification text={"Script Successfully Posted"}/> : null}
             </div>
         );
     }

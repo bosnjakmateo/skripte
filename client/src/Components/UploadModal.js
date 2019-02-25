@@ -13,7 +13,7 @@ class UploadModal extends Component {
         this.state = {
             title:"",
             description:"",
-            file:{}
+            file:{},
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -36,9 +36,9 @@ class UploadModal extends Component {
         formData.append('description', this.state.description)
         formData.append('pdf', this.uploadInput.files[0],this.uploadInput.name)
 
-
         this.props.postScript(formData);
     }
+
 
     prevent(e){
         e.stopPropagation();
@@ -49,7 +49,6 @@ class UploadModal extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div onClick={this.props.toggleModal} className="upload-modal-container">
                 <div onClick={((e) => this.prevent(e))}
@@ -98,6 +97,7 @@ class UploadModal extends Component {
                                     }
                                     {!this.state.file.name ? "Choose a file..." : this.state.file.name}
                                 </label>
+                                <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.message : null }</span>
                             </div>
                             <div className="upload-skripta-component upload-button-conatiner">
                                 <button type="submit" disabled={!this.state.file.name} className={classnames('',{

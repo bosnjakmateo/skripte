@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
-import dark from "../Images/darkScreen.png"
-import light from "../Images/lightScreen.png"
+import dark from "../Images/darkScreen6.png"
+import light from "../Images/lightScreen4.png"
 import comment from "../Images/landingComment.png"
+import arrowUp from "../Images/arrowUp.svg"
+import secondImg from "../Images/secondImg.png"
+import thirdImg from "../Images/thirdImg2.png"
+import fourthImg from "../Images/fourthImg.png"
+import responsive from "../Images/responsive.svg"
+import userFriendly from "../Images/userFriendly.svg"
+import fast from "../Images/fast.svg"
+import arrowDown from "../Images/arrowDown.svg"
 import scroll from "../Images/scroll.gif";
 import share from "../Images/share.png";
 import Phone4 from "../Images/landingPhone.png";
@@ -21,11 +29,13 @@ class LandingPage extends Component {
         this.state = {
             mounted: false,
             scrolled:false,
-            darkTheme:true
+            darkTheme:true,
+            scrolledToBottom:false
         };
 
         this.toggleDarkTheme = this.toggleDarkTheme.bind(this);
         this.toggleLightTheme = this.toggleLightTheme.bind(this);
+        this.scrollToTop = this.scrollToTop.bind(this);
     }
 
     componentDidMount() {
@@ -41,10 +51,25 @@ class LandingPage extends Component {
 
     handleScroll(){
         let position = window.pageYOffset;
-        if(position > 0)
+        if(position > 0){
         this.setState({
             scrolled:true
         })
+        }
+        if(window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+            this.setState({
+                scrolledToBottom:true
+            })
+        }
+        if(position < 700){
+            this.setState({
+                scrolledToBottom:false
+            })
+        }
+    }
+
+    scrollToTop(){
+        window.scroll({top: 0, left: 0, behavior: 'smooth' })
     }
 
     componentWillUnmount() {
@@ -100,8 +125,8 @@ class LandingPage extends Component {
                             <p className={classnames('landing-page-intro-paragraph',{
                                 'animate-intro-paragraph' : this.state.mounted
                             })}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                vitae orci semper, tincidunt est quis, semper est.
-                                Mauris consectetur</p>
+                                vitae orci semper, tincidunt est quis, semper est</p>
+                            <img className="arrowDown" src={arrowDown} />
                             <div className={classnames('landing-page-mobile-buttons-container',{
                                 'button-fade-in' : this.state.mounted
                             })}>
@@ -130,7 +155,8 @@ class LandingPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="landing-page-second-section">
+                <div className="second-section">
+                    <Reveal duration={900} fraction={0.6} effect="card-fade-up">
                     <div className="counter-container">
                         <div>
                             {this.state.scrolled ? <CountUp end={79} duration={5}/> : null} <h2>KOLEGIJA</h2>
@@ -142,109 +168,100 @@ class LandingPage extends Component {
                             {this.state.scrolled ? <CountUp end={341} duration={6}/> : null} <h2>SKRIPTA</h2>
                         </div>
                     </div>
-                    <div className="themes-container">
-                        <div className="third-section">
-                            <Reveal fraction={0.5} effect="slide-in">
-                                {this.state.darkTheme ? <img className="dark-screen" src={dark}/> : <img className="light-screen" src={light} /> }
-                            </Reveal>
-                            <div className="third-section-right">
-                                <Reveal delay={600} duration={900} effect="slide-in">
-                                    <h1>Immersive Dark Mode</h1>
-                                </Reveal>
-                                <Reveal delay={1000} duration={900} effect="slide-in">
-                                    <h3>Switchable live</h3>
-                                </Reveal>
-                                <Reveal delay={1400} duration={900} effect="slide-in">
-                                    <div className="theme-switch-buttons">
-                                        <button disabled={this.state.darkTheme} className="dark-button" onClick={this.toggleDarkTheme}>Dark Theme</button>
-                                        <button disabled={!this.state.darkTheme} className="light-button" onClick={this.toggleLightTheme}>Light Theme</button>
-                                    </div>
-                                </Reveal>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="landing-page-third-section">
-                    <div className="cards-container">
-                        <div className="cards">
-                            <Reveal duration={900} effect="card-fade-up">
-                            <div className="card card1">
-                                <h1>“ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                    vitae orci semper, tincidunt est quis ”</h1>
-                            </div>
-                            </Reveal>
-                            <Reveal delay={200} duration={900} effect="card-fade-up">
-                            <div className="card card2">
-                                <h1>“ Lorem ipsum dolor sit amet, consectetur adipiscing elit ”</h1>
-                            </div>
-                            </Reveal>
-                            <Reveal delay={400}  duration={900} effect="card-fade-up">
-                            <div className="card card3">
-                                <h1>“ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                    vitae orci semper ”</h1>
-                            </div>
-                            </Reveal>
-                        </div>
-                    </div>
-                    <div className="share-container">
-                        <Reveal duration={900} fraction={0.7} effect="card-fade-up">
-                        <div className="share-img-container">
-                            <img className="share-img" src={scroll}/>
-                        </div>
-                        </Reveal>
-                        <Reveal duration={900} fraction={1} effect="card-fade-up">
-                        <div className="share-text-left">
-                            <h1>Read scripts from anywhere</h1>
-                            <h3>My fake plants died because I did not pretend to water them.</h3>
-                        </div>
-                        </Reveal>
-                    </div>
-                </div>
-                <div className="landing-page-fourth-section">
-                    <Reveal duration={900} fraction={0.7} effect="card-fade-up">
-                        <div className="container-fourth-top">
-                            <h1>New Uploads every day</h1>
-                        </div>
                     </Reveal>
-                    <div className="landing-comment-container">
-                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
-                            <div className="comment-text-container">
-                                <div className="comment-text">
-                                    <h1>Upload your own scripts</h1>
-                                    <h3>Share you knowledge with other colleagues</h3>
-                                </div>
-                            </div>
-                        </Reveal>
-                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
-                            <div className="comment-img-container">
-                                <img className="comment-img" src={share}/>
-                            </div>
-                        </Reveal>
-                    </div>
-                </div>
-                <div className="landing-page-fifth-section">
-                    <div className="landing-fifth-container">
-                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
-                            <div className="commenting-img-container">
-                                <img className="commenting-img" src={comment}/>
-                            </div>
-                        </Reveal>
-                        <Reveal duration={900} fraction={0.4} effect="card-fade-up">
-                            <div className="commenting-text-container">
-                                <div className="commenting-text">
-                                    <h1>Commenting</h1>
-                                    <h3>A bank is a place that will lend you money if you can prove that you don't need it.</h3>
-                                </div>
-                            </div>
-                        </Reveal>
-                    </div>
-                </div>
-                <div className="landing-page-last-section">
-                    <div className="landing-last-container">
-                        <div className="last-container">
-                            <h1>Create your account now</h1>
-                            <button>REGISTRIRAJ SE</button>
+                    <div className="second-section-contents">
+                        <Reveal duration={900} fraction={0.8} effect="card-fade-up">
+                        <div className="second-section-left">
+                            <img src={secondImg} />
                         </div>
+                        <div className="second-section-right">
+                            <h1>Upload your own Scripts</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                vitae orci semper, tincidunt est quis, semper est</p>
+                        </div>
+                        </Reveal>
+                    </div>
+                </div>
+                <div className="third-section">
+                    <div className="third-section-contents">
+                        <Reveal duration={900} fraction={0.8} effect="card-fade-up">
+                        <div className="third-section-left">
+                            <h1>Read Scripts from anywhere</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                vitae orci semper, tincidunt est quis, semper est</p>
+                        </div>
+                        <div className="third-section-right">
+                            <img src={thirdImg} />
+                        </div>
+                        </Reveal>
+                    </div>
+                </div>
+                <div className="fourth-section">
+                    <div className="fourth-section-contents">
+                        <Reveal duration={900} fraction={0.8} effect="card-fade-up">
+                        <div className="fourth-section-left">
+                            <img src={fourthImg} />
+                        </div>
+                        <div className="fourth-section-right">
+                            <h1>Comment Rate and Share</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                vitae orci semper, tincidunt est quis, semper est</p>
+                        </div>
+                        </Reveal>
+                    </div>
+                </div>
+                <div className="fifth-section">
+                    <div className="fifth-section-contents">
+                        <Reveal duration={900} fraction={1} effect="card-fade-up">
+                        <div className="fifth-section-left">
+                            {this.state.darkTheme ?
+                                <img className="dark-screen" src={dark}/>
+                                :
+                                <img className="light-screen" src={light} />
+                            }
+                        </div>
+                        <div className="fifth-section-right">
+                                <h1>With Immersive Dark Mode</h1>
+                                <h3>Switchable live</h3>
+                                <div className="theme-switch-buttons">
+                                    {!this.state.darkTheme ?
+                                    <button className="dark-button" onClick={this.toggleDarkTheme}>Dark Theme</button>
+                                        :
+                                    <button className="light-button" onClick={this.toggleLightTheme}>Light Theme</button>
+                                    }
+                                </div>
+                        </div>
+                        </Reveal>
+                    </div>
+                </div>
+                <div className="sixth-section">
+                    <div className="sixth-section-contents">
+                        <Reveal duration={900} fraction={0.5} effect="card-fade-up">
+                        <div className="sixth-cards">
+                            <div className="landing-card">
+                                <h1>RESPONSIVE</h1>
+                                <img src={responsive}/>
+                            </div>
+                            <div className="landing-card">
+                                <h1>USER FRIENDLY</h1>
+                                <img src={userFriendly}/>
+                            </div>
+                            <div className="landing-card">
+                                <h1>BLAZING FAST</h1>
+                                <img src={fast}/>
+                            </div>
+                        </div>
+                        </Reveal>
+                    </div>
+                    <div className="last-section-content">
+                        <Link to="/register">
+                            <button>Get Started</button>
+                        </Link>
+                        {this.state.scrolledToBottom ?
+                            <img className="arrow-up" src={arrowUp} onClick={this.scrollToTop}/>
+                        :
+                            null
+                        }
                     </div>
                 </div>
             </div>

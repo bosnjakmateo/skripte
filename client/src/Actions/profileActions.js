@@ -16,8 +16,7 @@ import {
     DELETE_COMMENT,
     TUTORIAL_COMPLETED,
     GET_ERRORS,FAVORITES_LOADING,
-    GET_URL_ERROR,
-    GET_USER
+    GET_URL_ERROR
 } from "./types";
 import axios from 'axios';
 
