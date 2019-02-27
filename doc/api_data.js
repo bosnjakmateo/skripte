@@ -1276,7 +1276,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1406,7 +1406,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1526,7 +1526,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1572,7 +1572,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1735,7 +1735,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1912,7 +1912,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"
@@ -1978,7 +1978,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
-            "size": "10-200",
+            "size": "10-80",
             "optional": false,
             "field": "description",
             "description": "<p>Script description</p>"

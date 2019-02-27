@@ -16,8 +16,8 @@ module.exports = function validateUserData(data) {
         errors.name = "Description field is required"
     }
 
-    if (!Validator.isLength(data.description, { min: 10, max: 200 })) {
-        errors.description = "Description must be between 10 and 200 characters"
+    if (!Validator.isLength(data.description, { min: 10, max: 80 })) {
+        errors.description = "Description must be between 10 and 80 characters"
     }
 
     if (Validator.isEmpty(data._subject)) {

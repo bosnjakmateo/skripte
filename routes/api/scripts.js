@@ -26,7 +26,7 @@ const upload = multer({ storage: storage })
  * @apiDefine ScriptSuccess
  *
  * @apiSuccess {String{5-50}} title Script title
- * @apiSuccess {String{10-200}} description Script description 
+ * @apiSuccess {String{10-80}} description Script description 
  * @apiSuccess {String} pdfPath Script pdf path 
  * @apiSuccess {Array[]} likes Script likes
  * @apiSuccess {Id} likes._user User id
@@ -47,7 +47,7 @@ const upload = multer({ storage: storage })
  * @apiGroup Script
  *
  * @apiParam {String{5-50}} title Script title
- * @apiParam {String{10-200}} description Script description
+ * @apiParam {String{10-80}} description Script description
  * @apiParam {File} pdf Script pdf file
  * @apiParam {Id} _subject Subject id
  * 
@@ -136,7 +136,7 @@ router.get("/:id", (req, res) => {
  *
  * @apiParam {Id} id Script id
  * @apiParam {String{5-50}} title Script title
- * @apiParam {String{10-200}} description Script description
+ * @apiParam {String{10-80}} description Script description
  * @apiParam {Id} _subject Subject id
  *
  * @apiUse ScriptSuccess
