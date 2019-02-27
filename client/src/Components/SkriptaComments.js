@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import classnames from 'classnames';
 import close from "../Images/close.svg";
-import minimize from "../Images/minimize.svg";
+import minimize from "../Images/minimize2.png";
 import enlarge from "../Images/enlarge.svg"
 import Comment from "./Comment";
 import {withRouter} from "react-router-dom";

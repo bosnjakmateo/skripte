@@ -53,12 +53,12 @@ export const getCurrentUser = () => dispatch => {
     dispatch(setProfileLoading())
     axios
         .get('/users/current')
-        .then(res =>
+        .then(res => {
             dispatch({
                 type: GET_USER,
-                payload: res.data
+                payload: res.data,
             })
-        )
+        })
 
 };
 

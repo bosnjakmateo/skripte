@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="685" height="531" viewBox="0 0 685 531">
+    <defs>
+        <linearGradient id="a" x1="0.761" y1="1" x2="0.769" y2="0.011" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#fff"/>
+        <stop offset="1" stop-color="#1d77ff"/></linearGradient>
+        <filter id="b" x="106" y="124" width="579" height="407" filterUnits="userSpaceOnUse">
+        <feOffset dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="c"/><feFlood flood-opacity="0.161"/><feComposite operator="in" in2="c"/>
+        <feComposite in="SourceGraphic"/></filter>
+        <linearGradient id="d" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#fff"/>
+        <stop offset="1" stop-color="gray"/></linearGradient><filter id="e" x="40.742" y="92" width="564.791" height="378.18" filterUnits="userSpaceOnUse">
+        <feOffset dx="-9" dy="9" input="SourceAlpha"/><feGaussianBlur stdDeviation="6" result="f"/><feFlood flood-opacity="0.161"/><feComposite operator="in" in2="f"/>
+        <feComposite in="SourceGraphic"/></filter><linearGradient id="g" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3384ff"/>
+        <stop offset="1" stop-color="#005ef1"/></linearGradient><filter id="h" x="200.082" y="118.364" width="122.73" height="155.208" filterUnits="userSpaceOnUse">
+        <feOffset dx="-6" dy="6" input="SourceAlpha"/><feGaussianBlur stdDeviation="2" result="i"/><feFlood flood-opacity="0.29"/><feComposite operator="in" in2="i"/>
+        <feComposite in="SourceGraphic"/></filter>
+    </defs>
+    <g transform="translate(-71 -315)">
+    <g transform="matrix(1, 0, 0, 1, 71, 315)" filter="url(#b)">
+    <rect width="561" height="389" rx="14" transform="translate(115 130)" opacity="0.09" fill="url(#a)"/>
+    </g>
+        <rect width="561" height="389" rx="14" transform="translate(71 315)" opacity="0.03" fill="url(#d)"/><g transform="matrix(1, 0, 0, 1, 71, 315)" filter="url(#e)">
+        <path d="M0,0H528.791a0,0,0,0,1,0,0V328.18a14,14,0,0,1-14,14H14a14,14,0,0,1-14-14V0A0,0,0,0,1,0,0Z" transform="translate(67.74 101)" fill="#fff"/>
+    </g>
+        <path d="M14,0H514.791a14,14,0,0,1,14,14V32.584a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V14A14,14,0,0,1,14,0Z" transform="translate(138.626 383)" fill="#3384ff"/>
+    <rect width="110.73" height="143.208" rx="10" transform="translate(155.062 433.364)" fill="#d4d4d4"/>
+    <g transform="matrix(1, 0, 0, 1, 71, 315)" filter="url(#h)">
+        <rect class="test-animate" width="110.73" height="143.208" rx="10" transform="translate(212.08 118.36)" fill="#3384FF"/>
+    </g>
+    <rect width="110.73" height="143.208" rx="10" transform="translate(411.103 433.364)" fill="#d4d4d4"/>
+    <rect width="110.73" height="143.208" rx="10" transform="translate(539.124 433.364)" fill="#d4d4d4"/>
+    <rect width="110.73" height="146.126" rx="10" transform="translate(155.062 590.688)" fill="#d4d4d4"/>
+    <rect width="110.73" height="146.126" rx="10" transform="translate(283.083 590.688)" fill="#d4d4d4"/>
+    <rect width="110.73" height="146.126" rx="10" transform="translate(411.103 590.688)" fill="#d4d4d4"/>
+    <rect width="110.73" height="146.126" rx="10" transform="translate(539.124 590.688)" fill="#d4d4d4"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(163.398 450.869)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 450.869)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 609.663)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(162.981 609.663)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(292.184 450.869)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 450.869)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 609.663)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(291.767 609.663)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(163.398 509.635)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 509.635)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 668.429)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(162.981 668.429)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(292.184 509.635)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 509.635)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 668.429)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(291.767 668.429)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(163.398 470.457)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 470.457)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 629.251)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(162.981 629.251)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(292.184 470.457)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 470.457)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 629.251)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(291.767 629.251)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(163.398 529.224)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 688.018)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(162.981 688.018)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 529.224)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 688.018)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(163.398 490.046)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 490.046)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(419.72 648.84)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(162.981 648.84)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(292.184 490.046)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 490.046)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 648.84)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(291.767 648.84)" fill="#fff"/>
+    <rect width="93.776" height="10.003" rx="5.001" transform="translate(548.506 707.606)" fill="#fff"/>
+</g>
+
+    <style>
+
+        .test-animate{
+            animation:we 4s infinite;
+        z-index:9999 !important;
+        perspective(9999);
+        position: absolute;
+        }
+
+        @keyframes we{
+            0%{
+                fill:#3384FF;
+            }
+            50%{
+                fill:#005DFF;
+            }
+            100%{
+                fill:#3384FF;
+            }
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+</svg>
+
+

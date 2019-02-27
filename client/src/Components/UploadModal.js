@@ -74,11 +74,11 @@ class UploadModal extends Component {
                                 <label>Kratak opis :</label>
                                 <textarea
                                     className="textarea"
-                                    rows="4"
+                                    rows="3"
                                     name="description"
                                     value={this.state.description}
                                     onChange={this.onChange}
-                                    maxLength="94"
+                                    maxLength="80"
                                 />
                                 <br/>
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.description : null }</span>

@@ -155,11 +155,11 @@ class KolegijContent extends Component {
                         />
                         <div className="kolegij-content-buttons-container">
                             {(this.state.loading || this.state.subjectAlreadyInFavorites) && !this.props.profile.favoritesLoading ?
-                                <button disabled={this.state.loading} onClick={this.removeSubject} className={classnames('remove-favorites-skripta-button',{
+                                <button disabled={this.state.loading && !this.props.profile.favoritesLoading } onClick={this.removeSubject} className={classnames('remove-favorites-skripta-button',{
                                     'remove-favorites-skripta-button-dark' : this.props.auth.theme === "Dark"
                                 })}>Izbrisi iz Omiljenih</button>
                                 :
-                                <button disabled={this.props.profile.favoritesLoading} onClick={this.addToFavorites} className={classnames('favorites-skripta-button',{
+                                <button disabled={this.props.profile.favoritesLoading && this.state.loading } onClick={this.addToFavorites} className={classnames('favorites-skripta-button',{
                                     'favorites-skripta-button-dark' : this.props.auth.theme === "Dark"
                                 })}>Dodaj u Omlijene</button>
                             }

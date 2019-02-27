@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import dark from "../Images/darkScreen6.png"
 import light from "../Images/lightScreen4.png"
-import comment from "../Images/landingComment.png"
 import arrowUp from "../Images/arrowUp.svg"
-import secondImg from "../Images/secondImg.png"
+import secondImg from "../Images/UploadYourOwnScript.svg"
 import thirdImg from "../Images/thirdImg2.png"
 import fourthImg from "../Images/fourthImg.png"
 import responsive from "../Images/responsive.svg"
@@ -12,7 +11,6 @@ import userFriendly from "../Images/userFriendly.svg"
 import fast from "../Images/fast.svg"
 import arrowDown from "../Images/arrowDown.svg"
 import scroll from "../Images/scroll.gif";
-import share from "../Images/share.png";
 import Phone4 from "../Images/landingPhone.png";
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
@@ -131,20 +129,10 @@ class LandingPage extends Component {
                                 'button-fade-in' : this.state.mounted
                             })}>
                                 <Link to="/login">
-                                    <div className="landing-page-navbar-login-button">
-                                        <div className="landing-page-button login">
-                                            <p>PRIJAVA</p>
-                                            <div className="mask"/>
-                                        </div>
-                                    </div>
+                                    <button className="mobile-login">PRIJAVA</button>
                                 </Link>
                                 <Link to="/register">
-                                    <div className="landing-page-navbar-register-button">
-                                        <div className="landing-page-button register">
-                                            <p>REGISTRACIJA</p>
-                                            <div className="mask2"/>
-                                        </div>
-                                    </div>
+                                    <button className="mobile-register">REGISTRACIJA</button>
                                 </Link>
                             </div>
                         </div>
@@ -236,7 +224,7 @@ class LandingPage extends Component {
                 </div>
                 <div className="sixth-section">
                     <div className="sixth-section-contents">
-                        <Reveal duration={900} fraction={0.5} effect="card-fade-up">
+                        <Reveal duration={900} fraction={0.1} effect="card-fade-up">
                         <div className="sixth-cards">
                             <div className="landing-card">
                                 <h1>RESPONSIVE</h1>

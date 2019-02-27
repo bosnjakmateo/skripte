@@ -7,6 +7,7 @@ import FieldsSubjects from "./FieldsSubjects";
 import {getAllSubjects} from "../Actions/profileActions";
 import {filterInstitutionSubjects} from "../Actions/institutionsActions";
 import classnames from "classnames";
+import Spinner from "./Spinner";
 
 class Fields extends Component {
     constructor(props){
@@ -56,7 +57,7 @@ class Fields extends Component {
                           className={classnames('search-subject-fields',{
                               'search-subject-fields-dark' : this.props.auth.theme === "Dark"
                           })}/>
-                   {this.props.auth.loading ? null
+                   {this.props.institutions.loading || this.props.auth.loading ? <Spinner/>
                        : filteredSubjects.map((item) =>
                            <FieldsSubjects keyprop={item._id} key={item._id} name={item.name}/>
                        )}
