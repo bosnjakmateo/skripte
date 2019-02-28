@@ -167,13 +167,13 @@ class Navbar extends Component {
                                          src={accountIcon}/>
                                 </div>
                             </Link>
+                            <div className="collapsed-menu-theme-mode" onClick={this.changeTheme} >
+                                <p className="theme-mode-button">{this.props.auth.theme === "Light" ? "Dark Mode" : "Light Mode" }</p>
+                            </div>
                             <div className="collapsed-menu-content" onClick={this.handleLogoutClick} >
                                 <p className="logout-button">Logout</p>
                                 <img className="navbar-logout-icon" alt="logout-icon"
                                      src={logout_icon}/>
-                            </div>
-                            <div className="collapsed-menu-theme-mode" onClick={this.changeTheme} >
-                                <p className="theme-mode-button">{this.props.auth.theme === "Light" ? "Dark Mode" : "Light Mode" }</p>
                             </div>
                         </div>
                     </div>

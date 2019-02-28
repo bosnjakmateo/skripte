@@ -2,6 +2,7 @@ import {createStore, applyMiddleware, compose} from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./Reducers"
 
+
 function saveToLocalStorage(state){
     try {
         const serializedState = JSON.stringify(state)
@@ -10,6 +11,7 @@ function saveToLocalStorage(state){
 
     }
 }
+
 
 const initialState = {};
 

@@ -43,8 +43,10 @@ class SkriptaInfo extends Component {
                         Detalji</h1>
                     <img alt="assd" src={close} className="mobile-close-information-button" onClick={this.toggleInformationMobile} />
                     <p><span className="bolded">Korisnik:</span> {this.props.profile.currentScript.user}</p>
-                    <span className="bolded">Datum: <Moment format="DD.MM.YYYY">{timestamp}</Moment></span>
-                    <p><span className="bolded">Smjer:</span>Informatika</p>
+                    <span className="bolded">Datum: <Moment className={classnames('time',{
+                        'time-dark' : this.props.auth.theme === "Dark"
+                    })} format="DD.MM.YYYY">{timestamp}</Moment></span>
+                    <p><span className="bolded">Smjer:</span> Informatika</p>
                     <p><span className="bolded">Opis:</span> {this.props.profile.currentScript.description}</p>
                 </div>
             </div>

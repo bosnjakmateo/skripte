@@ -60,7 +60,7 @@
     border:0;
     background-color:#9CC4FF;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
-    font-family: Averia Libre, sans-serif !important;
+
 }
 
 input:focus{
@@ -1442,8 +1442,9 @@ html, body{
 
 
 .bolded{
-    font-weight:500;
-    color:#3384FF;
+    font-weight: normal;
+    color: #3384FF;
+    font-size: 13px;
 }
 
 .skripta-comments-content-title{
@@ -1790,6 +1791,36 @@ html, body{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     cursor: pointer;
 }
+.landing-page-mobile-buttons-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mobile-login{
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    padding:12px 35px;
+    background:#ffa920;
+    border-radius:6px;
+    font-size:18px;
+}
+.mobile-register{
+    display: inline-block;
+    background:transparent;
+    color:white;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    padding:9px 20px;
+    border-radius:6px;
+    border:3px solid white;
+    font-size:18px;
+}
 
 .landing-page-intro-text{
     color:#1d77ff;
@@ -1830,7 +1861,7 @@ html, body{
 @media screen and (max-width: 1500px) {
     .landing-page-intro-text{
         font-size:70px;
-        margin-top:10%;
+        margin-top:7%;
     }
     .landing-page-intro-paragraph{
         font-size:21px;
@@ -1894,14 +1925,25 @@ html, body{
         margin-left: 5%;
     }
     .landing-page-intro-text{
-        font-size:40px;
+        font-size:40px !important;
+        text-align: center;
+    }
+    .landing-page-first-section{
+        height:93vh !important;
+    }
+    .arrowDown{
+        visibility: hidden;
     }
     .landing-page-intro-paragraph{
         font-size:16px;
-        width:75%;
+        width:90%;
+        text-align: center;
     }
     .landing-page-top-right-content{
         display:none;
+    }
+    .landing-page-top-container{
+        margin-top:-60px;
     }
     .landing-page-navbar-buttons-container{
         visibility: hidden;
@@ -1914,6 +1956,14 @@ html, body{
     }
     .landing-page-mobile-buttons-container{
         visibility: visible !important;
+        margin-left: 0;
+        margin-right:10%;
+    }
+    .mobile-login{
+        padding:12px 25px;
+    }
+    .mobile-register{
+        padding:9px 10px;
     }
     .landing-page-top-container{
         height:80vh;
@@ -1923,13 +1973,127 @@ html, body{
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center;
+        width: 80% !important;
+        margin-left:10% !important;
+    }
+    .counter-container div h2{
+        font-size:16px;
+    }
+    .counter-container div span{
+        font-size:40px;
+    }
+    .second-section{
+       padding-top:0 !important;
+    }
+    .second-section-contents{
+        flex-direction: column !important;
+        margin-top:60px !important;
+    }
+    .second-section-left{
+        width:90% !important;
+    }
+    .second-section-right{
+        width:90% !important;
+        text-align: center;
+    }
+    .second-section-right h1{
+        font-size:35px !important;
+    }
+    .second-section-right p{
+        font-size:18px !important;
+    }
+    .third-section-left{
+        width:90% !important;
+        text-align: center;
+    }
+    .third-section-right{
+        width:90% !important;
+    }
+    .third-section-contents{
+        flex-direction: column-reverse !important;
+        padding-top: 60px;
+    }
+    .third-section-left h1{
+        font-size:35px !important;
+    }
+    .third-section-left p{
+        font-size:18px !important;
     }
 
+    .fourth-section{
+        padding-top:0 !important;
+        min-height:130vh !important;
+    }
+    .fourth-section-contents{
+        flex-direction: column !important;
+        padding-top:60px !important;
+        margin-top:0 !important;
+    }
+    .fourth-section-left{
+        width:90% !important;
+    }
+    .fourth-section-right{
+        width:90% !important;
+        text-align: center;
+    }
+    .fourth-section-right h1{
+        font-size:35px !important;
+    }
+    .fourth-section-right p{
+        font-size:18px !important;
+    }
+
+    .fifth-section{
+        padding-top:0 !important;
+        min-height: 130vh !important;
+    }
+    .fifth-section-contents{
+        flex-direction: column !important;
+        padding-top:30px !important;
+        margin-top:0 !important;
+    }
+    .fifth-section-left{
+        width:90% !important;
+    }
+    .fifth-section-right{
+        width:90% !important;
+        text-align: center;
+    }
+    .fifth-section-right h1{
+        font-size:35px !important;
+    }
+    .fifth-section-right p{
+        font-size:18px !important;
+    }
+    .sixth-section{
+        height:215vh !important;
+    }
+    .sixth-cards{
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .landing-card{
+        width:80% !important;
+        margin:20px 0;
+        height:320px !important;
+    }
+
+    .last-section-content{
+        height:initial !important;
+        margin-top:15%;
+    }
+    .terms-and-conditions{
+        width:75% !important;
+    }
+    .close-terms{
+        visibility: visible !important;
+    }
 }
 
 .landing-page-mobile-buttons-container{
     visibility: hidden;
-    margin-top:80px;
+    margin-top:20px;
 }
 
 
@@ -3495,7 +3659,7 @@ body{
 
 .add-kolegij-card{
     width:90%;
-    margin-top: 15px;
+    margin-top: 13px;
     margin-bottom: 20px;
     left:5%;
     top:10%;
@@ -3783,8 +3947,7 @@ body{
     background: #ef9117;
 }
 .post-comment:disabled{
-    background: #ef9117;
-
+    opacity:0.3;
 }
 .skripta-comments-content-dark .comment{
  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
@@ -3802,7 +3965,7 @@ body{
 }
 
 .terms-and-conditions{
-    position: fixed;
+    position: relative;
     top:5%;
     width:50%;
     height:90%;
@@ -3823,10 +3986,27 @@ body{
     background: rgba(0, 0, 0, 0.6);
 }
 
+.close-terms{
+    position: fixed;
+    top:7%;
+    right:12%;
+    opacity:0.8;
+    width:23px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
 .terms:hover{
     cursor: pointer;
 }
 
+.time{
+    color:black;
+    font-weight: 400;
+}
+.time-dark{
+    color:#e2e2e2;
+}
 
 @media screen and (max-width:1370px) {
     .favorite-subjects{
@@ -4356,7 +4536,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .second-section{
-    height:120vh;
+    min-height:120vh;
     background:#1D77FF;
     width:100%;
     padding-top:60px;
@@ -4415,7 +4595,7 @@ body::-webkit-scrollbar-thumb:hover {
 .third-section{
     width:100%;
     position: relative;
-    height:54vh;
+    min-height:54vh;
     background:#1D77FF;
     margin-top:-5px;
 }
@@ -4456,7 +4636,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 .fourth-section {
-    height: 120vh;
+    min-height: 120vh;
     background: #1D77FF;
     width: 100%;
     padding-top:150px;
@@ -4504,7 +4684,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 .fifth-section {
-    height: 109vh;
+    min-height: 109vh;
     background: white;
     width: 100%;
     padding-top:100px;
@@ -4561,7 +4741,6 @@ body::-webkit-scrollbar-thumb:hover {
 .sixth-section-contents{
     position: relative;
     display: flex;
-    height:50%
 }
 
 .sixth-cards{
@@ -4572,9 +4751,11 @@ body::-webkit-scrollbar-thumb:hover {
     padding:0 10%;
 }
 
+
+
 .landing-card{
     width: 25%;
-    height:90%;
+    height:400px;
     max-width:380px;
     background: white;
     display: flex;
@@ -4640,4 +4821,34 @@ body::-webkit-scrollbar-thumb:hover {
 .last-section-content img:hover{
     transition: 0.2s;
     transform:scale(1.1);
+}
+
+@media screen and (max-width: 1220px) {
+
+    .landing-page-first-section{
+        background-image: none;
+        background:#1d77ff;
+    }
+    .landing-page-top-left-content p{
+        color:white;
+        font-size:20px;
+    }
+    .landing-page-top-left-content h1{
+        color:white;
+        font-size:45px;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .landing-card{
+        width: 25%;
+        height:300px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .landing-card{
+        width: 30%;
+        height:300px;
+    }
 }

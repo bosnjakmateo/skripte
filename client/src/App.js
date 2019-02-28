@@ -15,9 +15,11 @@ import store from './store';
 import AllKolegiji from"./Components/AllKolegiji";
 import LandingPage from"./Components/LandingPage";
 import setAuthToken from './Utils/setAuthToken';
-import { setCurrentUser, logoutUser } from './Actions/authActions';
+import { setCurrentUser, logoutUser, changeTheme } from './Actions/authActions';
 import jwt_decode from 'jwt-decode';
 import PrivateRoute from './Components/common/PrivateRoute';
+
+import { PersistGate } from 'redux-persist/integration/react'
 
 
 // Check for token
@@ -46,6 +48,7 @@ class App extends Component {
   render() {
     return (
         <Provider store={ store }>
+
                 <Router>
                   <div className="App">
                       <Route exact path="/login" component={Login} />
@@ -62,6 +65,7 @@ class App extends Component {
                       <PrivateRoute path="/account" component={Account}/>
                   </div>
                 </Router>
+
         </Provider>
     );
   }

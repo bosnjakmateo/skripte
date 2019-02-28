@@ -167,17 +167,6 @@ export const postScript = (postData) => dispatch => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
 export const removeSubjectFromFavorites = (id) => dispatch => {
     dispatch(setFavoritesLoading())
     axios

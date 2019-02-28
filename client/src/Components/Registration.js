@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import remove from "../Images/remove.svg";
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
@@ -15,8 +16,8 @@ class Registration extends Component {
             password:"",
             password2:"",
             errors: {},
-            secondPassword:false,
-            toggleTerms:false
+            toggleTerms:false,
+            secondPasswordWrong:false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -51,21 +52,14 @@ class Registration extends Component {
 
     onSubmit(event){
         event.preventDefault();
-            const newUser = {
-                username: this.state.username,
-                email: this.state.email,
-                password: this.state.password,
-            };
+        const newUser = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+        };
+        if(this.state.password2 === this.state.password) {
             this.props.registerUser(newUser, this.props.history);
-            if(this.state.password !== this.state.password2){
-                this.setState({
-                    secondPassword:true
-                })
-            }else{
-                this.setState({
-                    secondPassword:false
-                })
-            }
+        }
     }
 
     prevent(e){
@@ -146,14 +140,14 @@ class Registration extends Component {
                                     <div className="label">
                                         <h3
                                             className={classnames('',{
-                                                'shake make-red' : this.state.secondPassword || errors.password
+                                                'make-red' : this.state.password !== this.state.password2
                                             })}
                                         >
                                             Ponovi lozinku:
                                         </h3>
                                         <input
                                             className={classnames('registration-inputs',{
-                                                'is-invalid shake' : this.state.secondPassword || errors.password
+                                                'is-invalid' : this.state.password !== this.state.password2
                                             })}
                                             type="password"
                                             name="password2"
@@ -161,7 +155,7 @@ class Registration extends Component {
                                             onChange={this.onChange}
                                         />
                                     </div>
-                                    <input type="checkbox" name="vehicle1" value="Bike" required/><label>I aggre to <span className="terms" onClick={this.toggleTermsAndCondtiions}>terms and conditions</span></label>
+                                    <input type="checkbox" name="vehicle1" value="Bike" required/><label>Prihvaćam <span className="terms" onClick={this.toggleTermsAndCondtiions}>Uvjete</span></label>
                                 </label>
                                 <div className="register-buttons-container">
                                     <button type="submit" className="buttons-register button-registriraj-se">REGISTRIRAJ SE</button>
@@ -228,6 +222,8 @@ class Registration extends Component {
                             <p>If you have any questions about this Agreement, please contact us.</p>
 
                             <p>This document was last updated on February 18, 2019</p>
+
+                            <img src={remove} onClick={this.toggleTermsAndCondtiions} alt="close terms and conditions" title="close" className="close-terms"/>
                         </div>
                     </div>
                 :null}
