@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import {Link, withRouter} from 'react-router-dom';
 import Moment from "react-moment";
-
+import remove from "../Images/remove.svg"
 import {connect} from "react-redux";
 import classnames from "classnames";
 
@@ -33,6 +33,10 @@ class SkriptaCard extends Component {
                     <div className={classnames('side-card2',{
                         'side-card2-dark' : this.props.auth.theme === "Dark"
                     })}/>
+                {this.props.match.path === "/account" ?
+                    <img onClick={() => this.props.toggleConfirmModal(this.props.title,this.props.keyprop)} className="remove-script" src={remove}/>
+                : null
+                }
             </div>
         );
     }

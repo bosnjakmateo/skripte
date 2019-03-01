@@ -94,6 +94,7 @@ class Registration extends Component {
                                             })}
                                             type="text"
                                             name="username"
+                                            maxLength="15"
                                             value={this.state.username}
                                             onChange={this.onChange}
                                         />

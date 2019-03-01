@@ -82,7 +82,7 @@ class SkriptaComments extends Component {
                     'skripta-comments-content-dark' : this.props.auth.theme === "Dark"
                 })}>
                     <div>
-                    <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.currentScript.comments.length : null})</span></h1>
+                    <h1 className="skripta-comments-content-title">Komentari <span>({this.state.loaded ? this.props.profile.comments.length : null})</span></h1>
                         {this.state.commentsToggled ?
                             <img src={minimize} alt="minimize" className="toggle-comments-button" onClick={this.toggleComments}/>
                             :

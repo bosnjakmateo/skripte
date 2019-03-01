@@ -16,9 +16,13 @@ import {
     DELETE_COMMENT,
     TUTORIAL_COMPLETED,
     GET_ERRORS,FAVORITES_LOADING,
-    GET_URL_ERROR
+    GET_URL_ERROR,
+    DATA_LOADING,
+    DELETE_SCRIPT
 } from "./types";
 import axios from 'axios';
+import setAuthToken from "../Utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
 
 
@@ -37,15 +41,20 @@ export const getAllSubjects = () => dispatch => {
 
 
 export const getAllScripts = () => dispatch => {
+    dispatch(dataLoading());
     axios
         .get(`/scripts`)
-        .then(res =>
+        .then(res => {
+            //Save to localStorage
+            const allScripts = res.data;
+            //Set token to local storage
+            localStorage.setItem("allScripts", JSON.stringify(allScripts));
             dispatch({
                 type: GET_SUBJECT_SCRIPTS,
                 payload: res.data
             })
-        )
-};
+        });
+}
 
 export const getSubjectById = (id) => dispatch => {
     axios
@@ -203,6 +212,17 @@ export const deleteComment = (scriptId,commentId) => dispatch => {
         )
 };
 
+export const deleteScript = (scriptId) => dispatch => {
+    axios
+        .delete(`/scripts/${scriptId}`)
+        .then(res =>
+            dispatch({
+                type: DELETE_SCRIPT,
+                payload:scriptId
+            })
+        )
+};
+
 
 export const completeTutorial = () => {
         axios
@@ -216,5 +236,11 @@ export const completeTutorial = () => {
 export const setFavoritesLoading = () => {
     return{
         type: FAVORITES_LOADING
+    }
+};
+
+export const dataLoading = () => {
+    return{
+        type: DATA_LOADING
     }
 };

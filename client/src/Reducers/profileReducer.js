@@ -3,7 +3,7 @@ import {
     GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
     GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
     FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT, DATA_LOADING, DELETE_COMMENT, GET_ERRORS,
-    FAVORITES_LOADING,GET_URL_ERROR,POST_SCRIPT
+    FAVORITES_LOADING,GET_URL_ERROR,POST_SCRIPT,DELETE_SCRIPT
 } from '../Actions/types';
 
 
@@ -51,7 +51,8 @@ export default function(state = initialState, action) {
         case GET_SUBJECT_SCRIPTS:
             return{
                 ...state,
-                allScripts: action.payload
+                allScripts: action.payload,
+                loading:false
             };
         case FILTERED_SUBJECTS:
             return{
@@ -132,6 +133,11 @@ export default function(state = initialState, action) {
                 ...state,
                 filteredScripts:[...state.filteredScripts, action.payload],
                 scriptPostedToggle:!state.scriptPostedToggle
+            };
+        case DELETE_SCRIPT:
+            return{
+                ...state,
+                allScripts: state.allScripts.filter(item => item._id !== action.payload)
             };
         default:
             return state;

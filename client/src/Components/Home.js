@@ -146,7 +146,7 @@ class Home extends Component {
                     })}>
                         <h1 className={classnames('second-navbar-title',{
                             'second-navbar-dark-title' : this.props.auth.theme === "Dark"
-                        })}>Dashboard</h1>
+                        })}>Home</h1>
                     </div>
                 </Headroom>
                 <div className={classnames('main-container',{

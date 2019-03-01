@@ -145,7 +145,7 @@ class Navbar extends Component {
                         <button className={classnames('navbar-link',{
                             'color-blue' : this.state.currentRoute ==="/home",
                             'color-orange' : this.state.currentRoute === "/home" && this.props.auth.theme === "Dark"
-                        })}>MOJI KOLEGIJI</button>
+                        })}>HOME</button>
 
                         <div className={"mask-home" + (this.state.currentRoute === "/home" ? " mask-stay" : "")}/>
                     </Link>
