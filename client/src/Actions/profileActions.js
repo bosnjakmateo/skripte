@@ -21,10 +21,6 @@ import {
     DELETE_SCRIPT
 } from "./types";
 import axios from 'axios';
-import setAuthToken from "../Utils/setAuthToken";
-import jwt_decode from "jwt-decode";
-
-
 
 
 export const getAllSubjects = () => dispatch => {

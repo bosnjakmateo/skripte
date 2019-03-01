@@ -10,7 +10,6 @@ import responsive from "../Images/responsive.svg"
 import userFriendly from "../Images/userFriendly.svg"
 import fast from "../Images/fast.svg"
 import arrowDown from "../Images/arrowDown.svg"
-import scroll from "../Images/scroll.gif";
 import Phone4 from "../Images/landingPhone.png";
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
@@ -124,7 +123,7 @@ class LandingPage extends Component {
                                 'animate-intro-paragraph' : this.state.mounted
                             })}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                                 vitae orci semper, tincidunt est quis, semper est</p>
-                            <img className="arrowDown" src={arrowDown} />
+                            <img alt="arrow down" className="arrowDown" src={arrowDown} />
                             <div className={classnames('landing-page-mobile-buttons-container',{
                                 'button-fade-in' : this.state.mounted
                             })}>
@@ -160,7 +159,7 @@ class LandingPage extends Component {
                     <div className="second-section-contents">
                         <Reveal duration={900} fraction={0.8} effect="card-fade-up">
                         <div className="second-section-left">
-                            <img src={secondImg} />
+                            <img alt="second" src={secondImg} />
                         </div>
                         <div className="second-section-right">
                             <h1>Upload your own Scripts</h1>
@@ -179,7 +178,7 @@ class LandingPage extends Component {
                                 vitae orci semper, tincidunt est quis, semper est</p>
                         </div>
                         <div className="third-section-right">
-                            <img src={thirdImg} />
+                            <img alt="third" src={thirdImg} />
                         </div>
                         </Reveal>
                     </div>
@@ -188,7 +187,7 @@ class LandingPage extends Component {
                     <div className="fourth-section-contents">
                         <Reveal duration={900} fraction={0.8} effect="card-fade-up">
                         <div className="fourth-section-left">
-                            <img src={fourthImg} />
+                            <img alt="fourth" src={fourthImg} />
                         </div>
                         <div className="fourth-section-right">
                             <h1>Comment Rate and Share</h1>
@@ -203,9 +202,9 @@ class LandingPage extends Component {
                         <Reveal duration={900} fraction={1} effect="card-fade-up">
                         <div className="fifth-section-left">
                             {this.state.darkTheme ?
-                                <img className="dark-screen" src={dark}/>
+                                <img alt="dark screen" className="dark-screen" src={dark}/>
                                 :
-                                <img className="light-screen" src={light} />
+                                <img alt="light screen" className="light-screen" src={light} />
                             }
                         </div>
                         <div className="fifth-section-right">
@@ -228,15 +227,15 @@ class LandingPage extends Component {
                         <div className="sixth-cards">
                             <div className="landing-card">
                                 <h1>RESPONSIVE</h1>
-                                <img src={responsive}/>
+                                <img alt="responsive" src={responsive}/>
                             </div>
                             <div className="landing-card">
                                 <h1>USER FRIENDLY</h1>
-                                <img src={userFriendly}/>
+                                <img alt="user friendly" src={userFriendly}/>
                             </div>
                             <div className="landing-card">
                                 <h1>BLAZING FAST</h1>
-                                <img src={fast}/>
+                                <img alt="fast" src={fast}/>
                             </div>
                         </div>
                         </Reveal>
@@ -246,7 +245,7 @@ class LandingPage extends Component {
                             <button>Get Started</button>
                         </Link>
                         {this.state.scrolledToBottom ?
-                            <img className="arrow-up" src={arrowUp} onClick={this.scrollToTop}/>
+                            <img alt="arrow up" className="arrow-up" src={arrowUp} onClick={this.scrollToTop}/>
                         :
                             null
                         }

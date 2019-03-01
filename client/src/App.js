@@ -15,11 +15,10 @@ import store from './store';
 import AllKolegiji from"./Components/AllKolegiji";
 import LandingPage from"./Components/LandingPage";
 import setAuthToken from './Utils/setAuthToken';
-import { setCurrentUser, logoutUser, changeTheme } from './Actions/authActions';
+import { setCurrentUser, logoutUser } from './Actions/authActions';
 import jwt_decode from 'jwt-decode';
 import PrivateRoute from './Components/common/PrivateRoute';
 
-import { PersistGate } from 'redux-persist/integration/react'
 
 
 // Check for token

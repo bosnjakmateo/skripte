@@ -34,7 +34,7 @@ class SkriptaCard extends Component {
                         'side-card2-dark' : this.props.auth.theme === "Dark"
                     })}/>
                 {this.props.match.path === "/account" ?
-                    <img onClick={() => this.props.toggleConfirmModal(this.props.title,this.props.keyprop)} className="remove-script" src={remove}/>
+                    <img alt="delete script" onClick={() => this.props.toggleConfirmModal(this.props.title,this.props.keyprop)} className="remove-script" src={remove}/>
                 : null
                 }
             </div>
