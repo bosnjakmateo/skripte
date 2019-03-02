@@ -4665,7 +4665,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .fourth-section-contents{
     position: relative;
-    margin-top: 150px;
+    margin-top:50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -6,7 +6,7 @@ import FavoriteSkriptaCard from "./FavoriteSkriptaCard";
 import Headroom from 'react-headroom';
 import classnames from 'classnames';
 import {getCurrentUser, setProfileLoading} from "../Actions/authActions";
-import {getAllSubjects, filtered, getAllScripts,filtered3,completeTutorial} from "../Actions/profileActions";
+import {getAllSubjects, filterSubject, getAllScripts,filterScripts,completeTutorial} from "../Actions/profileActions";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import Spinner from "./Spinner"
@@ -74,7 +74,7 @@ class Home extends Component {
         let allSubjects = this.props.profile.allSubjects;
         let favoriteSubjects = this.props.auth.userData.favoriteSubjects;
         let favorites = allSubjects.filter(item => favoriteSubjects.find(item2 => item._id === item2._id));
-        this.props.filtered(favorites);
+        this.props.filterSubject(favorites);
         this.setState({
             subjectsFiltered:true
         })
@@ -84,7 +84,7 @@ class Home extends Component {
         let allScripts = this.props.profile.allScripts;
         let favoriteScripts = this.props.auth.userData.favoriteScripts;
         let favorites = allScripts.filter(item => favoriteScripts.find(item2 => item._id === item2._id));
-        this.props.filtered3(favorites);
+        this.props.filterScripts(favorites);
     }
 
 
@@ -203,4 +203,4 @@ const mapStateToProps = (state) => ({
     profile:state.profile
 });
 
-export default withRouter(connect(mapStateToProps, {getCurrentUser,setProfileLoading,getAllSubjects,filtered,filtered3,getAllScripts,completeTutorial})(Home))
+export default withRouter(connect(mapStateToProps, {getCurrentUser,setProfileLoading,getAllSubjects,filterSubject,filterScripts,getAllScripts,completeTutorial})(Home))

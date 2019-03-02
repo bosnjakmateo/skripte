@@ -1,4 +1,4 @@
-import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS,THEME_CHANGED} from '../Actions/types';
+import {GET_USER, PROFILE_LOADING, SET_CURRENT_USER,REGISTER_SUCCESS,THEME_CHANGED,CLEAR_CURRENT_PROFILE} from '../Actions/types';
 import isEmpty from '../Validation/isEmpty';
 
 const initialState = {
@@ -41,6 +41,12 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 theme: action.payload
+            };
+        case CLEAR_CURRENT_PROFILE:
+            return{
+                ...state,
+                user:null,
+                userData:null
             };
             default:
                 return state;

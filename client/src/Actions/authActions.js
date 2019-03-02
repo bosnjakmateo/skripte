@@ -1,4 +1,4 @@
-import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER, REGISTER_SUCCESS, THEME_CHANGED} from "./types";
+import {GET_ERRORS, GET_USER, PROFILE_LOADING, SET_CURRENT_USER, REGISTER_SUCCESS, THEME_CHANGED,CLEAR_CURRENT_PROFILE} from "./types";
 import axios from 'axios';
 import jwt_decode from "jwt-decode"
 import setAuthToken from "../Utils/setAuthToken";
@@ -69,6 +69,13 @@ export const setProfileLoading = () => {
     }
 };
 
+export const clearCurrentProfile = () => {
+    return {
+        type: CLEAR_CURRENT_PROFILE
+    };
+};
+
+
 
 // Log User Out
 export const logoutUser = () => dispatch => {
@@ -76,6 +83,8 @@ export const logoutUser = () => dispatch => {
     setAuthToken(false);
     dispatch(setCurrentUser({}));
 };
+
+
 
 export const changeTheme = (mode) => dispatch =>  {
     axios

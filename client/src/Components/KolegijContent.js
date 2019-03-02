@@ -8,7 +8,7 @@ import {withRouter} from "react-router-dom";
 import {
     getSubjectById,
     getAllScripts,
-    filtered2,
+    filterScriptsForSubject,
     clearScripts,
     addSubjectToFavorites,
     removeSubjectFromFavorites
@@ -32,7 +32,7 @@ class KolegijContent extends Component {
         };
 
         this.addToFavorites = this.addToFavorites.bind(this);
-        this.asd3 = this.asd3.bind(this);
+        this.filterSubjectScripts = this.filterSubjectScripts.bind(this);
         this.toggleModal = this.toggleModal.bind(this)
         this.checkIfAlreadyInFavorites = this.checkIfAlreadyInFavorites.bind(this)
         this.setQuery = this.setQuery.bind(this);
@@ -50,7 +50,7 @@ class KolegijContent extends Component {
             this.setState({
                 loading:true
             })
-            this.asd3()
+            this.filterSubjectScripts()
             this.checkIfAlreadyInFavorites();
         }
         if(this.props.profile.urlError !== prevProps.profile.urlError){
@@ -73,9 +73,9 @@ class KolegijContent extends Component {
         }
     }
 
-    asd3(){
+    filterSubjectScripts(){
         let res = this.props.profile.allScripts.filter(a => a._subject.includes(this.props.match.params.kolegij_id));
-        this.props.filtered2(res)
+        this.props.filterScriptsForSubject(res)
     }
 
     componentDidMount(){
@@ -191,4 +191,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default withRouter(connect(mapStateToProps, {getSubjectById,getAllScripts,filtered2,clearScripts,addSubjectToFavorites,removeSubjectFromFavorites})(KolegijContent))
+export default withRouter(connect(mapStateToProps, {getSubjectById,getAllScripts,filterScriptsForSubject,clearScripts,addSubjectToFavorites,removeSubjectFromFavorites})(KolegijContent))

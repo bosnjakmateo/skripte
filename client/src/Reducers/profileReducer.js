@@ -1,7 +1,7 @@
 import {
     REMOVE_SUBJECT_FROM_FAVORITES, REMOVE_SCRIPT_FROM_FAVORITES,
     GET_SUBJECT_BY_ID, GET_ALL_SUBJECTS, ADD_SCRIPT_TO_FAVORITES, ADD_SUBJECT_TO_FAVORITES,
-    GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SUBJECTS2, GET_SCRIPT_BY_ID,
+    GET_SUBJECT_SCRIPTS, FILTERED_SUBJECTS, FILTERED_SCRIPTS_FOR_SUBJECT, GET_SCRIPT_BY_ID,
     FILTERED_FAVORITE_SCRIPTS, CLEAR_SCRIPTS, POST_COMMENT, DATA_LOADING, DELETE_COMMENT, GET_ERRORS,
     FAVORITES_LOADING,GET_URL_ERROR,POST_SCRIPT,DELETE_SCRIPT
 } from '../Actions/types';
@@ -60,7 +60,7 @@ export default function(state = initialState, action) {
                 filteredSubjects: action.payload,
                 loading:false
             };
-        case FILTERED_SUBJECTS2:
+        case FILTERED_SCRIPTS_FOR_SUBJECT:
             return{
                 ...state,
                 filteredScripts: action.payload,

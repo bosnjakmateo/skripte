@@ -3,7 +3,7 @@ import {
     GET_ALL_SUBJECTS,
     GET_SUBJECT_SCRIPTS,
     FILTERED_SUBJECTS,
-    FILTERED_SUBJECTS2,
+    FILTERED_SCRIPTS_FOR_SUBJECT,
     GET_SCRIPT_BY_ID,
     FILTERED_FAVORITE_SCRIPTS,
     CLEAR_SCRIPTS,
@@ -87,7 +87,7 @@ export const getScriptById = (id) => dispatch => {
 };
 
 
-export const filtered = (data) => {
+export const filterSubject = (data) => {
     return{
         type:FILTERED_SUBJECTS,
         payload:data
@@ -95,14 +95,14 @@ export const filtered = (data) => {
 };
 
 
-export const filtered2 = (data) => {
+export const filterScriptsForSubject = (data) => {
     return{
-        type:FILTERED_SUBJECTS2,
+        type:FILTERED_SCRIPTS_FOR_SUBJECT,
         payload:data
     }
 };
 
-export const filtered3 = (data) => {
+export const filterScripts = (data) => {
     return{
         type:FILTERED_FAVORITE_SCRIPTS,
         payload:data
