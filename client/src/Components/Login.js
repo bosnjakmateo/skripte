@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Papers from "../Images/papers.svg"
+import PapersPng from "../Images/papers.png"
 import SuccessArrow from "../Images/succesArrow.svg"
 import { Link } from 'react-router-dom';
 import {connect} from "react-redux";
@@ -108,7 +108,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <div className="paper-container">
-                    <img alt="login" className="paper-image" src={Papers}/>
+                    <img alt="login" className="paper-image" src={PapersPng}/>
                 </div>
                 {this.state.registerSuccess ?
                     <div className="registration-successful-notification">
