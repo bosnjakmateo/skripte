@@ -162,9 +162,8 @@ class LandingPage extends Component {
                             <img alt="second" src={secondImg} />
                         </div>
                         <div className="second-section-right">
-                            <h1>Upload your own Scripts</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                vitae orci semper, tincidunt est quis, semper est</p>
+                            <h1>Prenesite svoje vlastite skripte</h1>
+                            <p>Jednostavno prenesite svoje skripte te podijelite sadržaj sa ostalim korisnicima</p>
                         </div>
                         </Reveal>
                     </div>
@@ -173,9 +172,8 @@ class LandingPage extends Component {
                     <div className="third-section-contents">
                         <Reveal duration={900} fraction={0.8} effect="card-fade-up">
                         <div className="third-section-left">
-                            <h1>Read Scripts from anywhere</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                vitae orci semper, tincidunt est quis, semper est</p>
+                            <h1>Pristupite skriptama od bilo kuda</h1>
+                            <p>Skriptama možete pristupiti sa vaše omiljene platoforme, bio to web preglednik na računalu ili na vašem pametnom telefonu</p>
                         </div>
                         <div className="third-section-right">
                             <img alt="third" src={thirdImg} />
@@ -190,9 +188,8 @@ class LandingPage extends Component {
                             <img alt="fourth" src={fourthImg} />
                         </div>
                         <div className="fourth-section-right">
-                            <h1>Comment Rate and Share</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                vitae orci semper, tincidunt est quis, semper est</p>
+                            <h1>Komentirajte, ocijenjujte i dijelite skripte</h1>
+                            <p>Sudjelujte u komentiranju i ocjenjivanju skripti kao zajednica kako bi kvaliteta skripti bila zadržana</p>
                         </div>
                         </Reveal>
                     </div>

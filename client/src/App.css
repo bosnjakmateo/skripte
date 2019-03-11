@@ -551,7 +551,7 @@ button:focus{
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
     .kolegij-second-navbar-search{
         display: flex;
         flex-direction: column;
@@ -939,10 +939,9 @@ button:focus{
     font-size: 19px;
     color: #3384FF;
     margin: 0;
-    padding-top: 7px;
+    padding-top: 11px;
     margin-left: 5%;
-    padding-bottom: 15px;
-
+    padding-bottom: 10px;
 }
 
 .kolegij-second-navbar-search{
@@ -2874,7 +2873,7 @@ html, body{
 
 .test2{
     display: flex;
-    min-height:50px;
+    min-height:48px;
 }
 .test3{
     display: flex;
