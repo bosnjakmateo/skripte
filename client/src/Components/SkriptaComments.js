@@ -75,7 +75,7 @@ class SkriptaComments extends Component {
                     <p className={classnames('comments-toggle-button',{
                         'comments-toggle-button-dark' : this.props.auth.theme === "Dark"
                     })}>
-                        DETALJI</p>
+                        KOMENTARI</p>
                 </div>
                 <div className={classnames('skripta-comments-content ',{
                     'make-visible' : this.state.commentsToggledMobile,

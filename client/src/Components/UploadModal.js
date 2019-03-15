@@ -95,7 +95,7 @@ class UploadModal extends Component {
                                             :
                                             <img id="file-select" src={uploadIcon} alt="upload script" title="upload script"/>
                                     }
-                                    {!this.state.file.name ? "Choose a file..." : this.state.file.name}
+                                    {!this.state.file.name ? <p id="choose-file">Choose a file...</p> : <p>{this.state.file.name}</p>}
                                 </label>
                                 <span className="upload-modal-error">{this.props.profile.errors.data ? this.props.profile.errors.data.message : null }</span>
                             </div>

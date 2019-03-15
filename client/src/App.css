@@ -218,11 +218,20 @@ button:focus{
         padding-right: 5%;
         width: 60%;
     }
+}
+
+@media screen and (max-width: 1000px) {
     .upload-modal{
         width:80% !important;
     }
+    .upload-skripta-title{
+        font-size:16px !important;
+    }
+    #file-select{
+        width:50px !important;
+    }
     .upload-skripta-component{
-        margin:20px 0 !important;
+        margin:7px 0 !important;
     }
     .textarea{
         width:95% !important;
@@ -234,8 +243,16 @@ button:focus{
         padding-left: 10px !important;
         padding-top: 10px !important;
     }
+    .upload-button-conatiner button {
+        padding: 7px 30px !important;
+        font-size: 16px !important;
+    }
 }
 
+
+#choose-file{
+    margin:0;
+}
 
 @media screen and (max-width: 600px) {
     .paper-container{
@@ -2621,10 +2638,10 @@ html, body{
 }
 
 .upload-modal{
-    top:15%;
+    top:9%;
     background:white;
     width:45%;
-    height:70%;
+    height:83%;
     position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
