@@ -1286,7 +1286,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "pdfPath",
-            "description": "<p>Script pdf path</p>"
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Success 200",
@@ -1416,7 +1416,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "pdfPath",
-            "description": "<p>Script pdf path</p>"
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Success 200",
@@ -1582,7 +1582,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "pdfPath",
-            "description": "<p>Script pdf path</p>"
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Success 200",
@@ -1745,7 +1745,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "pdfPath",
-            "description": "<p>Script pdf path</p>"
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Success 200",
@@ -1919,10 +1919,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "File",
+            "type": "Url",
             "optional": false,
-            "field": "pdf",
-            "description": "<p>Script pdf file</p>"
+            "field": "pdfPath",
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Parameter",
@@ -1988,7 +1988,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "pdfPath",
-            "description": "<p>Script pdf path</p>"
+            "description": "<p>Script link from aws</p>"
           },
           {
             "group": "Success 200",
@@ -3125,7 +3125,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "3-30",
+            "size": "3-20",
             "optional": false,
             "field": "username",
             "description": "<p>User username</p>"
@@ -3282,5 +3282,48 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "routes/api/users.js",
     "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/sign-s3",
+    "title": "Get signed token",
+    "name": "GetToken",
+    "group": "Utils",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Data",
+            "optional": false,
+            "field": "signedRequest",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "Url",
+            "optional": false,
+            "field": "url",
+            "description": "<p>Url to file</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api/server.js",
+    "groupTitle": "Utils"
   }
 ] });

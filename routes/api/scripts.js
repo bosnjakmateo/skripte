@@ -1,7 +1,6 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
-const multer = require('multer')
 
 // Load input validation
 const validateScriptInput = require("../../validation/script")
@@ -10,24 +9,14 @@ const validateScriptInput = require("../../validation/script")
 const Script = require("../../models/Script")
 const User = require("../../models/User")
 
-// Multer settings
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'C:/temp/')
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + ".pdf")
-  }
-})
-const upload = multer({ storage: storage })
-//const upload = multer({ dest: 'C:/temp/' })
+
 
 /**
  * @apiDefine ScriptSuccess
  *
  * @apiSuccess {String{5-50}} title Script title
  * @apiSuccess {String{10-80}} description Script description 
- * @apiSuccess {String} pdfPath Script pdf path 
+ * @apiSuccess {String} pdfPath Script link from aws
  * @apiSuccess {Array[]} likes Script likes
  * @apiSuccess {Id} likes._user User id
  * @apiSuccess {Array[]} dislikes Script dislikes
@@ -48,7 +37,7 @@ const upload = multer({ storage: storage })
  *
  * @apiParam {String{5-50}} title Script title
  * @apiParam {String{10-80}} description Script description
- * @apiParam {File} pdf Script pdf file
+ * @apiParam {Url} pdfPath Script link from aws
  * @apiParam {Id} _subject Subject id
  * 
  * @apiHeader {String} token User token
